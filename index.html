@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Accessibility tools audit results - Overview - GDS accessibility team</title>
+  <title>Accessibility tools audit results - Overview - independent copy of the GDS audit</title>
   <link rel="stylesheet" href="assets/stylesheets/application.css" />
   
   
@@ -18,6 +18,14 @@
       </div>
     </div>
   </header>
+
+  <div class="copy-notice" role="region" aria-label="About this copy">
+    <p>
+      This is an independent copy of the <a href="https://alphagov.github.io/accessibility-tool-audit/">accessibility tool audit</a> by the Government Digital Service (GDS).
+      Text that says &ldquo;we&rdquo; or &ldquo;our&rdquo; is from GDS.
+      The retest and the added test cases were made in <a href="https://github.com/dagfrode/accessibility-tool-audit">this copy</a> and were not carried out, reviewed or endorsed by GDS.
+    </p>
+  </div>
 
   
 <main id="wrapper">
@@ -41,17 +49,7 @@
 
       <p>The full project is available on <a href="https://github.com/alphagov/accessibility-tool-audit">Github</a>. We welcome contributions.</p>
 
-      
-      <div class="panel panel-border-wide retest-summary">
-        <p>
-          <strong>Retest, 2026-09-29:</strong>
-          we added 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria that the original audit did not cover, and ran all 194 test cases through current versions of axe-core and pa11y.
-          The original results below are unchanged. <a href="#retest">See the retest results</a>.
-        </p>
-      </div>
-      
-
-      <h2>What we found in the original audit</h2>
+      <h2>What we found</h2>
 
       <p>We scored each tool for two things.</p>
 
@@ -140,12 +138,17 @@
       <p><small>Last updated: 13 April 2018</small></p>
 
       
-      <h2 id="retest">Retest with WCAG 2.2 test cases</h2>
+      <section class="retest-section" aria-labelledby="retest">
+      <h2 id="retest">Retest with WCAG 2.2 test cases <span class="new-tag">Not by GDS</span></h2>
 
       <p>
-        On 2026-09-29 we ran every test case through
+        This section was added in <a href="https://github.com/dagfrode/accessibility-tool-audit">this copy of the audit</a>. GDS did not carry out, review or endorse it.
+      </p>
+
+      <p>
+        On 2026-09-29 every test case was run through
         <a href="https://github.com/dequelabs/axe-core">axe-core 4.13.0</a> and <a href="https://pa11y.org/">pa11y 10.0.0</a> (HTML_CodeSniffer 2.6.0).
-        This retest was not carried out by GDS. It uses the same result types as the original audit.
+        The results use the same result types as the original audit.
       </p>
 
       <p>
@@ -226,6 +229,9 @@
       
 
       <p>Many of the added test cases cover success criteria that need a person to check them, such as timing, consistency across pages and use of language. Low numbers for the added test cases are expected.</p>
+
+      <p>The retest results are proposals based on the tools&rsquo; output and have not all been checked by hand yet. <a href="https://github.com/dagfrode/accessibility-tool-audit/tree/gh-pages/results">Raw results</a> are available.</p>
+      </section>
       
 
       <h3>How do features compare?</h3>

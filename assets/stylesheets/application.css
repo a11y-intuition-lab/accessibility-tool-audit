@@ -30,17 +30,17 @@
   clear: both;
 }
 
-main, #global-cookie-message p, #global-header-bar {
+.copy-notice, main, #global-cookie-message p, #global-header-bar {
   max-width: 960px;
   margin: 0 15px;
 }
 @media (min-width: 641px) {
-  main, #global-cookie-message p, #global-header-bar {
+  .copy-notice, main, #global-cookie-message p, #global-header-bar {
     margin: 0 30px;
   }
 }
 @media (min-width: 1020px) {
-  main, #global-cookie-message p, #global-header-bar {
+  .copy-notice, main, #global-cookie-message p, #global-header-bar {
     margin: 0 auto;
   }
 }
@@ -125,17 +125,17 @@ main, #global-cookie-message p, #global-header-bar {
   clear: both;
 }
 
-main, #global-cookie-message p, #global-header-bar {
+.copy-notice, main, #global-cookie-message p, #global-header-bar {
   max-width: 960px;
   margin: 0 15px;
 }
 @media (min-width: 641px) {
-  main, #global-cookie-message p, #global-header-bar {
+  .copy-notice, main, #global-cookie-message p, #global-header-bar {
     margin: 0 30px;
   }
 }
 @media (min-width: 1020px) {
-  main, #global-cookie-message p, #global-header-bar {
+  .copy-notice, main, #global-cookie-message p, #global-header-bar {
     margin: 0 auto;
   }
 }
@@ -2554,6 +2554,34 @@ h3 {
 }
 .notes-page .score.bad {
   color: #df3034;
+}
+
+.copy-notice {
+  margin-top: 15px;
+}
+.copy-notice p {
+  margin: 0;
+  padding: 10px 15px;
+  background-color: #e8f1f8;
+  border-left: 5px solid #1d70b8;
+}
+
+.retest-section {
+  margin: 30px 0;
+  padding: 5px 20px 10px;
+  background-color: #e8f1f8;
+  border-left: 5px solid #1d70b8;
+}
+.retest-section h2 {
+  margin-top: 20px;
+}
+.retest-section .retest-results th,
+.retest-section .retest-results td {
+  background-color: transparent;
+}
+.retest-section .retest-results th:nth-child(2),
+.retest-section .retest-results td:nth-child(2) {
+  background-color: #ffffff;
 }
 
 table.retest-results {
