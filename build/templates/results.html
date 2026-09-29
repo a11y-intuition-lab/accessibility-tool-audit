@@ -6,6 +6,10 @@
   results
 {%- endblock %}
 
+{% block scripts -%}
+  <script src="assets/javascript/filter.js" defer></script>
+{%- endblock %}
+
 {% block content %}
 
 <main id="wrapper">
@@ -23,12 +27,12 @@
   <div class="grid-row">
     <p class="data column-third">
       <span class="data-item bold-xxlarge">{{ analysis.totals.total }}</span>
-      <span class="data-item bold-xsmall">test cases</span>
+      <span class="data-item bold-xsmall">test cases in the original audit</span>
     </p>
 
     <p class="data column-third">
       <span class="data-item bold-xxlarge">{{ analysis.counts | length }}</span>
-      <span class="data-item bold-xsmall">tools tested</span>
+      <span class="data-item bold-xsmall">tools tested in the original audit</span>
     </p>
 
     <p class="data column-third">
@@ -91,13 +95,57 @@
     </div>
   </div>
 
+  {% if analysis.retest %}
+  <div class="grid-row">
+    <p class="data column-third">
+      <span class="data-item bold-xxlarge">{{ analysis.retest.totals.added }}</span>
+      <span class="data-item bold-xsmall">test cases added for WCAG 2.0 to 2.2, levels A to AAA</span>
+    </p>
+
+    <p class="data column-third">
+      <span class="data-item bold-xxlarge">{{ analysis.retest.tools | length }}</span>
+      <span class="data-item bold-xsmall">tools retested on {{ analysis.retest.date }}</span>
+    </p>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h2>Original audit and retest</h2>
+      <p>The table has two groups of columns:</p>
+      <ul class="list list-bullet">
+        <li><strong>Original audit</strong>: the results GDS published in 2017 and updated until {{ changes.last_updated }}. These have not been changed.</li>
+        <li class="retest-legend"><strong>Retest</strong>: results from running {% for key, tool in analysis.retest.tools %}{{ tool.name }} {{ tool.version }}{% if tool.runner %} ({{ tool.runner }}){% endif %}{% if not loop.last %} and {% endif %}{% endfor %} on {{ analysis.retest.date }}. This was not carried out by GDS.</li>
+      </ul>
+      <p>Test cases added after the original audit are marked with the WCAG success criterion they fail. They were not part of the original audit, so only the retest has results for them.</p>
+    </div>
+  </div>
+
+  <fieldset class="filter" data-filter-for="results-table" hidden>
+    <legend>Show test cases</legend>
+    <label><input type="checkbox" value="original" checked/> Original audit test cases</label>
+    <label><input type="checkbox" value="A" checked/> Added, level A</label>
+    <label><input type="checkbox" value="AA" checked/> Added, level AA</label>
+    <label><input type="checkbox" value="AAA" checked/> Added, level AAA</label>
+    <p class="filter-count" aria-live="polite"></p>
+  </fieldset>
+  {% endif %}
+
   <table id="results-table">
     <caption>
       Table of results
     </caption>
+    <colgroup span="2"></colgroup>
+    <colgroup span="13" class="original-audit"></colgroup>
+    {% if retest %}<colgroup span="{{ retestTools | length }}" class="retest"></colgroup>{% endif %}
     <thead>
       <tr>
+        <td colspan="2"></td>
+        <th scope="colgroup" colspan="13">Original audit (GDS, 2017 to 2018)</th>
+        {% if retest %}<th scope="colgroup" colspan="{{ retestTools | length }}" class="retest">Retest ({{ retest.date }})</th>{% endif %}
+      </tr>
+      <tr>
         <th scope="col">Test case</th>
+        <th scope="col">WCAG</th>
         <th scope="col">
           <a href="https://github.com/GoogleChrome/accessibility-developer-tools">Google Accessi&shy;bility Developer Tools</a>
         </th>
@@ -125,17 +173,34 @@
           </a>
         </th>
         <th scope="col"><a href="https://www.aslint.org/">AS&shy;Lint</a></th>
+        {% if retest %}
+          {% for key, tool in retestTools %}
+            <th scope="col" class="retest">
+              <a href="{{ tool.url }}">{{ tool.name }}</a>
+              <span class="tool-version">{{ retest.tools[key].version }}{% if retest.tools[key].runner %}, {{ retest.tools[key].runner }}{% endif %}</span>
+            </th>
+          {% endfor %}
+        {% endif %}
       </tr>
     </thead>
     <tbody>
       {% for cname, category in tests -%}
         {% for testname, testobj in category %}
-          <tr>
+          <tr data-filter="{{ testobj.wcag.level if testobj.wcag else 'original' }}">
             <th>
               <a href="test-cases.html#{{ getFilename( cname, testname ) }}">
                 {{ testname }}
               </a>
+              {% if testobj.wcag %}<strong class="new-tag">Added</strong>{% endif %}
             </th>
+            <td class="wcag-criterion">
+              {% if testobj.wcag %}
+                {{ testobj.wcag.criterion }} {{ testobj.wcag.name }}<br/>
+                Level {{ testobj.wcag.level }}, WCAG {{ testobj.wcag.version }}
+              {% endif %}
+              {% if testobj.note %}<span class="test-note">{{ testobj.note }}</span>{% endif %}
+            </td>
+            {% if testobj.results %}
             <td class="{{ testobj.results.google }}">
               {{ rcopy[testobj.results.google] | capitalize }}
             </td>
@@ -175,6 +240,19 @@
             <td class="{{ testobj.results.aslint }}">
               {{ rcopy[testobj.results.aslint] | capitalize }}
             </td>
+            {% else %}
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            {% endif %}
+            {% if retest %}
+              {% for key, tool in retestTools %}
+                {% set res = retest.results[testname][key] if retest.results[testname] else null %}
+                {% if res %}
+                  <td class="retest {{ res }}">{{ rcopy[res] | capitalize }}</td>
+                {% else %}
+                  <td class="retest nottested">Not tested</td>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
           </tr>
         {% endfor %}
 
@@ -203,6 +281,7 @@
     <a href="https://github.com/alphagov/accessibility-tool-audit/blob/gh-pages/tests.json">raw data</a>
     and
     <a href="https://github.com/alphagov/accessibility-tool-audit/blob/gh-pages/analysis.json">analysis</a>.
+    {% if retest %}The retest results are in <code>retest.json</code>, with the raw findings for each tool in the <code>results</code> folder.{% endif %}
   </p>
 
 </main>

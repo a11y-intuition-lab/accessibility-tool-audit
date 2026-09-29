@@ -7,6 +7,7 @@ var paths = {
   testsJson: path.join(__dirname, '../tests.json'),
   analysisJson: path.join(__dirname, '../analysis.json'),
   changelogJson: path.join(__dirname, '../changelog.json'),
+  retestJson: path.join(__dirname, '../retest.json'),
   templates: path.join(__dirname, 'templates'),
   outPath: path.join(__dirname, '../'),
   out: fname => path.join(paths.outPath, fname)
@@ -92,6 +93,18 @@ var tools = {
   }
 }
 
+// Tools used in the retest, see scripts/retest.mjs
+var retestTools = {
+  "axe": {
+    name: "axe-core",
+    url: "https://github.com/dequelabs/axe-core"
+  },
+  "pa11y": {
+    name: "pa11y",
+    url: "https://pa11y.org/"
+  }
+}
+
 function getFilename( catname, testname ){
     var filename = [catname.toLowerCase(), testname.toLowerCase()]
                       .join('-')
@@ -106,12 +119,14 @@ function getFilename( catname, testname ){
 
 function processExample( example ){
   if( example.indexOf('images') > -1 ){
-    example = example.replace('images/', '../assets/test_images/');
+    example = example.replace(/images\//g, '../assets/test_images/');
   }
 
   if( example.indexOf('example-pages') > -1 ){
-    example = example.replace('example-pages/', '../example-pages/');
+    example = example.replace(/example-pages\//g, '../example-pages/');
   }
+
+  example = example.replace(/src="media\//g, 'src="../assets/test_media/');
 
   return example;
 }
@@ -126,6 +141,10 @@ function generateFiles(){
   var changelog = fs.readFileSync(paths.changelogJson).toString();
   var changes = JSON.parse(changelog);
 
+  var retest = fs.existsSync(paths.retestJson)
+    ? JSON.parse(fs.readFileSync(paths.retestJson).toString())
+    : null;
+
   nunjucks.configure(paths.templates);
 
   // Generate index
@@ -134,6 +153,8 @@ function generateFiles(){
     getFilename: getFilename,
     analysis: analysisResults,
     tools: tools,
+    retest: retest,
+    retestTools: retestTools,
     changes: changes
   });
   fs.writeFileSync(paths.out('index.html'), indexout, 'utf8');
@@ -142,7 +163,8 @@ function generateFiles(){
 
   var indexout = nunjucks.render('test-cases.html', {
     tests: tests,
-    getFilename: getFilename
+    getFilename: getFilename,
+    retest: retest
   });
   fs.writeFileSync(paths.out('test-cases.html'), indexout, 'utf8');
 
@@ -163,6 +185,13 @@ function generateFiles(){
     }
   }
 
+  // Empty page used by scripts/retest.mjs to ignore findings caused by the template
+  var baselineout = nunjucks.render('single-test.html', {
+    testname: 'Baseline (no test case)',
+    example: ''
+  });
+  fs.writeFileSync(paths.out('tests/_baseline.html'), baselineout, 'utf8');
+
   // Generate results
   var resultsout = nunjucks.render('results.html', {
     tests: tests,
@@ -171,11 +200,18 @@ function generateFiles(){
     analysis: analysisResults,
     resultTypes: analysis.resultTypes,
     toolNames: analysis.toolNames,
+    retest: retest,
+    retestTools: retestTools,
     changes: changes
   });
   fs.writeFileSync(paths.out('results.html'), resultsout, 'utf8');
 }
 
 module.exports = {
-  generate: generateFiles
+  generate: generateFiles,
+  getFilename: getFilename
+}
+
+if (require.main === module) {
+  generateFiles();
 }

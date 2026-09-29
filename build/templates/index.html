@@ -24,7 +24,17 @@
 
       <p>The full project is available on <a href="https://github.com/alphagov/accessibility-tool-audit">Github</a>. We welcome contributions.</p>
 
-      <h2>What we found</h2>
+      {% if analysis.retest %}
+      <div class="panel panel-border-wide retest-summary">
+        <p>
+          <strong>Retest, {{ analysis.retest.date }}:</strong>
+          we added {{ analysis.retest.totals.added }} test cases for WCAG 2.0, 2.1 and 2.2 success criteria that the original audit did not cover, and ran all {{ analysis.retest.totals.all }} test cases through current versions of {% for key, tool in analysis.retest.tools %}{{ tool.name }}{% if not loop.last %} and {% endif %}{% endfor %}.
+          The original results below are unchanged. <a href="#retest">See the retest results</a>.
+        </p>
+      </div>
+      {% endif %}
+
+      <h2>What we found in the original audit</h2>
 
       <p>We scored each tool for two things.</p>
 
@@ -65,6 +75,57 @@
       </table>
 
       <p><small>Last updated: {{ changes.last_updated }}</small></p>
+
+      {% if analysis.retest %}
+      <h2 id="retest">Retest with WCAG 2.2 test cases</h2>
+
+      <p>
+        On {{ analysis.retest.date }} we ran every test case through
+        {% for key, tool in analysis.retest.tools -%}
+          <a href="{{ retestTools[key].url }}">{{ tool.name }} {{ tool.version }}</a>{% if tool.runner %} ({{ tool.runner }}){% endif %}{% if not loop.last %} and {% endif %}
+        {%- endfor %}.
+        This retest was not carried out by GDS. It uses the same result types as the original audit.
+      </p>
+
+      <p>
+        The {{ analysis.retest.totals.original }} original test cases show how the tools have changed since the original audit.
+        The {{ analysis.retest.totals.added }} added test cases cover success criteria from WCAG 2.0, 2.1 and 2.2 that were missing, including level AAA.
+        They are shown separately so they do not change the comparison.
+      </p>
+
+      <p>
+        pa11y runs HTML_CodeSniffer, so it is compared with the original HTML_CodeSniffer results.
+      </p>
+
+      {% set comparisons = { "axe": "axe", "pa11y": "codesniffer" } %}
+      {% for metric, label in [["error_warning", "Barriers found"], ["error_warning_manual", "Barriers and potential barriers found"]] %}
+      <table class="numeric-results percentage-summary retest-results">
+        <caption>{{ label }}</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Original audit, {{ analysis.retest.totals.original }} original test cases</th>
+            <th scope="col" class="retest">Retest, {{ analysis.retest.totals.original }} original test cases</th>
+            <th scope="col" class="retest">Retest, {{ analysis.retest.totals.added_a_aa }} added test cases (A and AA)</th>
+            <th scope="col" class="retest">Retest, {{ analysis.retest.totals.added_aaa }} added test cases (AAA)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, score in analysis.retest.scores %}
+            <tr>
+              <th scope="row">{{ retestTools[key].name }}</th>
+              <td>{% if comparisons[key] %}{{ analysis.percentages.tools[comparisons[key]].total[metric] }}%<span class="tool-version">{{ tools[comparisons[key]].name | safe }}</span>{% endif %}</td>
+              <td class="retest">{{ score.original[metric] }}%</td>
+              <td class="retest">{{ score.added_a_aa[metric] }}%</td>
+              <td class="retest">{{ score.added_aaa[metric] }}%</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endfor %}
+
+      <p>Many of the added test cases cover success criteria that need a person to check them, such as timing, consistency across pages and use of language. Low numbers for the added test cases are expected.</p>
+      {% endif %}
 
       <h3>How do features compare?</h3>
 
@@ -365,7 +426,7 @@
 
       <h2>Read more</h2>
 
-      <p class="heading-medium"><a href="results.html">Read detailed test results</a></p>
+      <p class="heading-medium"><a href="results.html">Read detailed test results</a>{% if analysis.retest %}, including the retest{% endif %}</p>
 
       <p class="heading-medium"><a href="test-cases.html">See everything we tested</a></p>
 

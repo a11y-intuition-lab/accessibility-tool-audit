@@ -89,6 +89,24 @@
         "fae": "notfound",
         "aslint": "notfound"
       }
+    },
+    "Idioms and jargon are not explained": {
+      "example": "<p>If your SA302 does not tally with your HRT outcome, your claim may be kicked into the long grass until the DM has had a chance to look under the bonnet.</p>",
+      "wcag": {
+        "criterion": "3.1.3",
+        "name": "Unusual Words",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Meaning depends on pronunciation that is not given": {
+      "example": "<p>Please record the record number before you close the case, and make sure the close contact has been told.</p>",
+      "wcag": {
+        "criterion": "3.1.6",
+        "name": "Pronunciation",
+        "level": "AAA",
+        "version": "2.0"
+      }
     }
   },
   "Page Layout": {
@@ -108,6 +126,15 @@
         "siteimprove": "notfound",
         "fae": "notfound",
         "aslint": "notfound"
+      }
+    },
+    "Content is locked to one display orientation": {
+      "example": "<div class=\"orientation-lock\"><p>This content is rotated with CSS when the device is in landscape orientation, so it can only be read in portrait.</p></div>",
+      "wcag": {
+        "criterion": "1.3.4",
+        "name": "Orientation",
+        "level": "AA",
+        "version": "2.1"
       }
     }
   },
@@ -218,6 +245,24 @@
         "siteimprove": "notfound",
         "fae": "manual",
         "aslint": "notfound"
+      }
+    },
+    "Form field border does not have a contrast ratio of at least 3:1": {
+      "example": "<label for=\"non-text-contrast-email\">Email address</label>\n<input id=\"non-text-contrast-email\" class=\"low-contrast-border\" type=\"text\"/>",
+      "wcag": {
+        "criterion": "1.4.11",
+        "name": "Non-text Contrast",
+        "level": "AA",
+        "version": "2.1"
+      }
+    },
+    "Icon-only button does not have a contrast ratio of at least 3:1": {
+      "example": "<button class=\"low-contrast-icon-button\" type=\"button\" aria-label=\"Search\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"10\" cy=\"10\" r=\"7\" fill=\"none\" stroke=\"#d6d6d6\" stroke-width=\"3\"/><line x1=\"15\" y1=\"15\" x2=\"22\" y2=\"22\" stroke=\"#d6d6d6\" stroke-width=\"3\"/></svg></button>",
+      "wcag": {
+        "criterion": "1.4.11",
+        "name": "Non-text Contrast",
+        "level": "AA",
+        "version": "2.1"
       }
     }
   },
@@ -1115,6 +1160,24 @@
         "fae": "manual",
         "aslint": "manual"
       }
+    },
+    "Image of text used instead of text": {
+      "example": "<img src=\"images/opening-hours.svg\" alt=\"Opening hours: Monday to Friday, 9am to 5pm\"/>",
+      "wcag": {
+        "criterion": "1.4.5",
+        "name": "Images of Text",
+        "level": "AA",
+        "version": "2.0"
+      }
+    },
+    "Image of text used for a quotation": {
+      "example": "<figure>\n  <img src=\"images/quote.svg\" alt=\"“The new service saved me hours every week.” Sam, a user of the service\"/>\n</figure>",
+      "wcag": {
+        "criterion": "1.4.9",
+        "name": "Images of Text (No Exception)",
+        "level": "AAA",
+        "version": "2.0"
+      }
     }
   },
   "Multimedia": {
@@ -1170,6 +1233,60 @@
         "siteimprove": "manual",
         "fae": "error",
         "aslint": "error"
+      }
+    },
+    "Live video stream has no captions": {
+      "example": "<p><strong>Live now:</strong> full council meeting</p>\n<video controls muted src=\"media/speech-video.mp4\"></video>",
+      "wcag": {
+        "criterion": "1.2.4",
+        "name": "Captions (Live)",
+        "level": "AA",
+        "version": "2.0"
+      }
+    },
+    "Video has no sign language interpretation": {
+      "example": "<video controls src=\"media/speech-video.mp4\">\n  <track kind=\"captions\" srclang=\"en\" label=\"English\" src=\"media/speech-video.vtt\" default/>\n</video>",
+      "wcag": {
+        "criterion": "1.2.6",
+        "name": "Sign Language (Prerecorded)",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Video has no extended audio description": {
+      "example": "<p>The video shows the new collection calendar on screen. The narration does not pause to describe it and there is no extended audio description.</p>\n<video controls src=\"media/speech-video.mp4\">\n  <track kind=\"captions\" srclang=\"en\" label=\"English\" src=\"media/speech-video.vtt\" default/>\n</video>",
+      "wcag": {
+        "criterion": "1.2.7",
+        "name": "Extended Audio Description (Prerecorded)",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Live audio stream has no text alternative": {
+      "example": "<p><strong>Live now:</strong> council radio</p>\n<audio controls src=\"media/speech.mp3\"></audio>",
+      "wcag": {
+        "criterion": "1.2.9",
+        "name": "Audio-only (Live)",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Audio plays automatically with no way to stop it": {
+      "example": "<audio autoplay loop src=\"media/speech.mp3\"></audio>\n<p>Audio starts playing when this page loads and there are no controls to pause it or change the volume.</p>",
+      "wcag": {
+        "criterion": "1.4.2",
+        "name": "Audio Control",
+        "level": "A",
+        "version": "2.0"
+      }
+    },
+    "Speech has loud background music": {
+      "example": "<audio controls src=\"media/speech-with-background-music.mp3\"></audio>\n<details>\n  <summary>Transcript</summary>\n  <p>Welcome to the recycling service. Your bin collection day has changed from Monday to Thursday. Please put your bin out by seven in the morning. Thank you for recycling.</p>\n</details>",
+      "wcag": {
+        "criterion": "1.4.7",
+        "name": "Low or No Background Audio",
+        "level": "AAA",
+        "version": "2.0"
       }
     }
   },
@@ -1951,6 +2068,96 @@
         "fae": "manual",
         "aslint": "notfound"
       }
+    },
+    "Input purpose is not identified": {
+      "example": "<label for=\"purpose-name\">Full name</label>\n<input id=\"purpose-name\" type=\"text\"/>\n<label for=\"purpose-email\">Email address</label>\n<input id=\"purpose-email\" type=\"text\"/>\n<label for=\"purpose-tel\">Phone number</label>\n<input id=\"purpose-tel\" type=\"text\"/>",
+      "wcag": {
+        "criterion": "1.3.5",
+        "name": "Identify Input Purpose",
+        "level": "AA",
+        "version": "2.1"
+      }
+    },
+    "Autocomplete attribute has an invalid value": {
+      "example": "<label for=\"purpose-invalid\">Email address</label>\n<input id=\"purpose-invalid\" type=\"email\" autocomplete=\"e-mail\"/>",
+      "wcag": {
+        "criterion": "1.3.5",
+        "name": "Identify Input Purpose",
+        "level": "AA",
+        "version": "2.1"
+      }
+    },
+    "Status message is not announced to assistive technologies": {
+      "example": "<p><button type=\"button\" class=\"status-message-button\">Add to basket</button></p>\n<p class=\"status-message-output\"></p>",
+      "wcag": {
+        "criterion": "4.1.3",
+        "name": "Status Messages",
+        "level": "AA",
+        "version": "2.1"
+      }
+    },
+    "Information entered earlier must be entered again": {
+      "example": "<p>Step 1 of 2 (completed): delivery address is 1 High Street, Leeds, LS1 1AA.</p>\n<h2>Step 2 of 2: billing address</h2>\n<label for=\"redundant-line1\">Address line 1</label>\n<input id=\"redundant-line1\" type=\"text\" autocomplete=\"billing address-line1\"/>\n<label for=\"redundant-town\">Town or city</label>\n<input id=\"redundant-town\" type=\"text\" autocomplete=\"billing address-level2\"/>\n<label for=\"redundant-postcode\">Postcode</label>\n<input id=\"redundant-postcode\" type=\"text\" autocomplete=\"billing postal-code\"/>",
+      "wcag": {
+        "criterion": "3.3.7",
+        "name": "Redundant Entry",
+        "level": "A",
+        "version": "2.2"
+      }
+    },
+    "Pasting into the password field is blocked": {
+      "example": "<label for=\"no-paste-password\">Password</label>\n<input id=\"no-paste-password\" class=\"no-paste\" type=\"password\" autocomplete=\"current-password\"/>",
+      "wcag": {
+        "criterion": "3.3.8",
+        "name": "Accessible Authentication (Minimum)",
+        "level": "AA",
+        "version": "2.2"
+      }
+    },
+    "Focusing a field opens a new window": {
+      "example": "<label for=\"on-focus-postcode\">Postcode</label>\n<input id=\"on-focus-postcode\" class=\"change-on-focus\" type=\"text\"/>",
+      "wcag": {
+        "criterion": "3.2.1",
+        "name": "On Focus",
+        "level": "A",
+        "version": "2.0"
+      }
+    },
+    "Payment is taken without a chance to check or cancel": {
+      "example": "<form action=\"paid.html\">\n  <p>Amount to pay: £120.00</p>\n  <label for=\"card-number\">Card number</label>\n  <input id=\"card-number\" type=\"text\" autocomplete=\"cc-number\"/>\n  <button type=\"submit\">Pay</button>\n</form>\n<p>Selecting \"Pay\" takes the payment straight away. There is no page to check the details and no way to cancel.</p>",
+      "wcag": {
+        "criterion": "3.3.4",
+        "name": "Error Prevention (Legal, Financial, Data)",
+        "level": "AA",
+        "version": "2.0"
+      }
+    },
+    "No help is available for a complex field": {
+      "example": "<label for=\"utr\">Unique Taxpayer Reference</label>\n<input id=\"utr\" type=\"text\"/>",
+      "wcag": {
+        "criterion": "3.3.5",
+        "name": "Help",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Submitting a form cannot be checked, confirmed or reversed": {
+      "example": "<form action=\"deleted.html\">\n  <p>You have 12 saved messages.</p>\n  <button type=\"submit\">Delete all messages</button>\n</form>\n<p>The messages are deleted straight away with no confirmation and cannot be recovered.</p>",
+      "wcag": {
+        "criterion": "3.3.6",
+        "name": "Error Prevention (All)",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Sign in requires recognising objects in pictures": {
+      "example": "<fieldset>\n  <legend>To sign in, select every picture of a red panda</legend>\n  <label><input type=\"checkbox\" name=\"captcha\" value=\"1\"/> <img src=\"images/red_panda.jpg\" alt=\"Picture 1\" width=\"120\"/></label>\n  <label><input type=\"checkbox\" name=\"captcha\" value=\"2\"/> <img src=\"images/bat.jpg\" alt=\"Picture 2\" width=\"120\"/></label>\n</fieldset>",
+      "wcag": {
+        "criterion": "3.3.9",
+        "name": "Accessible Authentication (Enhanced)",
+        "level": "AAA",
+        "version": "2.2"
+      }
     }
   },
   "Navigation": {
@@ -1970,6 +2177,60 @@
         "siteimprove": "notfound",
         "fae": "notfound",
         "aslint": "notfound"
+      }
+    },
+    "Help link is in a different place on each page": {
+      "example": "<p>These two pages are part of the same service, but the help link is in the header on one and in the footer on the other.</p>\n<ul class=\"spaced-links\">\n  <li><a href=\"example-pages/consistent-help-1.html\">Step 1: Your details</a></li>\n  <li><a href=\"example-pages/consistent-help-2.html\">Step 2: Your address</a></li>\n</ul>",
+      "wcag": {
+        "criterion": "3.2.6",
+        "name": "Consistent Help",
+        "level": "A",
+        "version": "2.2"
+      }
+    },
+    "No way to skip repeated navigation": {
+      "example": "<div class=\"repeated-navigation spaced-links\">\n  <a href=\"a.html\">Home</a> <a href=\"b.html\">Benefits</a> <a href=\"c.html\">Births, deaths and marriages</a> <a href=\"d.html\">Business</a> <a href=\"e.html\">Childcare and parenting</a> <a href=\"f.html\">Citizenship</a> <a href=\"g.html\">Crime and justice</a> <a href=\"h.html\">Disabled people</a> <a href=\"i.html\">Driving</a> <a href=\"j.html\">Education</a> <a href=\"k.html\">Employing people</a> <a href=\"l.html\">Environment</a> <a href=\"m.html\">Housing</a> <a href=\"n.html\">Money and tax</a> <a href=\"o.html\">Passports</a> <a href=\"p.html\">Visas</a> <a href=\"q.html\">Working</a>\n</div>\n<div class=\"repeated-navigation-content\">\n  <p>This content comes after the navigation, and there is no skip link, heading or landmark to get to it directly.</p>\n</div>",
+      "wcag": {
+        "criterion": "2.4.1",
+        "name": "Bypass Blocks",
+        "level": "A",
+        "version": "2.0"
+      }
+    },
+    "Pages can only be found in one way": {
+      "example": "<p>This site has no search, site map or index. The only way to find a page is through the menu:</p>\n<ul class=\"spaced-links\">\n  <li><a href=\"a.html\">Services</a></li>\n  <li><a href=\"b.html\">About us</a></li>\n  <li><a href=\"c.html\">Contact</a></li>\n</ul>",
+      "wcag": {
+        "criterion": "2.4.5",
+        "name": "Multiple Ways",
+        "level": "AA",
+        "version": "2.0"
+      }
+    },
+    "No indication of where the user is in the site": {
+      "example": "<ul class=\"no-location spaced-links\">\n  <li><a href=\"a.html\">Home</a></li>\n  <li><a href=\"b.html\">Benefits</a></li>\n  <li><a href=\"c.html\">Housing</a></li>\n</ul>\n<h2>Housing benefit</h2>\n<p>There are no breadcrumbs and the menu does not show which section this page is in.</p>",
+      "wcag": {
+        "criterion": "2.4.8",
+        "name": "Location",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Navigation is in a different order on each page": {
+      "example": "<p>These two pages are part of the same site, but the links in the main navigation are in a different order.</p>\n<ul class=\"spaced-links\">\n  <li><a href=\"example-pages/consistent-navigation-1.html\">Benefits</a></li>\n  <li><a href=\"example-pages/consistent-navigation-2.html\">Housing</a></li>\n</ul>",
+      "wcag": {
+        "criterion": "3.2.3",
+        "name": "Consistent Navigation",
+        "level": "AA",
+        "version": "2.0"
+      }
+    },
+    "The same function has different labels on different pages": {
+      "example": "<p>The search button is labelled \"Search\" on one page and \"Go\" on the other.</p>\n<ul class=\"spaced-links\">\n  <li><a href=\"example-pages/consistent-identification-1.html\">Page 1</a></li>\n  <li><a href=\"example-pages/consistent-identification-2.html\">Page 2</a></li>\n</ul>",
+      "wcag": {
+        "criterion": "3.2.4",
+        "name": "Consistent Identification",
+        "level": "AA",
+        "version": "2.0"
       }
     }
   },
@@ -2261,6 +2522,51 @@
         "fae": "error",
         "aslint": "notfound"
       }
+    },
+    "Single character keyboard shortcut cannot be turned off or remapped": {
+      "example": "<div class=\"single-key-shortcut\">\n  <p>Message from the council: your bin collection day has changed.</p>\n  <p>Press <kbd>d</kbd> to delete this message.</p>\n</div>",
+      "wcag": {
+        "criterion": "2.1.4",
+        "name": "Character Key Shortcuts",
+        "level": "A",
+        "version": "2.1"
+      }
+    },
+    "Focused link is hidden behind a sticky footer": {
+      "example": "<div class=\"focus-obscured\">\n  <ul class=\"spaced-links\">\n    <li><a href=\"a.html\">Apply for a licence</a></li>\n    <li><a href=\"b.html\">Renew a licence</a></li>\n    <li><a href=\"c.html\">Change your address</a></li>\n    <li><a href=\"d.html\">Report a lost licence</a></li>\n    <li><a href=\"e.html\">Pay a fine</a></li>\n    <li><a href=\"f.html\">Contact us</a></li>\n  </ul>\n  <div class=\"focus-obscured-banner\">We use cookies to make this service work. <a href=\"cookies.html\">Cookie settings</a></div>\n</div>",
+      "wcag": {
+        "criterion": "2.4.11",
+        "name": "Focus Not Obscured (Minimum)",
+        "level": "AA",
+        "version": "2.2"
+      }
+    },
+    "Signature can only be drawn with a pointer": {
+      "example": "<p>Sign your name in the box using your mouse or finger.</p>\n<canvas class=\"signature-pad\" width=\"300\" height=\"100\" aria-label=\"Signature\"></canvas>",
+      "wcag": {
+        "criterion": "2.1.3",
+        "name": "Keyboard (No Exception)",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Focused link is partly hidden by a chat widget": {
+      "example": "<p class=\"focus-partly-obscured\">\n  <a href=\"a.html\">Check your tax code</a>\n  <span class=\"focus-partly-obscured-widget\">Chat with us</span>\n</p>",
+      "wcag": {
+        "criterion": "2.4.12",
+        "name": "Focus Not Obscured (Enhanced)",
+        "level": "AAA",
+        "version": "2.2"
+      }
+    },
+    "Focus indicator is too thin and has low contrast": {
+      "example": "<p><a href=\"a.html\" class=\"thin-focus\">Find out more about council tax</a></p>",
+      "wcag": {
+        "criterion": "2.4.13",
+        "name": "Focus Appearance",
+        "level": "AAA",
+        "version": "2.2"
+      }
     }
   },
   "Frames": {
@@ -2391,6 +2697,24 @@
         "fae": "manual",
         "aslint": "notfound"
       }
+    },
+    "Content is clipped when text spacing is increased": {
+      "example": "<div class=\"fixed-height-box\"><p>Your application has been received. We will contact you within 5 working days to confirm the next steps.</p></div>",
+      "wcag": {
+        "criterion": "1.4.12",
+        "name": "Text Spacing",
+        "level": "AA",
+        "version": "2.1"
+      }
+    },
+    "Text spacing cannot be overridden because of important inline styles": {
+      "example": "<p style=\"line-height: 1.1 !important; letter-spacing: 0 !important; word-spacing: 0 !important;\">Users who need more space between lines, letters and words cannot change this paragraph with their own style sheet.</p>",
+      "wcag": {
+        "criterion": "1.4.12",
+        "name": "Text Spacing",
+        "level": "AA",
+        "version": "2.1"
+      }
     }
   },
   "HTML": {
@@ -2410,7 +2734,8 @@
         "siteimprove": "error",
         "fae": "notfound",
         "aslint": "error"
-      }
+      },
+      "note": "Success criterion 4.1.1 Parsing was removed in WCAG 2.2."
     },
     "Article element used to mark-up an element that's not an article/blog post etc.": {
       "example": "<article class=\"not-article-content\">\n<h2 id=\"parent-other\">Elsewhere on GOV.UK</h2>\n<nav aria-labelledby=\"parent-other\" role=\"navigation\">\n<ul>\n<li><a href=\"/agency-workers-your-rights\">Your rights as an agency worker</a></li>\n<li><a href=\"/acas\">Advisory, Conciliation and Arbitration Service (Acas)</a></li>\n</ul>\n</nav>\n</article>",
@@ -2554,7 +2879,8 @@
         "siteimprove": "notfound",
         "fae": "notfound",
         "aslint": "notfound"
-      }
+      },
+      "note": "Success criterion 4.1.1 Parsing was removed in WCAG 2.2."
     },
     "PRE element without CODE element inside it": {
       "example": "<pre>\nYour\n\n  /\\ (`/`|| _     +\n /--\\,)\\,||   (||`|\n\n        goes here\n</pre>",
@@ -2590,6 +2916,158 @@
         "siteimprove": "error",
         "fae": "notfound",
         "aslint": "warning"
+      }
+    },
+    "Purpose of regions cannot be programmatically determined": {
+      "example": "<div class=\"site-header\">\n  <div class=\"site-nav\"><a href=\"home.html\">Home</a> <a href=\"search.html\">Search</a> <a href=\"account.html\">Your account</a></div>\n</div>\n<div class=\"site-content\">\n  <p>Page content, with no landmarks or other markup to say which part is navigation and which is the main content.</p>\n</div>",
+      "wcag": {
+        "criterion": "1.3.6",
+        "name": "Identify Purpose",
+        "level": "AAA",
+        "version": "2.1"
+      }
+    }
+  },
+  "Content on Hover or Focus": {
+    "Tooltip cannot be dismissed without moving the pointer or focus": {
+      "example": "<p class=\"hover-content\">\n  <a href=\"#\" class=\"hover-content-trigger\">Delivery options</a>\n  <span class=\"hover-content-tip\">Standard delivery takes 3 to 5 working days. Express delivery is available for an extra charge.</span>\n</p>",
+      "wcag": {
+        "criterion": "1.4.13",
+        "name": "Content on Hover or Focus",
+        "level": "AA",
+        "version": "2.1"
+      }
+    },
+    "Tooltip disappears when the pointer is moved over it": {
+      "example": "<p class=\"hover-content hover-content-gap\">\n  <a href=\"#\" class=\"hover-content-trigger\">Returns policy</a>\n  <span class=\"hover-content-tip\">You can return items within 30 days. Try moving your pointer onto this text to read it.</span>\n</p>",
+      "wcag": {
+        "criterion": "1.4.13",
+        "name": "Content on Hover or Focus",
+        "level": "AA",
+        "version": "2.1"
+      }
+    }
+  },
+  "Pointer and Motion": {
+    "Carousel can only be changed with a swipe gesture": {
+      "example": "<div class=\"swipe-only\" aria-roledescription=\"carousel\">\n  <p class=\"swipe-only-slide\">Slide 1 of 3: Apply for a passport online</p>\n  <p class=\"swipe-only-hint\">Swipe left or right to see more</p>\n</div>",
+      "wcag": {
+        "criterion": "2.5.1",
+        "name": "Pointer Gestures",
+        "level": "A",
+        "version": "2.1"
+      }
+    },
+    "Action is triggered on pointer down": {
+      "example": "<p><button type=\"button\" class=\"pointer-down-action\">Delete draft</button></p>\n<p class=\"pointer-down-status\"></p>",
+      "wcag": {
+        "criterion": "2.5.2",
+        "name": "Pointer Cancellation",
+        "level": "A",
+        "version": "2.1"
+      }
+    },
+    "Accessible name does not contain the visible label": {
+      "example": "<button type=\"button\" aria-label=\"Submit application\">Send</button>",
+      "wcag": {
+        "criterion": "2.5.3",
+        "name": "Label in Name",
+        "level": "A",
+        "version": "2.1"
+      }
+    },
+    "Function can only be operated by shaking the device": {
+      "example": "<p class=\"motion-only\">Shake your device to undo the last change.</p>",
+      "wcag": {
+        "criterion": "2.5.4",
+        "name": "Motion Actuation",
+        "level": "A",
+        "version": "2.1"
+      }
+    },
+    "List can only be reordered by dragging": {
+      "example": "<p>Drag the items to put them in order of preference.</p>\n<ol class=\"drag-only\">\n  <li draggable=\"true\">Email</li>\n  <li draggable=\"true\">Text message</li>\n  <li draggable=\"true\">Letter</li>\n</ol>",
+      "wcag": {
+        "criterion": "2.5.7",
+        "name": "Dragging Movements",
+        "level": "AA",
+        "version": "2.2"
+      }
+    },
+    "Clickable targets are smaller than 24 by 24 CSS pixels": {
+      "example": "<p class=\"small-targets\">\n  <button type=\"button\" aria-label=\"Previous page\">&lt;</button><button type=\"button\" aria-label=\"Page 1\">1</button><button type=\"button\" aria-label=\"Page 2\">2</button><button type=\"button\" aria-label=\"Page 3\">3</button><button type=\"button\" aria-label=\"Next page\">&gt;</button>\n</p>",
+      "wcag": {
+        "criterion": "2.5.8",
+        "name": "Target Size (Minimum)",
+        "level": "AA",
+        "version": "2.2"
+      }
+    },
+    "Mouse input is ignored on devices with a touch screen": {
+      "example": "<p><button type=\"button\" class=\"touch-only-when-touchscreen\">Show more results</button></p>\n<p class=\"touch-only-when-touchscreen-output\"></p>\n<p>On a device with a touch screen, this button ignores clicks from a mouse or trackpad.</p>",
+      "wcag": {
+        "criterion": "2.5.6",
+        "name": "Concurrent Input Mechanisms",
+        "level": "AAA",
+        "version": "2.1"
+      }
+    }
+  },
+  "Timing": {
+    "Task has a time limit": {
+      "example": "<form class=\"time-limit\">\n  <p>You have <span class=\"time-limit-seconds\">60</span> seconds to answer.</p>\n  <label for=\"time-limit-answer\">What is the capital of Scotland?</label>\n  <input id=\"time-limit-answer\" type=\"text\"/>\n  <button type=\"submit\">Submit answer</button>\n</form>",
+      "wcag": {
+        "criterion": "2.2.3",
+        "name": "No Timing",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Updates interrupt the user and cannot be postponed": {
+      "example": "<div class=\"interruption\" role=\"alert\"></div>\n<p>A new promotional message is announced every 10 seconds and there is no way to turn it off.</p>",
+      "wcag": {
+        "criterion": "2.2.4",
+        "name": "Interruptions",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Data is lost when the session expires": {
+      "example": "<p>Your session will end after 20 minutes. If you sign in again, you will have to start your application from the beginning.</p>\n<label for=\"reauth-details\">Tell us about your circumstances</label>\n<textarea id=\"reauth-details\" rows=\"4\" cols=\"40\"></textarea>",
+      "wcag": {
+        "criterion": "2.2.5",
+        "name": "Re-authenticating",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Users are not warned about an inactivity timeout": {
+      "example": "<form class=\"silent-timeout\">\n  <label for=\"silent-timeout-message\">Your message</label>\n  <textarea id=\"silent-timeout-message\" rows=\"4\" cols=\"40\"></textarea>\n  <button type=\"submit\">Send</button>\n</form>\n<p>After 20 minutes without activity the message is cleared. Users are not told about this.</p>",
+      "wcag": {
+        "criterion": "2.2.6",
+        "name": "Timeouts",
+        "level": "AAA",
+        "version": "2.1"
+      }
+    }
+  },
+  "Animation and Flashing": {
+    "Content flashes more than three times in one second": {
+      "example": "<p><strong>Warning:</strong> the button below starts a small area that flashes 5 times a second for 3 seconds.</p>\n<p><button type=\"button\" class=\"flash-start\">Show the flashing badge</button> <span class=\"flash-badge\">NEW</span></p>",
+      "wcag": {
+        "criterion": "2.3.2",
+        "name": "Three Flashes",
+        "level": "AAA",
+        "version": "2.0"
+      }
+    },
+    "Motion animation triggered by interaction cannot be turned off": {
+      "example": "<p><button type=\"button\" class=\"interaction-animation-start\">Add to basket</button></p>\n<div class=\"interaction-animation\">Basket</div>\n<p>The basket spins and slides across the page when an item is added, even when the user has asked for reduced motion.</p>",
+      "wcag": {
+        "criterion": "2.3.3",
+        "name": "Animation from Interactions",
+        "level": "AAA",
+        "version": "2.1"
       }
     }
   }

@@ -1,20 +1,28 @@
 {
-  "name": "generate",
+  "name": "accessibility-tool-audit",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "private": true,
+  "description": "A collection of accessibility failures for testing automated accessibility tools",
+  "license": "MIT",
+  "engines": {
+    "node": "^22.13.0 || >=24"
   },
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "build": "npm run generate && npm run sass",
+    "generate": "node build/generate.js",
+    "sass": "sass --no-source-map --style=expanded --quiet-deps --load-path=assets/sass/registers --load-path=assets/sass/registers/govuk_frontend_toolkit/stylesheets --load-path=assets/sass/registers/govuk_template/source/assets/stylesheets --load-path=assets/sass/registers/sass --load-path=node_modules/govuk-elements-sass/public/sass assets/sass/application.scss:assets/stylesheets/application.css assets/sass/tests.scss:assets/stylesheets/tests.css",
+    "serve": "http-server -p 8000 -c-1 .",
+    "retest": "node scripts/retest.mjs"
+  },
   "devDependencies": {
+    "@axe-core/puppeteer": "^4.13.0",
+    "axe-core": "^4.13.0",
     "govuk-elements-sass": "^3.1.3",
-    "govuk_frontend_toolkit": "^7.6.0",
-    "govuk_template_jinja": "^0.24.1",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.2.1",
-    "lodash": "^4.17.10",
-    "nunjucks": "^3.1.3"
+    "http-server": "^14.1.1",
+    "lodash": "^4.18.1",
+    "nunjucks": "^3.2.4",
+    "pa11y": "^10.0.0",
+    "puppeteer": "^25.11.0",
+    "sass": "^1.104.1"
   }
 }

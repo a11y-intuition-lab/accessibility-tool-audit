@@ -442,3 +442,176 @@ input.low-contrast {
 .not-article-content h2 {
     margin: 0.5em 0;
 }
+
+/* WCAG 2.1 and 2.2 test cases */
+
+.low-contrast-border {
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    padding: 0.3em;
+}
+
+.low-contrast-icon-button {
+    border: 0;
+    background: #ffffff;
+    padding: 0.5em;
+}
+
+@media (orientation: landscape) {
+    .orientation-lock {
+        transform: rotate(90deg);
+    }
+}
+
+.orientation-lock {
+    width: 12em;
+    margin: 4em;
+}
+
+.fixed-height-box {
+    width: 16em;
+    height: 4.5em;
+    overflow: hidden;
+    border: 1px solid #6f777b;
+    padding: 0 0.5em;
+
+    p {
+        margin: 0.5em 0;
+    }
+}
+
+.hover-content {
+    position: relative;
+    margin-bottom: 5em;
+
+    .hover-content-tip {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 1.5em;
+        width: 16em;
+        padding: 0.5em;
+        background: #0b0c0c;
+        color: #ffffff;
+    }
+
+    .hover-content-trigger:hover + .hover-content-tip,
+    .hover-content-trigger:focus + .hover-content-tip {
+        display: block;
+    }
+}
+
+.hover-content-gap .hover-content-tip {
+    top: 3em;
+}
+
+.focus-obscured {
+    position: relative;
+    height: 8em;
+    overflow-y: auto;
+    border: 1px solid #6f777b;
+
+    .focus-obscured-banner {
+        position: sticky;
+        bottom: 0;
+        padding: 1em;
+        background: #0b0c0c;
+        color: #ffffff;
+
+        a {
+            color: #ffffff;
+        }
+    }
+}
+
+.swipe-only {
+    width: 20em;
+    padding: 1em;
+    border: 1px solid #6f777b;
+    touch-action: pan-y;
+    user-select: none;
+}
+
+.drag-only li {
+    cursor: move;
+    padding: 0.3em;
+    margin-bottom: 0.3em;
+    border: 1px solid #6f777b;
+    width: 12em;
+}
+
+.small-targets button {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1;
+}
+
+.focus-partly-obscured {
+    position: relative;
+    display: inline-block;
+    padding-right: 4em;
+
+    .focus-partly-obscured-widget {
+        position: absolute;
+        top: -0.3em;
+        right: 0;
+        width: 8em;
+        padding: 0.3em;
+        background: #0b0c0c;
+        color: #ffffff;
+    }
+}
+
+a.thin-focus:focus {
+    outline: 1px dotted #cccccc;
+    outline-offset: 0;
+}
+
+.signature-pad {
+    border: 1px solid #6f777b;
+    touch-action: none;
+}
+
+.flash-badge {
+    display: inline-block;
+    padding: 0.2em 0.4em;
+    background: #ffffff;
+    color: #0b0c0c;
+}
+
+.flash-badge.flashing {
+    animation: flash 0.2s steps(1) infinite;
+}
+
+@keyframes flash {
+    50% {
+        background: #0b0c0c;
+        color: #ffffff;
+    }
+}
+
+.interaction-animation {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid #6f777b;
+    transition: transform 1.5s ease-in-out;
+}
+
+.interaction-animation.moved {
+    transform: translateX(15em) rotate(720deg);
+}
+
+// Keeps links in the added navigation test cases at least 24px apart, so the
+// only barrier on those pages is the one being tested
+.spaced-links {
+    li,
+    a {
+        display: inline-block;
+        min-height: 24px;
+        line-height: 24px;
+        margin: 0 12px 12px 0;
+    }
+}

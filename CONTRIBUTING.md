@@ -2,7 +2,7 @@
 
 We welcome issues / pull requests for updated or new test cases or tool results.
 
-Make changes to the build files first (mainly 'tests.json' but also anything under the 'build' folder) and add the static files that get created or updated via the `gulp` command in a separate commit last.
+Make changes to the build files first (mainly 'tests.json' but also anything under the 'build' folder) and add the static files that get created or updated via the `npm run build` command in a separate commit last.
 You also might want to update 'changelog.json' but it likely needs changing again to update the date to be the date when the Pull Request gets merged.
 It's also fine if you don't add the changes to the the changelog and static files at all, we can do that before we merge.
 
@@ -31,6 +31,14 @@ When you can think of an improvement to an existing test case, you should update
 If you like to add a new test case, create a new entry within 'tests.json' as the last entry under its most relevant section ("Content", "Page Layout", etc). Then test **every single tool** with that example and update their results accordingly.
 
 Because some tools don't work with local files, you can add the example to a [JS Bin](http://jsbin.com/) or similar and test that instead. That also helps developing that example as making the changes within 'tests.json' is cumbersome.
+
+Test cases added after the original audit have no `results`. Instead they have a `wcag` field, for example:
+
+```json
+"wcag": { "criterion": "2.5.8", "name": "Target Size (Minimum)", "level": "AA", "version": "2.2" }
+```
+
+Their results come from `npm run retest` and are stored in `retest.json`, see the [README](README.md#retesting-with-axe-core-and-pa11y).
 
 Try to make the example as isolated as possible. Although complex examples make more realistic test cases, testing for one specific issue is easier and more reliable to test for.
 

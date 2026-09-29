@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="90" viewBox="0 0 360 90">
+  <rect width="360" height="90" fill="#ffffff"/>
+  <text x="10" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0b0c0c">Opening hours</text>
+  <text x="10" y="70" font-family="Arial, sans-serif" font-size="19" fill="#0b0c0c">Monday to Friday, 9am to 5pm</text>
+</svg>

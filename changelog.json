@@ -2,6 +2,10 @@
   "last_updated": "13 April 2018",
   "changelog": [
     {
+      "date": "29 September 2026",
+      "text": "Added 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria up to level AAA, and retested all test cases with current versions of axe-core and pa11y. Original results are unchanged."
+    },
+    {
       "date": "13 April 2018",
       "text": "Re-tested and updated 19 results on WAVE",
       "link": "https://github.com/alphagov/accessibility-tool-audit/pull/38"

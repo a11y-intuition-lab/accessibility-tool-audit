@@ -7,8 +7,9 @@
 {%- endblock %}
 
 {% block scripts -%}
-  <script src="assets/javascript/jquery-1.12.0.min.js"></script>
+  <script src="assets/javascript/jquery.min.js"></script>
   <script src="assets/javascript/main.js"></script>
+  <script src="assets/javascript/filter.js" defer></script>
 {%- endblock %}
 
 {% block stylesheets -%}
@@ -30,6 +31,17 @@
     <div class="column-two-thirds intro-summary">
       <h1>What we tested</h1>
 
+      <p>Test cases marked <strong class="new-tag">Added</strong> were added after the original audit to cover success criteria from WCAG 2.0, 2.1 and 2.2, levels A to AAA, that the original test cases did not cover.</p>
+
+      <fieldset class="filter" data-filter-for="test-case-list" hidden>
+        <legend>Show test cases</legend>
+        <label><input type="checkbox" value="original" checked/> Original audit test cases</label>
+        <label><input type="checkbox" value="A" checked/> Added, level A</label>
+        <label><input type="checkbox" value="AA" checked/> Added, level AA</label>
+        <label><input type="checkbox" value="AAA" checked/> Added, level AAA</label>
+        <p class="filter-count" aria-live="polite"></p>
+      </fieldset>
+
       <nav>
         <ul>
           {% for cname, category in tests -%}
@@ -40,20 +52,34 @@
     </div>
   </div>
 
+  <div id="test-case-list">
   {% for cname, category in tests -%}
+  <section data-filter-group>
   <h2 id="{{ cname|replace(' ', '')|lower }}" class="heading-large">{{ cname }}</h2>
 
   {% for testname, testobj in category %}
+  <div class="test-case" data-filter="{{ testobj.wcag.level if testobj.wcag else 'original' }}">
   <h3 class="heading-medium" id="{{ getFilename( cname, testname ) }}">
     <a href="tests/{{ getFilename( cname, testname ) }}.html">
       {{ testname }}
     </a>
+    {% if testobj.wcag %}<strong class="new-tag">Added</strong>{% endif %}
   </h3>
 
+  {% if testobj.wcag %}
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/{{ testobj.wcag.name | lower | replace(' (', '-') | replace(')', '') | replace(', ', '-') | replace(' ', '-') }}.html">{{ testobj.wcag.criterion }} {{ testobj.wcag.name }}</a>, level {{ testobj.wcag.level }}, added in WCAG {{ testobj.wcag.version }}
+  </p>
+  {% endif %}
+  {% if testobj.note %}<p class="test-note">{{ testobj.note }}</p>{% endif %}
+
   <div class="example">
-    {{ testobj.example | replace('images/', 'assets/test_images/') | safe }}
+    {{ testobj.example | replace('images/', 'assets/test_images/') | replace('src="media/', 'src="assets/test_media/') | safe }}
+  </div>
   </div>
   {% endfor %}
+  </section>
   {% endfor %}
+  </div>
 </main>
 {% endblock %}

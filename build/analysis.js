@@ -5,13 +5,20 @@ var fs = require('fs'),
 
 var paths = {
   testsJson: path.join(__dirname, '../tests.json'),
-  analysisJson: path.join(__dirname, '../analysis.json')
+  analysisJson: path.join(__dirname, '../analysis.json'),
+  retestJson: path.join(__dirname, '../retest.json')
 };
 
 var testsFile = fs.readFileSync(paths.testsJson).toString();
 var tests = JSON.parse(testsFile);
 // linear list of all tests
-var testList = _.flatten(_.map(_.values(tests), x => _.keys(x)));
+var allTests = _.flatten(_.map(_.values(tests), x => _.toPairs(x)));
+// tests from the original audit; tests added later have no original results
+var testList = allTests.filter(x => x[1].results).map(x => x[0]);
+var newTests = allTests.filter(x => !x[1].results);
+var newTestList = newTests.map(x => x[0]);
+var newTestListAAA = newTests.filter(x => _.get(x[1], 'wcag.level') === 'AAA').map(x => x[0]);
+var newTestListAAndAA = _.difference(newTestList, newTestListAAA);
 
 var resultTypes = [
   'notfound',
@@ -127,7 +134,56 @@ function analyse(){
   analysis.scoreboard.by_error_warning = tr_ew;
   analysis.scoreboard.by_error_warning_manual = tr_ewm;
 
+  analysis.retest = analyseRetest();
+
   fs.writeFileSync(paths.analysisJson, JSON.stringify(analysis,'',2), 'utf8');
+}
+
+// Scores for the retest, split so the original test cases can be compared
+// with the original audit and the test cases added later reported separately.
+function analyseRetest(){
+  if( !fs.existsSync(paths.retestJson) ){
+    return null;
+  }
+
+  var retest = JSON.parse(fs.readFileSync(paths.retestJson).toString());
+  var sets = {
+    original: testList,
+    added: newTestList,
+    added_a_aa: newTestListAAndAA,
+    added_aaa: newTestListAAA,
+    all: testList.concat(newTestList)
+  };
+
+  var scores = {};
+  _.forEach(retest.tools, function (info, toolName){
+    scores[toolName] = _.mapValues(sets, function (list){
+      var count = _.reduce(resultTypes, (c, d) => { c[d] = 0; return c; }, {});
+      var tested = 0;
+
+      list.forEach(function (testname){
+        var res = _.get(retest.results, [testname, toolName]);
+        if( res ){
+          count[res]++;
+          tested++;
+        }
+      });
+
+      return {
+        tested: tested,
+        counts: count,
+        error_warning: tested ? _.round((count.error + count.error_paid + count.warning) / tested * 100) : null,
+        error_warning_manual: tested ? _.round((count.error + count.error_paid + count.warning + count.manual) / tested * 100) : null
+      };
+    });
+  });
+
+  return {
+    date: retest.date,
+    tools: retest.tools,
+    totals: _.mapValues(sets, list => list.length),
+    scores: scores
+  };
 }
 
 module.exports = {
