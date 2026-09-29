@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility tools audit results - How this copy was made - independent copy of the GDS audit</title>
+  <link rel="stylesheet" href="assets/stylesheets/application.css" />
+  
+  
+</head>
+<body class="">
+  <header id="global-header" role="banner">
+    <div class="header-wrapper">
+      <div class="header-global">
+        <div class="header-logo">
+          <a id="logo" class="content" href="index.html">Accessibility tool audit</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="copy-notice" role="region" aria-label="About this copy">
+    <p>
+      This is an independent copy of the <a href="https://alphagov.github.io/accessibility-tool-audit/">accessibility tool audit</a> by the Government Digital Service (GDS), maintained by <a href="https://a11yintuition.org/">A11y Intuition Lab</a>.
+      Text that says &ldquo;we&rdquo; or &ldquo;our&rdquo; is from GDS.
+      The retest and the added test cases were made in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit">this copy</a> and were not carried out, reviewed or endorsed by GDS.
+      <a href="method.html">How this copy was made, including the use of AI</a>.
+    </p>
+  </div>
+
+  
+<main id="wrapper">
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="index.html">Overview</a></li>
+      <li>How this copy was made</li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds intro-summary">
+      <h1>How this copy was made: method and use of AI <span class="new-tag">Not by GDS</span></h1>
+
+      <p>
+        This page describes the work done in this copy of the audit after the Government Digital Service (GDS) finished theirs. It is written so that the work can be checked and repeated. GDS did not carry out, review or endorse any of it.
+      </p>
+
+      <h2 id="summary">Summary</h2>
+
+      <ul class="list list-bullet">
+        <li><strong>Original (GDS, 2016 to 2018):</strong> 142 test cases and the results for 13 tools, found by people running each tool by hand. These are kept unchanged.</li>
+        <li><strong>Added (2026-09-29):</strong> 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria up to level AAA (30 at level A or AA, 22 at level AAA), and a retest of all 194 test cases with axe-core 4.13.0 and pa11y 10.0.0.</li>
+        <li><strong>Also changed:</strong> the build tools were replaced so the project can be built and run safely today.</li>
+        <li><strong>How:</strong> the work was done by one maintainer from A11y Intuition Lab together with the AI coding assistant Claude Code in a single working day.</li>
+      </ul>
+
+      <p>
+        Neither part is free of errors. The original results were recorded by people and may contain mistakes. The additions were largely written by an AI and have not yet been fully reviewed. See <a href="#limitations">limitations</a>.
+      </p>
+
+      <h2 id="why-ai">Why AI was used</h2>
+
+      <p>
+        The original audit has not been updated since 2018. It does not cover the success criteria added in WCAG 2.1 and 2.2, or many AAA criteria. Writing a test page for each missing criterion, modernising an eight-year-old build and running the tools again would not have been possible with the time available. Using AI made it possible to add the missing scenarios and run the retest. Decisions on scope and publication, and the responsibility for the result, stayed with the maintainer.
+      </p>
+
+      <h2 id="roles">Who did what</h2>
+
+      <table>
+        <caption class="visuallyhidden">Division of work between the maintainer and the AI assistant</caption>
+        <thead>
+          <tr>
+            <th scope="col">Maintainer (A11y Intuition Lab)</th>
+            <th scope="col">Claude Code (AI assistant)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Decided the goals: safe tooling, test cases for missing criteria, and a retest with axe and pa11y.</td>
+            <td>Investigated the old project and proposed a plan.</td>
+          </tr>
+          <tr>
+            <td>Compiled the list of success criteria the original audit did not cover and chose to go up to WCAG 2.2 AAA with a filter by level.</td>
+            <td>Wrote the test pages for these criteria.</td>
+          </tr>
+          <tr>
+            <td>Set the safety rule that the old code must not be run.</td>
+            <td>Replaced the build tools and packages without running the old code.</td>
+          </tr>
+          <tr>
+            <td>Required the original content and results to be kept, and the old and new results to be clearly separated.</td>
+            <td>Wrote the retest script, the new table columns, the scores and the text on the site.</td>
+          </tr>
+          <tr>
+            <td>Approved the plan, pointed out problems (such as text that said &ldquo;we&rdquo; about GDS work), and decided on the licence and publication.</td>
+            <td>Fixed the problems, ran the retest, checked the site with axe and published it on instruction.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The assistant was Claude Code with the model Claude Opus 5.5 (Anthropic), used on 2026-09-29. The instructions given and the decisions made are recorded in the <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/docs/process-log.md">process log</a>. The log is a summary, not a full transcript, but it includes every instruction the maintainer gave, word for word.
+      </p>
+
+      <h2 id="safety">Making the project safe to build</h2>
+
+      <ul class="list list-bullet">
+        <li>At the very start, before the maintainer said the old code should not be run, the assistant installed the old dependencies once to run <code>npm audit</code>. It also tried the old build, <code>gulp generate</code>. Package install scripts were already turned off on the machine, so no package code ran during the install. The gulp build stopped with an error when it started, because gulp 3 does not work with current Node.js.</li>
+        <li>After that, the maintainer set the rule that the old code must not be run, and none of it was. All packages were replaced or upgraded. The build now uses npm scripts, nunjucks and Dart Sass. Python and gulp (and node-sass, which needed Python) are no longer needed.</li>
+        <li>npm is configured with <code>ignore-scripts=true</code> in the project, so no package install scripts run. Only package versions at least 7 days old were installed. The package lock file points to the public npm registry.</li>
+        <li>The old dependency tree had 32 known vulnerabilities, 4 of them critical. After the update, <code>npm audit</code> reports none.</li>
+        <li>The generated pages were compared with the old ones to check that the original content was not changed by the new build.</li>
+      </ul>
+
+      <h2 id="test-cases">How the added test cases were made</h2>
+
+      <ul class="list list-bullet">
+        <li>The maintainer compiled a list of success criteria with no test case in the original audit: 1.2.4, 1.2.6, 1.2.7, 1.2.9, 1.3.4, 1.3.5, 1.3.6, 1.4.2, 1.4.5, 1.4.7, 1.4.9, 1.4.12, 2.1.3, 2.1.4, 2.2.3, 2.2.4, 2.2.5, 2.2.6, 2.3.2, 2.3.3, 2.4.1, 2.4.5, 2.4.8, 2.4.11, 2.4.12, 2.4.13, 2.5.1, 2.5.2, 2.5.3, 2.5.4, 2.5.6, 2.5.7, 3.1.3, 3.1.6, 3.2.1, 3.2.3, 3.2.4, 3.2.6, 3.3.4, 3.3.5, 3.3.6, 3.3.7, 3.3.8, 3.3.9 and 4.1.3. Test cases were also added for 1.4.11, 1.4.13 and 2.5.8, which the original covered only partly or not at all.</li>
+        <li>Each test page contains one known failure of one success criterion and as little else as possible. This follows the rule used by GDS: &ldquo;testing for one specific issue is easier and more reliable to test for.&rdquo;</li>
+        <li>Claude Code wrote the pages from its knowledge of WCAG 2.2, the Understanding documents and the documented failure techniques. The pages were not checked line by line against these documents by a person.</li>
+        <li>Each added test case records its criterion, level and WCAG version in <code>tests.json</code> (the <code>wcag</code> field). On <a href="test-cases.html">the test cases page</a> they are marked &ldquo;Added&rdquo; and can be filtered by level.</li>
+        <li>Some criteria cannot be shown with one static page, for example consistent navigation across pages (3.2.3, 3.2.4, 3.2.6). These use extra pages in <code>example-pages/</code>. &ldquo;Live&rdquo; media is shown as a recorded file labelled as live, because a static page cannot stream.</li>
+        <li>The media files in <code>assets/test_media/</code> were generated for these test cases. The speech was made with espeak-ng (British English voice). The &ldquo;background music&rdquo; is a chord of sine tones about as loud as the speech. The video is an ffmpeg test pattern with the speech as its sound. The commands are in the <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/docs/process-log.md#media-files">process log</a>.</li>
+        <li>The 142 original test cases and their results were not changed. The two test cases for 4.1.1 Parsing got a note that this criterion was removed in WCAG 2.2.</li>
+      </ul>
+
+      <h2 id="retest">How the retest was run</h2>
+
+      <p>Every test page was opened as a local file in headless Chrome and checked by both tools, one page at a time.</p>
+
+      <table>
+        <caption class="visuallyhidden">Environment and settings for the retest</caption>
+        <tbody>
+          <tr><th scope="row">Date</th><td>2026-09-29</td></tr>
+          <tr><th scope="row">System</th><td>Linux, Node.js 24.21.0, Google Chrome 153.0.8010.36 (headless, default viewport 800 by 600)</td></tr>
+          <tr><th scope="row">axe</th><td>axe-core 4.13.0 via @axe-core/puppeteer, tags <code>wcag2a</code>, <code>wcag2aa</code>, <code>wcag2aaa</code>, <code>wcag21a</code>, <code>wcag21aa</code>, <code>wcag22aa</code>, <code>best-practice</code></td></tr>
+          <tr><th scope="row">pa11y</th><td>pa11y 10.0.0 with the HTML_CodeSniffer 2.6.0 runner, standard <code>WCAG2AAA</code>, warnings and notices included</td></tr>
+          <tr><th scope="row">Pages</th><td><code>tests/*.html</code> opened as <code>file://</code> URLs, after the page load event</td></tr>
+          <tr><th scope="row">Script</th><td><a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/scripts/retest.mjs"><code>scripts/retest.mjs</code></a></td></tr>
+        </tbody>
+      </table>
+
+      <h3>From findings to results</h3>
+
+      <ol class="list list-number">
+        <li>An empty test page, <code>tests/_baseline.html</code>, is checked first. Any finding that also appears on it comes from the page template and is removed from every test page.</li>
+        <li>axe: any violation gives &ldquo;issue found&rdquo;. Otherwise, any incomplete result (&ldquo;needs review&rdquo;) gives &ldquo;user to check&rdquo;. Otherwise the result is &ldquo;not found&rdquo;.</li>
+        <li>pa11y: any error gives &ldquo;issue found&rdquo;. Otherwise, any warning gives &ldquo;user to check&rdquo;, in the same way that GDS counted HTML_CodeSniffer warnings as manual checks from April 2018. Notices are ignored because they appear on almost every element.</li>
+        <li>The percentages are calculated in the same way as the original: the share of test cases with &ldquo;issue found&rdquo; or &ldquo;warning only&rdquo;, and with &ldquo;user to check&rdquo; added.</li>
+      </ol>
+
+      <h3>Repeating the retest</h3>
+
+      <p>With Node.js 22.13 or later and Google Chrome installed:</p>
+
+<pre><code>git clone https://github.com/a11y-intuition-lab/accessibility-tool-audit.git
+cd accessibility-tool-audit
+git checkout e6c68ca
+npm ci
+npm run build
+npm run retest -- --force</code></pre>
+
+      <p>
+        <code>npm ci</code> installs the exact package versions in <code>package-lock.json</code>. Set <code>CHROME_PATH</code> if Chrome is not at <code>/usr/bin/google-chrome</code>. The script writes proposals to <code>retest.json</code> and raw findings to <code>results/&lt;date&gt;/</code>.
+        The raw findings from 2026-09-29 are in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/tree/gh-pages/results/2026-09-29"><code>results/2026-09-29/</code></a>: every finding per test page for each tool, and a summary table for review. Commit <code>e6c68ca</code> contains the test pages, the script and the results as published. A different version of Chrome may give slightly different results.
+      </p>
+
+      <h2 id="differences">How this differs from the original method</h2>
+
+      <ul class="list list-bullet">
+        <li><strong>Automatic, not manual.</strong> GDS ran each tool by hand and judged whether the tool found <em>the intended</em> barrier on each page. The retest counts <em>any</em> finding that is not on the baseline page. It can therefore count a finding about something else on the page as a success.</li>
+        <li><strong>Different versions and settings.</strong> The original results were recorded between 2016 and 2018 with the versions of the tools available then. GDS ran axe with the tags <code>wcag2a</code>, <code>wcag2aa</code>, <code>section508</code>, <code>best-practice</code> and <code>experimental</code> (see <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/tools-info.md">tools-info.md</a>). The retest uses the WCAG tags up to 2.2 and <code>best-practice</code>, but not <code>section508</code> or <code>experimental</code>. The retest runs HTML_CodeSniffer through pa11y. Its results are compared with the original HTML_CodeSniffer column.</li>
+        <li><strong>Single pages only.</strong> GDS also used one large page with nearly all the tests. The retest only uses the single test pages.</li>
+      </ul>
+
+      <h2 id="changes-after-first-run">Changes made after the first run</h2>
+
+      <p>
+        After the first retest, some added test pages caused findings that had nothing to do with the intended barrier. These pages were corrected and the retest was run again. Only added test pages were changed.
+      </p>
+
+      <ul class="list list-bullet">
+        <li>Links on seven pages (2.4.1, 2.4.5, 2.4.8, 2.4.11, 3.2.3, 3.2.4 and 3.2.6) were too close together and failed the target size rule. They were given space.</li>
+        <li>Headings in the added test cases were changed from <code>h4</code> to <code>h2</code>, because the order of headings failed on its own.</li>
+        <li>The chat widget in the 2.4.12 test case had low text contrast. Its background colour was changed. axe still marks the contrast as needing review, probably because the widget overlaps other content, so this test case is &ldquo;user to check&rdquo; for axe.</li>
+      </ul>
+
+      <p>
+        One rule of the script was also changed after the first run. At first, pa11y notices counted as &ldquo;user to check&rdquo;. This put about 80% of the test cases in that group, because HTML_CodeSniffer gives generic notices on almost every page. Notices were then excluded, as described above. The raw findings still include them.
+      </p>
+
+      <p>
+        These changes are in the process log. They make the results fairer to the tools, but because they were made after seeing the results, they are a possible source of bias.
+      </p>
+
+      <h2 id="limitations">Limitations</h2>
+
+      <ul class="list list-bullet">
+        <li>The retest results are proposals from the script. Not all of them have been checked by hand to confirm the tool found the intended barrier.</li>
+        <li>The added test cases have not been reviewed by an independent accessibility expert. Some may not fail the criterion as clearly as intended, or may fail other criteria too.</li>
+        <li>The same AI session wrote both the test pages and the script that checks them, which may cause systematic errors in both.</li>
+        <li>Many of the added criteria (for example 3.1.3 Unusual Words or 2.2.3 No Timing) cannot be checked automatically at all. A &ldquo;not found&rdquo; for these is expected and says little about a tool&rsquo;s quality.</li>
+        <li>The original results were recorded by people and may contain errors that have not been corrected here.</li>
+      </ul>
+
+      <h2 id="citing">Citing</h2>
+
+      <p>When referring to this work, please cite the original and this copy separately:</p>
+
+      <ul class="list list-bullet">
+        <li>Government Digital Service (2016 to 2018). <em>Accessibility tool audit.</em> <a href="https://alphagov.github.io/accessibility-tool-audit/">https://alphagov.github.io/accessibility-tool-audit/</a></li>
+        <li>A11y Intuition Lab (2026). <em>Accessibility tool audit: added WCAG 2.2 test cases and retest with axe-core and pa11y</em> (commit e6c68ca). <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit">https://github.com/a11y-intuition-lab/accessibility-tool-audit</a></li>
+      </ul>
+
+      <p>
+        All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>. Source code is available under the MIT licence.
+      </p>
+    </div>
+  </div>
+
+</main>
+
+
+  <footer id="footer" class="group" role="contentinfo">
+    <div class="footer-wrapper">
+      <div class="footer-meta">
+        <div class="footer-meta-inner">
+            <div class="open-government-licence">
+              <p class="logo">
+                <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">
+                  Open Government Licence
+                </a>
+              </p>
+              <p>
+                All content is available under the
+                <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated.
+                Contains public sector information from the <a href="https://alphagov.github.io/accessibility-tool-audit/">GDS accessibility tool audit</a>, licensed under the Open Government Licence v3.0.
+                Additions (the retest and the added test cases) are by A11y Intuition Lab contributors and are available under the same licence.
+                <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit">Source code</a> is available under the MIT licence.
+                <a href="method.html">How this copy was made</a>.
+              </p>
+            </div>
+        </div>
+        <div class="copyright">
+          <a href="http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">
+            Original content © Crown copyright
+          </a>
+        </div>
+      </div>
+    </div>    
+  </footer>
+</body>
+</html>
