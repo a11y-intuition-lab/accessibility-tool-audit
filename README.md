@@ -1,5 +1,29 @@
 # Accessibility tool audit
 
+Part of [A11y Intuition Lab](https://a11yintuition.org) — *Play. Reflect. Design for everyone.*
+
+A11y Intuition Lab helps students and IT professionals develop the knowledge,
+skills, attitudes, and habits to make digital accessibility part of everyday
+practice. It creates open, hands-on learning tools that make human variation,
+context, and digital barriers tangible.
+
+## About this copy
+
+This is an independent copy of the [accessibility tool audit](https://alphagov.github.io/accessibility-tool-audit/) by the Government Digital Service (GDS). The original test cases and results are unchanged. In the text that follows and on the site, "we" and "our" refer to GDS.
+
+In September 2026, A11y Intuition Lab:
+- replaced the old build tools so the project can be built safely
+- added 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria up to level AAA
+- retested every test case with axe-core and pa11y
+
+This work was done with the AI coding assistant Claude Code and was not carried out, reviewed or endorsed by GDS.
+
+- Site: [a11yintuition.org/accessibility-tool-audit](https://a11yintuition.org/accessibility-tool-audit/)
+- Method, use of AI and how to repeat the retest: [method page](https://a11yintuition.org/accessibility-tool-audit/method.html)
+- Instructions, decisions and corrections made along the way: [process log](docs/process-log.md)
+
+## About the audit
+
 Automated accessibility checkers can be used to help identify accessibility issues in digital services. They're good for finding simple and obvious problems, but aren't able to detect many accessibility issues.
 
 This repo contains a collection of accessibility failures to be used for testing automated accessibility tools and test results from those tools.
@@ -48,4 +72,8 @@ A finding on a page does not prove the tool found the intended barrier. Check `r
 
 ## Licence
 
-Released under the MIT Licence, a copy of which can be found in the file `LICENCE`.
+All content, including the test cases and results, is available under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The original content is © Crown copyright (Government Digital Service). The additions are by A11y Intuition Lab contributors and are available under the same licence.
+
+Contains public sector information licensed under the Open Government Licence v3.0.
+
+The code is released under the MIT Licence, a copy of which can be found in the file `LICENSE`.

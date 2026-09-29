@@ -107,7 +107,9 @@ var retestTools = {
 
 // This copy of the audit and the original, used to tell the two apart on every page
 var copyInfo = {
-  repo: "https://github.com/dagfrode/accessibility-tool-audit",
+  repo: "https://github.com/a11y-intuition-lab/accessibility-tool-audit",
+  org: { name: "A11y Intuition Lab", url: "https://a11yintuition.org/" },
+  methodPage: "method.html",
   originalRepo: "https://github.com/alphagov/accessibility-tool-audit",
   originalSite: "https://alphagov.github.io/accessibility-tool-audit/"
 }
@@ -175,6 +177,14 @@ function generateFiles(){
     retest: retest
   });
   fs.writeFileSync(paths.out('test-cases.html'), indexout, 'utf8');
+
+  // Generate the page about how this copy was made
+
+  var methodout = nunjucks.render('method.html', {
+    analysis: analysisResults,
+    retest: retest
+  });
+  fs.writeFileSync(paths.out('method.html'), methodout, 'utf8');
 
   // Generate individual tests
 

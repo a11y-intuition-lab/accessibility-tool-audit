@@ -1,5 +1,7 @@
 # How to contribute
 
+This is a copy of the GDS audit maintained by [A11y Intuition Lab](https://a11yintuition.org). Most of this guide was written by GDS, so "we" means GDS. Issues and pull requests for this copy go to [a11y-intuition-lab/accessibility-tool-audit](https://github.com/a11y-intuition-lab/accessibility-tool-audit). Changes to how test cases are added or retested should also be recorded in the [process log](docs/process-log.md).
+
 We welcome issues / pull requests for updated or new test cases or tool results.
 
 Make changes to the build files first (mainly 'tests.json' but also anything under the 'build' folder) and add the static files that get created or updated via the `npm run build` command in a separate commit last.
