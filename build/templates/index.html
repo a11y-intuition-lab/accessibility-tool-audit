@@ -17,30 +17,30 @@
       <h1>How do automated accessibility checkers compare?</h1>
 
       <p>
-        We ran an audit to see what issues the different accessibility testing tools pick up. We deliberately introduced {{ analysis.totals.total }} accessibility barriers to a page of content, and ran them through {{ analysis.counts | length }} automated tools. We also had a look at features like usability and cost.
+        The Government Digital Service (GDS) ran an audit to see what issues the different accessibility testing tools pick up. GDS deliberately introduced {{ analysis.totals.total }} accessibility barriers to a page of content, and ran them through {{ analysis.counts | length }} automated tools. GDS also had a look at features like usability and cost.
       </p>
 
-      <p>You can use our audit to help choose the best accessibility testing tool for your service.</p>
+      <p>You can use the GDS audit to help choose the best accessibility testing tool for your service.</p>
 
-      <p>The full project is available on <a href="https://github.com/alphagov/accessibility-tool-audit">Github</a>. We welcome contributions.</p>
+      <p>The original project is available on <a href="https://github.com/alphagov/accessibility-tool-audit">GitHub</a>. This copy, maintained by {{ copyInfo.org.name }} (AIL), is also on <a href="{{ copyInfo.repo }}">GitHub</a>, and AIL welcomes contributions.</p>
 
-      <h2>What we found</h2>
+      <h2>What GDS found</h2>
 
-      <p>We scored each tool for two things.</p>
+      <p>GDS scored each tool for two things.</p>
 
       <p>
         The first column of numbers shows the percentage of barriers that each tool fully detected on a &lsquo;pass&rsquo; or &lsquo;fail&rsquo; basis.
       </p>
 
       <p>
-        The best performing tool in this category found {{ analysis.scoreboard.by_error_warning[0].error_warning }}% of the problems we introduced. Whereas the worst performing tool only picked up {{ analysis.scoreboard.by_error_warning[analysis.scoreboard.by_error_warning.length - 1].error_warning }}% of the barriers.
+        The best performing tool in this category found {{ analysis.scoreboard.by_error_warning[0].error_warning }}% of the problems GDS introduced. Whereas the worst performing tool only picked up {{ analysis.scoreboard.by_error_warning[analysis.scoreboard.by_error_warning.length - 1].error_warning }}% of the barriers.
       </p>
 
       <p>
         The second column of results takes into account potential barriers that tools noticed, but needed a human being to check, like whether alt text descriptions were accurate. A tool that flags things like this can help you pick up more issues overall.
       </p>
 
-      <p>The best performing tool in this category picked up {{ analysis.scoreboard.by_error_warning_manual[0].error_warning_manual }}% of our deliberate mistakes.</p>
+      <p>The best performing tool in this category picked up {{ analysis.scoreboard.by_error_warning_manual[0].error_warning_manual }}% of the deliberate mistakes.</p>
 
       <h3>How did each tool do?</h3>
 
@@ -71,7 +71,7 @@
       <h2 id="retest">Retest with WCAG 2.2 test cases <span class="new-tag">Not by GDS</span></h2>
 
       <p>
-        This section was added in <a href="{{ copyInfo.repo }}">this copy of the audit</a>. GDS did not carry out, review or endorse it.
+        This section was added by AIL in <a href="{{ copyInfo.repo }}">this copy of the audit</a>. GDS did not carry out, review or endorse it.
       </p>
 
       <p>
@@ -128,7 +128,7 @@
       <h3>How do features compare?</h3>
 
       <p>
-        We&rsquo;ve also compared features like how easy tools are to use, cost and technical considerations - all important things to think about when you are choosing a tool.
+        GDS also compared features like how easy tools are to use, cost and technical considerations - all important things to think about when you are choosing a tool.
       </p>
 
       <details class="feature-summary">
@@ -155,7 +155,7 @@
             </li>
             <li>
               <span class="result-type">Active</span>
-              The tool is being actively developed. We recommend using tools that are updated according to the latest developments in accessibility.
+              The tool is being actively developed. GDS recommends using tools that are updated according to the latest developments in accessibility.
             </li>
           </ul>
 
@@ -426,9 +426,9 @@
 
       <p class="heading-medium"><a href="results.html">Read detailed test results</a>{% if analysis.retest %}, including the retest{% endif %}</p>
 
-      <p class="heading-medium"><a href="test-cases.html">See everything we tested</a></p>
+      <p class="heading-medium"><a href="test-cases.html">See everything that was tested</a></p>
 
-      <p class="heading-medium"><a href="https://accessibility.blog.gov.uk/2017/02/24/what-we-found-when-we-tested-tools-on-the-worlds-least-accessible-webpage/">Read our blog post on what we found</a></p>
+      <p class="heading-medium"><a href="https://accessibility.blog.gov.uk/2017/02/24/what-we-found-when-we-tested-tools-on-the-worlds-least-accessible-webpage/">Read the GDS blog post on what they found</a></p>
     </div>
   </div>
 

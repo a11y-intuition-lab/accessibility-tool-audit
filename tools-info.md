@@ -5,7 +5,7 @@ When updating results for a specific tool it helps to know if or when a tool has
 
 ## Options and settings
 
-Try to use all the most inquisitive options. This is a list of options per tool which we are aware of and used:
+Try to use all the most inquisitive options. This is a list of options per tool which GDS was aware of and used:
 
 * Google Accessibility Developer Tools: default
 * Tenon: default
@@ -24,7 +24,7 @@ Try to use all the most inquisitive options. This is a list of options per tool 
 
 ## Changelogs
 
-To know if a tool was updated since we last tested it, check these changelogs:
+To know if a tool was updated since it was last tested, check these changelogs:
 
 * [Google Accessibility Developer Tools changelog](https://github.com/GoogleChrome/accessibility-developer-tools/releases)
 * [Tenon changelog](https://tenon.io/documentation/changelog.php)

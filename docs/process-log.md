@@ -6,7 +6,7 @@ It is a summary, not a full transcript. Every instruction from the maintainer is
 
 - **Maintainer:** Dag Frode Solberg, A11y Intuition Lab
 - **AI assistant:** Claude Code with the model Claude Opus 5.5 (Anthropic), in one session on a Linux workstation
-- **Time (UTC):** about 07:20 to 08:45 on 29 September 2026
+- **Time (UTC):** about 07:20 to 09:00 on 29 September 2026
 - **Commits:** `a878cc1` (sources), `e6c68ca` (generated site and retest results), `68ec8ac` and `dcaaedd` (separation from GDS), and the commits that added this log
 
 ## 1. Assessing the old project (07:20)
@@ -140,7 +140,7 @@ The sources and the generated site were committed in separate commits (`a878cc1`
 >
 > *index.html must be separated more from the original audit. "We" is GOV.UK, not me. So the two must be separated.*
 
-**Decision:** the text from GDS stays unchanged and still says "we". Text added in this copy is written in the third person.
+**Decision (later changed, see section 10):** the text from GDS stays unchanged and still says "we". Text added in this copy is written in the third person.
 
 Changes:
 - Every page has a notice saying that this is an independent copy, that "we" means GDS, and that the additions were not made, reviewed or endorsed by GDS.
@@ -191,6 +191,16 @@ The assistant asked four questions. The maintainer's answers:
 - A method page and this log were written.
 
 While writing the method page, the assistant checked the session transcript. It found that the old dependencies had been installed and the old build had been tried before the safety rule was given (section 1). The method page states this instead of claiming the old code was never run.
+
+## 10. Naming GDS and AIL instead of "we" (08:50)
+
+> kan vi endre we til GDS det det er de som menes og AIL der det er oss?
+>
+> *Can we change "we" to GDS where they are meant, and AIL where it is us?*
+
+**Decision:** "we" is replaced everywhere, including in the GDS text, so readers do not have to work out who "we" is. Where GDS is meant, the text says "GDS". Where A11y Intuition Lab is meant, it says "AIL". The name is spelled out the first time on each page.
+
+The GDS text was changed only as far as needed for this. For example, "We ran an audit" became "The Government Digital Service (GDS) ran an audit", and "What we found" became "What GDS found". The same was done in `README.md`, `CONTRIBUTING.md` and `tools-info.md`. The notice on every page and the licence statement in the footer say that the GDS text has been adapted in this way. The Open Government Licence allows this, as long as the source is credited. Test case names, descriptions and results were not changed.
 
 ## Open
 

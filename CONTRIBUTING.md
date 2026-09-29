@@ -1,17 +1,17 @@
 # How to contribute
 
-This is a copy of the GDS audit maintained by [A11y Intuition Lab](https://a11yintuition.org). Most of this guide was written by GDS, so "we" means GDS. Issues and pull requests for this copy go to [a11y-intuition-lab/accessibility-tool-audit](https://github.com/a11y-intuition-lab/accessibility-tool-audit). Changes to how test cases are added or retested should also be recorded in the [process log](docs/process-log.md).
+This is a copy of the GDS audit maintained by [A11y Intuition Lab](https://a11yintuition.org). Most of this guide was written by GDS and has been adapted to name GDS and A11y Intuition Lab (AIL) instead of "we". Issues and pull requests for this copy go to [a11y-intuition-lab/accessibility-tool-audit](https://github.com/a11y-intuition-lab/accessibility-tool-audit). Changes to how test cases are added or retested should also be recorded in the [process log](docs/process-log.md).
 
-We welcome issues / pull requests for updated or new test cases or tool results.
+AIL welcomes issues / pull requests for updated or new test cases or tool results.
 
 Make changes to the build files first (mainly 'tests.json' but also anything under the 'build' folder) and add the static files that get created or updated via the `npm run build` command in a separate commit last.
 You also might want to update 'changelog.json' but it likely needs changing again to update the date to be the date when the Pull Request gets merged.
-It's also fine if you don't add the changes to the the changelog and static files at all, we can do that before we merge.
+It's also fine if you don't add the changes to the the changelog and static files at all, AIL can do that before merging.
 
 When using a tool, use all the most inquisitive options. For example, if you have the choice between AA and AAA, choose AAA. If you have the choice to add options which don't seem to be related to accessibility (SEO, for example), test those as well.
-Check the list of [options we used](tools-info.md#options-and-settings).
+Check the list of [options GDS used](tools-info.md#options-and-settings).
 
-You should check each test page on its own and not the one big page including (nearly) all tests. Then check if the one particular issue we were expecting to find on that page is found or not. To look for just one issue makes it easier to find.
+You should check each test page on its own and not the one big page including (nearly) all tests. Then check if the one particular issue that page is meant to show is found or not. To look for just one issue makes it easier to find.
 Don't test any of the test pages which contain only a link to an "example page" but test that example page instead to which the links points. Those are the pages that are not included within the one big page but need to be on pages of their own.
 
 When you add or change the test results, you need to note them as the key in the `resultsCopy` variable in 'build/generate.js'. That will be automatically translated to what you see on the results page (for example, "error" translates to "Issue found" and "notfound" translates to "Not found").
@@ -47,8 +47,8 @@ Try to make the example as isolated as possible. Although complex examples make 
 
 ## Add new tool
 
-We currently only accept tools which are either free or free to try and which are not based on any tool we have already covered. When it's a paid for tool, it should have a pricing option which is affordable by a small team. It must have a web presence with all important information.
-It's best to first open a [GitHub issue](https://github.com/alphagov/accessibility-tool-audit/issues/new) and ask if we would accept the tool. That will reduce potentially wasted efforts.
+GDS only accepted tools which are either free or free to try and which are not based on any tool already covered, and AIL follows the same rule. When it's a paid for tool, it should have a pricing option which is affordable by a small team. It must have a web presence with all important information.
+It's best to first open a [GitHub issue](https://github.com/a11y-intuition-lab/accessibility-tool-audit/issues/new) and ask if AIL would accept the tool. That will reduce potentially wasted efforts.
 
 When you add a new tool, you will need to check every single of the test cases.
 
