@@ -425,6 +425,7 @@
       "added": 52,
       "added_a_aa": 30,
       "added_aaa": 22,
+      "original_a_aa": 172,
       "all": 194
     },
     "scores": {
@@ -480,6 +481,19 @@
           },
           "error_warning": 0,
           "error_warning_manual": 5
+        },
+        "original_a_aa": {
+          "tested": 172,
+          "counts": {
+            "notfound": 116,
+            "error": 46,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 10,
+            "identified": 0
+          },
+          "error_warning": 27,
+          "error_warning_manual": 33
         },
         "all": {
           "tested": 194,
@@ -548,6 +562,19 @@
           "error_warning": 0,
           "error_warning_manual": 9
         },
+        "original_a_aa": {
+          "tested": 172,
+          "counts": {
+            "notfound": 107,
+            "error": 44,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 21,
+            "identified": 0
+          },
+          "error_warning": 26,
+          "error_warning_manual": 38
+        },
         "all": {
           "tested": 194,
           "counts": {
@@ -561,6 +588,43 @@
           "error_warning": 23,
           "error_warning_manual": 35
         }
+      }
+    },
+    "combined": {
+      "original": {
+        "tested": 142,
+        "error_warning": 44,
+        "error_warning_manual": 58
+      },
+      "added": {
+        "tested": 52,
+        "error_warning": 6,
+        "error_warning_manual": 17
+      },
+      "added_a_aa": {
+        "tested": 30,
+        "error_warning": 10,
+        "error_warning_manual": 23
+      },
+      "added_aaa": {
+        "tested": 22,
+        "error_warning": 0,
+        "error_warning_manual": 9
+      },
+      "original_a_aa": {
+        "tested": 172,
+        "error_warning": 38,
+        "error_warning_manual": 52
+      },
+      "all": {
+        "tested": 194,
+        "error_warning": 34,
+        "error_warning_manual": 47
+      },
+      "original_audit": {
+        "tested": 142,
+        "error_warning": 35,
+        "error_warning_manual": 47
       }
     }
   }

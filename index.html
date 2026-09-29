@@ -162,6 +162,68 @@
         pa11y runs HTML_CodeSniffer, so it is compared with the original HTML_CodeSniffer results.
       </p>
 
+      <h3>Both tools together</h3>
+
+      <p>
+        In the original audit, axe and HTML_CodeSniffer together fully detected 35% of the original test cases. In the retest, axe-core and pa11y together detected 44%.
+        Each added level makes the total lower: with the added A and AA test cases the tools detect 38% of all test cases up to AA, and with the AAA test cases as well 34%.
+      </p>
+
+      <p>
+        Some of the increase on the original test cases may come from the method. GDS checked whether each tool found the barrier the test case was made for. The retest counts any finding the tool reports on the page.
+      </p>
+
+      <table class="numeric-results percentage-summary retest-results">
+        <caption>Test cases detected by at least one of the two tools</caption>
+        <thead>
+          <tr>
+            <th scope="col">Test cases</th>
+            <th scope="col">Barriers found</th>
+            <th scope="col">Barriers and potential barriers found</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Original audit, 142 original test cases<span class="tool-version">aXe and HTML_CodeSniffer</span></th>
+            <td>35%</td>
+            <td>47%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">Retest, 142 original test cases<span class="tool-version">axe-core and pa11y</span></th>
+            <td class="retest">44%</td>
+            <td class="retest">58%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">Retest, 172 original and added A and AA test cases<span class="tool-version">axe-core and pa11y</span></th>
+            <td class="retest">38%</td>
+            <td class="retest">52%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">Retest, 194 all test cases, including AAA<span class="tool-version">axe-core and pa11y</span></th>
+            <td class="retest">34%</td>
+            <td class="retest">47%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">Retest, 30 added A and AA test cases only<span class="tool-version">axe-core and pa11y</span></th>
+            <td class="retest">10%</td>
+            <td class="retest">23%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">Retest, 22 added AAA test cases only<span class="tool-version">axe-core and pa11y</span></th>
+            <td class="retest">0%</td>
+            <td class="retest">9%</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+      <h3>Each tool</h3>
+
       
       
       <table class="numeric-results percentage-summary retest-results">
