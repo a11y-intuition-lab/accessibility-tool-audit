@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Accessibility tools audit results - {% block pagetitle %}{% endblock %} - GDS accessibility team</title>
+  <title>Accessibility tools audit results - {% block pagetitle %}{% endblock %} - independent copy of the GDS audit</title>
   <link rel="stylesheet" href="assets/stylesheets/application.css" />
   {% block stylesheets %}{% endblock %}
   {% block scripts %}{% endblock %}
@@ -18,6 +18,14 @@
       </div>
     </div>
   </header>
+
+  <div class="copy-notice" role="region" aria-label="About this copy">
+    <p>
+      This is an independent copy of the <a href="{{ copyInfo.originalSite }}">accessibility tool audit</a> by the Government Digital Service (GDS).
+      Text that says &ldquo;we&rdquo; or &ldquo;our&rdquo; is from GDS.
+      The retest and the added test cases were made in <a href="{{ copyInfo.repo }}">this copy</a> and were not carried out, reviewed or endorsed by GDS.
+    </p>
+  </div>
 
   {% block content %}{% endblock %}
 

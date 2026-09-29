@@ -24,17 +24,7 @@
 
       <p>The full project is available on <a href="https://github.com/alphagov/accessibility-tool-audit">Github</a>. We welcome contributions.</p>
 
-      {% if analysis.retest %}
-      <div class="panel panel-border-wide retest-summary">
-        <p>
-          <strong>Retest, {{ analysis.retest.date }}:</strong>
-          we added {{ analysis.retest.totals.added }} test cases for WCAG 2.0, 2.1 and 2.2 success criteria that the original audit did not cover, and ran all {{ analysis.retest.totals.all }} test cases through current versions of {% for key, tool in analysis.retest.tools %}{{ tool.name }}{% if not loop.last %} and {% endif %}{% endfor %}.
-          The original results below are unchanged. <a href="#retest">See the retest results</a>.
-        </p>
-      </div>
-      {% endif %}
-
-      <h2>What we found in the original audit</h2>
+      <h2>What we found</h2>
 
       <p>We scored each tool for two things.</p>
 
@@ -77,14 +67,19 @@
       <p><small>Last updated: {{ changes.last_updated }}</small></p>
 
       {% if analysis.retest %}
-      <h2 id="retest">Retest with WCAG 2.2 test cases</h2>
+      <section class="retest-section" aria-labelledby="retest">
+      <h2 id="retest">Retest with WCAG 2.2 test cases <span class="new-tag">Not by GDS</span></h2>
 
       <p>
-        On {{ analysis.retest.date }} we ran every test case through
+        This section was added in <a href="{{ copyInfo.repo }}">this copy of the audit</a>. GDS did not carry out, review or endorse it.
+      </p>
+
+      <p>
+        On {{ analysis.retest.date }} every test case was run through
         {% for key, tool in analysis.retest.tools -%}
           <a href="{{ retestTools[key].url }}">{{ tool.name }} {{ tool.version }}</a>{% if tool.runner %} ({{ tool.runner }}){% endif %}{% if not loop.last %} and {% endif %}
         {%- endfor %}.
-        This retest was not carried out by GDS. It uses the same result types as the original audit.
+        The results use the same result types as the original audit.
       </p>
 
       <p>
@@ -125,6 +120,9 @@
       {% endfor %}
 
       <p>Many of the added test cases cover success criteria that need a person to check them, such as timing, consistency across pages and use of language. Low numbers for the added test cases are expected.</p>
+
+      <p>The retest results are proposals based on the tools&rsquo; output and have not all been checked by hand yet. <a href="{{ copyInfo.repo }}/tree/gh-pages/results">Raw results</a> are available.</p>
+      </section>
       {% endif %}
 
       <h3>How do features compare?</h3>

@@ -507,6 +507,41 @@ h3 {
 $retest-background: #e8f1f8;
 $retest-border: #1d70b8;
 
+// Tells readers this is a copy, and that "we" in the text means GDS
+.copy-notice {
+  @extend %site-width-container;
+  margin-top: 15px;
+
+  p {
+    margin: 0;
+    padding: 10px 15px;
+    background-color: $retest-background;
+    border-left: 5px solid $retest-border;
+  }
+}
+
+.retest-section {
+  margin: 30px 0;
+  padding: 5px 20px 10px;
+  background-color: $retest-background;
+  border-left: 5px solid $retest-border;
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  // The tables sit on the section background, so only the original column needs its own colour
+  .retest-results th,
+  .retest-results td {
+    background-color: transparent;
+  }
+
+  .retest-results th:nth-child(2),
+  .retest-results td:nth-child(2) {
+    background-color: #ffffff;
+  }
+}
+
 table.retest-results {
   width: 100%;
   max-width: 40em;

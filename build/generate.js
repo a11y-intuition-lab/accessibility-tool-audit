@@ -105,6 +105,13 @@ var retestTools = {
   }
 }
 
+// This copy of the audit and the original, used to tell the two apart on every page
+var copyInfo = {
+  repo: "https://github.com/dagfrode/accessibility-tool-audit",
+  originalRepo: "https://github.com/alphagov/accessibility-tool-audit",
+  originalSite: "https://alphagov.github.io/accessibility-tool-audit/"
+}
+
 function getFilename( catname, testname ){
     var filename = [catname.toLowerCase(), testname.toLowerCase()]
                       .join('-')
@@ -145,7 +152,8 @@ function generateFiles(){
     ? JSON.parse(fs.readFileSync(paths.retestJson).toString())
     : null;
 
-  nunjucks.configure(paths.templates);
+  var env = nunjucks.configure(paths.templates);
+  env.addGlobal('copyInfo', copyInfo);
 
   // Generate index
   var indexout = nunjucks.render('index.html', {
