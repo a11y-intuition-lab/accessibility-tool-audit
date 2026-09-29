@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Users are not warned about an inactivity timeout - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Users are not warned about an inactivity timeout</h1>
+  <main>
+    <form class="silent-timeout">
+  <label for="silent-timeout-message">Your message</label>
+  <textarea id="silent-timeout-message" rows="4" cols="40"></textarea>
+  <button type="submit">Send</button>
+</form>
+<p>After 20 minutes without activity the message is cleared. Users are not told about this.</p>
+  </main>
+</body>
+</html>

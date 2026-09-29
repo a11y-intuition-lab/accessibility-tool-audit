@@ -6,7 +6,7 @@
   <title>Accessibility tools audit results - Results - GDS accessibility team</title>
   <link rel="stylesheet" href="assets/stylesheets/application.css" />
   
-  
+  <script src="assets/javascript/filter.js" defer></script>
 </head>
 <body class="results">
   <header id="global-header" role="banner">
@@ -36,12 +36,12 @@
   <div class="grid-row">
     <p class="data column-third">
       <span class="data-item bold-xxlarge">142</span>
-      <span class="data-item bold-xsmall">test cases</span>
+      <span class="data-item bold-xsmall">test cases in the original audit</span>
     </p>
 
     <p class="data column-third">
       <span class="data-item bold-xxlarge">13</span>
-      <span class="data-item bold-xsmall">tools tested</span>
+      <span class="data-item bold-xsmall">tools tested in the original audit</span>
     </p>
 
     <p class="data column-third">
@@ -104,13 +104,57 @@
     </div>
   </div>
 
+  
+  <div class="grid-row">
+    <p class="data column-third">
+      <span class="data-item bold-xxlarge">52</span>
+      <span class="data-item bold-xsmall">test cases added for WCAG 2.0 to 2.2, levels A to AAA</span>
+    </p>
+
+    <p class="data column-third">
+      <span class="data-item bold-xxlarge">2</span>
+      <span class="data-item bold-xsmall">tools retested on 2026-09-29</span>
+    </p>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h2>Original audit and retest</h2>
+      <p>The table has two groups of columns:</p>
+      <ul class="list list-bullet">
+        <li><strong>Original audit</strong>: the results GDS published in 2017 and updated until 13 April 2018. These have not been changed.</li>
+        <li class="retest-legend"><strong>Retest</strong>: results from running axe-core 4.13.0 and pa11y 10.0.0 (HTML_CodeSniffer 2.6.0) on 2026-09-29. This was not carried out by GDS.</li>
+      </ul>
+      <p>Test cases added after the original audit are marked with the WCAG success criterion they fail. They were not part of the original audit, so only the retest has results for them.</p>
+    </div>
+  </div>
+
+  <fieldset class="filter" data-filter-for="results-table" hidden>
+    <legend>Show test cases</legend>
+    <label><input type="checkbox" value="original" checked/> Original audit test cases</label>
+    <label><input type="checkbox" value="A" checked/> Added, level A</label>
+    <label><input type="checkbox" value="AA" checked/> Added, level AA</label>
+    <label><input type="checkbox" value="AAA" checked/> Added, level AAA</label>
+    <p class="filter-count" aria-live="polite"></p>
+  </fieldset>
+  
+
   <table id="results-table">
     <caption>
       Table of results
     </caption>
+    <colgroup span="2"></colgroup>
+    <colgroup span="13" class="original-audit"></colgroup>
+    <colgroup span="2" class="retest"></colgroup>
     <thead>
       <tr>
+        <td colspan="2"></td>
+        <th scope="colgroup" colspan="13">Original audit (GDS, 2017 to 2018)</th>
+        <th scope="colgroup" colspan="2" class="retest">Retest (2026-09-29)</th>
+      </tr>
+      <tr>
         <th scope="col">Test case</th>
+        <th scope="col">WCAG</th>
         <th scope="col">
           <a href="https://github.com/GoogleChrome/accessibility-developer-tools">Google Accessi&shy;bility Developer Tools</a>
         </th>
@@ -138,16 +182,35 @@
           </a>
         </th>
         <th scope="col"><a href="https://www.aslint.org/">AS&shy;Lint</a></th>
+        
+          
+            <th scope="col" class="retest">
+              <a href="https://github.com/dequelabs/axe-core">axe-core</a>
+              <span class="tool-version">4.13.0</span>
+            </th>
+          
+            <th scope="col" class="retest">
+              <a href="https://pa11y.org/">pa11y</a>
+              <span class="tool-version">10.0.0, HTML_CodeSniffer 2.6.0</span>
+            </th>
+          
+        
       </tr>
     </thead>
     <tbody>
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#content-content-identified-by-location">
                 Content identified by location
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -187,14 +250,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#content-plain-language-is-not-used">
                 Plain language is not used
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -234,14 +317,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#content-content-is-not-in-correct-reading-order-in-source-code">
                 Content is not in correct reading order in source code
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -281,14 +384,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms">
                 Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -328,14 +451,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#content-first-instance-of-abbreviation-not-expanded">
                 First instance of abbreviation not expanded
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -375,16 +518,100 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#content-idioms-and-jargon-are-not-explained">
+                Idioms and jargon are not explained
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.1.3 Unusual Words<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#content-meaning-depends-on-pronunciation-that-is-not-given">
+                Meaning depends on pronunciation that is not given
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.1.6 Pronunciation<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#page-layout-wide-page-forces-users-to-scroll-horizontally">
                 Wide page forces users to scroll horizontally
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -424,16 +651,68 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#page-layout-content-is-locked-to-one-display-orientation">
+                Content is locked to one display orientation
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.3.4 Orientation<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#colour-and-contrast-colour-alone-is-used-to-convey-content">
                 Colour alone is used to convey content
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -473,14 +752,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa">
                 Small text does not have a contrast ratio of at least 4.5:1 so does not meet AA
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -520,14 +819,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa">
                 Large text does not have a contrast ratio of at least 3:1 so does not meet AA
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -567,14 +886,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa">
                 Small text does not have a contrast ratio of at least 7:1 so does not meet AAA
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -614,14 +953,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa">
                 Large text does not have a contrast ratio of at least 4.5:1 so does not meet AAA
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -661,14 +1020,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#colour-and-contrast-focus-not-visible">
                 Focus not visible
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -708,16 +1087,100 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#colour-and-contrast-form-field-border-does-not-have-a-contrast-ratio-of-at-least-31">
+                Form field border does not have a contrast ratio of at least 3:1
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.11 Non-text Contrast<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#colour-and-contrast-icon-only-button-does-not-have-a-contrast-ratio-of-at-least-31">
+                Icon-only button does not have a contrast ratio of at least 3:1
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.11 Non-text Contrast<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#typography-inadequate-line-height-used">
                 Inadequate line height used
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -757,14 +1220,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#typography-all-caps-text-found">
                 All caps text found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -804,14 +1287,34 @@
             <td class="warning">
               Warning only
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#typography-blink-element-found">
                 Blink element found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -851,14 +1354,34 @@
             <td class="warning">
               Warning only
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#typography-italics-used-on-long-sections-of-text">
                 Italics used on long sections of text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -898,14 +1421,34 @@
             <td class="warning">
               Warning only
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#typography-marquee-element-found">
                 Marquee element found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -945,14 +1488,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#typography-long-lines-of-text">
                 Long lines of text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -992,14 +1555,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#typography-very-small-text-found">
                 Very small text found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1039,14 +1622,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#typography-justified-text-found">
                 Justified text found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1086,16 +1689,36 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-text-language-changed-without-required-change-in-direction">
                 Text language changed without required change in direction
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1135,14 +1758,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-html-element-has-an-empty-lang-attribute">
                 html element has an empty lang attribute
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -1182,14 +1825,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-lang-attribute-not-used-to-identify-change-of-language">
                 lang attribute not used to identify change of language
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1229,14 +1892,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-text-language-is-in-the-wrong-direction">
                 Text language is in the wrong direction
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1276,14 +1959,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute">
                 html element has an invalid value in the lang attribute
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1323,14 +2026,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value">
                 lang attribute used to identify change of language, but with invalid value
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1370,14 +2093,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-html-element-is-missing-a-lang-attribute">
                 html element is missing a lang attribute
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -1417,14 +2160,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-html-element-has-lang-attribute-set-to-wrong-language">
                 html element has lang attribute set to wrong language
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1464,14 +2227,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language">
                 lang attribute used to identify change of language, but with wrong language
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1511,16 +2294,36 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#page-title-inappropriate-page-title">
                 Inappropriate page title
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1560,14 +2363,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#page-title-empty-page-title">
                 Empty page title
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -1607,14 +2430,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#page-title-missing-page-title">
                 Missing page title
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -1654,16 +2497,36 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#headings-empty-heading">
                 Empty heading
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1703,14 +2566,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#headings-missing-h1">
                 Missing H1
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1750,14 +2633,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#headings-text-formatting-used-instead-of-an-actual-heading">
                 Text formatting used instead of an actual heading
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1797,14 +2700,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#headings-headings-not-structured-in-a-hierarchical-manner">
                 Headings not structured in a hierarchical manner
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1844,16 +2767,36 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#lists-li-element-with-no-parent">
                 LI element with no parent
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1893,14 +2836,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#lists-list-not-marked-up-as-a-list">
                 List not marked up as a list
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1940,14 +2903,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element">
                 DT or DD elements that are not contained within a DL element
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -1987,14 +2970,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#lists-improperly-nested-lists">
                 Improperly nested lists
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2034,16 +3037,36 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-with-column-headers-and-double-row-headers">
                 Table with column headers and double row headers
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2083,14 +3106,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-has-no-scope-attributes">
                 Table has no scope attributes
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2130,14 +3173,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-nested-within-table-header">
                 Table nested within table header
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2177,14 +3240,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-nested-within-table">
                 Table nested within table
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2224,14 +3307,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-has-no-table-headings">
                 Table has no table headings
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -2271,14 +3374,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-with-inconsistent-numbers-of-columns-in-rows">
                 Table with inconsistent numbers of columns in rows
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2318,14 +3441,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-that-only-has-th-elements-in-it">
                 Table that only has TH elements in it
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2365,14 +3508,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-is-missing-a-caption">
                 Table is missing a caption
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2412,14 +3575,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-used-for-layout">
                 Table used for layout
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2459,14 +3642,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-has-an-empty-table-header">
                 Table has an empty table header
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2506,14 +3709,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#tables-table-with-some-empty-cells">
                 Table with some empty cells
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2553,16 +3776,36 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-image-has-alt-and-title-that-are-different">
                 Image has alt and title that are different
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2602,14 +3845,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-image-with-presentation-role-has-non-empty-alt">
                 Image with presentation role has non-empty alt
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2649,14 +3912,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-image-with-no-alt-attribute">
                 Image with no alt attribute
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -2696,14 +3979,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-background-image-that-conveys-information-does-not-have-a-text-alternative">
                 Background image that conveys information does not have a text alternative
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2743,14 +4046,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-image-has-empty-alt-and-non-empty-title">
                 Image has empty alt and non-empty title
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2790,14 +4113,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-a-distraction-is-present-an-animated-gif">
                 A distraction is present, an animated gif
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2837,14 +4180,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-image-that-conveys-information-has-an-empty-alt-attribute">
                 Image that conveys information has an empty alt attribute
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2884,14 +4247,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-image-that-conveys-information-has-inappropriate-alt-text">
                 Image that conveys information has inappropriate alt text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2931,14 +4314,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-image-alt-attribute-contains-image-file-name">
                 Image alt attribute contains image file name
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -2978,14 +4381,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#images-image-with-partial-text-alternative">
                 Image with partial text alternative
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3025,16 +4448,100 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#images-image-of-text-used-instead-of-text">
+                Image of text used instead of text
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.5 Images of Text<br/>
+                Level AA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#images-image-of-text-used-for-a-quotation">
+                Image of text used for a quotation
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.9 Images of Text (No Exception)<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#multimedia-embedded-video-file-is-missing-text-alternative">
                 Embedded video file is missing text alternative
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3074,14 +4581,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#multimedia-flashing-content-doesnt-have-warning">
                 Flashing content doesn&#39;t have warning
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3121,14 +4648,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#multimedia-embedded-audio-file-is-missing-text-alternative">
                 Embedded audio file is missing text alternative
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3168,16 +4715,228 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#multimedia-live-video-stream-has-no-captions">
+                Live video stream has no captions
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.2.4 Captions (Live)<br/>
+                Level AA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#multimedia-video-has-no-sign-language-interpretation">
+                Video has no sign language interpretation
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.2.6 Sign Language (Prerecorded)<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#multimedia-video-has-no-extended-audio-description">
+                Video has no extended audio description
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.2.7 Extended Audio Description (Prerecorded)<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#multimedia-live-audio-stream-has-no-text-alternative">
+                Live audio stream has no text alternative
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.2.9 Audio-only (Live)<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#multimedia-audio-plays-automatically-with-no-way-to-stop-it">
+                Audio plays automatically with no way to stop it
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.2 Audio Control<br/>
+                Level A, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#multimedia-speech-has-loud-background-music">
+                Speech has loud background music
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.7 Low or No Background Audio<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-image-link-with-no-alternative-text">
                 Image link with no alternative text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -3217,14 +4976,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-to-javascript-invalid-hypertext-reference">
                 Link to javascript, invalid hypertext reference
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3264,14 +5043,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-uninformative-link-text">
                 Uninformative link text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3311,14 +5110,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-launches-new-window-with-no-warning">
                 Link launches new window with no warning
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3358,14 +5177,34 @@
             <td class="warning">
               Warning only
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-links-not-separated-by-printable-characters">
                 Links not separated by printable characters
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3405,14 +5244,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-text-with-identical-title">
                 Link text with identical title
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3452,14 +5311,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-links-to-a-sound-file-no-transcript">
                 Links to a sound file, no transcript
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3499,14 +5378,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-identifying-links-by-colour-alone">
                 Identifying links by colour alone
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3546,14 +5445,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-to-pdf-does-not-include-information-on-file-format-and-file-size">
                 Link to PDF does not include information on file format and file size
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3593,14 +5512,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-to-,-invalid-hypertext-reference">
                 Link to #, invalid hypertext reference
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3640,14 +5579,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-blank-link-text">
                 Blank link text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -3687,14 +5646,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-links-with-the-same-text-go-to-different-pages">
                 Links with the same text go to different pages
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3734,14 +5713,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-text-does-not-make-sense-out-of-context">
                 Link text does not make sense out of context
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -3781,14 +5780,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-adjacent-links-going-to-the-same-destination">
                 Adjacent links going to the same destination
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3828,14 +5847,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-contains-only-a-full-stop">
                 Link contains only a full stop
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -3875,14 +5914,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-image-link-alt-text-repeats-text-in-the-link">
                 Image link alt text repeats text in the link
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3922,14 +5981,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text">
                 Link not clearly identifiable and distinguishable from surrounding text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -3969,14 +6048,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-to-a-multimedia-file-no-transcript">
                 Link to a multimedia file, no transcript
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4016,14 +6115,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-non-specific-link-text">
                 Non-specific link text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -4063,14 +6182,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#links-link-to-an-image-no-text-alternative">
                 Link to an image, no text alternative
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4110,16 +6249,36 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#buttons-image-button-has-no-alt-attribute">
                 Image button has no alt attribute
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -4159,14 +6318,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#buttons-empty-button">
                 Empty button
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -4206,14 +6385,34 @@
             <td class="identified">
               Noticed but not a fail
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#buttons-uninformative-alt-attribute-value-on-image-button">
                 Uninformative alt attribute value on image button
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4253,14 +6452,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#buttons-empty-alt-attribute-on-image-button">
                 Empty alt attribute on image button
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4300,16 +6519,36 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-errors-identified-by-colour-only">
                 Errors identified by colour only
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4349,14 +6588,34 @@
             <td class="manual">
               User to check
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls">
                 Labels missing when they would look clumsy for some form controls
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4396,14 +6655,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format">
                 Error messages - no suggestion for corrections given, e.g. required format
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4443,14 +6722,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-left-aligned-form-labels-with-too-much-white-space">
                 Left aligned form labels with too much white space
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4490,14 +6789,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-group-of-radio-buttons-not-enclosed-in-a-fieldset">
                 Group of radio buttons not enclosed in a fieldset
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4537,14 +6856,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-form-element-has-no-label">
                 Form element has no label
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -4584,14 +6923,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-fieldset-without-a-legend">
                 Fieldset without a legend
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4631,14 +6990,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-empty-legend">
                 Empty legend
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4678,14 +7057,34 @@
             <td class="identified">
               Noticed but not a fail
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control">
                 Label element with for= attribute but not matching id= attribute of form control
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -4725,14 +7124,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-group-of-check-boxes-not-enclosed-in-a-fieldset">
                 Group of check boxes not enclosed in a fieldset
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4772,14 +7191,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-empty-label-found">
                 Empty label found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4819,14 +7258,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-two-unique-labels-but-identical-for=-attributes">
                 Two unique labels, but identical for= attributes
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4866,14 +7325,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-errors-identified-with-a-poor-colour-contrast">
                 Errors identified with a poor colour contrast
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="warning">
               Warning only
             </td>
@@ -4913,14 +7392,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-non-unique-field-label-found">
                 Non-unique field label found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -4960,14 +7459,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-missing-labels-in-checkboxes">
                 Missing labels in checkboxes
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -5007,14 +7526,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-field-hint-not-associated-with-input">
                 Field hint not associated with input
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5054,14 +7593,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-placeholder-no-label">
                 Placeholder no label
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -5101,14 +7660,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-errors-are-not-identified">
                 Errors are not identified
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5148,14 +7727,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#forms-form-control-that-changes-context-without-warning">
                 Form control that changes context without warning
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5195,16 +7794,356 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#forms-input-purpose-is-not-identified">
+                Input purpose is not identified
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.3.5 Identify Input Purpose<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#forms-autocomplete-attribute-has-an-invalid-value">
+                Autocomplete attribute has an invalid value
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.3.5 Identify Input Purpose<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#forms-status-message-is-not-announced-to-assistive-technologies">
+                Status message is not announced to assistive technologies
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                4.1.3 Status Messages<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#forms-information-entered-earlier-must-be-entered-again">
+                Information entered earlier must be entered again
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.3.7 Redundant Entry<br/>
+                Level A, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#forms-pasting-into-the-password-field-is-blocked">
+                Pasting into the password field is blocked
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.3.8 Accessible Authentication (Minimum)<br/>
+                Level AA, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#forms-focusing-a-field-opens-a-new-window">
+                Focusing a field opens a new window
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.2.1 On Focus<br/>
+                Level A, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#forms-payment-is-taken-without-a-chance-to-check-or-cancel">
+                Payment is taken without a chance to check or cancel
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.3.4 Error Prevention (Legal, Financial, Data)<br/>
+                Level AA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#forms-no-help-is-available-for-a-complex-field">
+                No help is available for a complex field
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.3.5 Help<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#forms-submitting-a-form-cannot-be-checked-confirmed-or-reversed">
+                Submitting a form cannot be checked, confirmed or reversed
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.3.6 Error Prevention (All)<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#forms-sign-in-requires-recognising-objects-in-pictures">
+                Sign in requires recognising objects in pictures
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.3.9 Accessible Authentication (Enhanced)<br/>
+                Level AAA, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#navigation-inadequately-sized-clickable-targets-found">
                 Inadequately-sized clickable targets found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5244,16 +8183,228 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#navigation-help-link-is-in-a-different-place-on-each-page">
+                Help link is in a different place on each page
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.2.6 Consistent Help<br/>
+                Level A, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#navigation-no-way-to-skip-repeated-navigation">
+                No way to skip repeated navigation
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.4.1 Bypass Blocks<br/>
+                Level A, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#navigation-pages-can-only-be-found-in-one-way">
+                Pages can only be found in one way
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.4.5 Multiple Ways<br/>
+                Level AA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#navigation-no-indication-of-where-the-user-is-in-the-site">
+                No indication of where the user is in the site
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.4.8 Location<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#navigation-navigation-is-in-a-different-order-on-each-page">
+                Navigation is in a different order on each page
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.2.3 Consistent Navigation<br/>
+                Level AA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#navigation-the-same-function-has-different-labels-on-different-pages">
+                The same function has different labels on different pages
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                3.2.4 Consistent Identification<br/>
+                Level AA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-alert-shows-for-a-short-time">
                 Alert shows for a short time
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5293,14 +8444,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-lightbox-close-button-doesnt-receive-focus">
                 Lightbox - close button doesn&#39;t receive focus
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5340,14 +8511,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-focus-order-in-wrong-order">
                 Focus order in wrong order
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5387,14 +8578,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-tabindex-greater-than-0">
                 Tabindex greater than 0
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -5434,14 +8645,34 @@
             <td class="warning">
               Warning only
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-keyboard-focus-is-not-indicated-visually">
                 Keyboard focus is not indicated visually
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5481,14 +8712,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0">
                 Keyboard focus assigned to a non focusable element using tabindex=0
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5528,14 +8779,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-concertina-items-dont-get-keyboard-focus">
                 Concertina items don&#39;t get keyboard focus
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5575,14 +8846,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-keyboard-trap">
                 Keyboard trap
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5622,14 +8913,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus">
                 Dropdown navigation - only the top level items receive focus
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5669,14 +8980,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox">
                 Lightbox - ESC key doesn&#39;t close the lightbox
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5716,14 +9047,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar">
                 Link with a role=button does not work with space bar
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5763,14 +9114,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-tooltips-dont-receive-keyboard-focus">
                 Tooltips don&#39;t receive keyboard focus
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5810,14 +9181,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-accesskey-attribute-used">
                 Accesskey attribute used
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5857,14 +9248,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox">
                 Lightbox - focus is not moved immediately to lightbox
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5904,14 +9315,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox">
                 Lightbox - focus is not retained within the lightbox
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5951,14 +9382,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#keyboard-access-fake-button-is-not-keyboard-accessible">
                 Fake button is not keyboard accessible
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -5998,16 +9449,196 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#keyboard-access-single-character-keyboard-shortcut-cannot-be-turned-off-or-remapped">
+                Single character keyboard shortcut cannot be turned off or remapped
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.1.4 Character Key Shortcuts<br/>
+                Level A, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#keyboard-access-focused-link-is-hidden-behind-a-sticky-footer">
+                Focused link is hidden behind a sticky footer
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.4.11 Focus Not Obscured (Minimum)<br/>
+                Level AA, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#keyboard-access-signature-can-only-be-drawn-with-a-pointer">
+                Signature can only be drawn with a pointer
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.1.3 Keyboard (No Exception)<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#keyboard-access-focused-link-is-partly-hidden-by-a-chat-widget">
+                Focused link is partly hidden by a chat widget
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.4.12 Focus Not Obscured (Enhanced)<br/>
+                Level AAA, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#keyboard-access-focus-indicator-is-too-thin-and-has-low-contrast">
+                Focus indicator is too thin and has low contrast
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.4.13 Focus Appearance<br/>
+                Level AAA, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#frames-iframe-is-missing-a-title-attribute">
                 iframe is missing a title attribute
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6047,14 +9678,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe">
                 iframe title attribute does not describe the content or purpose of the iframe
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6094,16 +9745,36 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#css-content-is-not-readable-and-functional-when-text-is-increased">
                 Content is not readable and functional when text is increased
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6143,14 +9814,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#css-non-decorative-content-inserted-using-css">
                 Non-decorative content inserted using CSS
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6190,14 +9881,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader">
                 visibility:hidden used to visually hide content when it should be available to screenreader
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6237,14 +9948,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader">
                 display:none used to visually hide content when it should be available to screenreader
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6284,14 +10015,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#css-page-zoom-boxes-that-dont-expand-with-the-text">
                 Page zoom - boxes that don&#39;t expand with the text
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6331,16 +10082,100 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#css-content-is-clipped-when-text-spacing-is-increased">
+                Content is clipped when text spacing is increased
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.12 Text Spacing<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#css-text-spacing-cannot-be-overridden-because-of-important-inline-styles">
+                Text spacing cannot be overridden because of important inline styles
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.12 Text Spacing<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
       
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-duplicate-id">
                 Duplicate id
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              <span class="test-note">Success criterion 4.1.1 Parsing was removed in WCAG 2.2.</span>
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6380,14 +10215,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.">
                 Article element used to mark-up an element that&#39;s not an article/blog post etc.
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6427,14 +10282,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-empty-paragraph">
                 Empty paragraph
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6474,14 +10349,34 @@
             <td class="identified">
               Noticed but not a fail
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-deprecated-center-element">
                 Deprecated center element
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6521,14 +10416,34 @@
             <td class="warning">
               Warning only
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-invalid-aria-role-names">
                 Invalid ARIA role names
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="error">
               Issue found
             </td>
@@ -6568,14 +10483,34 @@
             <td class="error">
               Issue found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window">
                 Object not embedded accessibly - wmode parameter not set to window
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6615,14 +10550,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-spacer-image-found">
                 Spacer image found
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6662,14 +10617,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-inline-style-adds-colour">
                 Inline style adds colour
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6709,14 +10684,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-start-and-close-tags-dont-match">
                 Start and close tags don&#39;t match
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              <span class="test-note">Success criterion 4.1.1 Parsing was removed in WCAG 2.2.</span>
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6756,14 +10751,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-pre-element-without-code-element-inside-it">
                 PRE element without CODE element inside it
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6803,14 +10818,34 @@
             <td class="notfound">
               Not found
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
           </tr>
         
-          <tr>
+          <tr data-filter="original">
             <th>
               <a href="test-cases.html#html-deprecated-font-element">
                 Deprecated font element
               </a>
+              
             </th>
+            <td class="wcag-criterion">
+              
+              
+            </td>
+            
             <td class="notfound">
               Not found
             </td>
@@ -6850,6 +10885,540 @@
             <td class="warning">
               Warning only
             </td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#html-purpose-of-regions-cannot-be-programmatically-determined">
+                Purpose of regions cannot be programmatically determined
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.3.6 Identify Purpose<br/>
+                Level AAA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
+          </tr>
+        
+
+      
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#content-on-hover-or-focus-tooltip-cannot-be-dismissed-without-moving-the-pointer-or-focus">
+                Tooltip cannot be dismissed without moving the pointer or focus
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.13 Content on Hover or Focus<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#content-on-hover-or-focus-tooltip-disappears-when-the-pointer-is-moved-over-it">
+                Tooltip disappears when the pointer is moved over it
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                1.4.13 Content on Hover or Focus<br/>
+                Level AA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+
+      
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#pointer-and-motion-carousel-can-only-be-changed-with-a-swipe-gesture">
+                Carousel can only be changed with a swipe gesture
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.5.1 Pointer Gestures<br/>
+                Level A, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#pointer-and-motion-action-is-triggered-on-pointer-down">
+                Action is triggered on pointer down
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.5.2 Pointer Cancellation<br/>
+                Level A, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#pointer-and-motion-accessible-name-does-not-contain-the-visible-label">
+                Accessible name does not contain the visible label
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.5.3 Label in Name<br/>
+                Level A, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest manual">User to check</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="A">
+            <th>
+              <a href="test-cases.html#pointer-and-motion-function-can-only-be-operated-by-shaking-the-device">
+                Function can only be operated by shaking the device
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.5.4 Motion Actuation<br/>
+                Level A, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#pointer-and-motion-list-can-only-be-reordered-by-dragging">
+                List can only be reordered by dragging
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.5.7 Dragging Movements<br/>
+                Level AA, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AA">
+            <th>
+              <a href="test-cases.html#pointer-and-motion-clickable-targets-are-smaller-than-24-by-24-css-pixels">
+                Clickable targets are smaller than 24 by 24 CSS pixels
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.5.8 Target Size (Minimum)<br/>
+                Level AA, WCAG 2.2
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest error">Issue found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#pointer-and-motion-mouse-input-is-ignored-on-devices-with-a-touch-screen">
+                Mouse input is ignored on devices with a touch screen
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.5.6 Concurrent Input Mechanisms<br/>
+                Level AAA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+
+      
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#timing-task-has-a-time-limit">
+                Task has a time limit
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.2.3 No Timing<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#timing-updates-interrupt-the-user-and-cannot-be-postponed">
+                Updates interrupt the user and cannot be postponed
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.2.4 Interruptions<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#timing-data-is-lost-when-the-session-expires">
+                Data is lost when the session expires
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.2.5 Re-authenticating<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#timing-users-are-not-warned-about-an-inactivity-timeout">
+                Users are not warned about an inactivity timeout
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.2.6 Timeouts<br/>
+                Level AAA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+
+      
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#animation-and-flashing-content-flashes-more-than-three-times-in-one-second">
+                Content flashes more than three times in one second
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.3.2 Three Flashes<br/>
+                Level AAA, WCAG 2.0
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
+          </tr>
+        
+          <tr data-filter="AAA">
+            <th>
+              <a href="test-cases.html#animation-and-flashing-motion-animation-triggered-by-interaction-cannot-be-turned-off">
+                Motion animation triggered by interaction cannot be turned off
+              </a>
+              <strong class="new-tag">Added</strong>
+            </th>
+            <td class="wcag-criterion">
+              
+                2.3.3 Animation from Interactions<br/>
+                Level AAA, WCAG 2.1
+              
+              
+            </td>
+            
+            <td colspan="13" class="nottested">Not part of the original audit</td>
+            
+            
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+                
+                
+                  <td class="retest notfound">Not found</td>
+                
+              
+            
           </tr>
         
 
@@ -6860,6 +11429,13 @@
   <h2 id="changelog">Changelog</h2>
 
   <ol class="summary-data">
+    
+      <li>
+        <time class="timestamp">29 September 2026</time>
+        
+          Added 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria up to level AAA, and retested all test cases with current versions of axe-core and pa11y. Original results are unchanged.
+        
+      </li>
     
       <li>
         <time class="timestamp">13 April 2018</time>
@@ -6988,6 +11564,7 @@
     <a href="https://github.com/alphagov/accessibility-tool-audit/blob/gh-pages/tests.json">raw data</a>
     and
     <a href="https://github.com/alphagov/accessibility-tool-audit/blob/gh-pages/analysis.json">analysis</a>.
+    The retest results are in <code>retest.json</code>, with the raw findings for each tool in the <code>results</code> folder.
   </p>
 
 </main>

@@ -1,0 +1,792 @@
+{
+  "date": "2026-09-29",
+  "tools": {
+    "axe": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "pa11y": {
+      "name": "pa11y",
+      "version": "10.0.0",
+      "runner": "HTML_CodeSniffer 2.6.0"
+    }
+  },
+  "results": {
+    "Content identified by location": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Plain language is not used": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Content is not in correct reading order in source code": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "First instance of abbreviation not expanded": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Idioms and jargon are not explained": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Meaning depends on pronunciation that is not given": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Wide page forces users to scroll horizontally": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Content is locked to one display orientation": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Colour alone is used to convey content": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Small text does not have a contrast ratio of at least 4.5:1 so does not meet AA": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Large text does not have a contrast ratio of at least 3:1 so does not meet AA": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Small text does not have a contrast ratio of at least 7:1 so does not meet AAA": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Large text does not have a contrast ratio of at least 4.5:1 so does not meet AAA": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Focus not visible": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Form field border does not have a contrast ratio of at least 3:1": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Icon-only button does not have a contrast ratio of at least 3:1": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Inadequate line height used": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "All caps text found": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Blink element found": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Italics used on long sections of text": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Marquee element found": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Long lines of text": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Very small text found": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Justified text found": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Text language changed without required change in direction": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "html element has an empty lang attribute": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "lang attribute not used to identify change of language": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Text language is in the wrong direction": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "html element has an invalid value in the lang attribute": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "lang attribute used to identify change of language, but with invalid value": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "html element is missing a lang attribute": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "html element has lang attribute set to wrong language": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "lang attribute used to identify change of language, but with wrong language": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Inappropriate page title": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Empty page title": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Missing page title": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Empty heading": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Missing H1": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Text formatting used instead of an actual heading": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Headings not structured in a hierarchical manner": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "LI element with no parent": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "List not marked up as a list": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "DT or DD elements that are not contained within a DL element": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Improperly nested lists": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Table with column headers and double row headers": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Table has no scope attributes": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Table nested within table header": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Table nested within table": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Table has no table headings": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Table with inconsistent numbers of columns in rows": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Table that only has TH elements in it": {
+      "axe": "manual",
+      "pa11y": "manual"
+    },
+    "Table is missing a caption": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Table used for layout": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Table has an empty table header": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Table with some empty cells": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image has alt and title that are different": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image with presentation role has non-empty alt": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Image with no alt attribute": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Background image that conveys information does not have a text alternative": {
+      "axe": "manual",
+      "pa11y": "manual"
+    },
+    "Image has empty alt and non-empty title": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "A distraction is present, an animated gif": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image that conveys information has an empty alt attribute": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Image that conveys information has inappropriate alt text": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image alt attribute contains image file name": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image with partial text alternative": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image of text used instead of text": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image of text used for a quotation": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Embedded video file is missing text alternative": {
+      "axe": "manual",
+      "pa11y": "notfound"
+    },
+    "Flashing content doesn't have warning": {
+      "axe": "manual",
+      "pa11y": "notfound"
+    },
+    "Embedded audio file is missing text alternative": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Live video stream has no captions": {
+      "axe": "manual",
+      "pa11y": "notfound"
+    },
+    "Video has no sign language interpretation": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Video has no extended audio description": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Live audio stream has no text alternative": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Audio plays automatically with no way to stop it": {
+      "axe": "manual",
+      "pa11y": "notfound"
+    },
+    "Speech has loud background music": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image link with no alternative text": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Link to javascript, invalid hypertext reference": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Uninformative link text": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Link launches new window with no warning": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Links not separated by printable characters": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Link text with identical title": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Links to a sound file, no transcript": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Identifying links by colour alone": {
+      "axe": "error",
+      "pa11y": "manual"
+    },
+    "Link to PDF does not include information on file format and file size": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Link to #, invalid hypertext reference": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Blank link text": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Links with the same text go to different pages": {
+      "axe": "manual",
+      "pa11y": "notfound"
+    },
+    "Link text does not make sense out of context": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Adjacent links going to the same destination": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Link contains only a full stop": {
+      "axe": "manual",
+      "pa11y": "notfound"
+    },
+    "Image link alt text repeats text in the link": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Link not clearly identifiable and distinguishable from surrounding text": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Link to a multimedia file, no transcript": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Non-specific link text": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Link to an image, no text alternative": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Image button has no alt attribute": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Empty button": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Uninformative alt attribute value on image button": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Empty alt attribute on image button": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Errors identified by colour only": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Labels missing when they would look clumsy for some form controls": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Error messages - no suggestion for corrections given, e.g. required format": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Left aligned form labels with too much white space": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Group of radio buttons not enclosed in a fieldset": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Form element has no label": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Fieldset without a legend": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Empty legend": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Label element with for= attribute but not matching id= attribute of form control": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Group of check boxes not enclosed in a fieldset": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Empty label found": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Two unique labels, but identical for= attributes": {
+      "axe": "manual",
+      "pa11y": "error"
+    },
+    "Errors identified with a poor colour contrast": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Non-unique field label found": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Missing labels in checkboxes": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Field hint not associated with input": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Placeholder no label": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Errors are not identified": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Form control that changes context without warning": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Input purpose is not identified": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Autocomplete attribute has an invalid value": {
+      "axe": "error",
+      "pa11y": "manual"
+    },
+    "Status message is not announced to assistive technologies": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Information entered earlier must be entered again": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Pasting into the password field is blocked": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Focusing a field opens a new window": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Payment is taken without a chance to check or cancel": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "No help is available for a complex field": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Submitting a form cannot be checked, confirmed or reversed": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Sign in requires recognising objects in pictures": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Inadequately-sized clickable targets found": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Help link is in a different place on each page": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "No way to skip repeated navigation": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Pages can only be found in one way": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "No indication of where the user is in the site": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Navigation is in a different order on each page": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "The same function has different labels on different pages": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Alert shows for a short time": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Lightbox - close button doesn't receive focus": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Focus order in wrong order": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Tabindex greater than 0": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Keyboard focus is not indicated visually": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Keyboard focus assigned to a non focusable element using tabindex=0": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Concertina items don't get keyboard focus": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Keyboard trap": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Dropdown navigation - only the top level items receive focus": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Lightbox - ESC key doesn't close the lightbox": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Link with a role=button does not work with space bar": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Tooltips don't receive keyboard focus": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Accesskey attribute used": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Lightbox - focus is not moved immediately to lightbox": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Lightbox - focus is not retained within the lightbox": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Fake button is not keyboard accessible": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "Single character keyboard shortcut cannot be turned off or remapped": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Focused link is hidden behind a sticky footer": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Signature can only be drawn with a pointer": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Focused link is partly hidden by a chat widget": {
+      "axe": "manual",
+      "pa11y": "manual"
+    },
+    "Focus indicator is too thin and has low contrast": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "iframe is missing a title attribute": {
+      "axe": "error",
+      "pa11y": "error"
+    },
+    "iframe title attribute does not describe the content or purpose of the iframe": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Content is not readable and functional when text is increased": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Non-decorative content inserted using CSS": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "visibility:hidden used to visually hide content when it should be available to screenreader": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "display:none used to visually hide content when it should be available to screenreader": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Page zoom - boxes that don't expand with the text": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Content is clipped when text spacing is increased": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Text spacing cannot be overridden because of important inline styles": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Duplicate id": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Article element used to mark-up an element that's not an article/blog post etc.": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Empty paragraph": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Deprecated center element": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Invalid ARIA role names": {
+      "axe": "error",
+      "pa11y": "manual"
+    },
+    "Object not embedded accessibly - wmode parameter not set to window": {
+      "axe": "manual",
+      "pa11y": "manual"
+    },
+    "Spacer image found": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Inline style adds colour": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Start and close tags don't match": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "PRE element without CODE element inside it": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Deprecated font element": {
+      "axe": "notfound",
+      "pa11y": "error"
+    },
+    "Purpose of regions cannot be programmatically determined": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Tooltip cannot be dismissed without moving the pointer or focus": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Tooltip disappears when the pointer is moved over it": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Carousel can only be changed with a swipe gesture": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Action is triggered on pointer down": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Accessible name does not contain the visible label": {
+      "axe": "notfound",
+      "pa11y": "manual"
+    },
+    "Function can only be operated by shaking the device": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "List can only be reordered by dragging": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Clickable targets are smaller than 24 by 24 CSS pixels": {
+      "axe": "error",
+      "pa11y": "notfound"
+    },
+    "Mouse input is ignored on devices with a touch screen": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Task has a time limit": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Updates interrupt the user and cannot be postponed": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Data is lost when the session expires": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Users are not warned about an inactivity timeout": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Content flashes more than three times in one second": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    },
+    "Motion animation triggered by interaction cannot be turned off": {
+      "axe": "notfound",
+      "pa11y": "notfound"
+    }
+  }
+}

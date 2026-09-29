@@ -1,0 +1,1937 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag2aaa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "date": "2026-09-29",
+  "tests": {
+    "Content identified by location": {
+      "category": "Content",
+      "file": "content-content-identified-by-location",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Plain language is not used": {
+      "category": "Content",
+      "file": "content-plain-language-is-not-used",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Content is not in correct reading order in source code": {
+      "category": "Content",
+      "file": "content-content-is-not-in-correct-reading-order-in-source-code",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "heading-order",
+          "impact": "moderate",
+          "message": "Heading levels should only increase by one",
+          "target": "h4"
+        }
+      ]
+    },
+    "Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms": {
+      "category": "Content",
+      "file": "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "First instance of abbreviation not expanded": {
+      "category": "Content",
+      "file": "content-first-instance-of-abbreviation-not-expanded",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Idioms and jargon are not explained": {
+      "category": "Content",
+      "file": "content-idioms-and-jargon-are-not-explained",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Meaning depends on pronunciation that is not given": {
+      "category": "Content",
+      "file": "content-meaning-depends-on-pronunciation-that-is-not-given",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Wide page forces users to scroll horizontally": {
+      "category": "Page Layout",
+      "file": "page-layout-wide-page-forces-users-to-scroll-horizontally",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "scrollable-region-focusable",
+          "impact": "serious",
+          "message": "Scrollable region must have keyboard access",
+          "target": "div"
+        },
+        {
+          "type": "incomplete",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": ".constrained-extra"
+        }
+      ]
+    },
+    "Content is locked to one display orientation": {
+      "category": "Page Layout",
+      "file": "page-layout-content-is-locked-to-one-display-orientation",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Colour alone is used to convey content": {
+      "category": "Colour and Contrast",
+      "file": "colour-and-contrast-colour-alone-is-used-to-convey-content",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Small text does not have a contrast ratio of at least 4.5:1 so does not meet AA": {
+      "category": "Colour and Contrast",
+      "file": "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "p"
+        }
+      ]
+    },
+    "Large text does not have a contrast ratio of at least 3:1 so does not meet AA": {
+      "category": "Colour and Contrast",
+      "file": "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "p"
+        }
+      ]
+    },
+    "Small text does not have a contrast ratio of at least 7:1 so does not meet AAA": {
+      "category": "Colour and Contrast",
+      "file": "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "p"
+        }
+      ]
+    },
+    "Large text does not have a contrast ratio of at least 4.5:1 so does not meet AAA": {
+      "category": "Colour and Contrast",
+      "file": "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "p"
+        }
+      ]
+    },
+    "Focus not visible": {
+      "category": "Colour and Contrast",
+      "file": "colour-and-contrast-focus-not-visible",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Form field border does not have a contrast ratio of at least 3:1": {
+      "category": "Colour and Contrast",
+      "file": "colour-and-contrast-form-field-border-does-not-have-a-contrast-ratio-of-at-least-31",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Icon-only button does not have a contrast ratio of at least 3:1": {
+      "category": "Colour and Contrast",
+      "file": "colour-and-contrast-icon-only-button-does-not-have-a-contrast-ratio-of-at-least-31",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Inadequate line height used": {
+      "category": "Typography",
+      "file": "typography-inadequate-line-height-used",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "All caps text found": {
+      "category": "Typography",
+      "file": "typography-all-caps-text-found",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Blink element found": {
+      "category": "Typography",
+      "file": "typography-blink-element-found",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "blink",
+          "impact": "serious",
+          "message": "<blink> elements are deprecated and must not be used",
+          "target": "blink"
+        }
+      ]
+    },
+    "Italics used on long sections of text": {
+      "category": "Typography",
+      "file": "typography-italics-used-on-long-sections-of-text",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Marquee element found": {
+      "category": "Typography",
+      "file": "typography-marquee-element-found",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "marquee",
+          "impact": "serious",
+          "message": "<marquee> elements are deprecated and must not be used",
+          "target": "marquee"
+        }
+      ]
+    },
+    "Long lines of text": {
+      "category": "Typography",
+      "file": "typography-long-lines-of-text",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Very small text found": {
+      "category": "Typography",
+      "file": "typography-very-small-text-found",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Justified text found": {
+      "category": "Typography",
+      "file": "typography-justified-text-found",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Text language changed without required change in direction": {
+      "category": "Language of content",
+      "file": "language-of-content-text-language-changed-without-required-change-in-direction",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "html element has an empty lang attribute": {
+      "category": "Language of content",
+      "file": "language-of-content-html-element-has-an-empty-lang-attribute",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "lang attribute not used to identify change of language": {
+      "category": "Language of content",
+      "file": "language-of-content-lang-attribute-not-used-to-identify-change-of-language",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Text language is in the wrong direction": {
+      "category": "Language of content",
+      "file": "language-of-content-text-language-is-in-the-wrong-direction",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "html element has an invalid value in the lang attribute": {
+      "category": "Language of content",
+      "file": "language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "lang attribute used to identify change of language, but with invalid value": {
+      "category": "Language of content",
+      "file": "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "valid-lang",
+          "impact": "serious",
+          "message": "lang attribute must have a valid value",
+          "target": "span"
+        }
+      ]
+    },
+    "html element is missing a lang attribute": {
+      "category": "Language of content",
+      "file": "language-of-content-html-element-is-missing-a-lang-attribute",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "html element has lang attribute set to wrong language": {
+      "category": "Language of content",
+      "file": "language-of-content-html-element-has-lang-attribute-set-to-wrong-language",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "lang attribute used to identify change of language, but with wrong language": {
+      "category": "Language of content",
+      "file": "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Inappropriate page title": {
+      "category": "Page Title",
+      "file": "page-title-inappropriate-page-title",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Empty page title": {
+      "category": "Page Title",
+      "file": "page-title-empty-page-title",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Missing page title": {
+      "category": "Page Title",
+      "file": "page-title-missing-page-title",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Empty heading": {
+      "category": "Headings",
+      "file": "headings-empty-heading",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "empty-heading",
+          "impact": "minor",
+          "message": "Headings should not be empty",
+          "target": "h4"
+        },
+        {
+          "type": "violation",
+          "rule": "heading-order",
+          "impact": "moderate",
+          "message": "Heading levels should only increase by one",
+          "target": "h4"
+        }
+      ]
+    },
+    "Missing H1": {
+      "category": "Headings",
+      "file": "headings-missing-h1",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Text formatting used instead of an actual heading": {
+      "category": "Headings",
+      "file": "headings-text-formatting-used-instead-of-an-actual-heading",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Headings not structured in a hierarchical manner": {
+      "category": "Headings",
+      "file": "headings-headings-not-structured-in-a-hierarchical-manner",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "heading-order",
+          "impact": "moderate",
+          "message": "Heading levels should only increase by one",
+          "target": "h3"
+        },
+        {
+          "type": "violation",
+          "rule": "heading-order",
+          "impact": "moderate",
+          "message": "Heading levels should only increase by one",
+          "target": "h5"
+        }
+      ]
+    },
+    "LI element with no parent": {
+      "category": "Lists",
+      "file": "lists-li-element-with-no-parent",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "listitem",
+          "impact": "serious",
+          "message": "<li> elements must be contained in a <ul> or <ol>",
+          "target": "li"
+        }
+      ]
+    },
+    "List not marked up as a list": {
+      "category": "Lists",
+      "file": "lists-list-not-marked-up-as-a-list",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "DT or DD elements that are not contained within a DL element": {
+      "category": "Lists",
+      "file": "lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "dlitem",
+          "impact": "serious",
+          "message": "<dt> and <dd> elements must be contained by a <dl>",
+          "target": "dt"
+        },
+        {
+          "type": "violation",
+          "rule": "dlitem",
+          "impact": "serious",
+          "message": "<dt> and <dd> elements must be contained by a <dl>",
+          "target": "dd"
+        }
+      ]
+    },
+    "Improperly nested lists": {
+      "category": "Lists",
+      "file": "lists-improperly-nested-lists",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "list",
+          "impact": "serious",
+          "message": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+          "target": "main > ul"
+        }
+      ]
+    },
+    "Table with column headers and double row headers": {
+      "category": "Tables",
+      "file": "tables-table-with-column-headers-and-double-row-headers",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Table has no scope attributes": {
+      "category": "Tables",
+      "file": "tables-table-has-no-scope-attributes",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Table nested within table header": {
+      "category": "Tables",
+      "file": "tables-table-nested-within-table-header",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Table nested within table": {
+      "category": "Tables",
+      "file": "tables-table-nested-within-table",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Table has no table headings": {
+      "category": "Tables",
+      "file": "tables-table-has-no-table-headings",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Table with inconsistent numbers of columns in rows": {
+      "category": "Tables",
+      "file": "tables-table-with-inconsistent-numbers-of-columns-in-rows",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Table that only has TH elements in it": {
+      "category": "Tables",
+      "file": "tables-table-that-only-has-th-elements-in-it",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "th-has-data-cells",
+          "impact": "serious",
+          "message": "Table headers in a data table must refer to data cells",
+          "target": "table"
+        }
+      ]
+    },
+    "Table is missing a caption": {
+      "category": "Tables",
+      "file": "tables-table-is-missing-a-caption",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Table used for layout": {
+      "category": "Tables",
+      "file": "tables-table-used-for-layout",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href$=\"home.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href$=\"about-us.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href$=\"products.html\"]"
+        }
+      ]
+    },
+    "Table has an empty table header": {
+      "category": "Tables",
+      "file": "tables-table-has-an-empty-table-header",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "empty-table-header",
+          "impact": "minor",
+          "message": "Table header text should not be empty",
+          "target": "thead > tr > th:nth-child(1)"
+        }
+      ]
+    },
+    "Table with some empty cells": {
+      "category": "Tables",
+      "file": "tables-table-with-some-empty-cells",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image has alt and title that are different": {
+      "category": "Images",
+      "file": "images-image-has-alt-and-title-that-are-different",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image with presentation role has non-empty alt": {
+      "category": "Images",
+      "file": "images-image-with-presentation-role-has-non-empty-alt",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "aria-allowed-role",
+          "impact": "minor",
+          "message": "ARIA role should be appropriate for the element",
+          "target": "img"
+        }
+      ]
+    },
+    "Image with no alt attribute": {
+      "category": "Images",
+      "file": "images-image-with-no-alt-attribute",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "image-alt",
+          "impact": "critical",
+          "message": "Images must have alternative text",
+          "target": "img"
+        }
+      ]
+    },
+    "Background image that conveys information does not have a text alternative": {
+      "category": "Images",
+      "file": "images-background-image-that-conveys-information-does-not-have-a-text-alternative",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "div"
+        }
+      ]
+    },
+    "Image has empty alt and non-empty title": {
+      "category": "Images",
+      "file": "images-image-has-empty-alt-and-non-empty-title",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "A distraction is present, an animated gif": {
+      "category": "Images",
+      "file": "images-a-distraction-is-present-an-animated-gif",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image that conveys information has an empty alt attribute": {
+      "category": "Images",
+      "file": "images-image-that-conveys-information-has-an-empty-alt-attribute",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image that conveys information has inappropriate alt text": {
+      "category": "Images",
+      "file": "images-image-that-conveys-information-has-inappropriate-alt-text",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image alt attribute contains image file name": {
+      "category": "Images",
+      "file": "images-image-alt-attribute-contains-image-file-name",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image with partial text alternative": {
+      "category": "Images",
+      "file": "images-image-with-partial-text-alternative",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image of text used instead of text": {
+      "category": "Images",
+      "file": "images-image-of-text-used-instead-of-text",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image of text used for a quotation": {
+      "category": "Images",
+      "file": "images-image-of-text-used-for-a-quotation",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Embedded video file is missing text alternative": {
+      "category": "Multimedia",
+      "file": "multimedia-embedded-video-file-is-missing-text-alternative",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "video-caption",
+          "impact": "critical",
+          "message": "<video> elements must have captions",
+          "target": "video"
+        }
+      ]
+    },
+    "Flashing content doesn't have warning": {
+      "category": "Multimedia",
+      "file": "multimedia-flashing-content-doesnt-have-warning",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "aria-prohibited-attr",
+          "impact": "serious",
+          "message": "Elements must only use permitted ARIA attributes",
+          "target": "iframe #movie_player"
+        },
+        {
+          "type": "incomplete",
+          "rule": "bypass",
+          "impact": "serious",
+          "message": "Page must have means to bypass repeated blocks",
+          "target": "iframe html"
+        }
+      ]
+    },
+    "Embedded audio file is missing text alternative": {
+      "category": "Multimedia",
+      "file": "multimedia-embedded-audio-file-is-missing-text-alternative",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Live video stream has no captions": {
+      "category": "Multimedia",
+      "file": "multimedia-live-video-stream-has-no-captions",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "video-caption",
+          "impact": "critical",
+          "message": "<video> elements must have captions",
+          "target": "video"
+        }
+      ]
+    },
+    "Video has no sign language interpretation": {
+      "category": "Multimedia",
+      "file": "multimedia-video-has-no-sign-language-interpretation",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Video has no extended audio description": {
+      "category": "Multimedia",
+      "file": "multimedia-video-has-no-extended-audio-description",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Live audio stream has no text alternative": {
+      "category": "Multimedia",
+      "file": "multimedia-live-audio-stream-has-no-text-alternative",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Audio plays automatically with no way to stop it": {
+      "category": "Multimedia",
+      "file": "multimedia-audio-plays-automatically-with-no-way-to-stop-it",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "no-autoplay-audio",
+          "impact": "moderate",
+          "message": "<video> or <audio> elements must not play automatically",
+          "target": "audio"
+        }
+      ]
+    },
+    "Speech has loud background music": {
+      "category": "Multimedia",
+      "file": "multimedia-speech-has-loud-background-music",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image link with no alternative text": {
+      "category": "Links",
+      "file": "links-image-link-with-no-alternative-text",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "link-name",
+          "impact": "serious",
+          "message": "Links must have discernible text",
+          "target": "a"
+        }
+      ]
+    },
+    "Link to javascript, invalid hypertext reference": {
+      "category": "Links",
+      "file": "links-link-to-javascript-invalid-hypertext-reference",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Uninformative link text": {
+      "category": "Links",
+      "file": "links-uninformative-link-text",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "heading-order",
+          "impact": "moderate",
+          "message": "Heading levels should only increase by one",
+          "target": "h4"
+        }
+      ]
+    },
+    "Link launches new window with no warning": {
+      "category": "Links",
+      "file": "links-link-launches-new-window-with-no-warning",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Links not separated by printable characters": {
+      "category": "Links",
+      "file": "links-links-not-separated-by-printable-characters",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Link text with identical title": {
+      "category": "Links",
+      "file": "links-link-text-with-identical-title",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Links to a sound file, no transcript": {
+      "category": "Links",
+      "file": "links-links-to-a-sound-file-no-transcript",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Identifying links by colour alone": {
+      "category": "Links",
+      "file": "links-identifying-links-by-colour-alone",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast-enhanced",
+          "impact": "serious",
+          "message": "Elements must meet enhanced color contrast ratio thresholds",
+          "target": "a:nth-child(1)"
+        },
+        {
+          "type": "violation",
+          "rule": "color-contrast-enhanced",
+          "impact": "serious",
+          "message": "Elements must meet enhanced color contrast ratio thresholds",
+          "target": ".colour-alone-link"
+        }
+      ]
+    },
+    "Link to PDF does not include information on file format and file size": {
+      "category": "Links",
+      "file": "links-link-to-pdf-does-not-include-information-on-file-format-and-file-size",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Link to #, invalid hypertext reference": {
+      "category": "Links",
+      "file": "links-link-to-,-invalid-hypertext-reference",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Blank link text": {
+      "category": "Links",
+      "file": "links-blank-link-text",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "link-name",
+          "impact": "serious",
+          "message": "Links must have discernible text",
+          "target": "a"
+        }
+      ]
+    },
+    "Links with the same text go to different pages": {
+      "category": "Links",
+      "file": "links-links-with-the-same-text-go-to-different-pages",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "identical-links-same-purpose",
+          "impact": "minor",
+          "message": "Links with the same name must have a similar purpose",
+          "target": "a:nth-child(1)"
+        }
+      ]
+    },
+    "Link text does not make sense out of context": {
+      "category": "Links",
+      "file": "links-link-text-does-not-make-sense-out-of-context",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Adjacent links going to the same destination": {
+      "category": "Links",
+      "file": "links-adjacent-links-going-to-the-same-destination",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Link contains only a full stop": {
+      "category": "Links",
+      "file": "links-link-contains-only-a-full-stop",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "identical-links-same-purpose",
+          "impact": "minor",
+          "message": "Links with the same name must have a similar purpose",
+          "target": "a"
+        }
+      ]
+    },
+    "Image link alt text repeats text in the link": {
+      "category": "Links",
+      "file": "links-image-link-alt-text-repeats-text-in-the-link",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "image-redundant-alt",
+          "impact": "minor",
+          "message": "Alternative text of images should not be repeated as text",
+          "target": "img"
+        }
+      ]
+    },
+    "Link not clearly identifiable and distinguishable from surrounding text": {
+      "category": "Links",
+      "file": "links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Link to a multimedia file, no transcript": {
+      "category": "Links",
+      "file": "links-link-to-a-multimedia-file-no-transcript",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Non-specific link text": {
+      "category": "Links",
+      "file": "links-non-specific-link-text",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Link to an image, no text alternative": {
+      "category": "Links",
+      "file": "links-link-to-an-image-no-text-alternative",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Image button has no alt attribute": {
+      "category": "Buttons",
+      "file": "buttons-image-button-has-no-alt-attribute",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "input-image-alt",
+          "impact": "critical",
+          "message": "Image buttons must have alternative text",
+          "target": "input"
+        }
+      ]
+    },
+    "Empty button": {
+      "category": "Buttons",
+      "file": "buttons-empty-button",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "button-name",
+          "impact": "critical",
+          "message": "Buttons must have discernible text",
+          "target": "button"
+        }
+      ]
+    },
+    "Uninformative alt attribute value on image button": {
+      "category": "Buttons",
+      "file": "buttons-uninformative-alt-attribute-value-on-image-button",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Empty alt attribute on image button": {
+      "category": "Buttons",
+      "file": "buttons-empty-alt-attribute-on-image-button",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "input-image-alt",
+          "impact": "critical",
+          "message": "Image buttons must have alternative text",
+          "target": "input"
+        }
+      ]
+    },
+    "Errors identified by colour only": {
+      "category": "Forms",
+      "file": "forms-errors-identified-by-colour-only",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Labels missing when they would look clumsy for some form controls": {
+      "category": "Forms",
+      "file": "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "label",
+          "impact": "critical",
+          "message": "Form elements must have labels",
+          "target": "#missing-labels-month"
+        },
+        {
+          "type": "violation",
+          "rule": "label",
+          "impact": "critical",
+          "message": "Form elements must have labels",
+          "target": "#missing-labels-year"
+        }
+      ]
+    },
+    "Error messages - no suggestion for corrections given, e.g. required format": {
+      "category": "Forms",
+      "file": "forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast-enhanced",
+          "impact": "serious",
+          "message": "Elements must meet enhanced color contrast ratio thresholds",
+          "target": "span"
+        }
+      ]
+    },
+    "Left aligned form labels with too much white space": {
+      "category": "Forms",
+      "file": "forms-left-aligned-form-labels-with-too-much-white-space",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Group of radio buttons not enclosed in a fieldset": {
+      "category": "Forms",
+      "file": "forms-group-of-radio-buttons-not-enclosed-in-a-fieldset",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "heading-order",
+          "impact": "moderate",
+          "message": "Heading levels should only increase by one",
+          "target": "h4"
+        }
+      ]
+    },
+    "Form element has no label": {
+      "category": "Forms",
+      "file": "forms-form-element-has-no-label",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "label",
+          "impact": "critical",
+          "message": "Form elements must have labels",
+          "target": "input"
+        }
+      ]
+    },
+    "Fieldset without a legend": {
+      "category": "Forms",
+      "file": "forms-fieldset-without-a-legend",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Empty legend": {
+      "category": "Forms",
+      "file": "forms-empty-legend",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Label element with for= attribute but not matching id= attribute of form control": {
+      "category": "Forms",
+      "file": "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "label",
+          "impact": "critical",
+          "message": "Form elements must have labels",
+          "target": "#label-for-not-matching"
+        }
+      ]
+    },
+    "Group of check boxes not enclosed in a fieldset": {
+      "category": "Forms",
+      "file": "forms-group-of-check-boxes-not-enclosed-in-a-fieldset",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "heading-order",
+          "impact": "moderate",
+          "message": "Heading levels should only increase by one",
+          "target": "h4"
+        }
+      ]
+    },
+    "Empty label found": {
+      "category": "Forms",
+      "file": "forms-empty-label-found",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "label",
+          "impact": "critical",
+          "message": "Form elements must have labels",
+          "target": "#empty"
+        }
+      ]
+    },
+    "Two unique labels, but identical for= attributes": {
+      "category": "Forms",
+      "file": "forms-two-unique-labels-but-identical-for=-attributes",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "form-field-multiple-labels",
+          "impact": "moderate",
+          "message": "Form field must not have multiple label elements",
+          "target": "#two-labels-day"
+        }
+      ]
+    },
+    "Errors identified with a poor colour contrast": {
+      "category": "Forms",
+      "file": "forms-errors-identified-with-a-poor-colour-contrast",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "div"
+        }
+      ]
+    },
+    "Non-unique field label found": {
+      "category": "Forms",
+      "file": "forms-non-unique-field-label-found",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Missing labels in checkboxes": {
+      "category": "Forms",
+      "file": "forms-missing-labels-in-checkboxes",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "label",
+          "impact": "critical",
+          "message": "Form elements must have labels",
+          "target": "#nationality_british"
+        },
+        {
+          "type": "violation",
+          "rule": "label",
+          "impact": "critical",
+          "message": "Form elements must have labels",
+          "target": "#nationality_irish"
+        },
+        {
+          "type": "violation",
+          "rule": "label",
+          "impact": "critical",
+          "message": "Form elements must have labels",
+          "target": "#nationality_hasOtherCountry"
+        }
+      ]
+    },
+    "Field hint not associated with input": {
+      "category": "Forms",
+      "file": "forms-field-hint-not-associated-with-input",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast-enhanced",
+          "impact": "serious",
+          "message": "Elements must meet enhanced color contrast ratio thresholds",
+          "target": "p"
+        }
+      ]
+    },
+    "Placeholder no label": {
+      "category": "Forms",
+      "file": "forms-placeholder-no-label",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Errors are not identified": {
+      "category": "Forms",
+      "file": "forms-errors-are-not-identified",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Form control that changes context without warning": {
+      "category": "Forms",
+      "file": "forms-form-control-that-changes-context-without-warning",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Input purpose is not identified": {
+      "category": "Forms",
+      "file": "forms-input-purpose-is-not-identified",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Autocomplete attribute has an invalid value": {
+      "category": "Forms",
+      "file": "forms-autocomplete-attribute-has-an-invalid-value",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "autocomplete-valid",
+          "impact": "serious",
+          "message": "autocomplete attribute must be used correctly",
+          "target": "#purpose-invalid"
+        }
+      ]
+    },
+    "Status message is not announced to assistive technologies": {
+      "category": "Forms",
+      "file": "forms-status-message-is-not-announced-to-assistive-technologies",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Information entered earlier must be entered again": {
+      "category": "Forms",
+      "file": "forms-information-entered-earlier-must-be-entered-again",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Pasting into the password field is blocked": {
+      "category": "Forms",
+      "file": "forms-pasting-into-the-password-field-is-blocked",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Focusing a field opens a new window": {
+      "category": "Forms",
+      "file": "forms-focusing-a-field-opens-a-new-window",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Payment is taken without a chance to check or cancel": {
+      "category": "Forms",
+      "file": "forms-payment-is-taken-without-a-chance-to-check-or-cancel",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "No help is available for a complex field": {
+      "category": "Forms",
+      "file": "forms-no-help-is-available-for-a-complex-field",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Submitting a form cannot be checked, confirmed or reversed": {
+      "category": "Forms",
+      "file": "forms-submitting-a-form-cannot-be-checked-confirmed-or-reversed",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Sign in requires recognising objects in pictures": {
+      "category": "Forms",
+      "file": "forms-sign-in-requires-recognising-objects-in-pictures",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Inadequately-sized clickable targets found": {
+      "category": "Navigation",
+      "file": "navigation-inadequately-sized-clickable-targets-found",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"a.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"b.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"c.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"d.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"e.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"f.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"g.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"h.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"i.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"j.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"k.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"l.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"m.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"n.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"o.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"p.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"q.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"r.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"s.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"t.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"u.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"v.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"w.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"x.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"y.html\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"z.html\"]"
+        }
+      ]
+    },
+    "Help link is in a different place on each page": {
+      "category": "Navigation",
+      "file": "navigation-help-link-is-in-a-different-place-on-each-page",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "No way to skip repeated navigation": {
+      "category": "Navigation",
+      "file": "navigation-no-way-to-skip-repeated-navigation",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Pages can only be found in one way": {
+      "category": "Navigation",
+      "file": "navigation-pages-can-only-be-found-in-one-way",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "No indication of where the user is in the site": {
+      "category": "Navigation",
+      "file": "navigation-no-indication-of-where-the-user-is-in-the-site",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Navigation is in a different order on each page": {
+      "category": "Navigation",
+      "file": "navigation-navigation-is-in-a-different-order-on-each-page",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "The same function has different labels on different pages": {
+      "category": "Navigation",
+      "file": "navigation-the-same-function-has-different-labels-on-different-pages",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Alert shows for a short time": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-alert-shows-for-a-short-time",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Lightbox - close button doesn't receive focus": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-lightbox-close-button-doesnt-receive-focus",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Focus order in wrong order": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-focus-order-in-wrong-order",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Tabindex greater than 0": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-tabindex-greater-than-0",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "tabindex",
+          "impact": "serious",
+          "message": "Elements should not have tabindex greater than zero",
+          "target": "a"
+        }
+      ]
+    },
+    "Keyboard focus is not indicated visually": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-keyboard-focus-is-not-indicated-visually",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Keyboard focus assigned to a non focusable element using tabindex=0": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Concertina items don't get keyboard focus": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-concertina-items-dont-get-keyboard-focus",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Keyboard trap": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-keyboard-trap",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Dropdown navigation - only the top level items receive focus": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Lightbox - ESC key doesn't close the lightbox": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Link with a role=button does not work with space bar": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast-enhanced",
+          "impact": "serious",
+          "message": "Elements must meet enhanced color contrast ratio thresholds",
+          "target": "a"
+        }
+      ]
+    },
+    "Tooltips don't receive keyboard focus": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-tooltips-dont-receive-keyboard-focus",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Accesskey attribute used": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-accesskey-attribute-used",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Lightbox - focus is not moved immediately to lightbox": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Lightbox - focus is not retained within the lightbox": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Fake button is not keyboard accessible": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-fake-button-is-not-keyboard-accessible",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "color-contrast-enhanced",
+          "impact": "serious",
+          "message": "Elements must meet enhanced color contrast ratio thresholds",
+          "target": "#webchat"
+        }
+      ]
+    },
+    "Single character keyboard shortcut cannot be turned off or remapped": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-single-character-keyboard-shortcut-cannot-be-turned-off-or-remapped",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Focused link is hidden behind a sticky footer": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-focused-link-is-hidden-behind-a-sticky-footer",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Signature can only be drawn with a pointer": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-signature-can-only-be-drawn-with-a-pointer",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Focused link is partly hidden by a chat widget": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-focused-link-is-partly-hidden-by-a-chat-widget",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "a"
+        }
+      ]
+    },
+    "Focus indicator is too thin and has low contrast": {
+      "category": "Keyboard Access",
+      "file": "keyboard-access-focus-indicator-is-too-thin-and-has-low-contrast",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "iframe is missing a title attribute": {
+      "category": "Frames",
+      "file": "frames-iframe-is-missing-a-title-attribute",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "frame-title",
+          "impact": "serious",
+          "message": "Frames must have an accessible name",
+          "target": "iframe"
+        }
+      ]
+    },
+    "iframe title attribute does not describe the content or purpose of the iframe": {
+      "category": "Frames",
+      "file": "frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Content is not readable and functional when text is increased": {
+      "category": "CSS",
+      "file": "css-content-is-not-readable-and-functional-when-text-is-increased",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Non-decorative content inserted using CSS": {
+      "category": "CSS",
+      "file": "css-non-decorative-content-inserted-using-css",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "visibility:hidden used to visually hide content when it should be available to screenreader": {
+      "category": "CSS",
+      "file": "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "display:none used to visually hide content when it should be available to screenreader": {
+      "category": "CSS",
+      "file": "css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Page zoom - boxes that don't expand with the text": {
+      "category": "CSS",
+      "file": "css-page-zoom-boxes-that-dont-expand-with-the-text",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Content is clipped when text spacing is increased": {
+      "category": "CSS",
+      "file": "css-content-is-clipped-when-text-spacing-is-increased",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Text spacing cannot be overridden because of important inline styles": {
+      "category": "CSS",
+      "file": "css-text-spacing-cannot-be-overridden-because-of-important-inline-styles",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "avoid-inline-spacing",
+          "impact": "serious",
+          "message": "Inline text spacing must be adjustable with custom stylesheets",
+          "target": "p"
+        }
+      ]
+    },
+    "Duplicate id": {
+      "category": "HTML",
+      "file": "html-duplicate-id",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Article element used to mark-up an element that's not an article/blog post etc.": {
+      "category": "HTML",
+      "file": "html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href=\"/agency-workers-your-rights\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "a[href$=\"acas\"]"
+        }
+      ]
+    },
+    "Empty paragraph": {
+      "category": "HTML",
+      "file": "html-empty-paragraph",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Deprecated center element": {
+      "category": "HTML",
+      "file": "html-deprecated-center-element",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Invalid ARIA role names": {
+      "category": "HTML",
+      "file": "html-invalid-aria-role-names",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "aria-roles",
+          "impact": "critical",
+          "message": "ARIA roles used must conform to valid values",
+          "target": "ol"
+        },
+        {
+          "type": "incomplete",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "a[href=\"/\"]"
+        },
+        {
+          "type": "incomplete",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "a[href$=\"housing-local-services\"]"
+        }
+      ]
+    },
+    "Object not embedded accessibly - wmode parameter not set to window": {
+      "category": "HTML",
+      "file": "html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window",
+      "proposal": "manual",
+      "findings": [
+        {
+          "type": "incomplete",
+          "rule": "color-contrast",
+          "impact": "serious",
+          "message": "Elements must meet minimum color contrast ratio thresholds",
+          "target": "object"
+        }
+      ]
+    },
+    "Spacer image found": {
+      "category": "HTML",
+      "file": "html-spacer-image-found",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Inline style adds colour": {
+      "category": "HTML",
+      "file": "html-inline-style-adds-colour",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Start and close tags don't match": {
+      "category": "HTML",
+      "file": "html-start-and-close-tags-dont-match",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "PRE element without CODE element inside it": {
+      "category": "HTML",
+      "file": "html-pre-element-without-code-element-inside-it",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Deprecated font element": {
+      "category": "HTML",
+      "file": "html-deprecated-font-element",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Purpose of regions cannot be programmatically determined": {
+      "category": "HTML",
+      "file": "html-purpose-of-regions-cannot-be-programmatically-determined",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Tooltip cannot be dismissed without moving the pointer or focus": {
+      "category": "Content on Hover or Focus",
+      "file": "content-on-hover-or-focus-tooltip-cannot-be-dismissed-without-moving-the-pointer-or-focus",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Tooltip disappears when the pointer is moved over it": {
+      "category": "Content on Hover or Focus",
+      "file": "content-on-hover-or-focus-tooltip-disappears-when-the-pointer-is-moved-over-it",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Carousel can only be changed with a swipe gesture": {
+      "category": "Pointer and Motion",
+      "file": "pointer-and-motion-carousel-can-only-be-changed-with-a-swipe-gesture",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Action is triggered on pointer down": {
+      "category": "Pointer and Motion",
+      "file": "pointer-and-motion-action-is-triggered-on-pointer-down",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Accessible name does not contain the visible label": {
+      "category": "Pointer and Motion",
+      "file": "pointer-and-motion-accessible-name-does-not-contain-the-visible-label",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Function can only be operated by shaking the device": {
+      "category": "Pointer and Motion",
+      "file": "pointer-and-motion-function-can-only-be-operated-by-shaking-the-device",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "List can only be reordered by dragging": {
+      "category": "Pointer and Motion",
+      "file": "pointer-and-motion-list-can-only-be-reordered-by-dragging",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Clickable targets are smaller than 24 by 24 CSS pixels": {
+      "category": "Pointer and Motion",
+      "file": "pointer-and-motion-clickable-targets-are-smaller-than-24-by-24-css-pixels",
+      "proposal": "error",
+      "findings": [
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "button[aria-label=\"Previous page\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "button[aria-label=\"Page 1\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "button[aria-label=\"Page 2\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "button[aria-label=\"Page 3\"]"
+        },
+        {
+          "type": "violation",
+          "rule": "target-size",
+          "impact": "serious",
+          "message": "All touch targets must be 24px large, or leave sufficient space",
+          "target": "button[aria-label=\"Next page\"]"
+        }
+      ]
+    },
+    "Mouse input is ignored on devices with a touch screen": {
+      "category": "Pointer and Motion",
+      "file": "pointer-and-motion-mouse-input-is-ignored-on-devices-with-a-touch-screen",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Task has a time limit": {
+      "category": "Timing",
+      "file": "timing-task-has-a-time-limit",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Updates interrupt the user and cannot be postponed": {
+      "category": "Timing",
+      "file": "timing-updates-interrupt-the-user-and-cannot-be-postponed",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Data is lost when the session expires": {
+      "category": "Timing",
+      "file": "timing-data-is-lost-when-the-session-expires",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Users are not warned about an inactivity timeout": {
+      "category": "Timing",
+      "file": "timing-users-are-not-warned-about-an-inactivity-timeout",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Content flashes more than three times in one second": {
+      "category": "Animation and Flashing",
+      "file": "animation-and-flashing-content-flashes-more-than-three-times-in-one-second",
+      "proposal": "notfound",
+      "findings": []
+    },
+    "Motion animation triggered by interaction cannot be turned off": {
+      "category": "Animation and Flashing",
+      "file": "animation-and-flashing-motion-animation-triggered-by-interaction-cannot-be-turned-off",
+      "proposal": "notfound",
+      "findings": []
+    }
+  }
+}

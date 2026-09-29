@@ -41,7 +41,17 @@
 
       <p>The full project is available on <a href="https://github.com/alphagov/accessibility-tool-audit">Github</a>. We welcome contributions.</p>
 
-      <h2>What we found</h2>
+      
+      <div class="panel panel-border-wide retest-summary">
+        <p>
+          <strong>Retest, 2026-09-29:</strong>
+          we added 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria that the original audit did not cover, and ran all 194 test cases through current versions of axe-core and pa11y.
+          The original results below are unchanged. <a href="#retest">See the retest results</a>.
+        </p>
+      </div>
+      
+
+      <h2>What we found in the original audit</h2>
 
       <p>We scored each tool for two things.</p>
 
@@ -96,13 +106,13 @@
               <td>29%</td>
               <td>36%</td>
             </tr><tr>
-              <th><a href="https://www.aslint.org/">ASLint</a></th>
-              <td>28%</td>
-              <td>35%</td>
-            </tr><tr>
               <th><a href="https://fae.disability.illinois.edu/"><abbr title="Functional Accessibility Evaluator">FAE</abbr></a></th>
               <td>28%</td>
               <td>50%</td>
+            </tr><tr>
+              <th><a href="https://www.aslint.org/">ASLint</a></th>
+              <td>28%</td>
+              <td>35%</td>
             </tr><tr>
               <th><a href="http://asqatasun.org/">Asqatasun</a></th>
               <td>25%</td>
@@ -112,11 +122,11 @@
               <td>20%</td>
               <td>34%</td>
             </tr><tr>
-              <th><a href="http://checkers.eiii.eu/"><abbr title="European Internet Inclusion Initiative">EIII</abbr></a></th>
+              <th><a href="https://github.com/GoogleChrome/accessibility-developer-tools">Google ADT</a></th>
               <td>17%</td>
               <td>17%</td>
             </tr><tr>
-              <th><a href="https://github.com/GoogleChrome/accessibility-developer-tools">Google ADT</a></th>
+              <th><a href="http://checkers.eiii.eu/"><abbr title="European Internet Inclusion Initiative">EIII</abbr></a></th>
               <td>17%</td>
               <td>17%</td>
             </tr><tr>
@@ -128,6 +138,95 @@
       </table>
 
       <p><small>Last updated: 13 April 2018</small></p>
+
+      
+      <h2 id="retest">Retest with WCAG 2.2 test cases</h2>
+
+      <p>
+        On 2026-09-29 we ran every test case through
+        <a href="https://github.com/dequelabs/axe-core">axe-core 4.13.0</a> and <a href="https://pa11y.org/">pa11y 10.0.0</a> (HTML_CodeSniffer 2.6.0).
+        This retest was not carried out by GDS. It uses the same result types as the original audit.
+      </p>
+
+      <p>
+        The 142 original test cases show how the tools have changed since the original audit.
+        The 52 added test cases cover success criteria from WCAG 2.0, 2.1 and 2.2 that were missing, including level AAA.
+        They are shown separately so they do not change the comparison.
+      </p>
+
+      <p>
+        pa11y runs HTML_CodeSniffer, so it is compared with the original HTML_CodeSniffer results.
+      </p>
+
+      
+      
+      <table class="numeric-results percentage-summary retest-results">
+        <caption>Barriers found</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Original audit, 142 original test cases</th>
+            <th scope="col" class="retest">Retest, 142 original test cases</th>
+            <th scope="col" class="retest">Retest, 30 added test cases (A and AA)</th>
+            <th scope="col" class="retest">Retest, 22 added test cases (AAA)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <th scope="row">axe-core</th>
+              <td>29%<span class="tool-version">aXe</span></td>
+              <td class="retest">30%</td>
+              <td class="retest">10%</td>
+              <td class="retest">0%</td>
+            </tr>
+          
+            <tr>
+              <th scope="row">pa11y</th>
+              <td>20%<span class="tool-version">HTML_CodeSniffer</span></td>
+              <td class="retest">31%</td>
+              <td class="retest">0%</td>
+              <td class="retest">0%</td>
+            </tr>
+          
+        </tbody>
+      </table>
+      
+      <table class="numeric-results percentage-summary retest-results">
+        <caption>Barriers and potential barriers found</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Original audit, 142 original test cases</th>
+            <th scope="col" class="retest">Retest, 142 original test cases</th>
+            <th scope="col" class="retest">Retest, 30 added test cases (A and AA)</th>
+            <th scope="col" class="retest">Retest, 22 added test cases (AAA)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <th scope="row">axe-core</th>
+              <td>30%<span class="tool-version">aXe</span></td>
+              <td class="retest">36%</td>
+              <td class="retest">17%</td>
+              <td class="retest">5%</td>
+            </tr>
+          
+            <tr>
+              <th scope="row">pa11y</th>
+              <td>34%<span class="tool-version">HTML_CodeSniffer</span></td>
+              <td class="retest">44%</td>
+              <td class="retest">10%</td>
+              <td class="retest">9%</td>
+            </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <p>Many of the added test cases cover success criteria that need a person to check them, such as timing, consistency across pages and use of language. Low numbers for the added test cases are expected.</p>
+      
 
       <h3>How do features compare?</h3>
 
@@ -428,7 +527,7 @@
 
       <h2>Read more</h2>
 
-      <p class="heading-medium"><a href="results.html">Read detailed test results</a></p>
+      <p class="heading-medium"><a href="results.html">Read detailed test results</a>, including the retest</p>
 
       <p class="heading-medium"><a href="test-cases.html">See everything we tested</a></p>
 

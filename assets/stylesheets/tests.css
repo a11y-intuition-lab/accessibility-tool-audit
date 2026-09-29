@@ -16,12 +16,10 @@ h5 {
   position: relative;
   overflow: scroll;
 }
-
 .constrained-box .constrained {
   width: 100em;
   position: relative;
 }
-
 .constrained-box .constrained-extra {
   position: relative;
   float: right;
@@ -98,7 +96,7 @@ input.low-contrast {
 }
 
 #css-generated-text:after {
-  content: 'Pizza';
+  content: "Pizza";
 }
 
 .poisonous {
@@ -323,7 +321,7 @@ input.low-contrast {
 }
 
 .concertina dt:before {
-  content: '>';
+  content: ">";
   font-size: 0.7em;
   margin-left: 1em;
   margin-right: 0.4em;
@@ -332,7 +330,7 @@ input.low-contrast {
 }
 
 .concertina dt.expanded:before {
-  content: 'v';
+  content: "v";
 }
 
 /* Validation */
@@ -385,9 +383,7 @@ input.low-contrast {
 .tooltips-not-focusable {
   display: block;
   margin-bottom: 1em;
-  /* Tooltip arrow */
 }
-
 .tooltips-not-focusable .tooltip-icon {
   cursor: pointer;
   cursor: hand;
@@ -399,11 +395,9 @@ input.low-contrast {
   display: inline-block;
   text-align: center;
 }
-
 .tooltips-not-focusable .tooltip-icon:hover + .tooltip-information {
   display: block;
 }
-
 .tooltips-not-focusable .tooltip-information {
   display: none;
   position: absolute;
@@ -414,7 +408,9 @@ input.low-contrast {
   margin-top: -10em;
   margin-left: 6.4em;
 }
-
+.tooltips-not-focusable {
+  /* Tooltip arrow */
+}
 .tooltips-not-focusable .tooltip-information:after, .tooltips-not-focusable .tooltip-information:before {
   top: 100%;
   left: 50%;
@@ -425,14 +421,12 @@ input.low-contrast {
   position: absolute;
   pointer-events: none;
 }
-
 .tooltips-not-focusable .tooltip-information:after {
   border-color: rgba(111, 119, 123, 0);
   border-top-color: #6F777B;
   border-width: 10px;
   margin-left: -10px;
 }
-
 .tooltips-not-focusable .tooltip-information:before {
   border-color: rgba(0, 0, 0, 0);
   border-top-color: #6F777B;
@@ -442,4 +436,164 @@ input.low-contrast {
 
 .not-article-content h2 {
   margin: 0.5em 0;
+}
+
+/* WCAG 2.1 and 2.2 test cases */
+.low-contrast-border {
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  padding: 0.3em;
+}
+
+.low-contrast-icon-button {
+  border: 0;
+  background: #ffffff;
+  padding: 0.5em;
+}
+
+@media (orientation: landscape) {
+  .orientation-lock {
+    transform: rotate(90deg);
+  }
+}
+.orientation-lock {
+  width: 12em;
+  margin: 4em;
+}
+
+.fixed-height-box {
+  width: 16em;
+  height: 4.5em;
+  overflow: hidden;
+  border: 1px solid #6f777b;
+  padding: 0 0.5em;
+}
+.fixed-height-box p {
+  margin: 0.5em 0;
+}
+
+.hover-content {
+  position: relative;
+  margin-bottom: 5em;
+}
+.hover-content .hover-content-tip {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 1.5em;
+  width: 16em;
+  padding: 0.5em;
+  background: #0b0c0c;
+  color: #ffffff;
+}
+.hover-content .hover-content-trigger:hover + .hover-content-tip,
+.hover-content .hover-content-trigger:focus + .hover-content-tip {
+  display: block;
+}
+
+.hover-content-gap .hover-content-tip {
+  top: 3em;
+}
+
+.focus-obscured {
+  position: relative;
+  height: 8em;
+  overflow-y: auto;
+  border: 1px solid #6f777b;
+}
+.focus-obscured .focus-obscured-banner {
+  position: sticky;
+  bottom: 0;
+  padding: 1em;
+  background: #0b0c0c;
+  color: #ffffff;
+}
+.focus-obscured .focus-obscured-banner a {
+  color: #ffffff;
+}
+
+.swipe-only {
+  width: 20em;
+  padding: 1em;
+  border: 1px solid #6f777b;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.drag-only li {
+  cursor: move;
+  padding: 0.3em;
+  margin-bottom: 0.3em;
+  border: 1px solid #6f777b;
+  width: 12em;
+}
+
+.small-targets button {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.focus-partly-obscured {
+  position: relative;
+  display: inline-block;
+  padding-right: 4em;
+}
+.focus-partly-obscured .focus-partly-obscured-widget {
+  position: absolute;
+  top: -0.3em;
+  right: 0;
+  width: 8em;
+  padding: 0.3em;
+  background: #0b0c0c;
+  color: #ffffff;
+}
+
+a.thin-focus:focus {
+  outline: 1px dotted #cccccc;
+  outline-offset: 0;
+}
+
+.signature-pad {
+  border: 1px solid #6f777b;
+  touch-action: none;
+}
+
+.flash-badge {
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  background: #ffffff;
+  color: #0b0c0c;
+}
+
+.flash-badge.flashing {
+  animation: flash 0.2s steps(1) infinite;
+}
+
+@keyframes flash {
+  50% {
+    background: #0b0c0c;
+    color: #ffffff;
+  }
+}
+.interaction-animation {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 1px solid #6f777b;
+  transition: transform 1.5s ease-in-out;
+}
+
+.interaction-animation.moved {
+  transform: translateX(15em) rotate(720deg);
+}
+
+.spaced-links li,
+.spaced-links a {
+  display: inline-block;
+  min-height: 24px;
+  line-height: 24px;
+  margin: 0 12px 12px 0;
 }

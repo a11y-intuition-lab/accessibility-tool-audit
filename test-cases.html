@@ -6,8 +6,9 @@
   <title>Accessibility tools audit results - What we tested - GDS accessibility team</title>
   <link rel="stylesheet" href="assets/stylesheets/application.css" />
   <link rel="stylesheet" href="assets/stylesheets/tests.css" />
-  <script src="assets/javascript/jquery-1.12.0.min.js"></script>
+  <script src="assets/javascript/jquery.min.js"></script>
   <script src="assets/javascript/main.js"></script>
+  <script src="assets/javascript/filter.js" defer></script>
 </head>
 <body class="tests">
   <header id="global-header" role="banner">
@@ -35,6 +36,17 @@
     <div class="column-two-thirds intro-summary">
       <h1>What we tested</h1>
 
+      <p>Test cases marked <strong class="new-tag">Added</strong> were added after the original audit to cover success criteria from WCAG 2.0, 2.1 and 2.2, levels A to AAA, that the original test cases did not cover.</p>
+
+      <fieldset class="filter" data-filter-for="test-case-list" hidden>
+        <legend>Show test cases</legend>
+        <label><input type="checkbox" value="original" checked/> Original audit test cases</label>
+        <label><input type="checkbox" value="A" checked/> Added, level A</label>
+        <label><input type="checkbox" value="AA" checked/> Added, level AA</label>
+        <label><input type="checkbox" value="AAA" checked/> Added, level AAA</label>
+        <p class="filter-count" aria-live="polite"></p>
+      </fieldset>
+
       <nav>
         <ul>
           <li><a href="#content">Content</a></li>
@@ -56,31 +68,48 @@
           <li><a href="#frames">Frames</a></li>
           <li><a href="#css">CSS</a></li>
           <li><a href="#html">HTML</a></li>
+          <li><a href="#contentonhoverorfocus">Content on Hover or Focus</a></li>
+          <li><a href="#pointerandmotion">Pointer and Motion</a></li>
+          <li><a href="#timing">Timing</a></li>
+          <li><a href="#animationandflashing">Animation and Flashing</a></li>
           </ul>
       </nav>
     </div>
   </div>
 
+  <div id="test-case-list">
+  <section data-filter-group>
   <h2 id="content" class="heading-large">Content</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="content-content-identified-by-location">
     <a href="tests/content-content-identified-by-location.html">
       Content identified by location
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p>The artist on the right won the Album of the year</p>
 <a href="swift.html" style="float:right">Taylor Swift</a>
 <a href="sheeran.html" style="float:left">Ed Sheeran</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="content-plain-language-is-not-used">
     <a href="tests/content-plain-language-is-not-used.html">
       Plain language is not used
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
             Title I of the CARE Act creates a program of formula and supplemental competitive grants to help metropolitan areas
@@ -91,12 +120,18 @@
         Up to 10 percent of the funds for this program can be used to support Special Projects of National Significance.
     
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="content-content-is-not-in-correct-reading-order-in-source-code">
     <a href="tests/content-content-is-not-in-correct-reading-order-in-source-code.html">
       Content is not in correct reading order in source code
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <div class="test-container"><h4>3-Step Skin Care</h4>
@@ -104,49 +139,137 @@
 <div style="float:right; width:33%">Exfoliate</div>
 <div style="float:right; width:33%">Cleanse</div></div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms">
     <a href="tests/content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms.html">
       Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/unorganised_content.html">Example page with a long block of unorganised content.</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="content-first-instance-of-abbreviation-not-expanded">
     <a href="tests/content-first-instance-of-abbreviation-not-expanded.html">
       First instance of abbreviation not expanded
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <abbr>GDS</abbr> is part of the Cabinet Office. Our job is digital transformation of government.
     
   </div>
+  </div>
   
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="content-idioms-and-jargon-are-not-explained">
+    <a href="tests/content-idioms-and-jargon-are-not-explained.html">
+      Idioms and jargon are not explained
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/unusual-words.html">3.1.3 Unusual Words</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p>If your SA302 does not tally with your HRT outcome, your claim may be kicked into the long grass until the DM has had a chance to look under the bonnet.</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="content-meaning-depends-on-pronunciation-that-is-not-given">
+    <a href="tests/content-meaning-depends-on-pronunciation-that-is-not-given.html">
+      Meaning depends on pronunciation that is not given
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/pronunciation.html">3.1.6 Pronunciation</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p>Please record the record number before you close the case, and make sure the close contact has been told.</p>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="pagelayout" class="heading-large">Page Layout</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="page-layout-wide-page-forces-users-to-scroll-horizontally">
     <a href="tests/page-layout-wide-page-forces-users-to-scroll-horizontally.html">
       Wide page forces users to scroll horizontally
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <div class="constrained-box"><p class="constrained">When sites are constructed to require horizontal scrolling in order to navigate or read content at a normal size of 100% using standard screen sizes, additional problems can arise for users with low vision or mobility impairments.</p><p class="constrained-extra">This is some text you have to horizontally scroll to read.</p></div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="page-layout-content-is-locked-to-one-display-orientation">
+    <a href="tests/page-layout-content-is-locked-to-one-display-orientation.html">
+      Content is locked to one display orientation
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/orientation.html">1.3.4 Orientation</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <div class="orientation-lock"><p>This content is rotated with CSS when the device is in landscape orientation, so it can only be read in portrait.</p></div>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="colourandcontrast" class="heading-large">Colour and Contrast</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="colour-and-contrast-colour-alone-is-used-to-convey-content">
     <a href="tests/colour-and-contrast-colour-alone-is-used-to-convey-content.html">
       Colour alone is used to convey content
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p>The green mushrooms listed here are OK to eat. The red mushrooms will kill you.</p>
@@ -158,308 +281,531 @@
 <li class="poisonous">Tylopilus</li>
 </ul>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa">
     <a href="tests/colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa.html">
       Small text does not have a contrast ratio of at least 4.5:1 so does not meet AA
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="low-contrast-small-aa">This small text does not have enough contrast with it's background</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa">
     <a href="tests/colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa.html">
       Large text does not have a contrast ratio of at least 3:1 so does not meet AA
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="low-contrast-large-aa">This small text does not have enough contrast with it's background</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa">
     <a href="tests/colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa.html">
       Small text does not have a contrast ratio of at least 7:1 so does not meet AAA
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="low-contrast-small-aaa">This small text does not have enough contrast with it's background</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa">
     <a href="tests/colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa.html">
       Large text does not have a contrast ratio of at least 4.5:1 so does not meet AAA
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="low-contrast-large-aa">This small text does not have enough contrast with it's background</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="colour-and-contrast-focus-not-visible">
     <a href="tests/colour-and-contrast-focus-not-visible.html">
       Focus not visible
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a class="not-visible-outline-link" href="#">This links has visible focus</a> but this button
         <button class="not-visible-outline">Search</button> doesn't
     
   </div>
+  </div>
   
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="colour-and-contrast-form-field-border-does-not-have-a-contrast-ratio-of-at-least-31">
+    <a href="tests/colour-and-contrast-form-field-border-does-not-have-a-contrast-ratio-of-at-least-31.html">
+      Form field border does not have a contrast ratio of at least 3:1
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">1.4.11 Non-text Contrast</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <label for="non-text-contrast-email">Email address</label>
+<input id="non-text-contrast-email" class="low-contrast-border" type="text"/>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="colour-and-contrast-icon-only-button-does-not-have-a-contrast-ratio-of-at-least-31">
+    <a href="tests/colour-and-contrast-icon-only-button-does-not-have-a-contrast-ratio-of-at-least-31.html">
+      Icon-only button does not have a contrast ratio of at least 3:1
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">1.4.11 Non-text Contrast</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <button class="low-contrast-icon-button" type="button" aria-label="Search"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7" fill="none" stroke="#d6d6d6" stroke-width="3"/><line x1="15" y1="15" x2="22" y2="22" stroke="#d6d6d6" stroke-width="3"/></svg></button>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="typography" class="heading-large">Typography</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="typography-inadequate-line-height-used">
     <a href="tests/typography-inadequate-line-height-used.html">
       Inadequate line height used
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="line-height">Many people with cognitive disabilities have trouble tracking lines of text when a block of text is single spaced. Providing spacing between 1.5 to 2 allows them to start a new line more easily once they have finished the previous one.</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="typography-all-caps-text-found">
     <a href="tests/typography-all-caps-text-found.html">
       All caps text found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="all-caps">Typing sentences or phrases IN ALL CAPITALS is rarely a good idea. It may make sense under some circumstances, but only rarely. Lengthy segments of capitalized content are more difficult to read. In some cases, a screen reader may interpret ALL CAPITAL text as being an acronym and may read it as letters rather than words. For example, a screen reader may read the uppercase text CONTACT US as "Contact U. S." because it interprets the uppercase "US" as being an acronym for "United States".</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="typography-blink-element-found">
     <a href="tests/typography-blink-element-found.html">
       Blink element found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <blink>Blinking text and moving text (such as a marquee) can distract the reader's attention. This is especially relevant to people with attention deficits or cognitive disabilities. Neither is likely to cause a seizure, but they are likely to decrease the readability of the document as a whole and increase the time it takes for users to finish reading it.</blink>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="typography-italics-used-on-long-sections-of-text">
     <a href="tests/typography-italics-used-on-long-sections-of-text.html">
       Italics used on long sections of text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="italic">Italics are sometimes used to highlight text. But you shouldn't use italicized text because they make letters hard to read. The letters have a jagged line compared to non-italic fonts. The letters also lean over making it hard for dyslexic users to make out the words. When the text size is small, the text is even more illegible.</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="typography-marquee-element-found">
     <a href="tests/typography-marquee-element-found.html">
       Marquee element found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <marquee>The BLINK and MARQUEE element animates content in a way that cannot be overridden or disabled by the user.</marquee>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="typography-long-lines-of-text">
     <a href="tests/typography-long-lines-of-text.html">
       Long lines of text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p>For people with some reading or vision disabilities, long lines of text can become a significant barrier. They have trouble keeping their place and following the flow of text. Having a narrow block of text makes it easier for them to continue on to the next line in a block. Lines should not exceed 80 characters</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="typography-very-small-text-found">
     <a href="tests/typography-very-small-text-found.html">
       Very small text found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="small-text">This is some tiny text, much too small for some people to read</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="typography-justified-text-found">
     <a href="tests/typography-justified-text-found.html">
       Justified text found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="justify">When text is justified to both margins it may add additional spaces between words which may be difficult for users with visual or cognitive impairments to read. Full text justification can also cause words to be spaced closely together thus making it difficult to determine where a word starts and ends.</p>
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="languageofcontent" class="heading-large">Language of content</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-text-language-changed-without-required-change-in-direction">
     <a href="tests/language-of-content-text-language-changed-without-required-change-in-direction.html">
       Text language changed without required change in direction
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p lang="ar">الإعفاء الإلكتروني من التأشيرة</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-html-element-has-an-empty-lang-attribute">
     <a href="tests/language-of-content-html-element-has-an-empty-lang-attribute.html">
       html element has an empty lang attribute
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/empty.html">Example page with an empty lang attribute</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-lang-attribute-not-used-to-identify-change-of-language">
     <a href="tests/language-of-content-lang-attribute-not-used-to-identify-change-of-language.html">
       lang attribute not used to identify change of language
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p>Mother, he's asking you to go. He's saying, "Allons, Madame plaisante!"</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-text-language-is-in-the-wrong-direction">
     <a href="tests/language-of-content-text-language-is-in-the-wrong-direction.html">
       Text language is in the wrong direction
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p dir="rtl" lang="en">Electronic visa waiver</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute">
     <a href="tests/language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute.html">
       html element has an invalid value in the lang attribute
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/invalid.html">Example page with an invalid lang attribute</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value">
     <a href="tests/language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value.html">
       lang attribute used to identify change of language, but with invalid value
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p>Mother, he's asking you to go. He's saying, <span lang="frrr">"Allons, Madame plaisante!"</span></p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-html-element-is-missing-a-lang-attribute">
     <a href="tests/language-of-content-html-element-is-missing-a-lang-attribute.html">
       html element is missing a lang attribute
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/missing.html">Example page with a missing lang attribute</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-html-element-has-lang-attribute-set-to-wrong-language">
     <a href="tests/language-of-content-html-element-has-lang-attribute-set-to-wrong-language.html">
       html element has lang attribute set to wrong language
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/inappropriate.html">Example page with a lang attribute set to the wrong language</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language">
     <a href="tests/language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language.html">
       lang attribute used to identify change of language, but with wrong language
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p>Mother, he's asking you to go. He's saying, <span lang="es">"Allons, Madame plaisante!"</span></p>
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="pagetitle" class="heading-large">Page Title</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="page-title-inappropriate-page-title">
     <a href="tests/page-title-inappropriate-page-title.html">
       Inappropriate page title
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/inappropriate.html">Example page with a inappropriate page title</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="page-title-empty-page-title">
     <a href="tests/page-title-empty-page-title.html">
       Empty page title
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/empty.html">Example page with a empty page title</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="page-title-missing-page-title">
     <a href="tests/page-title-missing-page-title.html">
       Missing page title
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/missing.html">Example page with a missing page title</a>
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="headings" class="heading-large">Headings</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="headings-empty-heading">
     <a href="tests/headings-empty-heading.html">
       Empty heading
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <h4></h4>
 <p>This paragraph is preceded by an empty H4</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="headings-missing-h1">
     <a href="tests/headings-missing-h1.html">
       Missing H1
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="example-pages/missing.html">Example page with no H1</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="headings-text-formatting-used-instead-of-an-actual-heading">
     <a href="tests/headings-text-formatting-used-instead-of-an-actual-heading.html">
       Text formatting used instead of an actual heading
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <div class="fake-heading">Fake Heading</div>
 <p>This paragraph is preceded by a div that is styled to look like a heading</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="headings-headings-not-structured-in-a-hierarchical-manner">
     <a href="tests/headings-headings-not-structured-in-a-hierarchical-manner.html">
       Headings not structured in a hierarchical manner
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <h3>Heading 3</h3>
@@ -473,27 +819,41 @@
 <p>This is an example where heading levels have been skipped and are not in a logical order, which makes the page
             difficult to understand and navigate for people using assistive technologies such as screen reader.</p>
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="lists" class="heading-large">Lists</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="lists-li-element-with-no-parent">
     <a href="tests/lists-li-element-with-no-parent.html">
       LI element with no parent
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <li>
             no parent
         </li>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="lists-list-not-marked-up-as-a-list">
     <a href="tests/lists-list-not-marked-up-as-a-list.html">
       List not marked up as a list
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
             * apple <br/>
@@ -502,23 +862,35 @@
         * pear
     
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element">
     <a href="tests/lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element.html">
       DT or DD elements that are not contained within a DL element
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <dt>html</dt>
 <dd>a markup language for describing web documents</dd>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="lists-improperly-nested-lists">
     <a href="tests/lists-improperly-nested-lists.html">
       Improperly nested lists
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <ul>
@@ -527,15 +899,23 @@
 </ul>
 </ul>
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="tables" class="heading-large">Tables</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-with-column-headers-and-double-row-headers">
     <a href="tests/tables-table-with-column-headers-and-double-row-headers.html">
       Table with column headers and double row headers
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -566,12 +946,18 @@
 </tr>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-has-no-scope-attributes">
     <a href="tests/tables-table-has-no-scope-attributes.html">
       Table has no scope attributes
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -601,12 +987,18 @@ times</caption>
 </tr>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-nested-within-table-header">
     <a href="tests/tables-table-nested-within-table-header.html">
       Table nested within table header
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -639,12 +1031,18 @@ times</caption>
 </tr>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-nested-within-table">
     <a href="tests/tables-table-nested-within-table.html">
       Table nested within table
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -677,12 +1075,18 @@ times</caption>
 </tr>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-has-no-table-headings">
     <a href="tests/tables-table-has-no-table-headings.html">
       Table has no table headings
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -708,12 +1112,18 @@ times</caption>
 </tbody>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-with-inconsistent-numbers-of-columns-in-rows">
     <a href="tests/tables-table-with-inconsistent-numbers-of-columns-in-rows.html">
       Table with inconsistent numbers of columns in rows
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -743,12 +1153,18 @@ times</caption>
 </tbody>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-that-only-has-th-elements-in-it">
     <a href="tests/tables-table-that-only-has-th-elements-in-it.html">
       Table that only has TH elements in it
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -762,12 +1178,18 @@ times</caption>
 </thead>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-is-missing-a-caption">
     <a href="tests/tables-table-is-missing-a-caption.html">
       Table is missing a caption
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -792,12 +1214,18 @@ times</caption>
 </tbody>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-used-for-layout">
     <a href="tests/tables-table-used-for-layout.html">
       Table used for layout
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -807,12 +1235,18 @@ times</caption>
 </tr>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-has-an-empty-table-header">
     <a href="tests/tables-table-has-an-empty-table-header.html">
       Table has an empty table header
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -838,12 +1272,18 @@ times</caption>
 </tbody>
 </table>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="tables-table-with-some-empty-cells">
     <a href="tests/tables-table-with-some-empty-cells.html">
       Table with some empty cells
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <table>
@@ -888,121 +1328,233 @@ times</caption>
 </tbody>
 </table>
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="images" class="heading-large">Images</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-image-has-alt-and-title-that-are-different">
     <a href="tests/images-image-has-alt-and-title-that-are-different.html">
       Image has alt and title that are different
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <img alt="BBC" src="assets/test_images/bbc-blocks-dark.png" title="BBC homepage"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-image-with-presentation-role-has-non-empty-alt">
     <a href="tests/images-image-with-presentation-role-has-non-empty-alt.html">
       Image with presentation role has non-empty alt
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <img alt="Decorative line clipart" height="118" role="presentation" src="assets/test_images/decoration.png" width="368" />
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-image-with-no-alt-attribute">
     <a href="tests/images-image-with-no-alt-attribute.html">
       Image with no alt attribute
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <img src="assets/test_images/bbc-blocks-dark.png"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-background-image-that-conveys-information-does-not-have-a-text-alternative">
     <a href="tests/images-background-image-that-conveys-information-does-not-have-a-text-alternative.html">
       Background image that conveys information does not have a text alternative
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <div class="warning-icon">
             Taking too much of your pension money in early retirement could mean you don't have enough for later.
         </div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-image-has-empty-alt-and-non-empty-title">
     <a href="tests/images-image-has-empty-alt-and-non-empty-title.html">
       Image has empty alt and non-empty title
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <img alt="" src="assets/test_images/bbc-blocks-dark.png" title="BBC"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-a-distraction-is-present-an-animated-gif">
     <a href="tests/images-a-distraction-is-present-an-animated-gif.html">
       A distraction is present, an animated gif
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <img alt="Animated gif of a Christmas tree with a toy train round and round the base of the tree" height="193" src="assets/test_images/animated-tree.gif" width="157" />
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-image-that-conveys-information-has-an-empty-alt-attribute">
     <a href="tests/images-image-that-conveys-information-has-an-empty-alt-attribute.html">
       Image that conveys information has an empty alt attribute
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <img alt="" src="assets/test_images/bbc-blocks-dark.png"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-image-that-conveys-information-has-inappropriate-alt-text">
     <a href="tests/images-image-that-conveys-information-has-inappropriate-alt-text.html">
       Image that conveys information has inappropriate alt text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <img alt="Twitter" src="assets/test_images/bbc-blocks-dark.png"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-image-alt-attribute-contains-image-file-name">
     <a href="tests/images-image-alt-attribute-contains-image-file-name.html">
       Image alt attribute contains image file name
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <img alt="bbc-blocks-dark.png" src="assets/test_images/bbc-blocks-dark.png"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="images-image-with-partial-text-alternative">
     <a href="tests/images-image-with-partial-text-alternative.html">
       Image with partial text alternative
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p>The image below contains a lot of information, such as which departments the sale is on. The text alternative in the alt attribute does not include this information, only a partial "25% off sale"</p>
 <img alt="25% off sale" src="assets/test_images/sale.jpg"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="images-image-of-text-used-instead-of-text">
+    <a href="tests/images-image-of-text-used-instead-of-text.html">
+      Image of text used instead of text
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html">1.4.5 Images of Text</a>, level AA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <img src="assets/test_images/opening-hours.svg" alt="Opening hours: Monday to Friday, 9am to 5pm"/>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="images-image-of-text-used-for-a-quotation">
+    <a href="tests/images-image-of-text-used-for-a-quotation.html">
+      Image of text used for a quotation
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/images-of-text-no-exception.html">1.4.9 Images of Text (No Exception)</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <figure>
+  <img src="assets/test_images/quote.svg" alt="“The new service saved me hours every week.” Sam, a user of the service"/>
+</figure>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="multimedia" class="heading-large">Multimedia</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="multimedia-embedded-video-file-is-missing-text-alternative">
     <a href="tests/multimedia-embedded-video-file-is-missing-text-alternative.html">
       Embedded video file is missing text alternative
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <video controls="">
@@ -1010,55 +1562,219 @@ times</caption>
 <source src="http://introducinghtml5.com/examples/ch04/leverage-a-synergy.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
 </video>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="multimedia-flashing-content-doesnt-have-warning">
     <a href="tests/multimedia-flashing-content-doesnt-have-warning.html">
       Flashing content doesn&#39;t have warning
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/gwoQRKCEHgY" title="Banned Pokemon scene" width="560"></iframe>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="multimedia-embedded-audio-file-is-missing-text-alternative">
     <a href="tests/multimedia-embedded-audio-file-is-missing-text-alternative.html">
       Embedded audio file is missing text alternative
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <audio controls="" src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg"></audio>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="multimedia-live-video-stream-has-no-captions">
+    <a href="tests/multimedia-live-video-stream-has-no-captions.html">
+      Live video stream has no captions
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/captions-live.html">1.2.4 Captions (Live)</a>, level AA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p><strong>Live now:</strong> full council meeting</p>
+<video controls muted src="assets/test_media/speech-video.mp4"></video>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="multimedia-video-has-no-sign-language-interpretation">
+    <a href="tests/multimedia-video-has-no-sign-language-interpretation.html">
+      Video has no sign language interpretation
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/sign-language-prerecorded.html">1.2.6 Sign Language (Prerecorded)</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <video controls src="assets/test_media/speech-video.mp4">
+  <track kind="captions" srclang="en" label="English" src="assets/test_media/speech-video.vtt" default/>
+</video>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="multimedia-video-has-no-extended-audio-description">
+    <a href="tests/multimedia-video-has-no-extended-audio-description.html">
+      Video has no extended audio description
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/extended-audio-description-prerecorded.html">1.2.7 Extended Audio Description (Prerecorded)</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p>The video shows the new collection calendar on screen. The narration does not pause to describe it and there is no extended audio description.</p>
+<video controls src="assets/test_media/speech-video.mp4">
+  <track kind="captions" srclang="en" label="English" src="assets/test_media/speech-video.vtt" default/>
+</video>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="multimedia-live-audio-stream-has-no-text-alternative">
+    <a href="tests/multimedia-live-audio-stream-has-no-text-alternative.html">
+      Live audio stream has no text alternative
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/audio-only-live.html">1.2.9 Audio-only (Live)</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p><strong>Live now:</strong> council radio</p>
+<audio controls src="assets/test_media/speech.mp3"></audio>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="multimedia-audio-plays-automatically-with-no-way-to-stop-it">
+    <a href="tests/multimedia-audio-plays-automatically-with-no-way-to-stop-it.html">
+      Audio plays automatically with no way to stop it
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html">1.4.2 Audio Control</a>, level A, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <audio autoplay loop src="assets/test_media/speech.mp3"></audio>
+<p>Audio starts playing when this page loads and there are no controls to pause it or change the volume.</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="multimedia-speech-has-loud-background-music">
+    <a href="tests/multimedia-speech-has-loud-background-music.html">
+      Speech has loud background music
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/low-or-no-background-audio.html">1.4.7 Low or No Background Audio</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <audio controls src="assets/test_media/speech-with-background-music.mp3"></audio>
+<details>
+  <summary>Transcript</summary>
+  <p>Welcome to the recycling service. Your bin collection day has changed from Monday to Thursday. Please put your bin out by seven in the morning. Thank you for recycling.</p>
+</details>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="links" class="heading-large">Links</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-image-link-with-no-alternative-text">
     <a href="tests/links-image-link-with-no-alternative-text.html">
       Image link with no alternative text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="http://www.bbc.co.uk"><img alt="" src="assets/test_images/bbc-blocks-dark.png"/></a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-to-javascript-invalid-hypertext-reference">
     <a href="tests/links-link-to-javascript-invalid-hypertext-reference.html">
       Link to javascript, invalid hypertext reference
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="javascript:alert('Hello world!')">Press me!</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-uninformative-link-text">
     <a href="tests/links-uninformative-link-text.html">
       Uninformative link text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <h4>Polar bear</h4>
@@ -1066,52 +1782,82 @@ times</caption>
             encompassing the Arctic Ocean, its surrounding seas and surrounding land masses.</p>
 <a href="https://en.wikipedia.org/wiki/Polar_bear">Read more</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-launches-new-window-with-no-warning">
     <a href="tests/links-link-launches-new-window-with-no-warning.html">
       Link launches new window with no warning
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="https://twitter.com/" target="_blank">Twitter</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-links-not-separated-by-printable-characters">
     <a href="tests/links-links-not-separated-by-printable-characters.html">
       Links not separated by printable characters
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="a.html">Page A</a> <a href="b.html">Page B</a> <a href="c.html">Page C</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-text-with-identical-title">
     <a href="tests/links-link-text-with-identical-title.html">
       Link text with identical title
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="http://www.google.com" title="Google">Google</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-links-to-a-sound-file-no-transcript">
     <a href="tests/links-links-to-a-sound-file-no-transcript.html">
       Links to a sound file, no transcript
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="interview.mp3">Listen to the interview</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-identifying-links-by-colour-alone">
     <a href="tests/links-identifying-links-by-colour-alone.html">
       Identifying links by colour alone
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="links-by-colour-alone">
@@ -1122,42 +1868,66 @@ times</caption>
 <a class="colour-alone-link" href="#">Link only identifiable by colour alone</a>
 </p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-to-pdf-does-not-include-information-on-file-format-and-file-size">
     <a href="tests/links-link-to-pdf-does-not-include-information-on-file-format-and-file-size.html">
       Link to PDF does not include information on file format and file size
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="http://www.bdadyslexia.org.uk/common/ckeditor/filemanager/userfiles/About_Us/policies/Dyslexia_Style_Guide.pdf">Dyslexia style guide</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-to-,-invalid-hypertext-reference">
     <a href="tests/links-link-to-,-invalid-hypertext-reference.html">
       Link to #, invalid hypertext reference
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="#">Do something</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-blank-link-text">
     <a href="tests/links-blank-link-text.html">
       Blank link text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="http://www.google.com"></a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-links-with-the-same-text-go-to-different-pages">
     <a href="tests/links-links-with-the-same-text-go-to-different-pages.html">
       Links with the same text go to different pages
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="https://en.wikipedia.org/wiki/Lion">Lions</a> are the only truly social cats, with related females
@@ -1166,43 +1936,67 @@ times</caption>
         of the prey being antelope, zebra and wildebeest.
     
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-text-does-not-make-sense-out-of-context">
     <a href="tests/links-link-text-does-not-make-sense-out-of-context.html">
       Link text does not make sense out of context
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p>To know more about me, visit my <a href="page.html">page</a>.</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-adjacent-links-going-to-the-same-destination">
     <a href="tests/links-adjacent-links-going-to-the-same-destination.html">
       Adjacent links going to the same destination
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="https://en.wikipedia.org/wiki/Red_panda"><img alt="Red Panda" height="165" src="assets/test_images/red_panda.jpg" width="220"/></a>
 <a href="https://en.wikipedia.org/wiki/Red_panda">Red Panda</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-contains-only-a-full-stop">
     <a href="tests/links-link-contains-only-a-full-stop.html">
       Link contains only a full stop
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
             Visit the GOV.UK website <a href="https://www.gov.uk/">.</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-image-link-alt-text-repeats-text-in-the-link">
     <a href="tests/links-image-link-alt-text-repeats-text-in-the-link.html">
       Image link alt text repeats text in the link
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="https://en.wikipedia.org/wiki/Red_panda">
@@ -1210,99 +2004,157 @@ times</caption>
             Red Panda
         </a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text">
     <a href="tests/links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text.html">
       Link not clearly identifiable and distinguishable from surrounding text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="unobvious-link">Find out more about <a href="http://www.bbc.co.uk/programmes/b006q2x0">Doctor Who</a></p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-to-a-multimedia-file-no-transcript">
     <a href="tests/links-link-to-a-multimedia-file-no-transcript.html">
       Link to a multimedia file, no transcript
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="interview.mov">Watch the interview</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-non-specific-link-text">
     <a href="tests/links-non-specific-link-text.html">
       Non-specific link text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="rockies.html">Click here</a> for more information on the Rocky Mountains.
     
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="links-link-to-an-image-no-text-alternative">
     <a href="tests/links-link-to-an-image-no-text-alternative.html">
       Link to an image, no text alternative
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
             My favourite <a href="assets/test_images/bat.jpg">bat</a>
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="buttons" class="heading-large">Buttons</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="buttons-image-button-has-no-alt-attribute">
     <a href="tests/buttons-image-button-has-no-alt-attribute.html">
       Image button has no alt attribute
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <input src="assets/test_images/submit.png" type="image" />
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="buttons-empty-button">
     <a href="tests/buttons-empty-button.html">
       Empty button
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <button></button>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="buttons-uninformative-alt-attribute-value-on-image-button">
     <a href="tests/buttons-uninformative-alt-attribute-value-on-image-button.html">
       Uninformative alt attribute value on image button
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <input alt="click" src="assets/test_images/submit.png" type="image"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="buttons-empty-alt-attribute-on-image-button">
     <a href="tests/buttons-empty-alt-attribute-on-image-button.html">
       Empty alt attribute on image button
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <input alt="" src="assets/test_images/submit.png" type="image" />
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="forms" class="heading-large">Forms</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-errors-identified-by-colour-only">
     <a href="tests/forms-errors-identified-by-colour-only.html">
       Errors identified by colour only
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form class="errors-badly-identified errors-colour-only">
@@ -1323,12 +2175,18 @@ times</caption>
 </label>
 </form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls">
     <a href="tests/forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls.html">
       Labels missing when they would look clumsy for some form controls
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><label for="missing-labels-day">Your child's date of birth</label>
@@ -1338,12 +2196,18 @@ times</caption>
 <input id="missing-labels-year" type="text"/>
 </p></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format">
     <a href="tests/forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format.html">
       Error messages - no suggestion for corrections given, e.g. required format
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><label class="required-format-not-given">
@@ -1352,12 +2216,18 @@ times</caption>
 <input class="has-errors" pattern="7[0-9]{9}" required="" type="tel"/>
 </label></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-left-aligned-form-labels-with-too-much-white-space">
     <a href="tests/forms-left-aligned-form-labels-with-too-much-white-space.html">
       Left aligned form labels with too much white space
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><p class="too-much-whitespace">
@@ -1365,12 +2235,18 @@ times</caption>
 <input id="input-too-far-away" type="text"/>
 </p></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-group-of-radio-buttons-not-enclosed-in-a-fieldset">
     <a href="tests/forms-group-of-radio-buttons-not-enclosed-in-a-fieldset.html">
       Group of radio buttons not enclosed in a fieldset
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><h4>Do you already have a personal user account?</h4>
@@ -1383,46 +2259,70 @@ times</caption>
             No
         </label></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-form-element-has-no-label">
     <a href="tests/forms-form-element-has-no-label.html">
       Form element has no label
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><input type="text" /></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-fieldset-without-a-legend">
     <a href="tests/forms-fieldset-without-a-legend.html">
       Fieldset without a legend
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><fieldset>
             I am a fieldset without a legend
         </fieldset></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-empty-legend">
     <a href="tests/forms-empty-legend.html">
       Empty legend
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><fieldset>
 <legend></legend>
 </fieldset></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control">
     <a href="tests/forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control.html">
       Label element with for= attribute but not matching id= attribute of form control
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><fieldset>
@@ -1431,12 +2331,18 @@ times</caption>
 <input id="label-for-not-matching" type="checkbox" value="yes"/>
 </fieldset></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-group-of-check-boxes-not-enclosed-in-a-fieldset">
     <a href="tests/forms-group-of-check-boxes-not-enclosed-in-a-fieldset.html">
       Group of check boxes not enclosed in a fieldset
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><h4>Which types of waste do you transport regularly?</h4>
@@ -1453,23 +2359,35 @@ times</caption>
             Farm or agricultural waste
         </label></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-empty-label-found">
     <a href="tests/forms-empty-label-found.html">
       Empty label found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><label for="empty"></label>
 <input id="empty" type="text" value="" /></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-two-unique-labels-but-identical-for=-attributes">
     <a href="tests/forms-two-unique-labels-but-identical-for=-attributes.html">
       Two unique labels, but identical for= attributes
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><label for="two-labels-day">Date of issue</label>
@@ -1482,12 +2400,18 @@ times</caption>
 <input id="two-labels-year" type="text"/>
 </p></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-errors-identified-with-a-poor-colour-contrast">
     <a href="tests/forms-errors-identified-with-a-poor-colour-contrast.html">
       Errors identified with a poor colour contrast
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form class="errors-badly-identified error-poor-contrast">
@@ -1508,12 +2432,18 @@ times</caption>
 </label>
 </form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-non-unique-field-label-found">
     <a href="tests/forms-non-unique-field-label-found.html">
       Non-unique field label found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><label for="x_3">Name
@@ -1521,12 +2451,18 @@ times</caption>
 <label for="x_4">Name
             <input id="x_4" name="x_4" type="text" /></label></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-missing-labels-in-checkboxes">
     <a href="tests/forms-missing-labels-in-checkboxes.html">
       Missing labels in checkboxes
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><fieldset>
@@ -1539,12 +2475,18 @@ times</caption>
 <input id="nationality_hasOtherCountry" name="nationality.hasOtherCountry" type="checkbox" value="true" />
 </fieldset></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-field-hint-not-associated-with-input">
     <a href="tests/forms-field-hint-not-associated-with-input.html">
       Field hint not associated with input
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><label class="form-label" for="ni-number">
@@ -1553,23 +2495,35 @@ times</caption>
 <p class="form-hint">It'll be on your last payslip. For example, JH 21 90 0A.</p>
 <input class="form-control" id="ni-number" type="text" /></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-placeholder-no-label">
     <a href="tests/forms-placeholder-no-label.html">
       Placeholder no label
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><input id="search-main" name="q" placeholder="Search" type="search" />
 <input class="submit" type="submit" value="Search" /></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-errors-are-not-identified">
     <a href="tests/forms-errors-are-not-identified.html">
       Errors are not identified
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form class="errors-badly-identified errors-not-identified">
@@ -1590,12 +2544,18 @@ times</caption>
 </label>
 </form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="forms-form-control-that-changes-context-without-warning">
     <a href="tests/forms-form-control-that-changes-context-without-warning.html">
       Form control that changes context without warning
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <form><label for="language-selector">Select your language</label>
@@ -1606,15 +2566,254 @@ times</caption>
 <option value="fr">French</option>
 </select></form>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="forms-input-purpose-is-not-identified">
+    <a href="tests/forms-input-purpose-is-not-identified.html">
+      Input purpose is not identified
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html">1.3.5 Identify Input Purpose</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <label for="purpose-name">Full name</label>
+<input id="purpose-name" type="text"/>
+<label for="purpose-email">Email address</label>
+<input id="purpose-email" type="text"/>
+<label for="purpose-tel">Phone number</label>
+<input id="purpose-tel" type="text"/>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="forms-autocomplete-attribute-has-an-invalid-value">
+    <a href="tests/forms-autocomplete-attribute-has-an-invalid-value.html">
+      Autocomplete attribute has an invalid value
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html">1.3.5 Identify Input Purpose</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <label for="purpose-invalid">Email address</label>
+<input id="purpose-invalid" type="email" autocomplete="e-mail"/>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="forms-status-message-is-not-announced-to-assistive-technologies">
+    <a href="tests/forms-status-message-is-not-announced-to-assistive-technologies.html">
+      Status message is not announced to assistive technologies
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html">4.1.3 Status Messages</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <p><button type="button" class="status-message-button">Add to basket</button></p>
+<p class="status-message-output"></p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="forms-information-entered-earlier-must-be-entered-again">
+    <a href="tests/forms-information-entered-earlier-must-be-entered-again.html">
+      Information entered earlier must be entered again
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html">3.3.7 Redundant Entry</a>, level A, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <p>Step 1 of 2 (completed): delivery address is 1 High Street, Leeds, LS1 1AA.</p>
+<h2>Step 2 of 2: billing address</h2>
+<label for="redundant-line1">Address line 1</label>
+<input id="redundant-line1" type="text" autocomplete="billing address-line1"/>
+<label for="redundant-town">Town or city</label>
+<input id="redundant-town" type="text" autocomplete="billing address-level2"/>
+<label for="redundant-postcode">Postcode</label>
+<input id="redundant-postcode" type="text" autocomplete="billing postal-code"/>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="forms-pasting-into-the-password-field-is-blocked">
+    <a href="tests/forms-pasting-into-the-password-field-is-blocked.html">
+      Pasting into the password field is blocked
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html">3.3.8 Accessible Authentication (Minimum)</a>, level AA, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <label for="no-paste-password">Password</label>
+<input id="no-paste-password" class="no-paste" type="password" autocomplete="current-password"/>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="forms-focusing-a-field-opens-a-new-window">
+    <a href="tests/forms-focusing-a-field-opens-a-new-window.html">
+      Focusing a field opens a new window
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html">3.2.1 On Focus</a>, level A, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <label for="on-focus-postcode">Postcode</label>
+<input id="on-focus-postcode" class="change-on-focus" type="text"/>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="forms-payment-is-taken-without-a-chance-to-check-or-cancel">
+    <a href="tests/forms-payment-is-taken-without-a-chance-to-check-or-cancel.html">
+      Payment is taken without a chance to check or cancel
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html">3.3.4 Error Prevention (Legal, Financial, Data)</a>, level AA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <form action="paid.html">
+  <p>Amount to pay: £120.00</p>
+  <label for="card-number">Card number</label>
+  <input id="card-number" type="text" autocomplete="cc-number"/>
+  <button type="submit">Pay</button>
+</form>
+<p>Selecting "Pay" takes the payment straight away. There is no page to check the details and no way to cancel.</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="forms-no-help-is-available-for-a-complex-field">
+    <a href="tests/forms-no-help-is-available-for-a-complex-field.html">
+      No help is available for a complex field
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/help.html">3.3.5 Help</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <label for="utr">Unique Taxpayer Reference</label>
+<input id="utr" type="text"/>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="forms-submitting-a-form-cannot-be-checked-confirmed-or-reversed">
+    <a href="tests/forms-submitting-a-form-cannot-be-checked-confirmed-or-reversed.html">
+      Submitting a form cannot be checked, confirmed or reversed
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-all.html">3.3.6 Error Prevention (All)</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <form action="deleted.html">
+  <p>You have 12 saved messages.</p>
+  <button type="submit">Delete all messages</button>
+</form>
+<p>The messages are deleted straight away with no confirmation and cannot be recovered.</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="forms-sign-in-requires-recognising-objects-in-pictures">
+    <a href="tests/forms-sign-in-requires-recognising-objects-in-pictures.html">
+      Sign in requires recognising objects in pictures
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html">3.3.9 Accessible Authentication (Enhanced)</a>, level AAA, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <fieldset>
+  <legend>To sign in, select every picture of a red panda</legend>
+  <label><input type="checkbox" name="captcha" value="1"/> <img src="assets/test_images/red_panda.jpg" alt="Picture 1" width="120"/></label>
+  <label><input type="checkbox" name="captcha" value="2"/> <img src="assets/test_images/bat.jpg" alt="Picture 2" width="120"/></label>
+</fieldset>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="navigation" class="heading-large">Navigation</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="navigation-inadequately-sized-clickable-targets-found">
     <a href="tests/navigation-inadequately-sized-clickable-targets-found.html">
       Inadequately-sized clickable targets found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="a.html">a</a>
@@ -1644,15 +2843,171 @@ times</caption>
 <a href="y.html">y</a>
 <a href="z.html">z</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="navigation-help-link-is-in-a-different-place-on-each-page">
+    <a href="tests/navigation-help-link-is-in-a-different-place-on-each-page.html">
+      Help link is in a different place on each page
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html">3.2.6 Consistent Help</a>, level A, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <p>These two pages are part of the same service, but the help link is in the header on one and in the footer on the other.</p>
+<ul class="spaced-links">
+  <li><a href="example-pages/consistent-help-1.html">Step 1: Your details</a></li>
+  <li><a href="example-pages/consistent-help-2.html">Step 2: Your address</a></li>
+</ul>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="navigation-no-way-to-skip-repeated-navigation">
+    <a href="tests/navigation-no-way-to-skip-repeated-navigation.html">
+      No way to skip repeated navigation
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html">2.4.1 Bypass Blocks</a>, level A, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <div class="repeated-navigation spaced-links">
+  <a href="a.html">Home</a> <a href="b.html">Benefits</a> <a href="c.html">Births, deaths and marriages</a> <a href="d.html">Business</a> <a href="e.html">Childcare and parenting</a> <a href="f.html">Citizenship</a> <a href="g.html">Crime and justice</a> <a href="h.html">Disabled people</a> <a href="i.html">Driving</a> <a href="j.html">Education</a> <a href="k.html">Employing people</a> <a href="l.html">Environment</a> <a href="m.html">Housing</a> <a href="n.html">Money and tax</a> <a href="o.html">Passports</a> <a href="p.html">Visas</a> <a href="q.html">Working</a>
+</div>
+<div class="repeated-navigation-content">
+  <p>This content comes after the navigation, and there is no skip link, heading or landmark to get to it directly.</p>
+</div>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="navigation-pages-can-only-be-found-in-one-way">
+    <a href="tests/navigation-pages-can-only-be-found-in-one-way.html">
+      Pages can only be found in one way
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html">2.4.5 Multiple Ways</a>, level AA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p>This site has no search, site map or index. The only way to find a page is through the menu:</p>
+<ul class="spaced-links">
+  <li><a href="a.html">Services</a></li>
+  <li><a href="b.html">About us</a></li>
+  <li><a href="c.html">Contact</a></li>
+</ul>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="navigation-no-indication-of-where-the-user-is-in-the-site">
+    <a href="tests/navigation-no-indication-of-where-the-user-is-in-the-site.html">
+      No indication of where the user is in the site
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/location.html">2.4.8 Location</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <ul class="no-location spaced-links">
+  <li><a href="a.html">Home</a></li>
+  <li><a href="b.html">Benefits</a></li>
+  <li><a href="c.html">Housing</a></li>
+</ul>
+<h2>Housing benefit</h2>
+<p>There are no breadcrumbs and the menu does not show which section this page is in.</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="navigation-navigation-is-in-a-different-order-on-each-page">
+    <a href="tests/navigation-navigation-is-in-a-different-order-on-each-page.html">
+      Navigation is in a different order on each page
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html">3.2.3 Consistent Navigation</a>, level AA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p>These two pages are part of the same site, but the links in the main navigation are in a different order.</p>
+<ul class="spaced-links">
+  <li><a href="example-pages/consistent-navigation-1.html">Benefits</a></li>
+  <li><a href="example-pages/consistent-navigation-2.html">Housing</a></li>
+</ul>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="navigation-the-same-function-has-different-labels-on-different-pages">
+    <a href="tests/navigation-the-same-function-has-different-labels-on-different-pages.html">
+      The same function has different labels on different pages
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html">3.2.4 Consistent Identification</a>, level AA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p>The search button is labelled "Search" on one page and "Go" on the other.</p>
+<ul class="spaced-links">
+  <li><a href="example-pages/consistent-identification-1.html">Page 1</a></li>
+  <li><a href="example-pages/consistent-identification-2.html">Page 2</a></li>
+</ul>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="keyboardaccess" class="heading-large">Keyboard Access</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-alert-shows-for-a-short-time">
     <a href="tests/keyboard-access-alert-shows-for-a-short-time.html">
       Alert shows for a short time
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="disappearing-alert hidden">
@@ -1663,12 +3018,18 @@ times</caption>
             <input type="text"/>
 </label>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-lightbox-close-button-doesnt-receive-focus">
     <a href="tests/keyboard-access-lightbox-close-button-doesnt-receive-focus.html">
       Lightbox - close button doesn&#39;t receive focus
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a class="open-lightbox-close-button" href="#">Open lightbox</a>
@@ -1680,12 +3041,18 @@ times</caption>
             </p>
 </div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-focus-order-in-wrong-order">
     <a href="tests/keyboard-access-focus-order-in-wrong-order.html">
       Focus order in wrong order
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <div class="focus-order-broken">
@@ -1694,42 +3061,66 @@ times</caption>
 <a class="Third" href="#">Third link</a>
 </div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-tabindex-greater-than-0">
     <a href="tests/keyboard-access-tabindex-greater-than-0.html">
       Tabindex greater than 0
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="page.html" tabindex="5">A link with a tabindex greater than 0</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-keyboard-focus-is-not-indicated-visually">
     <a href="tests/keyboard-access-keyboard-focus-is-not-indicated-visually.html">
       Keyboard focus is not indicated visually
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a class="no-outline" href="link.html">Link with no focus style</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0">
     <a href="tests/keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0.html">
       Keyboard focus assigned to a non focusable element using tabindex=0
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p tabindex="0">My favourite car</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-concertina-items-dont-get-keyboard-focus">
     <a href="tests/keyboard-access-concertina-items-dont-get-keyboard-focus.html">
       Concertina items don&#39;t get keyboard focus
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <dl class="concertina">
@@ -1761,22 +3152,34 @@ times</caption>
 </dd>
 </dl>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-keyboard-trap">
     <a href="tests/keyboard-access-keyboard-trap.html">
       Keyboard trap
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p><a href="example-pages/keyboardtrap.html">Example page that contains a keyboard trap</a></p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus">
     <a href="tests/keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus.html">
       Dropdown navigation - only the top level items receive focus
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <nav class="dropdown-nav" role="navigation">
@@ -1792,12 +3195,18 @@ times</caption>
 </ul>
 </nav>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox">
     <a href="tests/keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox.html">
       Lightbox - ESC key doesn&#39;t close the lightbox
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a class="open-lightbox-unescapable" href="#">Open lightbox</a>
@@ -1809,22 +3218,34 @@ times</caption>
             </p>
 </div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar">
     <a href="tests/keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar.html">
       Link with a role=button does not work with space bar
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a class="button" href="next.html" role="button">Continue</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-tooltips-dont-receive-keyboard-focus">
     <a href="tests/keyboard-access-tooltips-dont-receive-keyboard-focus.html">
       Tooltips don&#39;t receive keyboard focus
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <label class="tooltips-not-focusable" for="drivers-licence-no">
@@ -1834,22 +3255,34 @@ times</caption>
 </label>
 <input id="drivers-licence-no" type="text"/>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-accesskey-attribute-used">
     <a href="tests/keyboard-access-accesskey-attribute-used.html">
       Accesskey attribute used
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a accesskey="A" href="page.html">A link with an accesskey attribute</a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox">
     <a href="tests/keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox.html">
       Lightbox - focus is not moved immediately to lightbox
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a class="open-lightbox-focus-far" href="#">Open lightbox</a>
@@ -1861,12 +3294,18 @@ times</caption>
             </p>
 </div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox">
     <a href="tests/keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox.html">
       Lightbox - focus is not retained within the lightbox
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a class="open-lightbox-not-focused" href="#">Open lightbox</a>
@@ -1878,113 +3317,336 @@ times</caption>
             </p>
 </div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="keyboard-access-fake-button-is-not-keyboard-accessible">
     <a href="tests/keyboard-access-fake-button-is-not-keyboard-accessible.html">
       Fake button is not keyboard accessible
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <div class="button" id="webchat">launch webchat</div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="keyboard-access-single-character-keyboard-shortcut-cannot-be-turned-off-or-remapped">
+    <a href="tests/keyboard-access-single-character-keyboard-shortcut-cannot-be-turned-off-or-remapped.html">
+      Single character keyboard shortcut cannot be turned off or remapped
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html">2.1.4 Character Key Shortcuts</a>, level A, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <div class="single-key-shortcut">
+  <p>Message from the council: your bin collection day has changed.</p>
+  <p>Press <kbd>d</kbd> to delete this message.</p>
+</div>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="keyboard-access-focused-link-is-hidden-behind-a-sticky-footer">
+    <a href="tests/keyboard-access-focused-link-is-hidden-behind-a-sticky-footer.html">
+      Focused link is hidden behind a sticky footer
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html">2.4.11 Focus Not Obscured (Minimum)</a>, level AA, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <div class="focus-obscured">
+  <ul class="spaced-links">
+    <li><a href="a.html">Apply for a licence</a></li>
+    <li><a href="b.html">Renew a licence</a></li>
+    <li><a href="c.html">Change your address</a></li>
+    <li><a href="d.html">Report a lost licence</a></li>
+    <li><a href="e.html">Pay a fine</a></li>
+    <li><a href="f.html">Contact us</a></li>
+  </ul>
+  <div class="focus-obscured-banner">We use cookies to make this service work. <a href="cookies.html">Cookie settings</a></div>
+</div>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="keyboard-access-signature-can-only-be-drawn-with-a-pointer">
+    <a href="tests/keyboard-access-signature-can-only-be-drawn-with-a-pointer.html">
+      Signature can only be drawn with a pointer
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard-no-exception.html">2.1.3 Keyboard (No Exception)</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p>Sign your name in the box using your mouse or finger.</p>
+<canvas class="signature-pad" width="300" height="100" aria-label="Signature"></canvas>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="keyboard-access-focused-link-is-partly-hidden-by-a-chat-widget">
+    <a href="tests/keyboard-access-focused-link-is-partly-hidden-by-a-chat-widget.html">
+      Focused link is partly hidden by a chat widget
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html">2.4.12 Focus Not Obscured (Enhanced)</a>, level AAA, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <p class="focus-partly-obscured">
+  <a href="a.html">Check your tax code</a>
+  <span class="focus-partly-obscured-widget">Chat with us</span>
+</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="keyboard-access-focus-indicator-is-too-thin-and-has-low-contrast">
+    <a href="tests/keyboard-access-focus-indicator-is-too-thin-and-has-low-contrast.html">
+      Focus indicator is too thin and has low contrast
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html">2.4.13 Focus Appearance</a>, level AAA, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <p><a href="a.html" class="thin-focus">Find out more about council tax</a></p>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="frames" class="heading-large">Frames</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="frames-iframe-is-missing-a-title-attribute">
     <a href="tests/frames-iframe-is-missing-a-title-attribute.html">
       iframe is missing a title attribute
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <iframe height="100" src="example-pages/demo.html" width="300"></iframe>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe">
     <a href="tests/frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe.html">
       iframe title attribute does not describe the content or purpose of the iframe
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <iframe height="100" src="example-pages/demo.html" title="Facebook" width="300"></iframe>
   </div>
+  </div>
   
+  </section>
+  <section data-filter-group>
   <h2 id="css" class="heading-large">CSS</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="css-content-is-not-readable-and-functional-when-text-is-increased">
     <a href="tests/css-content-is-not-readable-and-functional-when-text-is-increased.html">
       Content is not readable and functional when text is increased
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p class="resize">This text becomes unreadable when you increase the text-size  (Zoom text only) in
             <a href="https://www.mozilla.org/en-GB/firefox/desktop/">Firefox</a></p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="css-non-decorative-content-inserted-using-css">
     <a href="tests/css-non-decorative-content-inserted-using-css.html">
       Non-decorative content inserted using CSS
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p id="css-generated-text">My favourite food is </p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader">
     <a href="tests/css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader.html">
       visibility:hidden used to visually hide content when it should be available to screenreader
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="rugby.html">Read more <span style="visibility:hidden"> about rugby</span></a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader">
     <a href="tests/css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader.html">
       display:none used to visually hide content when it should be available to screenreader
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <a href="football.html">Read more <span style="display:none"> about football</span></a>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="css-page-zoom-boxes-that-dont-expand-with-the-text">
     <a href="tests/css-page-zoom-boxes-that-dont-expand-with-the-text.html">
       Page zoom - boxes that don&#39;t expand with the text
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <div class="wont-expand-box">The box below this example won't expand to fit the text contained within when zoomed in.<p class="wont-expand">This service is for England and Wales only. You must contact individual <a href="https://www.justice-ni.gov.uk/topics/prisons/prison-visits">prisons in Northern Ireland</a> or <a href="http://www.sps.gov.uk/Corporate/Prisons/Prisons.aspx">Scotland</a> to book a visit.</p></div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="css-content-is-clipped-when-text-spacing-is-increased">
+    <a href="tests/css-content-is-clipped-when-text-spacing-is-increased.html">
+      Content is clipped when text spacing is increased
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html">1.4.12 Text Spacing</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <div class="fixed-height-box"><p>Your application has been received. We will contact you within 5 working days to confirm the next steps.</p></div>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="css-text-spacing-cannot-be-overridden-because-of-important-inline-styles">
+    <a href="tests/css-text-spacing-cannot-be-overridden-because-of-important-inline-styles.html">
+      Text spacing cannot be overridden because of important inline styles
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html">1.4.12 Text Spacing</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <p style="line-height: 1.1 !important; letter-spacing: 0 !important; word-spacing: 0 !important;">Users who need more space between lines, letters and words cannot change this paragraph with their own style sheet.</p>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
   <h2 id="html" class="heading-large">HTML</h2>
 
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-duplicate-id">
     <a href="tests/html-duplicate-id.html">
       Duplicate id
     </a>
+    
   </h3>
+
+  
+  <p class="test-note">Success criterion 4.1.1 Parsing was removed in WCAG 2.2.</p>
 
   <div class="example">
     <div id="nav">global nav</div>
 <div id="nav">page nav</div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.">
     <a href="tests/html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc..html">
       Article element used to mark-up an element that&#39;s not an article/blog post etc.
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <article class="not-article-content">
@@ -1997,32 +3659,50 @@ times</caption>
 </nav>
 </article>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-empty-paragraph">
     <a href="tests/html-empty-paragraph.html">
       Empty paragraph
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p></p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-deprecated-center-element">
     <a href="tests/html-deprecated-center-element.html">
       Deprecated center element
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <center>This text is centred using the center element</center>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-invalid-aria-role-names">
     <a href="tests/html-invalid-aria-role-names.html">
       Invalid ARIA role names
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <div class="header-context" id="global-breadcrumb">
@@ -2033,53 +3713,83 @@ times</caption>
 </ol>
 </div>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window">
     <a href="tests/html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window.html">
       Object not embedded accessibly - wmode parameter not set to window
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <object data="foo"><param name="wmode" value="transparent" />Alternative text</object>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-spacer-image-found">
     <a href="tests/html-spacer-image-found.html">
       Spacer image found
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     We are here. <img alt="" height="1" src="assets/test_images/spacer.gif" width="100" /> And you are there.
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-inline-style-adds-colour">
     <a href="tests/html-inline-style-adds-colour.html">
       Inline style adds colour
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p style="color: blue;">The colour of this text is set using inline styles.</p>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-start-and-close-tags-dont-match">
     <a href="tests/html-start-and-close-tags-dont-match.html">
       Start and close tags don&#39;t match
     </a>
+    
   </h3>
+
+  
+  <p class="test-note">Success criterion 4.1.1 Parsing was removed in WCAG 2.2.</p>
 
   <div class="example">
              <div>strings of pearls</span></div>
   
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-pre-element-without-code-element-inside-it">
     <a href="tests/html-pre-element-without-code-element-inside-it.html">
       PRE element without CODE element inside it
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <pre>
@@ -2091,18 +3801,407 @@ Your
         goes here
 </pre>
   </div>
+  </div>
   
+  <div class="test-case" data-filter="original">
   <h3 class="heading-medium" id="html-deprecated-font-element">
     <a href="tests/html-deprecated-font-element.html">
       Deprecated font element
     </a>
+    
   </h3>
+
+  
+  
 
   <div class="example">
     <p><font face="aria" size="5">The size and face of this text is set using the font element and the size and face attributes</font></p>
   </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="html-purpose-of-regions-cannot-be-programmatically-determined">
+    <a href="tests/html-purpose-of-regions-cannot-be-programmatically-determined.html">
+      Purpose of regions cannot be programmatically determined
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/identify-purpose.html">1.3.6 Identify Purpose</a>, level AAA, added in WCAG 2.1
+  </p>
   
   
+
+  <div class="example">
+    <div class="site-header">
+  <div class="site-nav"><a href="home.html">Home</a> <a href="search.html">Search</a> <a href="account.html">Your account</a></div>
+</div>
+<div class="site-content">
+  <p>Page content, with no landmarks or other markup to say which part is navigation and which is the main content.</p>
+</div>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
+  <h2 id="contentonhoverorfocus" class="heading-large">Content on Hover or Focus</h2>
+
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="content-on-hover-or-focus-tooltip-cannot-be-dismissed-without-moving-the-pointer-or-focus">
+    <a href="tests/content-on-hover-or-focus-tooltip-cannot-be-dismissed-without-moving-the-pointer-or-focus.html">
+      Tooltip cannot be dismissed without moving the pointer or focus
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">1.4.13 Content on Hover or Focus</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <p class="hover-content">
+  <a href="#" class="hover-content-trigger">Delivery options</a>
+  <span class="hover-content-tip">Standard delivery takes 3 to 5 working days. Express delivery is available for an extra charge.</span>
+</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="content-on-hover-or-focus-tooltip-disappears-when-the-pointer-is-moved-over-it">
+    <a href="tests/content-on-hover-or-focus-tooltip-disappears-when-the-pointer-is-moved-over-it.html">
+      Tooltip disappears when the pointer is moved over it
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">1.4.13 Content on Hover or Focus</a>, level AA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <p class="hover-content hover-content-gap">
+  <a href="#" class="hover-content-trigger">Returns policy</a>
+  <span class="hover-content-tip">You can return items within 30 days. Try moving your pointer onto this text to read it.</span>
+</p>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
+  <h2 id="pointerandmotion" class="heading-large">Pointer and Motion</h2>
+
+  
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="pointer-and-motion-carousel-can-only-be-changed-with-a-swipe-gesture">
+    <a href="tests/pointer-and-motion-carousel-can-only-be-changed-with-a-swipe-gesture.html">
+      Carousel can only be changed with a swipe gesture
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html">2.5.1 Pointer Gestures</a>, level A, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <div class="swipe-only" aria-roledescription="carousel">
+  <p class="swipe-only-slide">Slide 1 of 3: Apply for a passport online</p>
+  <p class="swipe-only-hint">Swipe left or right to see more</p>
+</div>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="pointer-and-motion-action-is-triggered-on-pointer-down">
+    <a href="tests/pointer-and-motion-action-is-triggered-on-pointer-down.html">
+      Action is triggered on pointer down
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html">2.5.2 Pointer Cancellation</a>, level A, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <p><button type="button" class="pointer-down-action">Delete draft</button></p>
+<p class="pointer-down-status"></p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="pointer-and-motion-accessible-name-does-not-contain-the-visible-label">
+    <a href="tests/pointer-and-motion-accessible-name-does-not-contain-the-visible-label.html">
+      Accessible name does not contain the visible label
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html">2.5.3 Label in Name</a>, level A, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <button type="button" aria-label="Submit application">Send</button>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="A">
+  <h3 class="heading-medium" id="pointer-and-motion-function-can-only-be-operated-by-shaking-the-device">
+    <a href="tests/pointer-and-motion-function-can-only-be-operated-by-shaking-the-device.html">
+      Function can only be operated by shaking the device
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation.html">2.5.4 Motion Actuation</a>, level A, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <p class="motion-only">Shake your device to undo the last change.</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="pointer-and-motion-list-can-only-be-reordered-by-dragging">
+    <a href="tests/pointer-and-motion-list-can-only-be-reordered-by-dragging.html">
+      List can only be reordered by dragging
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html">2.5.7 Dragging Movements</a>, level AA, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <p>Drag the items to put them in order of preference.</p>
+<ol class="drag-only">
+  <li draggable="true">Email</li>
+  <li draggable="true">Text message</li>
+  <li draggable="true">Letter</li>
+</ol>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AA">
+  <h3 class="heading-medium" id="pointer-and-motion-clickable-targets-are-smaller-than-24-by-24-css-pixels">
+    <a href="tests/pointer-and-motion-clickable-targets-are-smaller-than-24-by-24-css-pixels.html">
+      Clickable targets are smaller than 24 by 24 CSS pixels
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">2.5.8 Target Size (Minimum)</a>, level AA, added in WCAG 2.2
+  </p>
+  
+  
+
+  <div class="example">
+    <p class="small-targets">
+  <button type="button" aria-label="Previous page">&lt;</button><button type="button" aria-label="Page 1">1</button><button type="button" aria-label="Page 2">2</button><button type="button" aria-label="Page 3">3</button><button type="button" aria-label="Next page">&gt;</button>
+</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="pointer-and-motion-mouse-input-is-ignored-on-devices-with-a-touch-screen">
+    <a href="tests/pointer-and-motion-mouse-input-is-ignored-on-devices-with-a-touch-screen.html">
+      Mouse input is ignored on devices with a touch screen
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/concurrent-input-mechanisms.html">2.5.6 Concurrent Input Mechanisms</a>, level AAA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <p><button type="button" class="touch-only-when-touchscreen">Show more results</button></p>
+<p class="touch-only-when-touchscreen-output"></p>
+<p>On a device with a touch screen, this button ignores clicks from a mouse or trackpad.</p>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
+  <h2 id="timing" class="heading-large">Timing</h2>
+
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="timing-task-has-a-time-limit">
+    <a href="tests/timing-task-has-a-time-limit.html">
+      Task has a time limit
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/no-timing.html">2.2.3 No Timing</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <form class="time-limit">
+  <p>You have <span class="time-limit-seconds">60</span> seconds to answer.</p>
+  <label for="time-limit-answer">What is the capital of Scotland?</label>
+  <input id="time-limit-answer" type="text"/>
+  <button type="submit">Submit answer</button>
+</form>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="timing-updates-interrupt-the-user-and-cannot-be-postponed">
+    <a href="tests/timing-updates-interrupt-the-user-and-cannot-be-postponed.html">
+      Updates interrupt the user and cannot be postponed
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/interruptions.html">2.2.4 Interruptions</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <div class="interruption" role="alert"></div>
+<p>A new promotional message is announced every 10 seconds and there is no way to turn it off.</p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="timing-data-is-lost-when-the-session-expires">
+    <a href="tests/timing-data-is-lost-when-the-session-expires.html">
+      Data is lost when the session expires
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/re-authenticating.html">2.2.5 Re-authenticating</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p>Your session will end after 20 minutes. If you sign in again, you will have to start your application from the beginning.</p>
+<label for="reauth-details">Tell us about your circumstances</label>
+<textarea id="reauth-details" rows="4" cols="40"></textarea>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="timing-users-are-not-warned-about-an-inactivity-timeout">
+    <a href="tests/timing-users-are-not-warned-about-an-inactivity-timeout.html">
+      Users are not warned about an inactivity timeout
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html">2.2.6 Timeouts</a>, level AAA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <form class="silent-timeout">
+  <label for="silent-timeout-message">Your message</label>
+  <textarea id="silent-timeout-message" rows="4" cols="40"></textarea>
+  <button type="submit">Send</button>
+</form>
+<p>After 20 minutes without activity the message is cleared. Users are not told about this.</p>
+  </div>
+  </div>
+  
+  </section>
+  <section data-filter-group>
+  <h2 id="animationandflashing" class="heading-large">Animation and Flashing</h2>
+
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="animation-and-flashing-content-flashes-more-than-three-times-in-one-second">
+    <a href="tests/animation-and-flashing-content-flashes-more-than-three-times-in-one-second.html">
+      Content flashes more than three times in one second
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/three-flashes.html">2.3.2 Three Flashes</a>, level AAA, added in WCAG 2.0
+  </p>
+  
+  
+
+  <div class="example">
+    <p><strong>Warning:</strong> the button below starts a small area that flashes 5 times a second for 3 seconds.</p>
+<p><button type="button" class="flash-start">Show the flashing badge</button> <span class="flash-badge">NEW</span></p>
+  </div>
+  </div>
+  
+  <div class="test-case" data-filter="AAA">
+  <h3 class="heading-medium" id="animation-and-flashing-motion-animation-triggered-by-interaction-cannot-be-turned-off">
+    <a href="tests/animation-and-flashing-motion-animation-triggered-by-interaction-cannot-be-turned-off.html">
+      Motion animation triggered by interaction cannot be turned off
+    </a>
+    <strong class="new-tag">Added</strong>
+  </h3>
+
+  
+  <p class="wcag-criterion">
+    Fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html">2.3.3 Animation from Interactions</a>, level AAA, added in WCAG 2.1
+  </p>
+  
+  
+
+  <div class="example">
+    <p><button type="button" class="interaction-animation-start">Add to basket</button></p>
+<div class="interaction-animation">Basket</div>
+<p>The basket spins and slides across the page when an item is added, even when the user has asked for reduced motion.</p>
+  </div>
+  </div>
+  
+  </section>
+  
+  </div>
 </main>
 
 

@@ -285,15 +285,15 @@
       },
       {
         "position": 7,
-        "name": "aslint",
-        "error_warning": 28,
-        "error_warning_manual": 35
-      },
-      {
-        "position": 8,
         "name": "fae",
         "error_warning": 28,
         "error_warning_manual": 50
+      },
+      {
+        "position": 8,
+        "name": "aslint",
+        "error_warning": 28,
+        "error_warning_manual": 35
       },
       {
         "position": 9,
@@ -309,13 +309,13 @@
       },
       {
         "position": 11,
-        "name": "eiii",
+        "name": "google",
         "error_warning": 17,
         "error_warning_manual": 17
       },
       {
         "position": 12,
-        "name": "google",
+        "name": "eiii",
         "error_warning": 17,
         "error_warning_manual": 17
       },
@@ -359,14 +359,14 @@
       },
       {
         "position": 6,
-        "name": "aslint",
-        "error_warning": 28,
+        "name": "achecker",
+        "error_warning": 31,
         "error_warning_manual": 35
       },
       {
         "position": 7,
-        "name": "achecker",
-        "error_warning": 31,
+        "name": "aslint",
+        "error_warning": 28,
         "error_warning_manual": 35
       },
       {
@@ -389,13 +389,13 @@
       },
       {
         "position": 11,
-        "name": "eiii",
+        "name": "google",
         "error_warning": 17,
         "error_warning_manual": 17
       },
       {
         "position": 12,
-        "name": "google",
+        "name": "eiii",
         "error_warning": 17,
         "error_warning_manual": 17
       },
@@ -406,5 +406,162 @@
         "error_warning_manual": 16
       }
     ]
+  },
+  "retest": {
+    "date": "2026-09-29",
+    "tools": {
+      "axe": {
+        "name": "axe-core",
+        "version": "4.13.0"
+      },
+      "pa11y": {
+        "name": "pa11y",
+        "version": "10.0.0",
+        "runner": "HTML_CodeSniffer 2.6.0"
+      }
+    },
+    "totals": {
+      "original": 142,
+      "added": 52,
+      "added_a_aa": 30,
+      "added_aaa": 22,
+      "all": 194
+    },
+    "scores": {
+      "axe": {
+        "original": {
+          "tested": 142,
+          "counts": {
+            "notfound": 91,
+            "error": 43,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 8,
+            "identified": 0
+          },
+          "error_warning": 30,
+          "error_warning_manual": 36
+        },
+        "added": {
+          "tested": 52,
+          "counts": {
+            "notfound": 46,
+            "error": 3,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 3,
+            "identified": 0
+          },
+          "error_warning": 6,
+          "error_warning_manual": 12
+        },
+        "added_a_aa": {
+          "tested": 30,
+          "counts": {
+            "notfound": 25,
+            "error": 3,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 2,
+            "identified": 0
+          },
+          "error_warning": 10,
+          "error_warning_manual": 17
+        },
+        "added_aaa": {
+          "tested": 22,
+          "counts": {
+            "notfound": 21,
+            "error": 0,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 1,
+            "identified": 0
+          },
+          "error_warning": 0,
+          "error_warning_manual": 5
+        },
+        "all": {
+          "tested": 194,
+          "counts": {
+            "notfound": 137,
+            "error": 46,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 11,
+            "identified": 0
+          },
+          "error_warning": 24,
+          "error_warning_manual": 29
+        }
+      },
+      "pa11y": {
+        "original": {
+          "tested": 142,
+          "counts": {
+            "notfound": 80,
+            "error": 44,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 18,
+            "identified": 0
+          },
+          "error_warning": 31,
+          "error_warning_manual": 44
+        },
+        "added": {
+          "tested": 52,
+          "counts": {
+            "notfound": 47,
+            "error": 0,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 5,
+            "identified": 0
+          },
+          "error_warning": 0,
+          "error_warning_manual": 10
+        },
+        "added_a_aa": {
+          "tested": 30,
+          "counts": {
+            "notfound": 27,
+            "error": 0,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 3,
+            "identified": 0
+          },
+          "error_warning": 0,
+          "error_warning_manual": 10
+        },
+        "added_aaa": {
+          "tested": 22,
+          "counts": {
+            "notfound": 20,
+            "error": 0,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 2,
+            "identified": 0
+          },
+          "error_warning": 0,
+          "error_warning_manual": 9
+        },
+        "all": {
+          "tested": 194,
+          "counts": {
+            "notfound": 127,
+            "error": 44,
+            "error_paid": 0,
+            "warning": 0,
+            "manual": 23,
+            "identified": 0
+          },
+          "error_warning": 23,
+          "error_warning_manual": 35
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Payment is taken without a chance to check or cancel - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Payment is taken without a chance to check or cancel</h1>
+  <main>
+    <form action="paid.html">
+  <p>Amount to pay: £120.00</p>
+  <label for="card-number">Card number</label>
+  <input id="card-number" type="text" autocomplete="cc-number"/>
+  <button type="submit">Pay</button>
+</form>
+<p>Selecting "Pay" takes the payment straight away. There is no page to check the details and no way to cancel.</p>
+  </main>
+</body>
+</html>

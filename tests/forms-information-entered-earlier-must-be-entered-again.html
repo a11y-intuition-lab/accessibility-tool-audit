@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Information entered earlier must be entered again - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Information entered earlier must be entered again</h1>
+  <main>
+    <p>Step 1 of 2 (completed): delivery address is 1 High Street, Leeds, LS1 1AA.</p>
+<h2>Step 2 of 2: billing address</h2>
+<label for="redundant-line1">Address line 1</label>
+<input id="redundant-line1" type="text" autocomplete="billing address-line1"/>
+<label for="redundant-town">Town or city</label>
+<input id="redundant-town" type="text" autocomplete="billing address-level2"/>
+<label for="redundant-postcode">Postcode</label>
+<input id="redundant-postcode" type="text" autocomplete="billing postal-code"/>
+  </main>
+</body>
+</html>
