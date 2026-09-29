@@ -92,6 +92,44 @@
         pa11y runs HTML_CodeSniffer, so it is compared with the original HTML_CodeSniffer results.
       </p>
 
+      <h3>Both tools together</h3>
+
+      <p>
+        In the original audit, axe and HTML_CodeSniffer together fully detected {{ analysis.retest.combined.original_audit.error_warning }}% of the original test cases. In the retest, axe-core and pa11y together detected {{ analysis.retest.combined.original.error_warning }}%.
+        Each added level makes the total lower: with the added A and AA test cases the tools detect {{ analysis.retest.combined.original_a_aa.error_warning }}% of all test cases up to AA, and with the AAA test cases as well {{ analysis.retest.combined.all.error_warning }}%.
+      </p>
+
+      <p>
+        Some of the increase on the original test cases may come from the method. GDS checked whether each tool found the barrier the test case was made for. The retest counts any finding the tool reports on the page.
+      </p>
+
+      <table class="numeric-results percentage-summary retest-results">
+        <caption>Test cases detected by at least one of the two tools</caption>
+        <thead>
+          <tr>
+            <th scope="col">Test cases</th>
+            <th scope="col">Barriers found</th>
+            <th scope="col">Barriers and potential barriers found</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Original audit, {{ analysis.retest.totals.original }} original test cases<span class="tool-version">aXe and HTML_CodeSniffer</span></th>
+            <td>{{ analysis.retest.combined.original_audit.error_warning }}%</td>
+            <td>{{ analysis.retest.combined.original_audit.error_warning_manual }}%</td>
+          </tr>
+          {% for key, label in [["original", "original test cases"], ["original_a_aa", "original and added A and AA test cases"], ["all", "all test cases, including AAA"], ["added_a_aa", "added A and AA test cases only"], ["added_aaa", "added AAA test cases only"]] %}
+          <tr>
+            <th scope="row" class="retest">Retest, {{ analysis.retest.totals[key] }} {{ label }}<span class="tool-version">axe-core and pa11y</span></th>
+            <td class="retest">{{ analysis.retest.combined[key].error_warning }}%</td>
+            <td class="retest">{{ analysis.retest.combined[key].error_warning_manual }}%</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h3>Each tool</h3>
+
       {% set comparisons = { "axe": "axe", "pa11y": "codesniffer" } %}
       {% for metric, label in [["error_warning", "Barriers found"], ["error_warning_manual", "Barriers and potential barriers found"]] %}
       <table class="numeric-results percentage-summary retest-results">

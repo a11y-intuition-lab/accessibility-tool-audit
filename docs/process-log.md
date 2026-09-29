@@ -6,7 +6,7 @@ It is a summary, not a full transcript. Every instruction from the maintainer is
 
 - **Maintainer:** Dag Frode Solberg, A11y Intuition Lab
 - **AI assistant:** Claude Code with the model Claude Opus 5.5 (Anthropic), in one session on a Linux workstation
-- **Time (UTC):** about 07:20 to 09:00 on 29 September 2026
+- **Time (UTC):** about 07:20 to 09:10 on 29 September 2026
 - **Commits:** `a878cc1` (sources), `e6c68ca` (generated site and retest results), `68ec8ac` and `dcaaedd` (separation from GDS), and the commits that added this log
 
 ## 1. Assessing the old project (07:20)
@@ -201,6 +201,25 @@ While writing the method page, the assistant checked the session transcript. It 
 **Decision:** "we" is replaced everywhere, including in the GDS text, so readers do not have to work out who "we" is. Where GDS is meant, the text says "GDS". Where A11y Intuition Lab is meant, it says "AIL". The name is spelled out the first time on each page.
 
 The GDS text was changed only as far as needed for this. For example, "We ran an audit" became "The Government Digital Service (GDS) ran an audit", and "What we found" became "What GDS found". The same was done in `README.md`, `CONTRIBUTING.md` and `tools-info.md`. The notice on every page and the licence statement in the footer say that the GDS text has been adapted in this way. The Open Government Licence allows this, as long as the source is credited. Test case names, descriptions and results were not changed.
+
+## 11. Both tools together (09:05)
+
+> to tall jeg gjerne vil ha i oppsummeringen på fosiden. hvor mange prosent dekker pa11y og axe til sammen? det var 35%, er det mer nå på de originale og hvor mye av de ekstra a og aa dekker de og hvor mye av aaa dekker de. altså hvis en ser på totalen. vil tro de dekker mer enn 35% av de originale testene nå delvis pga testmetoden vår. og så mindre av totalen med de nye a og aa lagt til og enda mindre av de nye aaa lagt til?
+>
+> *Numbers I would like in the summary on the front page: what percentage do pa11y and axe cover together? It was 35%. Is it more now on the original test cases, and how much of the extra A and AA, and how much of AAA, do they cover, looking at the total? I would expect them to cover more than 35% of the original test cases now, partly because of our test method, and then less of the total with the new A and AA added, and even less with the new AAA added.*
+
+The overview page now shows the share of test cases found by at least one of the two tools. `build/analysis.js` computes it as `retest.combined`. For the original audit, the original axe and HTML_CodeSniffer results are combined in the same way.
+
+| Test cases | Barriers found | Barriers and potential barriers found |
+| --- | --- | --- |
+| Original audit, 142 original (axe and HTML_CodeSniffer) | 35% | 47% |
+| Retest, 142 original | 44% | 58% |
+| Retest, 172 original and added A and AA | 38% | 52% |
+| Retest, 194 all, including AAA | 34% | 47% |
+| Retest, 30 added A and AA only | 10% | 23% |
+| Retest, 22 added AAA only | 0% | 9% |
+
+The maintainer's expectation held. The page notes that part of the increase on the original test cases may come from the method, because the retest counts any finding on the page and not only the intended barrier.
 
 ## Open
 

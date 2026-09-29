@@ -152,6 +152,7 @@ function analyseRetest(){
     added: newTestList,
     added_a_aa: newTestListAAndAA,
     added_aaa: newTestListAAA,
+    original_a_aa: testList.concat(newTestListAAndAA),
     all: testList.concat(newTestList)
   };
 
@@ -178,11 +179,36 @@ function analyseRetest(){
     });
   });
 
+  // share of test cases found by at least one of the retest tools
+  var retestToolNames = _.keys(retest.tools);
+  var combined = _.mapValues(sets, function (list){
+    return combinedScore(list.map(testname => retestToolNames.map(toolName => _.get(retest.results, [testname, toolName]))));
+  });
+
+  // the same for the original results of the tools that were retested
+  var originalTests = _.fromPairs(allTests);
+  combined.original_audit = combinedScore(testList.map(testname => [
+    _.get(originalTests, [testname, 'results', 'axe']),
+    _.get(originalTests, [testname, 'results', 'codesniffer'])
+  ]));
+
   return {
     date: retest.date,
     tools: retest.tools,
     totals: _.mapValues(sets, list => list.length),
-    scores: scores
+    scores: scores,
+    combined: combined
+  };
+}
+
+function combinedScore(resultsPerTest){
+  var found = r => _.includes(['error', 'error_paid', 'warning'], r);
+  var foundOrManual = r => found(r) || r === 'manual';
+
+  return {
+    tested: resultsPerTest.length,
+    error_warning: _.round(resultsPerTest.filter(r => r.some(found)).length / resultsPerTest.length * 100),
+    error_warning_manual: _.round(resultsPerTest.filter(r => r.some(foundOrManual)).length / resultsPerTest.length * 100)
   };
 }
 
