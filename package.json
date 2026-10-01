@@ -12,9 +12,11 @@
     "generate": "node build/generate.js",
     "sass": "sass --no-source-map --style=expanded --quiet-deps --load-path=assets/sass/registers --load-path=assets/sass/registers/govuk_frontend_toolkit/stylesheets --load-path=assets/sass/registers/govuk_template/source/assets/stylesheets --load-path=assets/sass/registers/sass --load-path=node_modules/govuk-elements-sass/public/sass assets/sass/application.scss:assets/stylesheets/application.css assets/sass/tests.scss:assets/stylesheets/tests.css",
     "serve": "http-server -p 8000 -c-1 .",
-    "retest": "node scripts/retest.mjs"
+    "retest": "node scripts/retest.mjs",
+    "ai-check": "node scripts/ai-check.mjs"
   },
   "devDependencies": {
+    "@anthropic-ai/bedrock-sdk": "^0.33.8",
     "@axe-core/puppeteer": "^4.13.0",
     "axe-core": "^4.13.0",
     "govuk-elements-sass": "^3.1.3",

@@ -42,6 +42,12 @@ Test cases added after the original audit have no `results`. Instead they have a
 
 Their results come from `npm run retest` and are stored in `retest.json`, see the [README](README.md#retesting-with-axe-core-and-pa11y).
 
+If neither axe nor pa11y finds the new test case, add its name to the `cases` of a procedure in `ai-checks.json`, or write a new procedure. `npm run build` fails until every such test case is covered. Avoid class names and text that name the barrier where you can; the AI check hides class names and ids, but not text. If the text of the page describes the barrier, add the test case to `describedInText`.
+
+### Add or change an AI test procedure
+
+Each procedure in `ai-checks.json` has the WCAG criteria, the sa11y tests it is based on, a `feasibility` (`ai`, `ai-with-harness` or `human`), the `evidence` it needs (the keys under `evidence`), `instructions`, `pass` and `fail` lists, `limits`, and the `cases` it is meant to find. The model never sees `cases`. If a procedure needs evidence that is not collected yet, add a probe to `scripts/ai-evidence.mjs` and describe it under `evidence`. Add a control page to `controls.json` that passes the procedure, then run `npm run ai-check -- --only=<test case>` and `npm run ai-check -- --controls`.
+
 Try to make the example as isolated as possible. Although complex examples make more realistic test cases, testing for one specific issue is easier and more reliable to test for.
 
 

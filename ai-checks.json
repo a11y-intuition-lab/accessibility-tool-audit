@@ -1,0 +1,791 @@
+{
+  "about": "Test procedures for barriers that axe-core and pa11y do not find, written so that an AI model can follow them. Each check is adapted from the manual checklist in sa11y (https://github.com/a11y-intuition-lab/sa11y, data/tests.js), referenced by test id. 'cases' lists the test cases in tests.json the check is meant to find. 'evidence' lists what scripts/ai-evidence.mjs collects for the model. 'feasibility' is 'ai' (the model can judge from the page as it is), 'ai-with-harness' (a script must act on the page first) or 'human' (the model can at most flag that a person must check).",
+  "evidence": {
+    "dom": "The HTML of the page after load. Comments and script contents are removed. Class names are replaced by neutral names (c1, c2, ...) because the test pages name the barrier in their classes. On test pages the title and first heading are replaced by 'Test page' because they name the test case.",
+    "source": "The HTML file as written, before the browser repairs it, with the same changes as for dom.",
+    "axtree": "The accessibility tree from Chrome: role, name, description, value and state of each node.",
+    "styles": "Computed styles for visible text, links, form fields and buttons: font size, line height, style, transform, alignment, line length in characters, colours, borders, underline and the contrast ratio against the background.",
+    "listeners": "Which event types (click, keydown, pointerdown, paste, devicemotion and so on) are attached to which elements. The handler code is not included.",
+    "media": "For each audio, video, iframe and object element: source file name, duration, controls, autoplay, whether it is playing after load, and text tracks with their kind, language and cue text.",
+    "screenshot": "A screenshot of the page at 1280 by 800 CSS pixels.",
+    "grayscale": "The same screenshot in grayscale.",
+    "tab-sequence": "The page is reset, then Tab is pressed up to 40 times. For each stop: the focused element, its position, its outline and box shadow, whether another element covers it, and a cropped screenshot of it with and without focus. Repeats are reported, which shows a keyboard trap.",
+    "activation": "Each button, link to '#' or 'javascript:', and element with a click handler is activated with Enter and then Space from the keyboard. For each: what changed in the page, where focus is, and the next 5 Tab stops. If the page changed after Enter, it is loaded again, the element is activated with Enter, and Escape is pressed straight away: what changed and where focus is then (escapeAfterEnter).",
+    "keys": "Each letter from a to z is pressed with focus on the page body. Any change to the page is recorded.",
+    "pointer": "Each button and element with a pointer handler gets a pointer down without a pointer up, then a full click. Changes after each are recorded. Elements with a 'touchstart', 'devicemotion', 'dragstart' or pointer move handler are listed.",
+    "paste": "Text is pasted into each text and password field. Whether the paste was blocked is recorded.",
+    "hover-focus": "Each element is hovered and focused in turn. Content that appears is recorded, then Escape is pressed and the pointer is moved onto the new content. Whether the content stays is recorded.",
+    "submit-empty": "Each form is submitted empty. The changes to the page, any live regions and where focus ends up are recorded.",
+    "timeline": "Every change to the page from load until the end of all actions, with the time and the action that was last performed. This shows content that changes, disappears or updates on its own.",
+    "zoom-320": "A screenshot at 320 CSS pixels wide, and whether the page scrolls horizontally.",
+    "text-200": "A screenshot after every font size is doubled (similar to text-only zoom), and a list of elements whose text is clipped or overlaps other text.",
+    "text-spacing": "A screenshot after the WCAG 1.4.12 text spacing style sheet is applied, and a list of elements whose text is clipped.",
+    "orientation": "Screenshots in a portrait (800 by 1280) and a landscape (1280 by 800) viewport.",
+    "multi-page": "When a test case has more than one page, the evidence for each page is given in turn. The navigation, header, footer and help links of each page are compared."
+  },
+  "checks": [
+    {
+      "id": "keyboard-operable",
+      "title": "Everything can be done with the keyboard alone",
+      "wcag": ["2.1.1", "2.1.2", "2.1.3", "4.1.2"],
+      "sa11y": ["1.1", "1.3", "1.A1"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "listeners", "tab-sequence", "activation"],
+      "instructions": "Compare the interactive things on the page (links, buttons, controls, elements with click handlers, expandable sections, menus, drawing areas) with the Tab stops. Every interactive thing must be reachable with Tab and work with Enter or Space as expected for its role. Use the activation results to see whether Enter and Space do what a click does. A Tab sequence that repeats the same element and never reaches the end of the page, without a way out, is a keyboard trap. Elements that receive focus but do nothing (tabindex=0 on plain text or images) are a failure.",
+      "pass": [
+        "All links, buttons and form fields get focus.",
+        "Enter and Space activate buttons, and Enter activates links.",
+        "Focus can always leave a component with Tab or Escape.",
+        "Only interactive elements are in the Tab order."
+      ],
+      "fail": [
+        "A clickable element (a div with a click handler, a 'button' made from a link without href) cannot be reached with Tab.",
+        "Sub-items of a menu or the content of an expandable section can only be reached by hovering or clicking.",
+        "A link with role=button does not react to Space.",
+        "Focus is stuck on one element or a few elements.",
+        "A non-interactive element is in the Tab order because of tabindex=0.",
+        "A function such as signing can only be done by drawing with a pointer, with no keyboard alternative (2.1.3)."
+      ],
+      "limits": "The harness presses each key once. Components that need arrow keys or typing are judged from the role and handlers only.",
+      "cases": [
+        "Keyboard focus assigned to a non focusable element using tabindex=0",
+        "Concertina items don't get keyboard focus",
+        "Dropdown navigation - only the top level items receive focus",
+        "Signature can only be drawn with a pointer"
+      ]
+    },
+    {
+      "id": "focus-visible",
+      "title": "Focus is always visible and clear",
+      "wcag": ["2.4.7", "2.4.13", "1.4.11"],
+      "sa11y": ["1.1", "1.2", "1.A2"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["tab-sequence", "styles"],
+      "instructions": "For each Tab stop, compare the cropped screenshot with and without focus. There must be a clearly visible change. For 1.4.11 the focus indicator must have a contrast of at least 3:1 against the colours next to it. For 2.4.13 (AAA) it must be at least as large as a 2 CSS pixel solid outline around the element and have at least 3:1 contrast between the focused and unfocused states.",
+      "pass": ["The focus indicator is visible on every stop and has at least 3:1 contrast against the background."],
+      "fail": [
+        "outline: none with no other visible change, so it is impossible to see where focus is.",
+        "Focus is only shown as a faint change of background or a light ring on white.",
+        "The focus indicator is a 1 pixel dotted line with low contrast (2.4.13)."
+      ],
+      "limits": "The model judges contrast from the screenshots and computed colours. Borderline values near 3:1 should be cannot-tell.",
+      "cases": [
+        "Focus not visible",
+        "Keyboard focus is not indicated visually",
+        "Focus indicator is too thin and has low contrast"
+      ]
+    },
+    {
+      "id": "focus-not-obscured",
+      "title": "The focused element is not hidden by other content",
+      "wcag": ["2.4.11", "2.4.12"],
+      "sa11y": ["1.1", "1.A2"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["tab-sequence"],
+      "instructions": "For each Tab stop, check whether another element covers the focused element. 2.4.11 (AA) fails when the focused element is entirely hidden by content the author created, such as a sticky header, footer, cookie banner or chat widget. 2.4.12 (AAA) fails when any part of it is hidden.",
+      "pass": ["No part of the focused element is covered by other content."],
+      "fail": [
+        "Links behind a sticky footer get focus but are completely covered (2.4.11).",
+        "Half of a focused link is covered by a chat widget (2.4.12)."
+      ],
+      "limits": "Covering is measured at the centre and corners of the element at 1280 by 800.",
+      "cases": [
+        "Focused link is hidden behind a sticky footer",
+        "Focused link is partly hidden by a chat widget"
+      ]
+    },
+    {
+      "id": "focus-order",
+      "title": "Focus order follows the meaning and is managed in dialogs",
+      "wcag": ["2.4.3", "2.1.2"],
+      "sa11y": ["1.1", "1.4"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["screenshot", "tab-sequence", "activation"],
+      "instructions": "Compare the order of the Tab stops with the visual reading order in the screenshot. For each dialog, lightbox or overlay that opens on activation: focus must move into it, Tab must stay inside it while it is modal, it must have a close control that can be reached and used with the keyboard, Escape should close it, and focus should return to the control that opened it.",
+      "pass": [
+        "Tab order follows the visual reading order.",
+        "Focus moves into a dialog when it opens and stays there until it is closed.",
+        "The dialog can be closed with the keyboard, and focus returns to the opener."
+      ],
+      "fail": [
+        "Focus jumps between parts of the page in an order that does not match the layout.",
+        "After a dialog opens, focus stays behind it or the next Tab stops are on the page under it.",
+        "Tab leaves an open modal dialog and goes to the page behind it.",
+        "The close control of a dialog cannot be focused.",
+        "Escape does not close a dialog and there is no other keyboard way to close it."
+      ],
+      "limits": "Escape not closing a dialog is a failure only when it is the only way out or when the dialog behaves as modal. Report it as a fail under this check when other dialog behaviour is also wrong, otherwise as cannot-tell.",
+      "cases": [
+        "Focus order in wrong order",
+        "Lightbox - close button doesn't receive focus",
+        "Lightbox - ESC key doesn't close the lightbox",
+        "Lightbox - focus is not moved immediately to lightbox",
+        "Lightbox - focus is not retained within the lightbox"
+      ]
+    },
+    {
+      "id": "bypass-blocks",
+      "title": "Repeated blocks can be skipped",
+      "wcag": ["2.4.1", "1.3.6"],
+      "sa11y": ["1.5", "5.1", "5.A1"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "axtree", "tab-sequence"],
+      "instructions": "If the page has a block of navigation or other content that would repeat on every page, there must be a way to skip it: a skip link that is the first Tab stop and moves focus, or landmarks (header, nav, main) and headings. For 1.3.6 (AAA), the purpose of regions such as navigation, search and main content must be programmatically determined, for example with landmarks.",
+      "pass": [
+        "The first Tab stop is a skip link that moves focus past the navigation.",
+        "The page uses landmarks for navigation and main content."
+      ],
+      "fail": [
+        "The page has a long navigation menu and no skip link, landmarks or headings to jump past it.",
+        "Navigation, search and main content are plain divs with nothing to identify them (1.3.6)."
+      ],
+      "limits": "A single test page does not repeat, so the model judges whether a block looks like repeated site navigation.",
+      "cases": [
+        "No way to skip repeated navigation",
+        "Purpose of regions cannot be programmatically determined"
+      ]
+    },
+    {
+      "id": "keyboard-shortcuts",
+      "title": "Single-key shortcuts can be turned off and accesskey is not used",
+      "wcag": ["2.1.4"],
+      "sa11y": ["1.6"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "listeners", "keys"],
+      "instructions": "Look at what happened when each letter was pressed. If a single letter, number or punctuation key triggers an action without a modifier key, there must be a way to turn it off or change it, or it must work only when a specific component has focus. Also report the accesskey attribute, which creates shortcuts that can conflict with assistive technology (best practice).",
+      "pass": ["Letters do nothing unless a field or component has focus.", "Shortcuts need a modifier key, or there is a setting to turn them off."],
+      "fail": [
+        "Pressing a letter on the page performs an action, and there is no way to turn this off.",
+        "An element has an accesskey attribute."
+      ],
+      "limits": "Only a to z are pressed.",
+      "cases": [
+        "Single character keyboard shortcut cannot be turned off or remapped",
+        "Accesskey attribute used"
+      ]
+    },
+    {
+      "id": "on-focus-input",
+      "title": "Focus and input do not change context unexpectedly",
+      "wcag": ["3.2.1", "3.2.2", "3.2.5"],
+      "sa11y": ["1.3", "4.3", "8.A2"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["tab-sequence", "activation", "timeline"],
+      "instructions": "Check whether moving focus to an element opened a window, moved focus elsewhere, submitted a form or changed the page in a major way (3.2.1). Check whether changing a field value did so without warning (3.2.2).",
+      "pass": ["Moving focus never causes anything to happen on its own."],
+      "fail": [
+        "Focusing a field opens a new window or pop-up.",
+        "Choosing an option in a select changes the page language or navigates without a button."
+      ],
+      "limits": "New windows are detected when the page calls window.open.",
+      "cases": ["Focusing a field opens a new window"]
+    },
+    {
+      "id": "content-on-hover-focus",
+      "title": "Content shown on hover or focus can be dismissed, hovered and stays",
+      "wcag": ["1.4.13"],
+      "sa11y": ["1.6", "6.4"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "hover-focus"],
+      "instructions": "For each piece of content that appeared on hover or focus: it must be dismissible with Escape without moving pointer or focus (unless it does not cover other content), the pointer must be able to move onto it without it disappearing, and it must stay until the user dismisses it or moves away.",
+      "pass": ["Tooltips stay while hovered, can be hovered themselves, and close with Escape."],
+      "fail": [
+        "A tooltip that covers other content cannot be closed with Escape.",
+        "A tooltip disappears when the pointer moves onto it."
+      ],
+      "limits": "The native title attribute tooltip is drawn by the browser and is not judged here.",
+      "cases": [
+        "Tooltip cannot be dismissed without moving the pointer or focus",
+        "Tooltip disappears when the pointer is moved over it"
+      ]
+    },
+    {
+      "id": "pointer",
+      "title": "Pointer actions have simple alternatives and can be cancelled",
+      "wcag": ["2.5.1", "2.5.2", "2.5.4", "2.5.6", "2.5.7"],
+      "sa11y": ["6.1", "6.2", "6.A2"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "listeners", "pointer", "screenshot"],
+      "instructions": "Look for functions that need a path-based gesture (swipe), dragging, device motion (shake, tilt), or that trigger on pointer down. Each needs a single-pointer alternative without dragging, such as buttons (2.5.1, 2.5.7), or a user interface alternative and a way to turn motion off (2.5.4). An action that completes on pointer down without a way to abort or undo fails 2.5.2. Content must not ignore a mouse or other input method when a touch screen is present (2.5.6, AAA).",
+      "pass": ["Every gesture, drag or motion function also has visible buttons or another simple control.", "Actions happen on click (pointer up), not pointer down."],
+      "fail": [
+        "A carousel only changes with a swipe and has no next and previous buttons.",
+        "A list can only be reordered by dragging.",
+        "A function can only be used by shaking the device.",
+        "An action happens on pointer down (mousedown) and cannot be undone.",
+        "A button ignores mouse clicks when the device has a touch screen."
+      ],
+      "limits": "The harness does not perform real gestures. The model judges from the handlers, the controls present and the pointer-down result.",
+      "cases": [
+        "Carousel can only be changed with a swipe gesture",
+        "Action is triggered on pointer down",
+        "Function can only be operated by shaking the device",
+        "List can only be reordered by dragging",
+        "Mouse input is ignored on devices with a touch screen"
+      ]
+    },
+    {
+      "id": "label-in-name",
+      "title": "The accessible name contains the visible label",
+      "wcag": ["2.5.3"],
+      "sa11y": ["5.3"],
+      "feasibility": "ai",
+      "evidence": ["axtree", "screenshot"],
+      "instructions": "For each control with visible text, compare the visible text with the accessible name in the accessibility tree. The name must contain the visible text, preferably at the start.",
+      "pass": ["A button that shows 'Send' has an accessible name that contains 'Send'."],
+      "fail": ["A button shows 'Send' but its accessible name is 'Submit message'."],
+      "limits": "",
+      "cases": ["Accessible name does not contain the visible label"]
+    },
+    {
+      "id": "link-purpose",
+      "title": "Link text says where the link goes",
+      "wcag": ["2.4.4", "2.4.9"],
+      "sa11y": ["5.3", "5.A2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "axtree"],
+      "instructions": "For each link, read its accessible name, its surrounding sentence or paragraph, and its href. Its purpose must be clear from the name together with the context (2.4.4), and for 2.4.9 (AAA) from the name alone. Links with the same name must go to the same place. Adjacent links to the same destination (an image and a text link) should be combined. A title attribute that only repeats the link text adds nothing. A link whose text is only punctuation is a failure. An image that is the only content of a link must have alt text that says where the link goes.",
+      "pass": ["Each link name describes its destination, such as 'Read more about polar bears'."],
+      "fail": [
+        "Link text such as 'Read more', 'Click here' or 'page' that does not make sense out of context.",
+        "The link is only a full stop.",
+        "Two links with the same text go to different pages.",
+        "An image link and a text link next to each other go to the same place.",
+        "A link's title is the same as its text.",
+        "A link around an image has no text alternative, or its alt repeats the text next to it."
+      ],
+      "limits": "",
+      "cases": [
+        "Link text does not make sense out of context",
+        "Non-specific link text",
+        "Links with the same text go to different pages",
+        "Adjacent links going to the same destination",
+        "Link contains only a full stop",
+        "Link text with identical title",
+        "Link to an image, no text alternative"
+      ]
+    },
+    {
+      "id": "link-behaviour",
+      "title": "Links are real links and say what they open",
+      "wcag": ["2.4.4", "3.2.5", "4.1.2"],
+      "sa11y": ["5.3", "8.A2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "axtree"],
+      "instructions": "Check each link's href and target. A link with href='#' or 'javascript:' that does an action should be a button. A link that opens a new window (target=_blank) should say so. A link to a file (PDF, sound, video) should give the file type and size. Separate adjacent links with printable characters or list markup, not only spaces.",
+      "pass": ["Links go to real pages or anchors. File links say 'PDF, 2 MB'. New windows are announced."],
+      "fail": [
+        "href='javascript:...' or href='#' used for an action.",
+        "target=_blank with no warning in the text or name.",
+        "A PDF link without format and size.",
+        "Several links next to each other with nothing between them except spaces."
+      ],
+      "limits": "",
+      "cases": [
+        "Link to javascript, invalid hypertext reference",
+        "Link to #, invalid hypertext reference",
+        "Link launches new window with no warning",
+        "Link to PDF does not include information on file format and file size",
+        "Links not separated by printable characters"
+      ]
+    },
+    {
+      "id": "link-distinguishable",
+      "title": "Links can be told apart from text without colour",
+      "wcag": ["1.4.1"],
+      "sa11y": ["3.1"],
+      "feasibility": "ai",
+      "evidence": ["styles", "screenshot", "grayscale"],
+      "instructions": "For each link inside running text, look at the underline, font weight and colour. If colour is the only difference from the surrounding text, the colour contrast between link and text must be at least 3:1 and there must be another cue on hover and focus. A link that looks just like the surrounding text fails.",
+      "pass": ["Links in text are underlined."],
+      "fail": ["A link in a paragraph has no underline and differs from the text only by a similar colour, or not at all."],
+      "limits": "",
+      "cases": ["Link not clearly identifiable and distinguishable from surrounding text"]
+    },
+    {
+      "id": "use-of-colour",
+      "title": "Colour is not the only way to convey information",
+      "wcag": ["1.4.1", "1.3.3"],
+      "sa11y": ["3.1"],
+      "feasibility": "ai",
+      "evidence": ["screenshot", "grayscale", "dom"],
+      "instructions": "Compare the colour and grayscale screenshots. Any information that is lost in grayscale (which items are safe, which fields have errors, which is selected) fails. Also check instructions that rely only on shape, size, location or sound, such as 'the button on the right' (1.3.3).",
+      "pass": ["Information is also given in text, an icon or a pattern.", "Instructions name the thing, not only where it is."],
+      "fail": [
+        "Edible and poisonous items are only shown in green and red.",
+        "Text refers to content only by where it is on the page, such as 'the artist on the right'."
+      ],
+      "limits": "",
+      "cases": ["Colour alone is used to convey content", "Content identified by location"]
+    },
+    {
+      "id": "non-text-contrast",
+      "title": "Controls and graphics have at least 3:1 contrast",
+      "wcag": ["1.4.11"],
+      "sa11y": ["3.2"],
+      "feasibility": "ai",
+      "evidence": ["styles", "screenshot"],
+      "instructions": "For each form field, button without a background fill, and icon that is needed to understand or use a control, check the contrast of the boundary or icon against the adjacent colour. It must be at least 3:1. Use the computed colours where given.",
+      "pass": ["Field borders and icon buttons have at least 3:1 contrast against the background."],
+      "fail": ["A text field has a light grey border on white (below 3:1).", "An icon-only button uses a pale icon on white."],
+      "limits": "Contrast of gradients and images cannot be computed. Values close to 3:1 should be cannot-tell.",
+      "cases": [
+        "Form field border does not have a contrast ratio of at least 3:1",
+        "Icon-only button does not have a contrast ratio of at least 3:1"
+      ]
+    },
+    {
+      "id": "text-presentation",
+      "title": "Blocks of text are easy to read",
+      "wcag": ["1.4.8"],
+      "sa11y": ["2.A1"],
+      "feasibility": "ai",
+      "evidence": ["styles", "screenshot"],
+      "instructions": "For each block of text (a paragraph or more), check: line height at least 1.5, lines not longer than 80 characters, not justified, no long passages in italics or all capitals (text-transform or typed capitals), and body text not very small (below about 12 CSS pixels). These are 1.4.8 (AAA) and common readability advice.",
+      "pass": ["Text blocks have line height 1.5 or more, lines under 80 characters, left aligned, regular style and readable size."],
+      "fail": [
+        "A paragraph has line height 1 or less.",
+        "Lines run across the full page at well over 80 characters.",
+        "A paragraph is justified.",
+        "A long passage is in italics or capitals.",
+        "Body text is set at a very small size."
+      ],
+      "limits": "Short labels and headings are not judged.",
+      "cases": [
+        "Inadequate line height used",
+        "All caps text found",
+        "Italics used on long sections of text",
+        "Long lines of text",
+        "Very small text found",
+        "Justified text found"
+      ]
+    },
+    {
+      "id": "resize-and-spacing",
+      "title": "Content works with larger text, more spacing and narrow screens",
+      "wcag": ["1.4.4", "1.4.10", "1.4.12"],
+      "sa11y": ["2.1", "2.2", "2.3"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["screenshot", "zoom-320", "text-200", "text-spacing"],
+      "instructions": "Compare the normal screenshot with the screenshots after text is doubled, after text spacing is applied, and at 320 pixels. Content or functions must not be lost: text must not be clipped, overlap other text, or be cut off by a box that does not grow. At 320 pixels, the page must not need horizontal scrolling for text.",
+      "pass": ["All text is still readable and nothing is cut off in any of the screenshots."],
+      "fail": [
+        "Text overlaps or becomes unreadable when the text size is doubled.",
+        "A box with a fixed height cuts off its text when the text is larger.",
+        "Text is clipped when the line, word or letter spacing is increased."
+      ],
+      "limits": "Doubling every font size is close to, but not the same as, text-only zoom in a browser.",
+      "cases": [
+        "Content is not readable and functional when text is increased",
+        "Page zoom - boxes that don't expand with the text",
+        "Content is clipped when text spacing is increased"
+      ]
+    },
+    {
+      "id": "orientation",
+      "title": "Content works in both portrait and landscape",
+      "wcag": ["1.3.4"],
+      "sa11y": ["2.5"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["orientation"],
+      "instructions": "Compare the portrait and landscape screenshots. Content must not be locked to one orientation, for example by rotating it or hiding it in the other, unless the orientation is essential.",
+      "pass": ["The content can be read in both orientations."],
+      "fail": ["Content is rotated or hidden in landscape so it can only be read in portrait."],
+      "limits": "",
+      "cases": ["Content is locked to one display orientation"]
+    },
+    {
+      "id": "images-of-text",
+      "title": "Text is real text, not an image",
+      "wcag": ["1.4.5", "1.4.9"],
+      "sa11y": ["2.4", "2.A2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "screenshot"],
+      "instructions": "Look at each image in the screenshot. If it mainly shows text that could be real text with styling, it fails 1.4.5 (AA). For 1.4.9 (AAA), only logos and cases where the exact look is essential are allowed, so a quotation, heading or banner as an image fails.",
+      "pass": ["Text is HTML text styled with CSS. Images of text are only logos."],
+      "fail": ["A heading or notice is an image of text.", "A quotation is shown as an image."],
+      "limits": "",
+      "cases": ["Image of text used instead of text", "Image of text used for a quotation"]
+    },
+    {
+      "id": "text-alternatives",
+      "title": "Images have a text alternative that serves the same purpose",
+      "wcag": ["1.1.1"],
+      "sa11y": ["5.2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "axtree", "screenshot", "styles"],
+      "instructions": "For each image (img, input type=image, role=img, background images that contain information, CSS generated content, svg), look at what it shows in the screenshot and compare with its text alternative. Informative images need an alternative that gives the same information. Decorative images need empty alt. An image button needs alt that says what the button does. Alt must not be a file name, and must not be contradicted by the title. Information given only in a CSS background image or CSS generated content is not available to screen readers.",
+      "pass": ["Each image's alt gives the information in the image, or is empty if the image is decoration."],
+      "fail": [
+        "alt is a file name such as 'IMG_1234.jpg'.",
+        "alt does not describe the image or gives only part of the information.",
+        "An informative image has alt=''.",
+        "alt and title of the same image say different things.",
+        "An image button has alt such as 'button' or 'submit' that does not say what it does.",
+        "Information is shown only in a CSS background image or inserted with CSS content.",
+        "A spacer image is used for layout."
+      ],
+      "limits": "",
+      "cases": [
+        "Image has alt and title that are different",
+        "Background image that conveys information does not have a text alternative",
+        "Image that conveys information has an empty alt attribute",
+        "Image that conveys information has inappropriate alt text",
+        "Image alt attribute contains image file name",
+        "Image with partial text alternative",
+        "Uninformative alt attribute value on image button",
+        "Non-decorative content inserted using CSS",
+        "Spacer image found"
+      ]
+    },
+    {
+      "id": "hidden-content",
+      "title": "Content meant for screen readers is not hidden from them",
+      "wcag": ["1.3.1", "1.3.2", "2.4.4"],
+      "sa11y": ["5.2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "axtree"],
+      "instructions": "Compare the DOM with the accessibility tree. Text that is hidden with display:none or visibility:hidden is removed for screen reader users too. If that text is needed (such as the end of a link name like 'about rugby'), it should be hidden visually with a technique that keeps it in the accessibility tree.",
+      "pass": ["Visually hidden helper text is still in the accessibility tree."],
+      "fail": ["Part of a link name is hidden with display:none or visibility:hidden, so the link is only 'Read more'."],
+      "limits": "",
+      "cases": [
+        "visibility:hidden used to visually hide content when it should be available to screenreader",
+        "display:none used to visually hide content when it should be available to screenreader"
+      ]
+    },
+    {
+      "id": "headings-structure",
+      "title": "Headings, lists and groups are marked up",
+      "wcag": ["1.3.1", "2.4.6", "2.4.10"],
+      "sa11y": ["5.1", "5.2", "5.A2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "axtree", "screenshot"],
+      "instructions": "Compare how the page looks with its markup. Text that looks like a heading must be a heading element. Items that look like a list (bullets typed as characters, one per line) must be list markup. Long content should be divided into sections with headings, lists and paragraphs. Empty paragraphs used for spacing and other leftover markup are best-practice failures.",
+      "pass": ["Visual headings are h1 to h6, visual lists are ul or ol, and long content is split into sections."],
+      "fail": [
+        "A bold, large div is used as a heading.",
+        "A list is typed with '*' and line breaks.",
+        "A long page of text has no headings or other structure.",
+        "Empty p elements are used to add space."
+      ],
+      "limits": "",
+      "cases": [
+        "Text formatting used instead of an actual heading",
+        "List not marked up as a list",
+        "Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms",
+        "Empty paragraph"
+      ]
+    },
+    {
+      "id": "tables",
+      "title": "Data tables have a clear and simple structure",
+      "wcag": ["1.3.1"],
+      "sa11y": ["5.1", "5.2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "screenshot"],
+      "instructions": "For each table, check: data tables have a caption or another way to name the table; headers are th and data are td (a table made only of th is wrong); tables are not nested inside other tables; empty data cells are avoided or explained; and layout is not done with tables.",
+      "pass": ["The table has a caption, header cells for rows or columns, data cells for data, and no nested tables."],
+      "fail": [
+        "A data table has no caption or name.",
+        "Every cell is a th.",
+        "A table contains another table.",
+        "Many cells are empty with no explanation."
+      ],
+      "limits": "",
+      "cases": [
+        "Table nested within table",
+        "Table that only has TH elements in it",
+        "Table is missing a caption",
+        "Table with some empty cells"
+      ]
+    },
+    {
+      "id": "language",
+      "title": "The language and direction of text are marked up",
+      "wcag": ["3.1.1", "3.1.2", "1.3.2"],
+      "sa11y": ["5.2", "8.4"],
+      "feasibility": "ai",
+      "evidence": ["dom", "screenshot"],
+      "instructions": "Read the text and identify the language of the page and of every phrase in another language. The html element must have the correct lang. Each phrase in another language needs a lang attribute with the correct code. Text in a right-to-left language (Arabic, Hebrew) needs dir='rtl', and left-to-right text must not be set to rtl.",
+      "pass": ["lang on html matches the page, phrases in other languages have the correct lang, and direction is correct."],
+      "fail": [
+        "A French phrase in English text has no lang attribute.",
+        "A phrase has lang set to the wrong language.",
+        "Arabic text has no dir='rtl'.",
+        "English text is marked dir='rtl'."
+      ],
+      "limits": "Proper names and words that have become part of the surrounding language do not need lang.",
+      "cases": [
+        "Text language changed without required change in direction",
+        "lang attribute not used to identify change of language",
+        "Text language is in the wrong direction",
+        "lang attribute used to identify change of language, but with wrong language"
+      ]
+    },
+    {
+      "id": "understandable-text",
+      "title": "Text is plain, and unusual words, abbreviations and pronunciation are explained",
+      "wcag": ["3.1.3", "3.1.4", "3.1.5", "3.1.6"],
+      "sa11y": ["5.A3", "8.A3"],
+      "feasibility": "ai",
+      "evidence": ["dom"],
+      "instructions": "Read the text. Text that needs more than lower secondary education to understand should be simplified or have a simpler version (3.1.5). Jargon and idioms must be explained (3.1.3). The first use of an abbreviation must be expanded or marked up (3.1.4, and best practice for the first instance). Where the meaning of a word depends on how it is pronounced (such as 'record' as noun or verb), the pronunciation must be given (3.1.6).",
+      "pass": ["Text is short and plain, and abbreviations, idioms and ambiguous words are explained."],
+      "fail": [
+        "Long legal or technical sentences with no plain summary.",
+        "An abbreviation is used without being expanded.",
+        "Idioms or jargon such as 'kicked into the long grass' are not explained.",
+        "Words that are spelled the same but pronounced differently make the meaning unclear, and no pronunciation is given."
+      ],
+      "limits": "",
+      "cases": [
+        "Plain language is not used",
+        "First instance of abbreviation not expanded",
+        "Idioms and jargon are not explained",
+        "Meaning depends on pronunciation that is not given"
+      ]
+    },
+    {
+      "id": "frames-and-objects",
+      "title": "Frames and embedded objects are named and work for everyone",
+      "wcag": ["4.1.2", "2.1.1"],
+      "sa11y": ["5.4"],
+      "feasibility": "ai",
+      "evidence": ["dom", "axtree", "media"],
+      "instructions": "Each iframe needs a title that describes its content or purpose. Compare the title with the content of the frame. Embedded objects (object, embed) should have a text alternative and use wmode=window for plugin content.",
+      "pass": ["The iframe title describes what is in the frame."],
+      "fail": ["An iframe title such as 'iframe' or a title that does not match the content.", "A plugin object without wmode set to window."],
+      "limits": "The model sees the frame source file name and its title, and the content if it can be read.",
+      "cases": [
+        "iframe title attribute does not describe the content or purpose of the iframe",
+        "Object not embedded accessibly - wmode parameter not set to window"
+      ]
+    },
+    {
+      "id": "status-and-errors",
+      "title": "Status messages and errors are announced and helpful",
+      "wcag": ["4.1.3", "3.3.1", "3.3.3"],
+      "sa11y": ["4.2", "4.3", "5.4"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["activation", "submit-empty", "timeline", "dom"],
+      "instructions": "For each message that appeared after an action (added to basket, saved, errors), check that it is in a live region (role=status, role=alert or aria-live) or that focus moved to it. Messages that disappear after a short time must stay long enough to read, or be available again.",
+      "pass": ["Messages appear in a live region and stay until dismissed."],
+      "fail": [
+        "A message such as 'Added to basket' appears in a plain element with no live region.",
+        "An alert is shown for a few seconds and then removed."
+      ],
+      "limits": "The model cannot hear a screen reader. It judges from the markup of the message.",
+      "cases": [
+        "Status message is not announced to assistive technologies",
+        "Alert shows for a short time"
+      ]
+    },
+    {
+      "id": "forms-help",
+      "title": "Forms identify input purpose, help, and do not block or repeat input",
+      "wcag": ["1.3.5", "3.3.5", "3.3.7", "3.3.8"],
+      "sa11y": ["4.1", "4.5", "4.6", "4.A1"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "paste"],
+      "instructions": "Fields that ask for information about the user (name, email, phone, address) need the matching autocomplete value (1.3.5). Information the user already gave in the same process must be filled in or selectable, not typed again (3.3.7). Pasting into password and code fields must not be blocked (3.3.8). Complex fields need help or instructions (3.3.5, AAA).",
+      "pass": ["Personal fields have autocomplete, earlier answers are reused, paste works, and complex fields have hints."],
+      "fail": [
+        "Name and email fields have no autocomplete attribute.",
+        "A billing address must be typed again although the delivery address was given in step 1, with no 'same as' option.",
+        "Paste is blocked in a password field.",
+        "A field asks for a reference number with no hint where to find it."
+      ],
+      "limits": "",
+      "cases": [
+        "Input purpose is not identified",
+        "Information entered earlier must be entered again",
+        "Pasting into the password field is blocked",
+        "No help is available for a complex field"
+      ]
+    },
+    {
+      "id": "error-prevention",
+      "title": "Important submissions can be checked, confirmed or reversed",
+      "wcag": ["3.3.4", "3.3.6"],
+      "sa11y": ["4.4", "4.A1"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "activation"],
+      "instructions": "For forms that make payments, legal commitments or delete data, there must be a way to check and correct the information, confirm, or undo (3.3.4 for legal and financial, 3.3.6 AAA for all submissions). Look at what happens on activation: is there a confirmation step?",
+      "pass": ["A summary page or a confirmation dialog comes before the action, or the action can be undone."],
+      "fail": ["Pressing 'Pay' or 'Delete all' acts immediately, with no confirmation or undo."],
+      "limits": "The harness cannot follow the real flow after a submission. The model judges from what the page shows.",
+      "cases": [
+        "Payment is taken without a chance to check or cancel",
+        "Submitting a form cannot be checked, confirmed or reversed"
+      ]
+    },
+    {
+      "id": "authentication",
+      "title": "Signing in does not need a cognitive test",
+      "wcag": ["3.3.8", "3.3.9"],
+      "sa11y": ["4.6", "4.A2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "screenshot"],
+      "instructions": "If signing in needs the user to remember, transcribe, solve or recognise something, there must be an alternative. For 3.3.8 (AA), recognising objects or personal content is allowed. For 3.3.9 (AAA) it is not.",
+      "pass": ["Sign in works with a password manager, paste, or a link sent by email."],
+      "fail": ["Sign in requires selecting every picture of an object (3.3.9)."],
+      "limits": "",
+      "cases": ["Sign in requires recognising objects in pictures"]
+    },
+    {
+      "id": "timing",
+      "title": "Time limits and interruptions can be controlled",
+      "wcag": ["2.2.1", "2.2.3", "2.2.4", "2.2.5", "2.2.6"],
+      "sa11y": ["4.7", "4.A3", "7.A3"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "timeline"],
+      "instructions": "Look for time limits in the text and in the timeline (countdowns, content that is cleared or changes after a delay). For AAA, timing must not be part of an activity unless it is real-time (2.2.3); interruptions such as automatic updates must be possible to postpone or turn off (2.2.4); when a session expires, the user must be able to continue without losing data after signing in again (2.2.5); and users must be told about any inactivity timeout that can lose data (2.2.6).",
+      "pass": ["There is no time limit, or the user can turn it off, extend it, or is warned and keeps their data."],
+      "fail": [
+        "A question must be answered within 60 seconds.",
+        "A message is announced every few seconds and cannot be turned off.",
+        "After the session expires, the user must start again from the beginning.",
+        "Typed text is cleared after inactivity without warning."
+      ],
+      "limits": "The harness watches the page for a few seconds only. Long time limits are judged from the text and handlers.",
+      "cases": [
+        "Task has a time limit",
+        "Updates interrupt the user and cannot be postponed",
+        "Data is lost when the session expires",
+        "Users are not warned about an inactivity timeout"
+      ]
+    },
+    {
+      "id": "motion-and-distraction",
+      "title": "Moving, blinking and flashing content can be controlled",
+      "wcag": ["2.2.2", "2.3.1", "2.3.2", "2.3.3"],
+      "sa11y": ["7.1", "7.A4"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["dom", "media", "timeline", "activation"],
+      "instructions": "Look for animated images (gif), blinking or scrolling text, and content that flashes. Animation that starts automatically and lasts more than 5 seconds needs a pause control. Content that flashes more than three times in a second fails 2.3.2 (AAA). Motion animation started by interaction must respect reduced motion or be possible to turn off (2.3.3, AAA).",
+      "pass": ["There is no automatic animation, or it can be paused. Animation stops when reduced motion is requested."],
+      "fail": [
+        "An animated gif loops with no way to stop it.",
+        "An element changes its appearance more than three times a second.",
+        "An element spins or slides on interaction even with reduced motion requested."
+      ],
+      "limits": "The model cannot measure flash rate or area from screenshots. It judges from the timeline and the code-free description of changes. A person must check flash thresholds.",
+      "cases": [
+        "A distraction is present, an animated gif",
+        "Content flashes more than three times in one second",
+        "Flashing content doesn't have warning",
+        "Motion animation triggered by interaction cannot be turned off"
+      ]
+    },
+    {
+      "id": "media-alternatives",
+      "title": "Audio and video have the alternatives they need",
+      "wcag": ["1.2.1", "1.2.2", "1.2.3", "1.2.4", "1.2.6", "1.2.7", "1.2.8", "1.2.9", "1.4.2", "1.4.7"],
+      "sa11y": ["7.2", "7.3", "7.A1", "7.A2"],
+      "feasibility": "human",
+      "evidence": ["dom", "media", "timeline"],
+      "instructions": "The model cannot hear audio or watch video. From the media evidence it can check: recorded audio needs a transcript nearby or linked (1.2.1); video needs captions (a captions track) and audio description or a text alternative (1.2.2, 1.2.3); live video needs live captions (1.2.4); for AAA, sign language (1.2.6), extended audio description (1.2.7), a full text alternative (1.2.8), and a text alternative for live audio (1.2.9). Audio that plays automatically for more than 3 seconds needs a way to pause or turn down (1.4.2). Links to audio or video files need a transcript nearby. Whether speech has loud background music (1.4.7) cannot be judged without listening.",
+      "pass": ["Media has controls, a captions track and a transcript, and does not play automatically."],
+      "fail": [
+        "Audio or video with no transcript, captions track or text alternative.",
+        "A live stream with no captions.",
+        "Audio plays on load with no controls.",
+        "A link to an audio or video file with no transcript."
+      ],
+      "limits": "Report cannot-tell when media is present and the needed alternative depends on its content, such as whether a sign language version, extended description or quiet background is needed.",
+      "cases": [
+        "Embedded video file is missing text alternative",
+        "Embedded audio file is missing text alternative",
+        "Live video stream has no captions",
+        "Video has no sign language interpretation",
+        "Video has no extended audio description",
+        "Live audio stream has no text alternative",
+        "Audio plays automatically with no way to stop it",
+        "Speech has loud background music",
+        "Links to a sound file, no transcript",
+        "Link to a multimedia file, no transcript"
+      ]
+    },
+    {
+      "id": "consistency",
+      "title": "Navigation, help and functions are consistent across pages",
+      "wcag": ["2.4.5", "2.4.8", "3.2.3", "3.2.4", "3.2.6"],
+      "sa11y": ["8.2", "8.3", "8.A1"],
+      "feasibility": "ai-with-harness",
+      "evidence": ["multi-page", "dom", "screenshot"],
+      "instructions": "When several pages are given, compare them: navigation links in the same order (3.2.3), the same function with the same label (3.2.4), and help (contact, chat, help link) in the same relative place (3.2.6). On any site page: there must be more than one way to find pages, such as search, a site map or links between pages (2.4.5), and for AAA the page must show where the user is in the site, such as breadcrumbs or a highlighted menu item (2.4.8).",
+      "pass": ["Repeated parts are the same on every page. The site has search or a site map. The current section is shown."],
+      "fail": [
+        "The help link is in the header on one page and the footer on another.",
+        "The search button is 'Search' on one page and 'Go' on another.",
+        "The only way to find pages is the menu.",
+        "There are no breadcrumbs or other sign of where the user is."
+      ],
+      "limits": "2.4.5 and 2.4.8 are about the whole site. The model judges from what the page itself offers.",
+      "cases": [
+        "Help link is in a different place on each page",
+        "Pages can only be found in one way",
+        "No indication of where the user is in the site",
+        "The same function has different labels on different pages"
+      ]
+    },
+    {
+      "id": "code-quality",
+      "title": "Markup is valid and uses the right elements",
+      "wcag": ["1.3.1", "4.1.1"],
+      "sa11y": ["5.2"],
+      "feasibility": "ai",
+      "evidence": ["dom", "source"],
+      "instructions": "Look for markup that produces the wrong structure: start and end tags that do not match, presentational markup such as inline colour styles that carry meaning, and pre elements used for something other than preformatted text or code (such as ASCII art without a text alternative). 4.1.1 Parsing was removed in WCAG 2.2, so mismatched tags are reported as best practice.",
+      "pass": ["Elements are properly nested and closed, and preformatted text is code or has an alternative."],
+      "fail": [
+        "An element is opened with one tag and closed with another.",
+        "A pre element holds ASCII art with no text alternative.",
+        "Colour set with an inline style is the only cue for meaning."
+      ],
+      "limits": "The model sees the DOM after the browser has repaired the HTML, so it may not see mismatched tags. The original source is also given for this check.",
+      "cases": [
+        "Start and close tags don't match",
+        "PRE element without CODE element inside it",
+        "Inline style adds colour"
+      ]
+    }
+  ],
+  "describedInText": [
+    "Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms",
+    "Content is locked to one display orientation",
+    "Focus not visible",
+    "Inadequate line height used",
+    "All caps text found",
+    "Italics used on long sections of text",
+    "Long lines of text",
+    "Very small text found",
+    "Justified text found",
+    "Image with partial text alternative",
+    "Video has no extended audio description",
+    "Audio plays automatically with no way to stop it",
+    "Payment is taken without a chance to check or cancel",
+    "Submitting a form cannot be checked, confirmed or reversed",
+    "Help link is in a different place on each page",
+    "Pages can only be found in one way",
+    "No indication of where the user is in the site",
+    "The same function has different labels on different pages",
+    "Lightbox - close button doesn't receive focus",
+    "Lightbox - ESC key doesn't close the lightbox",
+    "Lightbox - focus is not moved immediately to lightbox",
+    "Lightbox - focus is not retained within the lightbox",
+    "Keyboard focus is not indicated visually",
+    "Accesskey attribute used",
+    "Content is not readable and functional when text is increased",
+    "Page zoom - boxes that don't expand with the text",
+    "Purpose of regions cannot be programmatically determined",
+    "Tooltip disappears when the pointer is moved over it",
+    "Mouse input is ignored on devices with a touch screen",
+    "Updates interrupt the user and cannot be postponed",
+    "Data is lost when the session expires",
+    "Users are not warned about an inactivity timeout",
+    "Content flashes more than three times in one second",
+    "Motion animation triggered by interaction cannot be turned off"
+  ]
+}

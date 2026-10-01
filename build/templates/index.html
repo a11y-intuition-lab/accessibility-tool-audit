@@ -159,6 +159,47 @@
 
       <p>Many of the added test cases cover success criteria that need a person to check them, such as timing, consistency across pages and use of language. Low numbers for the added test cases are expected.</p>
 
+      {% set ai = analysis.retest.ai %}
+      {% if ai %}
+      <h3 id="ai-check">With an AI check</h3>
+
+      <p>
+        For the test cases neither tool finds, AIL wrote <a href="ai-checks.html">{{ ai.checks }} test procedures</a> an AI model can follow, based on the manual checklist in <a href="https://github.com/a11y-intuition-lab/sa11y">sa11y</a>. A script collects evidence from each page, such as the HTML, a screenshot, the Tab order and what happens on hover, zoom and Escape, and {{ ai.model }} judges it against the procedures. The model is not told which test case it is looking at.
+      </p>
+
+      <p>
+        Of the {{ ai.missed.tested }} test cases neither axe-core nor pa11y finds, the AI check found the intended barrier in {{ ai.missed.confirmed }} ({{ ai.missed.confirmed_percent }}%).
+        On {{ ai.described_in_text }} test pages the barrier is also described in the text of the page, which may help the model. Without them, it found {{ ai.missed_not_in_text.confirmed }} of {{ ai.missed_not_in_text.tested }} ({{ ai.missed_not_in_text.confirmed_percent }}%).
+        On {{ ai.controls.tested }} control pages with no known barrier, it reported a barrier on {{ ai.controls.error }} and a possible barrier on {{ ai.controls.manual }}.
+      </p>
+
+      <table class="numeric-results percentage-summary retest-results">
+        <caption>Test cases detected by axe-core, pa11y or the AI check</caption>
+        <thead>
+          <tr>
+            <th scope="col">Test cases</th>
+            <th scope="col">axe-core and pa11y</th>
+            <th scope="col">With the AI check, intended barrier</th>
+            <th scope="col">With the AI check, any barrier</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, label in [["original", "original test cases"], ["original_a_aa", "original and added A and AA test cases"], ["all", "all test cases, including AAA"], ["added_a_aa", "added A and AA test cases only"], ["added_aaa", "added AAA test cases only"]] %}
+          <tr>
+            <th scope="row" class="retest">{{ analysis.retest.totals[key] }} {{ label }}</th>
+            <td class="retest">{{ analysis.retest.combined[key].error_warning }}%</td>
+            <td class="retest">{{ ai.sets[key].combined_confirmed }}%</td>
+            <td class="retest">{{ ai.sets[key].combined_any }}%</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <p>
+        &ldquo;Intended barrier&rdquo; counts the AI only when one of its failures describes the barrier the test case was made for. A second AI pass read every finding and judged this. No person has checked these judgements yet. &ldquo;Any barrier&rdquo; counts any failure the AI reports on the page, as the retest does for axe-core and pa11y. The AI check was made by the same AI assistant that wrote the added test pages, so it is not an independent measurement. <a href="{{ copyInfo.methodPage }}#ai-check">Read how the AI check works and its limitations</a>.
+      </p>
+      {% endif %}
+
       <p>The retest results are proposals based on the tools&rsquo; output and have not all been checked by hand yet. <a href="{{ copyInfo.repo }}/tree/gh-pages/results">Raw results</a> are available. <a href="{{ copyInfo.methodPage }}">Read how the test cases were made and the retest was run</a>, including how to repeat it.</p>
       </section>
       {% endif %}

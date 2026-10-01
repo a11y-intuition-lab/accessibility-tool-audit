@@ -8,6 +8,8 @@ var paths = {
   analysisJson: path.join(__dirname, '../analysis.json'),
   changelogJson: path.join(__dirname, '../changelog.json'),
   retestJson: path.join(__dirname, '../retest.json'),
+  aiChecksJson: path.join(__dirname, '../ai-checks.json'),
+  controlsJson: path.join(__dirname, '../controls.json'),
   templates: path.join(__dirname, 'templates'),
   outPath: path.join(__dirname, '../'),
   out: fname => path.join(paths.outPath, fname)
@@ -140,6 +142,45 @@ function processExample( example ){
   return example;
 }
 
+// Every test case that neither axe nor pa11y finds must have an AI check,
+// or a 'human' check that says why the AI cannot judge it.
+function checkAiCoverage( tests, retest, aiChecks ){
+  var names = {};
+  for( var catname in tests ){
+    for( var testname in tests[catname] ){
+      names[testname] = true;
+    }
+  }
+
+  var covered = {};
+  var problems = [];
+  aiChecks.checks.forEach(function (check){
+    check.cases.forEach(function (name){
+      if( !names[name] ) problems.push('ai-checks.json: check "' + check.id + '" names an unknown test case "' + name + '"');
+      covered[name] = true;
+    });
+    check.evidence.forEach(function (e){
+      if( !aiChecks.evidence[e] ) problems.push('ai-checks.json: check "' + check.id + '" uses unknown evidence "' + e + '"');
+    });
+  });
+  aiChecks.describedInText.forEach(function (name){
+    if( !names[name] ) problems.push('ai-checks.json: describedInText names an unknown test case "' + name + '"');
+  });
+
+  if( retest ){
+    Object.keys(names).forEach(function (name){
+      var r = retest.results[name] || {};
+      if( r.axe !== 'error' && r.pa11y !== 'error' && !covered[name] ){
+        problems.push('ai-checks.json: no check covers "' + name + '", which axe and pa11y do not find');
+      }
+    });
+  }
+
+  if( problems.length ){
+    throw new Error(problems.join('\n'));
+  }
+}
+
 function generateFiles(){
   var testsFile = fs.readFileSync(paths.testsJson).toString();
   var tests = JSON.parse(testsFile);
@@ -153,6 +194,14 @@ function generateFiles(){
   var retest = fs.existsSync(paths.retestJson)
     ? JSON.parse(fs.readFileSync(paths.retestJson).toString())
     : null;
+
+  var aiChecks = JSON.parse(fs.readFileSync(paths.aiChecksJson).toString());
+  checkAiCoverage(tests, retest, aiChecks);
+
+  // Results of scripts/ai-check.mjs, with the findings and whether they are
+  // from the procedure written for each test case
+  var aiJson = retest && retest.ai && path.join(__dirname, '../results', retest.ai.date, 'ai.json');
+  var aiResults = aiJson && fs.existsSync(aiJson) ? JSON.parse(fs.readFileSync(aiJson).toString()).cases : null;
 
   var env = nunjucks.configure(paths.templates);
   env.addGlobal('copyInfo', copyInfo);
@@ -186,6 +235,21 @@ function generateFiles(){
   });
   fs.writeFileSync(paths.out('method.html'), methodout, 'utf8');
 
+  // Generate the page with the AI test procedures
+
+  var caseFiles = {};
+  for( var c in tests ){
+    for( var t in tests[c] ){
+      caseFiles[t] = getFilename(c, t);
+    }
+  }
+  var aiout = nunjucks.render('ai-checks.html', {
+    aiChecks: aiChecks,
+    caseFiles: caseFiles,
+    analysis: analysisResults
+  });
+  fs.writeFileSync(paths.out('ai-checks.html'), aiout, 'utf8');
+
   // Generate individual tests
 
   for( catname in tests ){
@@ -210,6 +274,19 @@ function generateFiles(){
   });
   fs.writeFileSync(paths.out('tests/_baseline.html'), baselineout, 'utf8');
 
+  // Control pages with no known barrier, used by scripts/ai-check.mjs to
+  // count false positives
+  var controls = JSON.parse(fs.readFileSync(paths.controlsJson).toString()).controls;
+  if( !fs.existsSync(paths.out('controls')) ) fs.mkdirSync(paths.out('controls'));
+  for( var controlname in controls ){
+    var controlout = nunjucks.render('single-test.html', {
+      testname: controlname,
+      // Short lines and line spacing, so the page also meets 1.4.8 (AAA)
+      example: '<div style="max-width: 38em; line-height: 1.5;">' + processExample(controls[controlname]) + '</div>'
+    });
+    fs.writeFileSync(paths.out('controls/' + getFilename('control', controlname) + '.html'), controlout, 'utf8');
+  }
+
   // Generate results
   var resultsout = nunjucks.render('results.html', {
     tests: tests,
@@ -220,6 +297,7 @@ function generateFiles(){
     toolNames: analysis.toolNames,
     retest: retest,
     retestTools: retestTools,
+    aiResults: aiResults,
     changes: changes
   });
   fs.writeFileSync(paths.out('results.html'), resultsout, 'utf8');

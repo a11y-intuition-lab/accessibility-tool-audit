@@ -2,6 +2,11 @@
   "last_updated": "13 April 2018",
   "changelog": [
     {
+      "date": "1 October 2026",
+      "text": "The retest now checks the linked example pages. Added test procedures an AI can follow for the test cases axe-core and pa11y do not find, and an AI check with Claude.",
+      "link": "ai-checks.html"
+    },
+    {
       "date": "29 September 2026",
       "text": "Added 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria up to level AAA, and retested all test cases with current versions of axe-core and pa11y. Original results are unchanged."
     },

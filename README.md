@@ -15,6 +15,7 @@ In September 2026, AIL:
 - replaced the old build tools so the project can be built safely
 - added 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria up to level AAA
 - retested every test case with axe-core and pa11y
+- wrote test procedures an AI can follow for the barriers the two tools miss, and ran them with Claude
 
 This work was done with the AI coding assistant Claude Code and was not carried out, reviewed or endorsed by GDS.
 
@@ -70,6 +71,22 @@ This runs axe-core and pa11y (HTML_CodeSniffer) against every page in `tests/` u
 - Raw findings and a summary for review are written to `results/<date>/`.
 
 A finding on a page does not prove the tool found the intended barrier. Check `results/<date>/summary.md` and correct `retest.json` by hand before committing, then run `npm run build` again.
+
+## Checking with AI
+
+```
+npm run ai-check
+```
+
+This runs the test procedures in `ai-checks.json` with Claude on Amazon Bedrock. It needs `AWS_REGION` and the model in `ANTHROPIC_DEFAULT_OPUS_MODEL` (or `--model=`). Run `npm run build` first.
+
+- `scripts/ai-evidence.mjs` collects evidence from each page in headless Chrome: HTML, accessibility tree, styles, screenshots, Tab stops, what happens on Enter, Escape, hover, zoom and more. Run `node scripts/ai-evidence.mjs tests/<file>.html` to see what the model gets for one page.
+- Names that give away the test case (title, first heading, class names, ids, file names) are replaced before the model sees the page.
+- The control pages in `controls/` (from `controls.json`) have no known barrier. Failures on them are false positives.
+- Results go to `retest.json` (`ai` for each test case), findings to `results/<date>/ai.json` and a summary for review to `results/<date>/ai-summary.md`. Answers are cached in `results/<date>/ai-cache/`.
+- `--only=`, `--force` and `--controls` work as for the retest.
+
+`npm run build` fails if a test case that neither axe nor pa11y finds is not covered by a procedure in `ai-checks.json`.
 
 ## Licence
 

@@ -180,7 +180,7 @@ async function main() {
 
         const current = retest.results[testname];
         if (!current || force) {
-          retest.results[testname] = proposal;
+          retest.results[testname] = { ...current, ...proposal };
         } else if (current.axe !== proposal.axe || current.pa11y !== proposal.pa11y) {
           changes.push(`${testname}: stored ${JSON.stringify(current)}, proposed ${JSON.stringify(proposal)}`);
         }
@@ -210,7 +210,7 @@ async function main() {
         pa11y: { name: 'pa11y', version: versions.pa11y, runner: 'HTML_CodeSniffer ' + versions.htmlcs }
       };
     }
-    fs.writeFileSync(retestPath, JSON.stringify({ date: retest.date, tools: retest.tools, results: retest.results }, null, 2) + '\n');
+    fs.writeFileSync(retestPath, JSON.stringify({ date: retest.date, tools: retest.tools, ai: retest.ai, results: retest.results }, null, 2) + '\n');
   }
   console.log(`\nRaw findings: ${path.relative(root, outDir)}/`);
 }

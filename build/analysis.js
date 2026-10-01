@@ -6,7 +6,9 @@ var fs = require('fs'),
 var paths = {
   testsJson: path.join(__dirname, '../tests.json'),
   analysisJson: path.join(__dirname, '../analysis.json'),
-  retestJson: path.join(__dirname, '../retest.json')
+  retestJson: path.join(__dirname, '../retest.json'),
+  aiChecksJson: path.join(__dirname, '../ai-checks.json'),
+  results: path.join(__dirname, '../results')
 };
 
 var testsFile = fs.readFileSync(paths.testsJson).toString();
@@ -197,7 +199,91 @@ function analyseRetest(){
     tools: retest.tools,
     totals: _.mapValues(sets, list => list.length),
     scores: scores,
-    combined: combined
+    combined: combined,
+    ai: analyseAi(retest, sets)
+  };
+}
+
+// Scores for the AI check (scripts/ai-check.mjs). A failure the AI reports
+// counts as "intended" when it comes from a procedure written for that test
+// case. The strict scores only count intended failures, because a page can
+// fail for another reason than the barrier it was made for. The control
+// pages have no known barrier, so every failure on them is a false positive.
+function analyseAi(retest, sets){
+  var aiPath = retest.ai && path.join(paths.results, retest.ai.date, 'ai.json');
+  if( !aiPath || !fs.existsSync(aiPath) ){
+    return null;
+  }
+
+  var raw = JSON.parse(fs.readFileSync(aiPath).toString());
+  var aiChecks = JSON.parse(fs.readFileSync(paths.aiChecksJson).toString());
+  var describedInText = aiChecks.describedInText;
+  var toolsFind = testname => _.some(_.keys(retest.tools), toolName => _.get(retest.results, [testname, toolName]) === 'error');
+  var percent = (n, total) => total ? _.round(n / total * 100) : null;
+
+  function score(list){
+    var cases = list.filter(testname => raw.cases[testname]);
+    var count = r => cases.filter(testname => raw.cases[testname].result === r).length;
+    // only test cases a procedure is written for can have an intended failure
+    var covered = cases.filter(testname => raw.cases[testname].intendedChecks.length);
+    var intended = covered.filter(testname => raw.cases[testname].intended).length;
+    return {
+      tested: cases.length,
+      error: percent(count('error'), cases.length),
+      error_manual: percent(count('error') + count('manual'), cases.length),
+      covered: covered.length,
+      intended: percent(intended, covered.length),
+      // axe or pa11y, or the AI with a finding the review confirmed
+      combined_confirmed: review ? percent(cases.filter(testname => toolsFind(testname) || confirmed(testname)).length, cases.length) : null,
+      // axe or pa11y, or the AI with a failure from the intended procedure
+      combined: percent(cases.filter(testname => toolsFind(testname) || raw.cases[testname].intended).length, cases.length),
+      // the same, counting any AI failure
+      combined_any: percent(cases.filter(testname => toolsFind(testname) || raw.cases[testname].result === 'error').length, cases.length)
+    };
+  }
+
+  // the test cases neither axe nor pa11y finds, which the procedures are for
+  var missed = sets.all.filter(testname => !toolsFind(testname));
+  var missedNotInText = _.difference(missed, describedInText);
+  // A second pass that read each finding and judged whether it describes the
+  // barrier the test case was made for (results/<date>/ai-review.json)
+  var reviewPath = path.join(paths.results, retest.ai.date, 'ai-review.json');
+  var review = fs.existsSync(reviewPath) ? JSON.parse(fs.readFileSync(reviewPath).toString()) : null;
+  var confirmed = testname => _.get(review, ['cases', testname, 'match']) === 'yes';
+
+  var missedScore = list => {
+    var cases = list.filter(testname => raw.cases[testname]);
+    var intended = cases.filter(testname => raw.cases[testname].intended).length;
+    var reviewed = review ? cases.filter(confirmed).length : null;
+    return {
+      tested: cases.length,
+      intended: intended,
+      intended_percent: percent(intended, cases.length),
+      confirmed: reviewed,
+      confirmed_percent: review ? percent(reviewed, cases.length) : null
+    };
+  };
+
+  var controls = _.values(raw.controls);
+  var controlCount = r => controls.filter(c => c.result === r).length;
+
+  return {
+    model: raw.model,
+    effort: raw.effort,
+    date: raw.date,
+    checks: aiChecks.checks.length,
+    sets: _.mapValues(sets, score),
+    missed: missedScore(missed),
+    missed_not_in_text: missedScore(missedNotInText),
+    described_in_text: describedInText.length,
+    review: review ? { method: review.method, counts: _.countBy(_.values(review.cases), 'match') } : null,
+    controls: {
+      tested: controls.length,
+      notfound: controlCount('notfound'),
+      manual: controlCount('manual'),
+      error: controlCount('error'),
+      false_positive: percent(controlCount('error'), controls.length)
+    }
   };
 }
 

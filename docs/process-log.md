@@ -241,7 +241,35 @@ Ten test cases changed. Six of them (empty, invalid and missing lang, empty and 
 | Retest, 194 all, including AAA | 34% | 39% |
 | Retest, 30 added A and AA only | 10% | 13% |
 
+## 13. Test procedures for AI, and an AI check (1 October 2026)
+
+The same instruction as in section 12. The assistant suggested writing the procedures as a specification and also running them with an AI, so the result could be measured. The maintainer chose that, chose to keep everything in this repository without changing sa11y, and approved the plan.
+
+- `ai-checks.json` has 35 procedures. Each one is based on one or more tests in sa11y's manual checklist (`data/tests.js`) and has the WCAG criteria, the sa11y test ids, a level (`ai`, `ai-with-harness` or `human`), the evidence it needs, instructions, pass and fail lists, limits, and the test cases it is meant to find. All 119 test cases that neither axe-core nor pa11y finds are covered. `npm run build` fails if one is not. The procedures are shown on `ai-checks.html`.
+- `scripts/ai-evidence.mjs` collects evidence in headless Chrome, because the model cannot use the page itself. It opens each page about 20 times: for the HTML, accessibility tree and styles, for screenshots (grayscale, 320 px, doubled text, text spacing, both orientations), for each Tab stop, for Enter, Space and click on each control, for Escape, hover, paste, pointer use, an empty form and 3 seconds without input.
+- The test pages give away the answer in their title, first heading, class names (`no-paste`, `swipe-only`) and file names. These are replaced before the model sees them. Comments and script code are removed. 34 test pages still describe their barrier in the text, because GDS wrote them for people. These are listed in `describedInText`, and the results are given with and without them.
+- All test pages have a barrier, so there was no way to count false positives. 21 control pages in `controls.json` (`controls/`) are built to pass the procedures. The two baseline pages are also used.
+- `scripts/ai-check.mjs` sends all procedures and the evidence for one test case to Claude Opus 5.5 on Amazon Bedrock, and the model reports failures with the element, the evidence and the reason. The results use the same codes as the retest and are stored in `retest.json` as `ai`, kept apart from the retest tools so the existing axe-core and pa11y numbers do not change.
+
+The first runs on the alt test cases and the control pages found errors in the evidence script, all corrected before the full run: links and forms left the page during the tests, caption files were blocked on `file://`, pages in background tabs did not show focus or take screenshots, the evidence listed the script's own event listeners and a listener in `main.js` that only one test case needs (now only added on that page), and Escape was pressed after five Tab presses. The model also found real barriers on three control pages: an alt text that did not match the photo, a tooltip that could never be hidden because an inline `display` overrode `hidden`, and lines longer than 1.4.8 allows. These were corrected. The changes were made after seeing results, which is a possible source of bias, and are listed on the method page.
+
+A failure from the procedure written for a test case does not prove the model found that barrier. A second pass with the same model read each of the 119 test cases, its example and every failure, and judged whether a failure describes the intended barrier: 111 yes, 4 partly, 4 no (`results/2026-10-01/ai-review.json`). The assistant checked five of the "yes" judgements and agreed. No person has checked them yet.
+
+| Test cases | axe-core and pa11y | With the AI check, intended barrier | With the AI check, any barrier |
+| --- | --- | --- | --- |
+| 142 original | 50% | 96% | 99% |
+| 172 original and added A and AA | 44% | 97% | 99% |
+| 194 all, including AAA | 39% | 96% | 98% |
+| 30 added A and AA only | 13% | 97% | 100% |
+| 22 added AAA only | 0% | 91% | 91% |
+
+Of the 119 test cases neither tool finds, the AI check found 111 (93%), and 77 of the 85 (91%) whose text does not describe the barrier. It reported nothing on any of the 23 control pages. The four it missed need sound or video judgement (flashing, sign language, background music) or a judgement on code style (inline colour). The full run took about 70 minutes.
+
+These numbers are much higher than the tools, but they are not an independent measurement. The same session wrote the test pages, the procedures, the evidence script, the control pages and the checker, and the procedures were written knowing which test cases they should find. The test pages are small and have one barrier each. The method page says this.
+
 ## Open
 
 - The retest proposals have not all been checked by hand. See `results/2026-09-29/summary.md`.
 - The added test cases have not been reviewed by an independent accessibility expert.
+- The AI check findings and the review of them have not been checked by a person. See `results/2026-10-01/ai-summary.md` and `ai-review.json`.
+- The AI check has only been run on the small test pages, not on real websites.

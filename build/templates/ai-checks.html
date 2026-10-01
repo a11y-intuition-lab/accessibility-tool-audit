@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pagetitle -%}AI test procedures{%- endblock %}
+
+{% block content %}
+<main id="wrapper">
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="index.html">Overview</a></li>
+      <li>AI test procedures</li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds intro-summary">
+      <h1>AI test procedures for what axe and pa11y miss <span class="new-tag">Not by GDS</span></h1>
+
+      <p>
+        These are the test procedures {{ copyInfo.org.name }} (AIL) wrote for the barriers that axe-core and pa11y do not find in the retest. Each procedure is written so that an AI model can follow it, and is adapted from a test in the manual checklist of <a href="https://github.com/a11y-intuition-lab/sa11y">sa11y</a>. The procedures are in <a href="{{ copyInfo.repo }}/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>. How they were run and what they found is described on the <a href="method.html#ai-check">method page</a>.
+      </p>
+
+      <p>Each procedure has one of three levels:</p>
+
+      <ul class="list list-bullet">
+        <li><strong>AI:</strong> the model can judge from the page as it is: its HTML, accessibility tree, styles and a screenshot.</li>
+        <li><strong>AI with harness:</strong> a script must act on the page first, for example press Tab, zoom or hover, and the model judges the result.</li>
+        <li><strong>Person:</strong> the model cannot judge it, for example whether captions match the speech. It can at most flag that a person must check.</li>
+      </ul>
+
+      <h2 id="evidence">What the model is given</h2>
+
+      <p>The script <a href="{{ copyInfo.repo }}/blob/gh-pages/scripts/ai-evidence.mjs"><code>scripts/ai-evidence.mjs</code></a> collects this evidence for each page. The model is not given the name of the test case, the file name or the URL.</p>
+
+      <dl class="ai-evidence">
+        {% for key, text in aiChecks.evidence %}
+        <dt><code>{{ key }}</code></dt>
+        <dd>{{ text }}</dd>
+        {% endfor %}
+      </dl>
+
+      <h2 id="procedures">Procedures</h2>
+
+      <ul class="list list-bullet">
+        {% for check in aiChecks.checks %}
+        <li><a href="#{{ check.id }}">{{ check.title }}</a></li>
+        {% endfor %}
+      </ul>
+
+      {% for check in aiChecks.checks %}
+      <h3 id="{{ check.id }}">{{ check.title }}</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: {{ check.title }}</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>{{ check.wcag | join(", ") }}</td></tr>
+          <tr><th scope="row">sa11y test</th><td>{{ check.sa11y | join(", ") }}</td></tr>
+          <tr><th scope="row">Level</th><td>{% if check.feasibility == "ai" %}AI{% elif check.feasibility == "ai-with-harness" %}AI with harness{% else %}Person{% endif %}</td></tr>
+          <tr><th scope="row">Evidence</th><td>{% for e in check.evidence %}<code>{{ e }}</code>{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>
+        </tbody>
+      </table>
+
+      <p>{{ check.instructions }}</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        {% for p in check.pass %}<li>{{ p }}</li>{% endfor %}
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        {% for f in check.fail %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+
+      {% if check.limits %}
+      <p><strong>Limits:</strong> {{ check.limits }}</p>
+      {% endif %}
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        {% for name in check.cases %}<li><a href="tests/{{ caseFiles[name] }}.html">{{ name }}</a></li>{% endfor %}
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+
+</main>
+{% endblock %}

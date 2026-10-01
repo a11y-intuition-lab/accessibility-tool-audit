@@ -126,12 +126,14 @@ $(function() {
   });
 
   // Undo only available by shaking the device
-  $(window).on('devicemotion', function (e){
-    var a = e.originalEvent.accelerationIncludingGravity;
-    if ($('.motion-only').length && a && Math.abs(a.x) > 15) {
-      $('.motion-only').text('Last change undone.');
-    }
-  });
+  if ($('.motion-only').length) {
+    $(window).on('devicemotion', function (e){
+      var a = e.originalEvent.accelerationIncludingGravity;
+      if (a && Math.abs(a.x) > 15) {
+        $('.motion-only').text('Last change undone.');
+      }
+    });
+  }
 
   // Reordering only possible by dragging
   var $dragged = null;
