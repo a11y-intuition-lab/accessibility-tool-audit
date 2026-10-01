@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Dialog that manages focus - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Dialog that manages focus</h1>
+  <main>
+    <div style="max-width: 38em; line-height: 1.5;"><p><button type="button" id="open-dialog">Show opening times</button></p>
+<div role="dialog" aria-modal="true" aria-labelledby="dialog-title" id="dialog" hidden style="border: 2px solid #0b0c0c; padding: 1em; max-width: 30em; background: #fff;">
+<h2 id="dialog-title">Opening times</h2>
+<p>The office is open Monday to Friday, 9am to 5pm.</p>
+<p><a href="https://www.gov.uk/contact">Contact the office</a></p>
+<button type="button" id="close-dialog">Close</button>
+</div>
+<script>
+(function () {
+  var opener = document.getElementById('open-dialog');
+  var dialog = document.getElementById('dialog');
+  var close = document.getElementById('close-dialog');
+  function hide() { dialog.hidden = true; opener.focus(); }
+  opener.addEventListener('click', function () { dialog.hidden = false; close.focus(); });
+  close.addEventListener('click', hide);
+  dialog.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { hide(); return; }
+    if (e.key !== 'Tab') return;
+    var items = dialog.querySelectorAll('a, button');
+    var first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+  });
+})();
+</script></div>
+  </main>
+</body>
+</html>

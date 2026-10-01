@@ -11,782 +11,982 @@
       "runner": "HTML_CodeSniffer 2.6.0"
     }
   },
+  "ai": {
+    "name": "AI check",
+    "model": "Claude Opus 5.5",
+    "effort": "medium",
+    "date": "2026-10-01"
+  },
   "results": {
     "Content identified by location": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Plain language is not used": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Content is not in correct reading order in source code": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "First instance of abbreviation not expanded": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Idioms and jargon are not explained": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Meaning depends on pronunciation that is not given": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Wide page forces users to scroll horizontally": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Content is locked to one display orientation": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Colour alone is used to convey content": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Small text does not have a contrast ratio of at least 4.5:1 so does not meet AA": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "notfound"
     },
     "Large text does not have a contrast ratio of at least 3:1 so does not meet AA": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "notfound"
     },
     "Small text does not have a contrast ratio of at least 7:1 so does not meet AAA": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "notfound"
     },
     "Large text does not have a contrast ratio of at least 4.5:1 so does not meet AAA": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "notfound"
     },
     "Focus not visible": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Form field border does not have a contrast ratio of at least 3:1": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Icon-only button does not have a contrast ratio of at least 3:1": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Inadequate line height used": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "All caps text found": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Blink element found": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Italics used on long sections of text": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Marquee element found": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Long lines of text": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Very small text found": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Justified text found": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Text language changed without required change in direction": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "html element has an empty lang attribute": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "lang attribute not used to identify change of language": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Text language is in the wrong direction": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "html element has an invalid value in the lang attribute": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "lang attribute used to identify change of language, but with invalid value": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "html element is missing a lang attribute": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "html element has lang attribute set to wrong language": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "lang attribute used to identify change of language, but with wrong language": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Inappropriate page title": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Empty page title": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Missing page title": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Empty heading": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Missing H1": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Text formatting used instead of an actual heading": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Headings not structured in a hierarchical manner": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "LI element with no parent": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "List not marked up as a list": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "DT or DD elements that are not contained within a DL element": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Improperly nested lists": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Table with column headers and double row headers": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "manual"
     },
     "Table has no scope attributes": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "notfound"
     },
     "Table nested within table header": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Table nested within table": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Table has no table headings": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Table with inconsistent numbers of columns in rows": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Table that only has TH elements in it": {
       "axe": "manual",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Table is missing a caption": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Table used for layout": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Table has an empty table header": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "notfound"
     },
     "Table with some empty cells": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image has alt and title that are different": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image with presentation role has non-empty alt": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image with no alt attribute": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Background image that conveys information does not have a text alternative": {
       "axe": "manual",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Image has empty alt and non-empty title": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "A distraction is present, an animated gif": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image that conveys information has an empty alt attribute": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Image that conveys information has inappropriate alt text": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image alt attribute contains image file name": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image with partial text alternative": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image of text used instead of text": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image of text used for a quotation": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Embedded video file is missing text alternative": {
       "axe": "manual",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Flashing content doesn't have warning": {
       "axe": "manual",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "manual"
     },
     "Embedded audio file is missing text alternative": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Live video stream has no captions": {
       "axe": "manual",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Video has no sign language interpretation": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "manual"
     },
     "Video has no extended audio description": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Live audio stream has no text alternative": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Audio plays automatically with no way to stop it": {
       "axe": "manual",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Speech has loud background music": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "notfound"
     },
     "Image link with no alternative text": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Link to javascript, invalid hypertext reference": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Uninformative link text": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Link launches new window with no warning": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Links not separated by printable characters": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Link text with identical title": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Links to a sound file, no transcript": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Identifying links by colour alone": {
       "axe": "error",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Link to PDF does not include information on file format and file size": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Link to #, invalid hypertext reference": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Blank link text": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Links with the same text go to different pages": {
       "axe": "manual",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Link text does not make sense out of context": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Adjacent links going to the same destination": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Link contains only a full stop": {
       "axe": "manual",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image link alt text repeats text in the link": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Link not clearly identifiable and distinguishable from surrounding text": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Link to a multimedia file, no transcript": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Non-specific link text": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Link to an image, no text alternative": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Image button has no alt attribute": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Empty button": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Uninformative alt attribute value on image button": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Empty alt attribute on image button": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Errors identified by colour only": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Labels missing when they would look clumsy for some form controls": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Error messages - no suggestion for corrections given, e.g. required format": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Left aligned form labels with too much white space": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Group of radio buttons not enclosed in a fieldset": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Form element has no label": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Fieldset without a legend": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Empty legend": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Label element with for= attribute but not matching id= attribute of form control": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Group of check boxes not enclosed in a fieldset": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Empty label found": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Two unique labels, but identical for= attributes": {
       "axe": "manual",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Errors identified with a poor colour contrast": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Non-unique field label found": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Missing labels in checkboxes": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Field hint not associated with input": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Placeholder no label": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Errors are not identified": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Form control that changes context without warning": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Input purpose is not identified": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Autocomplete attribute has an invalid value": {
       "axe": "error",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Status message is not announced to assistive technologies": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Information entered earlier must be entered again": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Pasting into the password field is blocked": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Focusing a field opens a new window": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Payment is taken without a chance to check or cancel": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "No help is available for a complex field": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Submitting a form cannot be checked, confirmed or reversed": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Sign in requires recognising objects in pictures": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Inadequately-sized clickable targets found": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Help link is in a different place on each page": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "No way to skip repeated navigation": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Pages can only be found in one way": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "No indication of where the user is in the site": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Navigation is in a different order on each page": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "The same function has different labels on different pages": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Alert shows for a short time": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Lightbox - close button doesn't receive focus": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Focus order in wrong order": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Tabindex greater than 0": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Keyboard focus is not indicated visually": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Keyboard focus assigned to a non focusable element using tabindex=0": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Concertina items don't get keyboard focus": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Keyboard trap": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Dropdown navigation - only the top level items receive focus": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Lightbox - ESC key doesn't close the lightbox": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Link with a role=button does not work with space bar": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Tooltips don't receive keyboard focus": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Accesskey attribute used": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Lightbox - focus is not moved immediately to lightbox": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Lightbox - focus is not retained within the lightbox": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Fake button is not keyboard accessible": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Single character keyboard shortcut cannot be turned off or remapped": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Focused link is hidden behind a sticky footer": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Signature can only be drawn with a pointer": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Focused link is partly hidden by a chat widget": {
       "axe": "manual",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Focus indicator is too thin and has low contrast": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "iframe is missing a title attribute": {
       "axe": "error",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "iframe title attribute does not describe the content or purpose of the iframe": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Content is not readable and functional when text is increased": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Non-decorative content inserted using CSS": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "visibility:hidden used to visually hide content when it should be available to screenreader": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "display:none used to visually hide content when it should be available to screenreader": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Page zoom - boxes that don't expand with the text": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Content is clipped when text spacing is increased": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Text spacing cannot be overridden because of important inline styles": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Duplicate id": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Article element used to mark-up an element that's not an article/blog post etc.": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "notfound"
     },
     "Empty paragraph": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Deprecated center element": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Invalid ARIA role names": {
       "axe": "error",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Object not embedded accessibly - wmode parameter not set to window": {
       "axe": "manual",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Spacer image found": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Inline style adds colour": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "notfound"
     },
     "Start and close tags don't match": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "PRE element without CODE element inside it": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Deprecated font element": {
       "axe": "notfound",
-      "pa11y": "error"
+      "pa11y": "error",
+      "ai": "error"
     },
     "Purpose of regions cannot be programmatically determined": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Tooltip cannot be dismissed without moving the pointer or focus": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Tooltip disappears when the pointer is moved over it": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Carousel can only be changed with a swipe gesture": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Action is triggered on pointer down": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Accessible name does not contain the visible label": {
       "axe": "notfound",
-      "pa11y": "manual"
+      "pa11y": "manual",
+      "ai": "error"
     },
     "Function can only be operated by shaking the device": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "List can only be reordered by dragging": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Clickable targets are smaller than 24 by 24 CSS pixels": {
       "axe": "error",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Mouse input is ignored on devices with a touch screen": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Task has a time limit": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Updates interrupt the user and cannot be postponed": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Data is lost when the session expires": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Users are not warned about an inactivity timeout": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Content flashes more than three times in one second": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     },
     "Motion animation triggered by interaction cannot be turned off": {
       "axe": "notfound",
-      "pa11y": "notfound"
+      "pa11y": "notfound",
+      "ai": "error"
     }
   }
 }

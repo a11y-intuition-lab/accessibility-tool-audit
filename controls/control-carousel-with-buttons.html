@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Carousel with buttons - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Carousel with buttons</h1>
+  <main>
+    <div style="max-width: 38em; line-height: 1.5;"><div role="group" aria-roledescription="carousel" aria-label="Services">
+<p id="slide" aria-live="polite">Slide 1 of 3: Apply for a passport online</p>
+<button type="button" id="prev">Previous slide</button> <button type="button" id="next">Next slide</button>
+</div>
+<script>
+(function () {
+  var slides = ['Slide 1 of 3: Apply for a passport online', 'Slide 2 of 3: Renew your driving licence', 'Slide 3 of 3: Check your State Pension age'];
+  var i = 0;
+  function show() { document.getElementById('slide').textContent = slides[i]; }
+  document.getElementById('prev').addEventListener('click', function () { i = (i + slides.length - 1) % slides.length; show(); });
+  document.getElementById('next').addEventListener('click', function () { i = (i + 1) % slides.length; show(); });
+})();
+</script></div>
+  </main>
+</body>
+</html>

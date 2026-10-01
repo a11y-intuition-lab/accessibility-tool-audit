@@ -626,6 +626,104 @@
         "error_warning": 35,
         "error_warning_manual": 47
       }
+    },
+    "ai": {
+      "model": "Claude Opus 5.5",
+      "effort": "medium",
+      "date": "2026-10-01",
+      "checks": 35,
+      "sets": {
+        "original": {
+          "tested": 142,
+          "error": 93,
+          "error_manual": 94,
+          "covered": 71,
+          "intended": 96,
+          "combined_confirmed": 96,
+          "combined": 98,
+          "combined_any": 99
+        },
+        "added": {
+          "tested": 52,
+          "error": 96,
+          "error_manual": 98,
+          "covered": 48,
+          "intended": 94,
+          "combined_confirmed": 94,
+          "combined": 94,
+          "combined_any": 96
+        },
+        "added_a_aa": {
+          "tested": 30,
+          "error": 100,
+          "error_manual": 100,
+          "covered": 26,
+          "intended": 96,
+          "combined_confirmed": 97,
+          "combined": 97,
+          "combined_any": 100
+        },
+        "added_aaa": {
+          "tested": 22,
+          "error": 91,
+          "error_manual": 95,
+          "covered": 22,
+          "intended": 91,
+          "combined_confirmed": 91,
+          "combined": 91,
+          "combined_any": 91
+        },
+        "original_a_aa": {
+          "tested": 172,
+          "error": 94,
+          "error_manual": 95,
+          "covered": 97,
+          "intended": 96,
+          "combined_confirmed": 97,
+          "combined": 98,
+          "combined_any": 99
+        },
+        "all": {
+          "tested": 194,
+          "error": 94,
+          "error_manual": 95,
+          "covered": 119,
+          "intended": 95,
+          "combined_confirmed": 96,
+          "combined": 97,
+          "combined_any": 98
+        }
+      },
+      "missed": {
+        "tested": 119,
+        "intended": 113,
+        "intended_percent": 95,
+        "confirmed": 111,
+        "confirmed_percent": 93
+      },
+      "missed_not_in_text": {
+        "tested": 85,
+        "intended": 79,
+        "intended_percent": 93,
+        "confirmed": 77,
+        "confirmed_percent": 91
+      },
+      "described_in_text": 34,
+      "review": {
+        "method": "Each case was read manually: the test name and example HTML in tests.json define the intended barrier, and every fail finding (any check) was compared to it; yes means a fail reason names the right element and problem, partly means the right element with the problem missed or only implied, no means no fail finding describes it.",
+        "counts": {
+          "yes": 111,
+          "no": 4,
+          "partly": 4
+        }
+      },
+      "controls": {
+        "tested": 23,
+        "notfound": 23,
+        "manual": 0,
+        "error": 0,
+        "false_positive": 0
+      }
     }
   }
 }

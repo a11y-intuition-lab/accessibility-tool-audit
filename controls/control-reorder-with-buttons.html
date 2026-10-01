@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Reorder with buttons - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Reorder with buttons</h1>
+  <main>
+    <div style="max-width: 38em; line-height: 1.5;"><p>Put the contact methods in order of preference.</p>
+<ol id="order">
+<li><span>Email</span> <button type="button" class="up">Move Email up</button> <button type="button" class="down">Move Email down</button></li>
+<li><span>Text message</span> <button type="button" class="up">Move Text message up</button> <button type="button" class="down">Move Text message down</button></li>
+<li><span>Letter</span> <button type="button" class="up">Move Letter up</button> <button type="button" class="down">Move Letter down</button></li>
+</ol>
+<script>
+document.getElementById('order').addEventListener('click', function (e) {
+  var li = e.target.closest('li');
+  if (e.target.classList.contains('up') && li.previousElementSibling) li.parentNode.insertBefore(li, li.previousElementSibling);
+  if (e.target.classList.contains('down') && li.nextElementSibling) li.parentNode.insertBefore(li.nextElementSibling, li);
+  e.target.focus();
+});
+</script></div>
+  </main>
+</body>
+</html>

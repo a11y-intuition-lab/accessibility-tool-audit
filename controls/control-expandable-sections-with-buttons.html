@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Expandable sections with buttons - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Expandable sections with buttons</h1>
+  <main>
+    <div style="max-width: 38em; line-height: 1.5;"><h2><button type="button" aria-expanded="false" aria-controls="sec-1">Understanding user research</button></h2>
+<div id="sec-1" hidden><p>User research helps you understand the people who use your service.</p></div>
+<h2><button type="button" aria-expanded="false" aria-controls="sec-2">Plan user research</button></h2>
+<div id="sec-2" hidden><p>Plan research for each phase of your service.</p></div>
+<script>
+document.querySelectorAll('[aria-controls]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', String(!open));
+    document.getElementById(b.getAttribute('aria-controls')).hidden = open;
+  });
+});
+</script></div>
+  </main>
+</body>
+</html>

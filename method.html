@@ -194,6 +194,81 @@ npm run retest -- --force</code></pre>
         These changes are in the process log. They make the results fairer to the tools, but because they were made after seeing the results, they are a possible source of bias.
       </p>
 
+      
+      
+      <h2 id="ai-check">How the AI check was run</h2>
+
+      <p>
+        The retest showed which test cases neither axe-core nor pa11y finds. AIL asked whether it is possible to describe how to test for these barriers so precisely that an AI can do it. The result is 35 <a href="ai-checks.html">test procedures</a> in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>, adapted from the manual checklist in AIL&rsquo;s <a href="https://github.com/a11y-intuition-lab/sa11y">sa11y</a>. Every test case that the two tools do not find is covered by a procedure. The build fails if one is not.
+      </p>
+
+      <table>
+        <caption class="visuallyhidden">Environment and settings for the AI check</caption>
+        <tbody>
+          <tr><th scope="row">Date</th><td>2026-10-01</td></tr>
+          <tr><th scope="row">Model</th><td>Claude Opus 5.5 through Amazon Bedrock, adaptive thinking, effort <code>medium</code></td></tr>
+          <tr><th scope="row">Evidence</th><td><a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/scripts/ai-evidence.mjs"><code>scripts/ai-evidence.mjs</code></a>, headless Chrome at 1280 by 800</td></tr>
+          <tr><th scope="row">Checker</th><td><a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/scripts/ai-check.mjs"><code>scripts/ai-check.mjs</code></a>, one request per test case</td></tr>
+          <tr><th scope="row">Pages</th><td>The same pages as the retest, and 23 control pages</td></tr>
+        </tbody>
+      </table>
+
+      <h3>What the model is given</h3>
+
+      <p>
+        The model cannot use the page itself. A script opens each page many times and records what happens: the HTML, the accessibility tree, computed styles, screenshots (also in grayscale, at 320 pixels wide, with doubled text, with WCAG text spacing and in both orientations), every Tab stop with a picture of it with and without focus, what changes on Enter, Space, click, Escape, hover, paste and pointer use, what happens when a form is sent empty, and what changes on its own in the first 3 seconds. Links and forms that would leave the page are recorded instead of followed. The full list is on the <a href="ai-checks.html#evidence">procedures page</a>.
+      </p>
+
+      <p>The model is given all the procedures and the evidence, and reports each procedure that fails or that it cannot judge, with the element, the evidence it relies on and the reason.</p>
+
+      <h3>Keeping the answer from the model</h3>
+
+      <p>The test pages often name their barrier. Before the evidence is collected:</p>
+
+      <ul class="list list-bullet">
+        <li>The page title and first heading of each test page are replaced with &ldquo;Test page&rdquo;. On the example pages they are kept, because they are part of what is tested, unless they name the audit.</li>
+        <li>Class names and ids are replaced with neutral names such as <code>c1</code> and <code>id1</code>. Many of them named the barrier, for example <code>no-paste</code>.</li>
+        <li>Comments and the content of scripts are removed. The model sees which events have listeners, not the code.</li>
+        <li>File names of pages and media are replaced, and URLs are removed from the accessibility tree. The model is not told the name of the test case.</li>
+      </ul>
+
+      <p>
+        This does not hide everything. On 34 test pages the text of the page itself describes the barrier, for example &ldquo;This link opens in a new window without warning&rdquo;, because GDS wrote the test pages for people. The results are therefore given both with and without these pages.
+      </p>
+
+      <h3>From findings to results</h3>
+
+      <ol class="list list-number">
+        <li>Any failure gives &ldquo;issue found&rdquo;. Otherwise, any procedure the model cannot judge gives &ldquo;user to check&rdquo;. Otherwise the result is &ldquo;not found&rdquo;. This is the same as for axe-core and pa11y.</li>
+        <li>A failure from a procedure written for that test case is not enough on its own: the reason could be about something else on the page. A second pass with the same model read the test case, its example and every failure, and judged whether a failure describes the intended barrier (111 yes, 4 partly, 4 no). The main score only counts &ldquo;yes&rdquo;, so the AI check is held to the same standard GDS used in the original audit. The judgements are in <code>results/2026-10-01/ai-review.json</code>. The score that counts any failure is also given.</li>
+        <li>The 23 control pages have no known barrier: 21 pages built to pass the procedures, and the two baseline pages. Any failure on them is a false positive.</li>
+      </ol>
+
+      <h3>Changes made after the first runs</h3>
+
+      <p>The procedures were first run on a few test cases and the control pages. This found errors in the evidence script and in the control pages, which were corrected before the full run:</p>
+
+      <ul class="list list-bullet">
+        <li>Links and forms took the browser to another page during the tests, so some evidence was lost. They are now recorded and not followed.</li>
+        <li>Caption files were blocked on local files, so the model was told videos had empty captions.</li>
+        <li>With several pages open at once, pages in the background did not show focus or could not take screenshots. Each page is now checked in its own browser.</li>
+        <li>The evidence listed the event listeners of the script itself, and a listener from the shared page script that only one test case needs.</li>
+        <li>Escape was pressed after five Tab presses, so focus had already moved. It is now pressed straight after opening.</li>
+        <li>Three control pages had real barriers the model found: an alt text that did not match the image, a tooltip that could not be hidden, and lines of text longer than AAA allows. They were corrected.</li>
+      </ul>
+
+      <h3>Repeating the AI check</h3>
+
+      <p>With access to Claude on Amazon Bedrock (<code>AWS_REGION</code> and the model in <code>ANTHROPIC_DEFAULT_OPUS_MODEL</code>):</p>
+
+<pre><code>npm run build
+npm run ai-check -- --force</code></pre>
+
+      <p>
+        The script writes the findings to <code>results/&lt;date&gt;/ai.json</code>, a summary for review to <code>results/&lt;date&gt;/ai-summary.md</code>, and the results to <code>retest.json</code>. Each answer is cached in <code>results/&lt;date&gt;/ai-cache/</code>, so running it again without changes makes no requests. A full run took about 70 minutes and used about 2.4 million input tokens, 3.1 million cached input tokens (the procedures, sent with every request) and 0.12 million output tokens. The model does not give the same answer every time, so a new run will give slightly different results.
+      </p>
+      
+
       <h2 id="limitations">Limitations</h2>
 
       <ul class="list list-bullet">
@@ -202,6 +277,11 @@ npm run retest -- --force</code></pre>
         <li>The same AI session wrote both the test pages and the script that checks them, which may cause systematic errors in both.</li>
         <li>Many of the added criteria (for example 3.1.3 Unusual Words or 2.2.3 No Timing) cannot be checked automatically at all. A &ldquo;not found&rdquo; for these is expected and says little about a tool&rsquo;s quality.</li>
         <li>The original results were recorded by people and may contain errors that have not been corrected here.</li>
+        
+        <li>The same AI session wrote the added test pages, the AI test procedures, the evidence script, the control pages and the checker, and the AI check uses a model from the same family. The procedures were written knowing which test cases they should find. The AI check is not an independent measurement of what AI can do on real websites.</li>
+        <li>The test pages are small and each has one intended barrier. Real pages are larger and have many barriers, and the evidence for them would not fit in one request.</li>
+        <li>The findings of the AI check have not all been checked by hand. Each has a reason and the evidence it relies on in <code>results/2026-10-01/ai-summary.md</code>, so they can be.</li>
+        
       </ul>
 
       <h2 id="citing">Citing</h2>

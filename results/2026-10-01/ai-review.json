@@ -1,0 +1,481 @@
+{
+  "method": "Each case was read manually: the test name and example HTML in tests.json define the intended barrier, and every fail finding (any check) was compared to it; yes means a fail reason names the right element and problem, partly means the right element with the problem missed or only implied, no means no fail finding describes it.",
+  "cases": {
+    "Plain language is not used": {
+      "match": "yes",
+      "note": "understandable-text flags the dense legislative text with no plain-language summary."
+    },
+    "Content identified by location": {
+      "match": "yes",
+      "note": "use-of-colour fail says the winner is identified only by 'on the right'."
+    },
+    "Idioms and jargon are not explained": {
+      "match": "yes",
+      "note": "understandable-text names the unexplained idioms and jargon."
+    },
+    "First instance of abbreviation not expanded": {
+      "match": "yes",
+      "note": "Flags GDS used first without expansion or title."
+    },
+    "Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms": {
+      "match": "yes",
+      "note": "headings-structure says the long multi-topic passage has no subheadings or structure."
+    },
+    "Meaning depends on pronunciation that is not given": {
+      "match": "yes",
+      "note": "Identifies the heteronyms 'record' and 'close' with no pronunciation given."
+    },
+    "Content is locked to one display orientation": {
+      "match": "yes",
+      "note": "Flags CSS rotation that locks content to portrait."
+    },
+    "Colour alone is used to convey content": {
+      "match": "yes",
+      "note": "Says text colour alone marks safe versus deadly mushrooms."
+    },
+    "Focus not visible": {
+      "match": "yes",
+      "note": "Flags the Search button showing no visible focus change."
+    },
+    "Form field border does not have a contrast ratio of at least 3:1": {
+      "match": "yes",
+      "note": "Flags the input border at 1.36:1."
+    },
+    "Icon-only button does not have a contrast ratio of at least 3:1": {
+      "match": "yes",
+      "note": "Flags the #d6d6d6 icon at about 1.5:1."
+    },
+    "Inadequate line height used": {
+      "match": "yes",
+      "note": "Flags line height 0.9 below 1.5."
+    },
+    "All caps text found": {
+      "match": "yes",
+      "note": "Flags text-transform uppercase on the whole paragraph."
+    },
+    "Italics used on long sections of text": {
+      "match": "yes",
+      "note": "Flags the whole paragraph set in italics."
+    },
+    "Very small text found": {
+      "match": "yes",
+      "note": "Flags 8px text."
+    },
+    "Long lines of text": {
+      "match": "yes",
+      "note": "Flags about 158 characters per line."
+    },
+    "Text language changed without required change in direction": {
+      "match": "yes",
+      "note": "Flags Arabic paragraph without dir=rtl."
+    },
+    "Justified text found": {
+      "match": "yes",
+      "note": "Flags text justified to both margins."
+    },
+    "lang attribute not used to identify change of language": {
+      "match": "yes",
+      "note": "Flags the French phrase without lang=fr."
+    },
+    "Text language is in the wrong direction": {
+      "match": "yes",
+      "note": "Flags English text marked dir=rtl."
+    },
+    "lang attribute used to identify change of language, but with wrong language": {
+      "match": "yes",
+      "note": "Flags French phrase marked lang=es."
+    },
+    "Text formatting used instead of an actual heading": {
+      "match": "yes",
+      "note": "Flags the styled div that is not a heading."
+    },
+    "List not marked up as a list": {
+      "match": "yes",
+      "note": "Flags asterisk-and-br list without ul/li."
+    },
+    "Table nested within table": {
+      "match": "yes",
+      "note": "Flags the data table nested inside a cell of another table."
+    },
+    "Table that only has TH elements in it": {
+      "match": "yes",
+      "note": "Says every cell is a th with no data cells."
+    },
+    "Table is missing a caption": {
+      "match": "yes",
+      "note": "Flags the table having no caption or name."
+    },
+    "Table with some empty cells": {
+      "match": "yes",
+      "note": "Flags the row of empty cells used as a divider."
+    },
+    "Image has alt and title that are different": {
+      "match": "yes",
+      "note": "Flags alt 'BBC' versus title 'BBC homepage' mismatch."
+    },
+    "Background image that conveys information does not have a text alternative": {
+      "match": "yes",
+      "note": "Flags the CSS background warning icon with no text alternative."
+    },
+    "A distraction is present, an animated gif": {
+      "match": "yes",
+      "note": "Flags the looping animated GIF with no pause control."
+    },
+    "Image that conveys information has an empty alt attribute": {
+      "match": "yes",
+      "note": "Flags the informative BBC logo with empty alt."
+    },
+    "Image that conveys information has inappropriate alt text": {
+      "match": "yes",
+      "note": "Flags alt 'Twitter' on the BBC logo."
+    },
+    "Image alt attribute contains image file name": {
+      "match": "yes",
+      "note": "Flags the alt text being the file name."
+    },
+    "Image with partial text alternative": {
+      "match": "yes",
+      "note": "Says the alt gives only part of the image's information."
+    },
+    "Image of text used instead of text": {
+      "match": "yes",
+      "note": "Flags the opening hours as an image of text."
+    },
+    "Image of text used for a quotation": {
+      "match": "yes",
+      "note": "Flags the quotation as an image of text."
+    },
+    "Embedded video file is missing text alternative": {
+      "match": "yes",
+      "note": "Flags the video with no captions, description or transcript."
+    },
+    "Flashing content doesn't have warning": {
+      "match": "no",
+      "note": "Only cannot-tell findings; it does mention the missing warning but not as a fail."
+    },
+    "Embedded audio file is missing text alternative": {
+      "match": "yes",
+      "note": "Flags the audio with no transcript."
+    },
+    "Live video stream has no captions": {
+      "match": "yes",
+      "note": "Flags the live video with no captions track."
+    },
+    "Video has no extended audio description": {
+      "match": "yes",
+      "note": "Flags the missing audio description for the calendar visuals, citing 1.2.7."
+    },
+    "Video has no sign language interpretation": {
+      "match": "no",
+      "note": "Only a cannot-tell finding that mentions sign language as uncertain."
+    },
+    "Live audio stream has no text alternative": {
+      "match": "yes",
+      "note": "Flags the live audio with no text alternative."
+    },
+    "Audio plays automatically with no way to stop it": {
+      "match": "yes",
+      "note": "Flags autoplay loop audio with no pause or volume control (1.4.2)."
+    },
+    "Speech has loud background music": {
+      "match": "no",
+      "note": "No findings at all."
+    },
+    "Link launches new window with no warning": {
+      "match": "yes",
+      "note": "Flags target=_blank with no warning."
+    },
+    "Links not separated by printable characters": {
+      "match": "yes",
+      "note": "Flags adjacent links separated only by spaces."
+    },
+    "Link text with identical title": {
+      "match": "yes",
+      "note": "Flags the title repeating the link text."
+    },
+    "Links to a sound file, no transcript": {
+      "match": "yes",
+      "note": "Flags the MP3 link with no transcript."
+    },
+    "Link to PDF does not include information on file format and file size": {
+      "match": "yes",
+      "note": "Flags the PDF link missing type and size."
+    },
+    "Link to #, invalid hypertext reference": {
+      "match": "yes",
+      "note": "Flags href='#' used for an action."
+    },
+    "Links with the same text go to different pages": {
+      "match": "yes",
+      "note": "Flags two 'Lions' links to different sites."
+    },
+    "Link text does not make sense out of context": {
+      "match": "yes",
+      "note": "Flags link text 'page' as unclear on its own."
+    },
+    "Link to javascript, invalid hypertext reference": {
+      "match": "yes",
+      "note": "Flags the javascript: href."
+    },
+    "Adjacent links going to the same destination": {
+      "match": "yes",
+      "note": "Flags the adjacent image and text links to the same page."
+    },
+    "Link contains only a full stop": {
+      "match": "yes",
+      "note": "Flags link text that is only a full stop."
+    },
+    "Link not clearly identifiable and distinguishable from surrounding text": {
+      "match": "yes",
+      "note": "Flags the link with no underline and same colour as text."
+    },
+    "Link to a multimedia file, no transcript": {
+      "match": "yes",
+      "note": "Flags the video link with no transcript."
+    },
+    "Non-specific link text": {
+      "match": "yes",
+      "note": "Flags 'Click here' as the link name."
+    },
+    "Link to an image, no text alternative": {
+      "match": "partly",
+      "note": "Right link, but it only says the file type is not given, not that the linked image lacks a text alternative."
+    },
+    "Uninformative alt attribute value on image button": {
+      "match": "yes",
+      "note": "Flags alt 'click' on the image button."
+    },
+    "Input purpose is not identified": {
+      "match": "yes",
+      "note": "Flags missing autocomplete on name, email and phone."
+    },
+    "Status message is not announced to assistive technologies": {
+      "match": "yes",
+      "note": "Flags the basket message not in a live region."
+    },
+    "Information entered earlier must be entered again": {
+      "match": "yes",
+      "note": "Flags re-entry of address with no pre-fill (3.3.7)."
+    },
+    "Pasting into the password field is blocked": {
+      "match": "yes",
+      "note": "Flags paste blocked on the password field."
+    },
+    "Focusing a field opens a new window": {
+      "match": "yes",
+      "note": "Flags focus on Postcode opening a new window."
+    },
+    "No help is available for a complex field": {
+      "match": "yes",
+      "note": "Flags the UTR field with no hint."
+    },
+    "Payment is taken without a chance to check or cancel": {
+      "match": "yes",
+      "note": "Flags Pay submitting with no review or cancel."
+    },
+    "Submitting a form cannot be checked, confirmed or reversed": {
+      "match": "yes",
+      "note": "Flags delete with no confirmation or undo."
+    },
+    "Sign in requires recognising objects in pictures": {
+      "match": "yes",
+      "note": "Flags the image recognition sign-in as a cognitive test (3.3.9)."
+    },
+    "Help link is in a different place on each page": {
+      "match": "yes",
+      "note": "Flags help link in header on one page and footer on the other."
+    },
+    "No way to skip repeated navigation": {
+      "match": "yes",
+      "note": "Flags no skip link before the 17-link block."
+    },
+    "No indication of where the user is in the site": {
+      "match": "yes",
+      "note": "Flags no breadcrumbs or current-section marker."
+    },
+    "Pages can only be found in one way": {
+      "match": "yes",
+      "note": "Flags no search, site map or index (2.4.5)."
+    },
+    "Alert shows for a short time": {
+      "match": "partly",
+      "note": "Right element, but it says the alert is not announced and is hidden at load, not that it disappears too quickly."
+    },
+    "The same function has different labels on different pages": {
+      "match": "yes",
+      "note": "Flags 'Search' versus 'Go' labels."
+    },
+    "Lightbox - close button doesn't receive focus": {
+      "match": "yes",
+      "note": "Flags the span close control that cannot be focused."
+    },
+    "Focus order in wrong order": {
+      "match": "yes",
+      "note": "Flags Tab order not matching the visual order."
+    },
+    "Keyboard focus is not indicated visually": {
+      "match": "yes",
+      "note": "Flags outline none with no other focus style."
+    },
+    "Keyboard focus assigned to a non focusable element using tabindex=0": {
+      "match": "yes",
+      "note": "Flags the non-interactive paragraph with tabindex=0."
+    },
+    "Concertina items don't get keyboard focus": {
+      "match": "yes",
+      "note": "Flags the dt accordion headers not reachable with Tab."
+    },
+    "Dropdown navigation - only the top level items receive focus": {
+      "match": "yes",
+      "note": "Flags sub-menu links that keyboard users cannot reach."
+    },
+    "Lightbox - ESC key doesn't close the lightbox": {
+      "match": "yes",
+      "note": "Flags that Escape does not close the lightbox."
+    },
+    "Accesskey attribute used": {
+      "match": "yes",
+      "note": "Flags the accesskey attribute."
+    },
+    "Lightbox - focus is not retained within the lightbox": {
+      "match": "yes",
+      "note": "Flags Tab leaving the lightbox for the page behind."
+    },
+    "Lightbox - focus is not moved immediately to lightbox": {
+      "match": "yes",
+      "note": "Flags focus staying on the opener instead of moving into the lightbox."
+    },
+    "Single character keyboard shortcut cannot be turned off or remapped": {
+      "match": "yes",
+      "note": "Flags the single-key 'd' shortcut with no way to turn off or remap."
+    },
+    "Signature can only be drawn with a pointer": {
+      "match": "yes",
+      "note": "Flags the canvas signature with no keyboard alternative."
+    },
+    "Focused link is partly hidden by a chat widget": {
+      "match": "yes",
+      "note": "Flags the chat box covering much of the focused link."
+    },
+    "Focused link is hidden behind a sticky footer": {
+      "match": "partly",
+      "note": "A resize fail says links are lost behind the cookie banner, but framed as reflow; the focus-obscured finding is only cannot-tell."
+    },
+    "Focus indicator is too thin and has low contrast": {
+      "match": "yes",
+      "note": "Flags the 1px #ccc outline at about 1.6:1."
+    },
+    "iframe title attribute does not describe the content or purpose of the iframe": {
+      "match": "yes",
+      "note": "Flags iframe title 'Facebook' not matching the content."
+    },
+    "Content is not readable and functional when text is increased": {
+      "match": "yes",
+      "note": "Flags text clipped and overlapping when text size is doubled."
+    },
+    "Non-decorative content inserted using CSS": {
+      "match": "yes",
+      "note": "Flags 'Pizza' added only via CSS generated content."
+    },
+    "visibility:hidden used to visually hide content when it should be available to screenreader": {
+      "match": "yes",
+      "note": "Flags visibility:hidden hiding the link text from screen readers."
+    },
+    "display:none used to visually hide content when it should be available to screenreader": {
+      "match": "yes",
+      "note": "Flags display:none hiding the link text from screen readers."
+    },
+    "Content is clipped when text spacing is increased": {
+      "match": "yes",
+      "note": "Flags the message clipped under 1.4.12 text spacing."
+    },
+    "Page zoom - boxes that don't expand with the text": {
+      "match": "yes",
+      "note": "Flags the fixed-height box not growing, clipping text at 320px."
+    },
+    "Empty paragraph": {
+      "match": "yes",
+      "note": "Flags the empty p element."
+    },
+    "Object not embedded accessibly - wmode parameter not set to window": {
+      "match": "yes",
+      "note": "Flags wmode transparent instead of window."
+    },
+    "Spacer image found": {
+      "match": "yes",
+      "note": "Flags the spacer image used for layout."
+    },
+    "Inline style adds colour": {
+      "match": "no",
+      "note": "Result is notfound with no findings."
+    },
+    "Start and close tags don't match": {
+      "match": "yes",
+      "note": "Flags the unmatched </span> end tag."
+    },
+    "PRE element without CODE element inside it": {
+      "match": "partly",
+      "note": "Right element (the ASCII-art pre), but it complains of no text alternative, not of the missing code element."
+    },
+    "Purpose of regions cannot be programmatically determined": {
+      "match": "yes",
+      "note": "Flags the div-built navigation with no landmarks (1.3.6)."
+    },
+    "Tooltip cannot be dismissed without moving the pointer or focus": {
+      "match": "yes",
+      "note": "Flags that the tooltip does not close with Escape."
+    },
+    "Tooltip disappears when the pointer is moved over it": {
+      "match": "yes",
+      "note": "Flags the tooltip vanishing when the pointer moves onto it."
+    },
+    "Carousel can only be changed with a swipe gesture": {
+      "match": "yes",
+      "note": "Flags swipe-only slide change with no single-pointer control."
+    },
+    "Accessible name does not contain the visible label": {
+      "match": "yes",
+      "note": "Flags aria-label 'Submit application' not containing 'Send'."
+    },
+    "Action is triggered on pointer down": {
+      "match": "yes",
+      "note": "Flags delete running on pointer down with no abort (2.5.2)."
+    },
+    "Function can only be operated by shaking the device": {
+      "match": "yes",
+      "note": "Flags shake-only undo (2.5.4)."
+    },
+    "List can only be reordered by dragging": {
+      "match": "yes",
+      "note": "Flags drag-only reordering (2.5.7)."
+    },
+    "Mouse input is ignored on devices with a touch screen": {
+      "match": "yes",
+      "note": "Flags the button ignoring mouse clicks when a touch screen is present."
+    },
+    "Task has a time limit": {
+      "match": "yes",
+      "note": "Flags the 60-second limit that cannot be turned off or extended."
+    },
+    "Updates interrupt the user and cannot be postponed": {
+      "match": "yes",
+      "note": "Flags the 10-second promotional alerts that cannot be postponed (2.2.4)."
+    },
+    "Data is lost when the session expires": {
+      "match": "yes",
+      "note": "Flags data loss on session expiry (2.2.5)."
+    },
+    "Users are not warned about an inactivity timeout": {
+      "match": "yes",
+      "note": "Flags the silent 20-minute data clear (2.2.6)."
+    },
+    "Content flashes more than three times in one second": {
+      "match": "yes",
+      "note": "Flags the badge flashing 5 times a second."
+    },
+    "Motion animation triggered by interaction cannot be turned off": {
+      "match": "yes",
+      "note": "Flags the basket animation that ignores reduced motion (2.3.3)."
+    }
+  }
+}

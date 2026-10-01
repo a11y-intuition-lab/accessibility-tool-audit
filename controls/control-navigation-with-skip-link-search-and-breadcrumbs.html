@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Navigation with skip link, search and breadcrumbs - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Navigation with skip link, search and breadcrumbs</h1>
+  <main>
+    <div style="max-width: 38em; line-height: 1.5;"><a href="#content" class="skip">Skip to main content</a>
+<header>
+<nav aria-label="Main">
+<ul class="spaced-links">
+<li><a href="https://www.gov.uk/browse/benefits">Benefits</a></li>
+<li><a href="https://www.gov.uk/browse/housing-local-services" aria-current="page">Housing</a></li>
+<li><a href="https://www.gov.uk/browse/tax">Money and tax</a></li>
+</ul>
+</nav>
+<form role="search" action="https://www.gov.uk/search"><label for="q">Search this site</label> <input type="search" id="q" name="q" style="border: 2px solid #0b0c0c;"> <button type="submit">Search</button></form>
+</header>
+<nav aria-label="Breadcrumb"><ol class="spaced-links"><li><a href="https://www.gov.uk/">Home</a></li><li><a href="https://www.gov.uk/browse/housing-local-services">Housing</a></li><li aria-current="page">Housing Benefit</li></ol></nav>
+<div id="content" tabindex="-1"><h2>Housing Benefit</h2><p>Housing Benefit can help you pay your rent if you are unemployed or on a low income.</p></div>
+<p><a href="https://www.gov.uk/sitemap">Site map</a></p></div>
+  </main>
+</body>
+</html>

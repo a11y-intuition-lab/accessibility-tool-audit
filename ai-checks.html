@@ -1,0 +1,1367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility tools audit results - AI test procedures - independent copy of the GDS audit</title>
+  <link rel="stylesheet" href="assets/stylesheets/application.css" />
+  
+  
+</head>
+<body class="">
+  <header id="global-header" role="banner">
+    <div class="header-wrapper">
+      <div class="header-global">
+        <div class="header-logo">
+          <a id="logo" class="content" href="index.html">Accessibility tool audit</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="copy-notice" role="region" aria-label="About this copy">
+    <p>
+      This is an independent copy of the <a href="https://alphagov.github.io/accessibility-tool-audit/">accessibility tool audit</a> by the Government Digital Service (GDS), maintained by <a href="https://a11yintuition.org/">A11y Intuition Lab</a> (AIL).
+      The GDS text has been adapted to say &ldquo;GDS&rdquo; where it said &ldquo;we&rdquo;.
+      The retest and the added test cases were made by AIL in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit">this copy</a> and were not carried out, reviewed or endorsed by GDS.
+      <a href="method.html">How AIL made this copy, including the use of AI</a>.
+    </p>
+  </div>
+
+  
+<main id="wrapper">
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="index.html">Overview</a></li>
+      <li>AI test procedures</li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds intro-summary">
+      <h1>AI test procedures for what axe and pa11y miss <span class="new-tag">Not by GDS</span></h1>
+
+      <p>
+        These are the test procedures A11y Intuition Lab (AIL) wrote for the barriers that axe-core and pa11y do not find in the retest. Each procedure is written so that an AI model can follow it, and is adapted from a test in the manual checklist of <a href="https://github.com/a11y-intuition-lab/sa11y">sa11y</a>. The procedures are in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>. How they were run and what they found is described on the <a href="method.html#ai-check">method page</a>.
+      </p>
+
+      <p>Each procedure has one of three levels:</p>
+
+      <ul class="list list-bullet">
+        <li><strong>AI:</strong> the model can judge from the page as it is: its HTML, accessibility tree, styles and a screenshot.</li>
+        <li><strong>AI with harness:</strong> a script must act on the page first, for example press Tab, zoom or hover, and the model judges the result.</li>
+        <li><strong>Person:</strong> the model cannot judge it, for example whether captions match the speech. It can at most flag that a person must check.</li>
+      </ul>
+
+      <h2 id="evidence">What the model is given</h2>
+
+      <p>The script <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/scripts/ai-evidence.mjs"><code>scripts/ai-evidence.mjs</code></a> collects this evidence for each page. The model is not given the name of the test case, the file name or the URL.</p>
+
+      <dl class="ai-evidence">
+        
+        <dt><code>dom</code></dt>
+        <dd>The HTML of the page after load. Comments and script contents are removed. Class names are replaced by neutral names (c1, c2, ...) because the test pages name the barrier in their classes. On test pages the title and first heading are replaced by &#39;Test page&#39; because they name the test case.</dd>
+        
+        <dt><code>source</code></dt>
+        <dd>The HTML file as written, before the browser repairs it, with the same changes as for dom.</dd>
+        
+        <dt><code>axtree</code></dt>
+        <dd>The accessibility tree from Chrome: role, name, description, value and state of each node.</dd>
+        
+        <dt><code>styles</code></dt>
+        <dd>Computed styles for visible text, links, form fields and buttons: font size, line height, style, transform, alignment, line length in characters, colours, borders, underline and the contrast ratio against the background.</dd>
+        
+        <dt><code>listeners</code></dt>
+        <dd>Which event types (click, keydown, pointerdown, paste, devicemotion and so on) are attached to which elements. The handler code is not included.</dd>
+        
+        <dt><code>media</code></dt>
+        <dd>For each audio, video, iframe and object element: source file name, duration, controls, autoplay, whether it is playing after load, and text tracks with their kind, language and cue text.</dd>
+        
+        <dt><code>screenshot</code></dt>
+        <dd>A screenshot of the page at 1280 by 800 CSS pixels.</dd>
+        
+        <dt><code>grayscale</code></dt>
+        <dd>The same screenshot in grayscale.</dd>
+        
+        <dt><code>tab-sequence</code></dt>
+        <dd>The page is reset, then Tab is pressed up to 40 times. For each stop: the focused element, its position, its outline and box shadow, whether another element covers it, and a cropped screenshot of it with and without focus. Repeats are reported, which shows a keyboard trap.</dd>
+        
+        <dt><code>activation</code></dt>
+        <dd>Each button, link to &#39;#&#39; or &#39;javascript:&#39;, and element with a click handler is activated with Enter and then Space from the keyboard. For each: what changed in the page, where focus is, and the next 5 Tab stops. If the page changed after Enter, it is loaded again, the element is activated with Enter, and Escape is pressed straight away: what changed and where focus is then (escapeAfterEnter).</dd>
+        
+        <dt><code>keys</code></dt>
+        <dd>Each letter from a to z is pressed with focus on the page body. Any change to the page is recorded.</dd>
+        
+        <dt><code>pointer</code></dt>
+        <dd>Each button and element with a pointer handler gets a pointer down without a pointer up, then a full click. Changes after each are recorded. Elements with a &#39;touchstart&#39;, &#39;devicemotion&#39;, &#39;dragstart&#39; or pointer move handler are listed.</dd>
+        
+        <dt><code>paste</code></dt>
+        <dd>Text is pasted into each text and password field. Whether the paste was blocked is recorded.</dd>
+        
+        <dt><code>hover-focus</code></dt>
+        <dd>Each element is hovered and focused in turn. Content that appears is recorded, then Escape is pressed and the pointer is moved onto the new content. Whether the content stays is recorded.</dd>
+        
+        <dt><code>submit-empty</code></dt>
+        <dd>Each form is submitted empty. The changes to the page, any live regions and where focus ends up are recorded.</dd>
+        
+        <dt><code>timeline</code></dt>
+        <dd>Every change to the page from load until the end of all actions, with the time and the action that was last performed. This shows content that changes, disappears or updates on its own.</dd>
+        
+        <dt><code>zoom-320</code></dt>
+        <dd>A screenshot at 320 CSS pixels wide, and whether the page scrolls horizontally.</dd>
+        
+        <dt><code>text-200</code></dt>
+        <dd>A screenshot after every font size is doubled (similar to text-only zoom), and a list of elements whose text is clipped or overlaps other text.</dd>
+        
+        <dt><code>text-spacing</code></dt>
+        <dd>A screenshot after the WCAG 1.4.12 text spacing style sheet is applied, and a list of elements whose text is clipped.</dd>
+        
+        <dt><code>orientation</code></dt>
+        <dd>Screenshots in a portrait (800 by 1280) and a landscape (1280 by 800) viewport.</dd>
+        
+        <dt><code>multi-page</code></dt>
+        <dd>When a test case has more than one page, the evidence for each page is given in turn. The navigation, header, footer and help links of each page are compared.</dd>
+        
+      </dl>
+
+      <h2 id="procedures">Procedures</h2>
+
+      <ul class="list list-bullet">
+        
+        <li><a href="#keyboard-operable">Everything can be done with the keyboard alone</a></li>
+        
+        <li><a href="#focus-visible">Focus is always visible and clear</a></li>
+        
+        <li><a href="#focus-not-obscured">The focused element is not hidden by other content</a></li>
+        
+        <li><a href="#focus-order">Focus order follows the meaning and is managed in dialogs</a></li>
+        
+        <li><a href="#bypass-blocks">Repeated blocks can be skipped</a></li>
+        
+        <li><a href="#keyboard-shortcuts">Single-key shortcuts can be turned off and accesskey is not used</a></li>
+        
+        <li><a href="#on-focus-input">Focus and input do not change context unexpectedly</a></li>
+        
+        <li><a href="#content-on-hover-focus">Content shown on hover or focus can be dismissed, hovered and stays</a></li>
+        
+        <li><a href="#pointer">Pointer actions have simple alternatives and can be cancelled</a></li>
+        
+        <li><a href="#label-in-name">The accessible name contains the visible label</a></li>
+        
+        <li><a href="#link-purpose">Link text says where the link goes</a></li>
+        
+        <li><a href="#link-behaviour">Links are real links and say what they open</a></li>
+        
+        <li><a href="#link-distinguishable">Links can be told apart from text without colour</a></li>
+        
+        <li><a href="#use-of-colour">Colour is not the only way to convey information</a></li>
+        
+        <li><a href="#non-text-contrast">Controls and graphics have at least 3:1 contrast</a></li>
+        
+        <li><a href="#text-presentation">Blocks of text are easy to read</a></li>
+        
+        <li><a href="#resize-and-spacing">Content works with larger text, more spacing and narrow screens</a></li>
+        
+        <li><a href="#orientation">Content works in both portrait and landscape</a></li>
+        
+        <li><a href="#images-of-text">Text is real text, not an image</a></li>
+        
+        <li><a href="#text-alternatives">Images have a text alternative that serves the same purpose</a></li>
+        
+        <li><a href="#hidden-content">Content meant for screen readers is not hidden from them</a></li>
+        
+        <li><a href="#headings-structure">Headings, lists and groups are marked up</a></li>
+        
+        <li><a href="#tables">Data tables have a clear and simple structure</a></li>
+        
+        <li><a href="#language">The language and direction of text are marked up</a></li>
+        
+        <li><a href="#understandable-text">Text is plain, and unusual words, abbreviations and pronunciation are explained</a></li>
+        
+        <li><a href="#frames-and-objects">Frames and embedded objects are named and work for everyone</a></li>
+        
+        <li><a href="#status-and-errors">Status messages and errors are announced and helpful</a></li>
+        
+        <li><a href="#forms-help">Forms identify input purpose, help, and do not block or repeat input</a></li>
+        
+        <li><a href="#error-prevention">Important submissions can be checked, confirmed or reversed</a></li>
+        
+        <li><a href="#authentication">Signing in does not need a cognitive test</a></li>
+        
+        <li><a href="#timing">Time limits and interruptions can be controlled</a></li>
+        
+        <li><a href="#motion-and-distraction">Moving, blinking and flashing content can be controlled</a></li>
+        
+        <li><a href="#media-alternatives">Audio and video have the alternatives they need</a></li>
+        
+        <li><a href="#consistency">Navigation, help and functions are consistent across pages</a></li>
+        
+        <li><a href="#code-quality">Markup is valid and uses the right elements</a></li>
+        
+      </ul>
+
+      
+      <h3 id="keyboard-operable">Everything can be done with the keyboard alone</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Everything can be done with the keyboard alone</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.1.1, 2.1.2, 2.1.3, 4.1.2</td></tr>
+          <tr><th scope="row">sa11y test</th><td>1.1, 1.3, 1.A1</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>listeners</code>, <code>tab-sequence</code>, <code>activation</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Compare the interactive things on the page (links, buttons, controls, elements with click handlers, expandable sections, menus, drawing areas) with the Tab stops. Every interactive thing must be reachable with Tab and work with Enter or Space as expected for its role. Use the activation results to see whether Enter and Space do what a click does. A Tab sequence that repeats the same element and never reaches the end of the page, without a way out, is a keyboard trap. Elements that receive focus but do nothing (tabindex=0 on plain text or images) are a failure.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>All links, buttons and form fields get focus.</li><li>Enter and Space activate buttons, and Enter activates links.</li><li>Focus can always leave a component with Tab or Escape.</li><li>Only interactive elements are in the Tab order.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A clickable element (a div with a click handler, a &#39;button&#39; made from a link without href) cannot be reached with Tab.</li><li>Sub-items of a menu or the content of an expandable section can only be reached by hovering or clicking.</li><li>A link with role=button does not react to Space.</li><li>Focus is stuck on one element or a few elements.</li><li>A non-interactive element is in the Tab order because of tabindex=0.</li><li>A function such as signing can only be done by drawing with a pointer, with no keyboard alternative (2.1.3).</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The harness presses each key once. Components that need arrow keys or typing are judged from the role and handlers only.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0.html">Keyboard focus assigned to a non focusable element using tabindex=0</a></li><li><a href="tests/keyboard-access-concertina-items-dont-get-keyboard-focus.html">Concertina items don&#39;t get keyboard focus</a></li><li><a href="tests/keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus.html">Dropdown navigation - only the top level items receive focus</a></li><li><a href="tests/keyboard-access-signature-can-only-be-drawn-with-a-pointer.html">Signature can only be drawn with a pointer</a></li>
+      </ul>
+      
+      <h3 id="focus-visible">Focus is always visible and clear</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Focus is always visible and clear</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.4.7, 2.4.13, 1.4.11</td></tr>
+          <tr><th scope="row">sa11y test</th><td>1.1, 1.2, 1.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>tab-sequence</code>, <code>styles</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each Tab stop, compare the cropped screenshot with and without focus. There must be a clearly visible change. For 1.4.11 the focus indicator must have a contrast of at least 3:1 against the colours next to it. For 2.4.13 (AAA) it must be at least as large as a 2 CSS pixel solid outline around the element and have at least 3:1 contrast between the focused and unfocused states.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>The focus indicator is visible on every stop and has at least 3:1 contrast against the background.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>outline: none with no other visible change, so it is impossible to see where focus is.</li><li>Focus is only shown as a faint change of background or a light ring on white.</li><li>The focus indicator is a 1 pixel dotted line with low contrast (2.4.13).</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The model judges contrast from the screenshots and computed colours. Borderline values near 3:1 should be cannot-tell.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/colour-and-contrast-focus-not-visible.html">Focus not visible</a></li><li><a href="tests/keyboard-access-keyboard-focus-is-not-indicated-visually.html">Keyboard focus is not indicated visually</a></li><li><a href="tests/keyboard-access-focus-indicator-is-too-thin-and-has-low-contrast.html">Focus indicator is too thin and has low contrast</a></li>
+      </ul>
+      
+      <h3 id="focus-not-obscured">The focused element is not hidden by other content</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: The focused element is not hidden by other content</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.4.11, 2.4.12</td></tr>
+          <tr><th scope="row">sa11y test</th><td>1.1, 1.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>tab-sequence</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each Tab stop, check whether another element covers the focused element. 2.4.11 (AA) fails when the focused element is entirely hidden by content the author created, such as a sticky header, footer, cookie banner or chat widget. 2.4.12 (AAA) fails when any part of it is hidden.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>No part of the focused element is covered by other content.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Links behind a sticky footer get focus but are completely covered (2.4.11).</li><li>Half of a focused link is covered by a chat widget (2.4.12).</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> Covering is measured at the centre and corners of the element at 1280 by 800.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/keyboard-access-focused-link-is-hidden-behind-a-sticky-footer.html">Focused link is hidden behind a sticky footer</a></li><li><a href="tests/keyboard-access-focused-link-is-partly-hidden-by-a-chat-widget.html">Focused link is partly hidden by a chat widget</a></li>
+      </ul>
+      
+      <h3 id="focus-order">Focus order follows the meaning and is managed in dialogs</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Focus order follows the meaning and is managed in dialogs</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.4.3, 2.1.2</td></tr>
+          <tr><th scope="row">sa11y test</th><td>1.1, 1.4</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>screenshot</code>, <code>tab-sequence</code>, <code>activation</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Compare the order of the Tab stops with the visual reading order in the screenshot. For each dialog, lightbox or overlay that opens on activation: focus must move into it, Tab must stay inside it while it is modal, it must have a close control that can be reached and used with the keyboard, Escape should close it, and focus should return to the control that opened it.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Tab order follows the visual reading order.</li><li>Focus moves into a dialog when it opens and stays there until it is closed.</li><li>The dialog can be closed with the keyboard, and focus returns to the opener.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Focus jumps between parts of the page in an order that does not match the layout.</li><li>After a dialog opens, focus stays behind it or the next Tab stops are on the page under it.</li><li>Tab leaves an open modal dialog and goes to the page behind it.</li><li>The close control of a dialog cannot be focused.</li><li>Escape does not close a dialog and there is no other keyboard way to close it.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> Escape not closing a dialog is a failure only when it is the only way out or when the dialog behaves as modal. Report it as a fail under this check when other dialog behaviour is also wrong, otherwise as cannot-tell.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/keyboard-access-focus-order-in-wrong-order.html">Focus order in wrong order</a></li><li><a href="tests/keyboard-access-lightbox-close-button-doesnt-receive-focus.html">Lightbox - close button doesn&#39;t receive focus</a></li><li><a href="tests/keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox.html">Lightbox - ESC key doesn&#39;t close the lightbox</a></li><li><a href="tests/keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox.html">Lightbox - focus is not moved immediately to lightbox</a></li><li><a href="tests/keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox.html">Lightbox - focus is not retained within the lightbox</a></li>
+      </ul>
+      
+      <h3 id="bypass-blocks">Repeated blocks can be skipped</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Repeated blocks can be skipped</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.4.1, 1.3.6</td></tr>
+          <tr><th scope="row">sa11y test</th><td>1.5, 5.1, 5.A1</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>axtree</code>, <code>tab-sequence</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>If the page has a block of navigation or other content that would repeat on every page, there must be a way to skip it: a skip link that is the first Tab stop and moves focus, or landmarks (header, nav, main) and headings. For 1.3.6 (AAA), the purpose of regions such as navigation, search and main content must be programmatically determined, for example with landmarks.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>The first Tab stop is a skip link that moves focus past the navigation.</li><li>The page uses landmarks for navigation and main content.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>The page has a long navigation menu and no skip link, landmarks or headings to jump past it.</li><li>Navigation, search and main content are plain divs with nothing to identify them (1.3.6).</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> A single test page does not repeat, so the model judges whether a block looks like repeated site navigation.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/navigation-no-way-to-skip-repeated-navigation.html">No way to skip repeated navigation</a></li><li><a href="tests/html-purpose-of-regions-cannot-be-programmatically-determined.html">Purpose of regions cannot be programmatically determined</a></li>
+      </ul>
+      
+      <h3 id="keyboard-shortcuts">Single-key shortcuts can be turned off and accesskey is not used</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Single-key shortcuts can be turned off and accesskey is not used</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.1.4</td></tr>
+          <tr><th scope="row">sa11y test</th><td>1.6</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>listeners</code>, <code>keys</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Look at what happened when each letter was pressed. If a single letter, number or punctuation key triggers an action without a modifier key, there must be a way to turn it off or change it, or it must work only when a specific component has focus. Also report the accesskey attribute, which creates shortcuts that can conflict with assistive technology (best practice).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Letters do nothing unless a field or component has focus.</li><li>Shortcuts need a modifier key, or there is a setting to turn them off.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Pressing a letter on the page performs an action, and there is no way to turn this off.</li><li>An element has an accesskey attribute.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> Only a to z are pressed.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/keyboard-access-single-character-keyboard-shortcut-cannot-be-turned-off-or-remapped.html">Single character keyboard shortcut cannot be turned off or remapped</a></li><li><a href="tests/keyboard-access-accesskey-attribute-used.html">Accesskey attribute used</a></li>
+      </ul>
+      
+      <h3 id="on-focus-input">Focus and input do not change context unexpectedly</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Focus and input do not change context unexpectedly</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>3.2.1, 3.2.2, 3.2.5</td></tr>
+          <tr><th scope="row">sa11y test</th><td>1.3, 4.3, 8.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>tab-sequence</code>, <code>activation</code>, <code>timeline</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Check whether moving focus to an element opened a window, moved focus elsewhere, submitted a form or changed the page in a major way (3.2.1). Check whether changing a field value did so without warning (3.2.2).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Moving focus never causes anything to happen on its own.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Focusing a field opens a new window or pop-up.</li><li>Choosing an option in a select changes the page language or navigates without a button.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> New windows are detected when the page calls window.open.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/forms-focusing-a-field-opens-a-new-window.html">Focusing a field opens a new window</a></li>
+      </ul>
+      
+      <h3 id="content-on-hover-focus">Content shown on hover or focus can be dismissed, hovered and stays</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Content shown on hover or focus can be dismissed, hovered and stays</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.4.13</td></tr>
+          <tr><th scope="row">sa11y test</th><td>1.6, 6.4</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>hover-focus</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each piece of content that appeared on hover or focus: it must be dismissible with Escape without moving pointer or focus (unless it does not cover other content), the pointer must be able to move onto it without it disappearing, and it must stay until the user dismisses it or moves away.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Tooltips stay while hovered, can be hovered themselves, and close with Escape.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A tooltip that covers other content cannot be closed with Escape.</li><li>A tooltip disappears when the pointer moves onto it.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The native title attribute tooltip is drawn by the browser and is not judged here.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/content-on-hover-or-focus-tooltip-cannot-be-dismissed-without-moving-the-pointer-or-focus.html">Tooltip cannot be dismissed without moving the pointer or focus</a></li><li><a href="tests/content-on-hover-or-focus-tooltip-disappears-when-the-pointer-is-moved-over-it.html">Tooltip disappears when the pointer is moved over it</a></li>
+      </ul>
+      
+      <h3 id="pointer">Pointer actions have simple alternatives and can be cancelled</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Pointer actions have simple alternatives and can be cancelled</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.5.1, 2.5.2, 2.5.4, 2.5.6, 2.5.7</td></tr>
+          <tr><th scope="row">sa11y test</th><td>6.1, 6.2, 6.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>listeners</code>, <code>pointer</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Look for functions that need a path-based gesture (swipe), dragging, device motion (shake, tilt), or that trigger on pointer down. Each needs a single-pointer alternative without dragging, such as buttons (2.5.1, 2.5.7), or a user interface alternative and a way to turn motion off (2.5.4). An action that completes on pointer down without a way to abort or undo fails 2.5.2. Content must not ignore a mouse or other input method when a touch screen is present (2.5.6, AAA).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Every gesture, drag or motion function also has visible buttons or another simple control.</li><li>Actions happen on click (pointer up), not pointer down.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A carousel only changes with a swipe and has no next and previous buttons.</li><li>A list can only be reordered by dragging.</li><li>A function can only be used by shaking the device.</li><li>An action happens on pointer down (mousedown) and cannot be undone.</li><li>A button ignores mouse clicks when the device has a touch screen.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The harness does not perform real gestures. The model judges from the handlers, the controls present and the pointer-down result.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/pointer-and-motion-carousel-can-only-be-changed-with-a-swipe-gesture.html">Carousel can only be changed with a swipe gesture</a></li><li><a href="tests/pointer-and-motion-action-is-triggered-on-pointer-down.html">Action is triggered on pointer down</a></li><li><a href="tests/pointer-and-motion-function-can-only-be-operated-by-shaking-the-device.html">Function can only be operated by shaking the device</a></li><li><a href="tests/pointer-and-motion-list-can-only-be-reordered-by-dragging.html">List can only be reordered by dragging</a></li><li><a href="tests/pointer-and-motion-mouse-input-is-ignored-on-devices-with-a-touch-screen.html">Mouse input is ignored on devices with a touch screen</a></li>
+      </ul>
+      
+      <h3 id="label-in-name">The accessible name contains the visible label</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: The accessible name contains the visible label</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.5.3</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.3</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>axtree</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each control with visible text, compare the visible text with the accessible name in the accessibility tree. The name must contain the visible text, preferably at the start.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>A button that shows &#39;Send&#39; has an accessible name that contains &#39;Send&#39;.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A button shows &#39;Send&#39; but its accessible name is &#39;Submit message&#39;.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/pointer-and-motion-accessible-name-does-not-contain-the-visible-label.html">Accessible name does not contain the visible label</a></li>
+      </ul>
+      
+      <h3 id="link-purpose">Link text says where the link goes</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Link text says where the link goes</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.4.4, 2.4.9</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.3, 5.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>axtree</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each link, read its accessible name, its surrounding sentence or paragraph, and its href. Its purpose must be clear from the name together with the context (2.4.4), and for 2.4.9 (AAA) from the name alone. Links with the same name must go to the same place. Adjacent links to the same destination (an image and a text link) should be combined. A title attribute that only repeats the link text adds nothing. A link whose text is only punctuation is a failure. An image that is the only content of a link must have alt text that says where the link goes.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Each link name describes its destination, such as &#39;Read more about polar bears&#39;.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Link text such as &#39;Read more&#39;, &#39;Click here&#39; or &#39;page&#39; that does not make sense out of context.</li><li>The link is only a full stop.</li><li>Two links with the same text go to different pages.</li><li>An image link and a text link next to each other go to the same place.</li><li>A link&#39;s title is the same as its text.</li><li>A link around an image has no text alternative, or its alt repeats the text next to it.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/links-link-text-does-not-make-sense-out-of-context.html">Link text does not make sense out of context</a></li><li><a href="tests/links-non-specific-link-text.html">Non-specific link text</a></li><li><a href="tests/links-links-with-the-same-text-go-to-different-pages.html">Links with the same text go to different pages</a></li><li><a href="tests/links-adjacent-links-going-to-the-same-destination.html">Adjacent links going to the same destination</a></li><li><a href="tests/links-link-contains-only-a-full-stop.html">Link contains only a full stop</a></li><li><a href="tests/links-link-text-with-identical-title.html">Link text with identical title</a></li><li><a href="tests/links-link-to-an-image-no-text-alternative.html">Link to an image, no text alternative</a></li>
+      </ul>
+      
+      <h3 id="link-behaviour">Links are real links and say what they open</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Links are real links and say what they open</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.4.4, 3.2.5, 4.1.2</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.3, 8.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>axtree</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Check each link&#39;s href and target. A link with href=&#39;#&#39; or &#39;javascript:&#39; that does an action should be a button. A link that opens a new window (target=_blank) should say so. A link to a file (PDF, sound, video) should give the file type and size. Separate adjacent links with printable characters or list markup, not only spaces.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Links go to real pages or anchors. File links say &#39;PDF, 2 MB&#39;. New windows are announced.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>href=&#39;javascript:...&#39; or href=&#39;#&#39; used for an action.</li><li>target=_blank with no warning in the text or name.</li><li>A PDF link without format and size.</li><li>Several links next to each other with nothing between them except spaces.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/links-link-to-javascript-invalid-hypertext-reference.html">Link to javascript, invalid hypertext reference</a></li><li><a href="tests/links-link-to-,-invalid-hypertext-reference.html">Link to #, invalid hypertext reference</a></li><li><a href="tests/links-link-launches-new-window-with-no-warning.html">Link launches new window with no warning</a></li><li><a href="tests/links-link-to-pdf-does-not-include-information-on-file-format-and-file-size.html">Link to PDF does not include information on file format and file size</a></li><li><a href="tests/links-links-not-separated-by-printable-characters.html">Links not separated by printable characters</a></li>
+      </ul>
+      
+      <h3 id="link-distinguishable">Links can be told apart from text without colour</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Links can be told apart from text without colour</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.4.1</td></tr>
+          <tr><th scope="row">sa11y test</th><td>3.1</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>styles</code>, <code>screenshot</code>, <code>grayscale</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each link inside running text, look at the underline, font weight and colour. If colour is the only difference from the surrounding text, the colour contrast between link and text must be at least 3:1 and there must be another cue on hover and focus. A link that looks just like the surrounding text fails.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Links in text are underlined.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A link in a paragraph has no underline and differs from the text only by a similar colour, or not at all.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text.html">Link not clearly identifiable and distinguishable from surrounding text</a></li>
+      </ul>
+      
+      <h3 id="use-of-colour">Colour is not the only way to convey information</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Colour is not the only way to convey information</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.4.1, 1.3.3</td></tr>
+          <tr><th scope="row">sa11y test</th><td>3.1</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>screenshot</code>, <code>grayscale</code>, <code>dom</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Compare the colour and grayscale screenshots. Any information that is lost in grayscale (which items are safe, which fields have errors, which is selected) fails. Also check instructions that rely only on shape, size, location or sound, such as &#39;the button on the right&#39; (1.3.3).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Information is also given in text, an icon or a pattern.</li><li>Instructions name the thing, not only where it is.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Edible and poisonous items are only shown in green and red.</li><li>Text refers to content only by where it is on the page, such as &#39;the artist on the right&#39;.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/colour-and-contrast-colour-alone-is-used-to-convey-content.html">Colour alone is used to convey content</a></li><li><a href="tests/content-content-identified-by-location.html">Content identified by location</a></li>
+      </ul>
+      
+      <h3 id="non-text-contrast">Controls and graphics have at least 3:1 contrast</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Controls and graphics have at least 3:1 contrast</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.4.11</td></tr>
+          <tr><th scope="row">sa11y test</th><td>3.2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>styles</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each form field, button without a background fill, and icon that is needed to understand or use a control, check the contrast of the boundary or icon against the adjacent colour. It must be at least 3:1. Use the computed colours where given.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Field borders and icon buttons have at least 3:1 contrast against the background.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A text field has a light grey border on white (below 3:1).</li><li>An icon-only button uses a pale icon on white.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> Contrast of gradients and images cannot be computed. Values close to 3:1 should be cannot-tell.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/colour-and-contrast-form-field-border-does-not-have-a-contrast-ratio-of-at-least-31.html">Form field border does not have a contrast ratio of at least 3:1</a></li><li><a href="tests/colour-and-contrast-icon-only-button-does-not-have-a-contrast-ratio-of-at-least-31.html">Icon-only button does not have a contrast ratio of at least 3:1</a></li>
+      </ul>
+      
+      <h3 id="text-presentation">Blocks of text are easy to read</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Blocks of text are easy to read</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.4.8</td></tr>
+          <tr><th scope="row">sa11y test</th><td>2.A1</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>styles</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each block of text (a paragraph or more), check: line height at least 1.5, lines not longer than 80 characters, not justified, no long passages in italics or all capitals (text-transform or typed capitals), and body text not very small (below about 12 CSS pixels). These are 1.4.8 (AAA) and common readability advice.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Text blocks have line height 1.5 or more, lines under 80 characters, left aligned, regular style and readable size.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A paragraph has line height 1 or less.</li><li>Lines run across the full page at well over 80 characters.</li><li>A paragraph is justified.</li><li>A long passage is in italics or capitals.</li><li>Body text is set at a very small size.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> Short labels and headings are not judged.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/typography-inadequate-line-height-used.html">Inadequate line height used</a></li><li><a href="tests/typography-all-caps-text-found.html">All caps text found</a></li><li><a href="tests/typography-italics-used-on-long-sections-of-text.html">Italics used on long sections of text</a></li><li><a href="tests/typography-long-lines-of-text.html">Long lines of text</a></li><li><a href="tests/typography-very-small-text-found.html">Very small text found</a></li><li><a href="tests/typography-justified-text-found.html">Justified text found</a></li>
+      </ul>
+      
+      <h3 id="resize-and-spacing">Content works with larger text, more spacing and narrow screens</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Content works with larger text, more spacing and narrow screens</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.4.4, 1.4.10, 1.4.12</td></tr>
+          <tr><th scope="row">sa11y test</th><td>2.1, 2.2, 2.3</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>screenshot</code>, <code>zoom-320</code>, <code>text-200</code>, <code>text-spacing</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Compare the normal screenshot with the screenshots after text is doubled, after text spacing is applied, and at 320 pixels. Content or functions must not be lost: text must not be clipped, overlap other text, or be cut off by a box that does not grow. At 320 pixels, the page must not need horizontal scrolling for text.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>All text is still readable and nothing is cut off in any of the screenshots.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Text overlaps or becomes unreadable when the text size is doubled.</li><li>A box with a fixed height cuts off its text when the text is larger.</li><li>Text is clipped when the line, word or letter spacing is increased.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> Doubling every font size is close to, but not the same as, text-only zoom in a browser.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/css-content-is-not-readable-and-functional-when-text-is-increased.html">Content is not readable and functional when text is increased</a></li><li><a href="tests/css-page-zoom-boxes-that-dont-expand-with-the-text.html">Page zoom - boxes that don&#39;t expand with the text</a></li><li><a href="tests/css-content-is-clipped-when-text-spacing-is-increased.html">Content is clipped when text spacing is increased</a></li>
+      </ul>
+      
+      <h3 id="orientation">Content works in both portrait and landscape</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Content works in both portrait and landscape</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.3.4</td></tr>
+          <tr><th scope="row">sa11y test</th><td>2.5</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>orientation</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Compare the portrait and landscape screenshots. Content must not be locked to one orientation, for example by rotating it or hiding it in the other, unless the orientation is essential.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>The content can be read in both orientations.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Content is rotated or hidden in landscape so it can only be read in portrait.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/page-layout-content-is-locked-to-one-display-orientation.html">Content is locked to one display orientation</a></li>
+      </ul>
+      
+      <h3 id="images-of-text">Text is real text, not an image</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Text is real text, not an image</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.4.5, 1.4.9</td></tr>
+          <tr><th scope="row">sa11y test</th><td>2.4, 2.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Look at each image in the screenshot. If it mainly shows text that could be real text with styling, it fails 1.4.5 (AA). For 1.4.9 (AAA), only logos and cases where the exact look is essential are allowed, so a quotation, heading or banner as an image fails.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Text is HTML text styled with CSS. Images of text are only logos.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A heading or notice is an image of text.</li><li>A quotation is shown as an image.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/images-image-of-text-used-instead-of-text.html">Image of text used instead of text</a></li><li><a href="tests/images-image-of-text-used-for-a-quotation.html">Image of text used for a quotation</a></li>
+      </ul>
+      
+      <h3 id="text-alternatives">Images have a text alternative that serves the same purpose</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Images have a text alternative that serves the same purpose</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.1.1</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>axtree</code>, <code>screenshot</code>, <code>styles</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each image (img, input type=image, role=img, background images that contain information, CSS generated content, svg), look at what it shows in the screenshot and compare with its text alternative. Informative images need an alternative that gives the same information. Decorative images need empty alt. An image button needs alt that says what the button does. Alt must not be a file name, and must not be contradicted by the title. Information given only in a CSS background image or CSS generated content is not available to screen readers.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Each image&#39;s alt gives the information in the image, or is empty if the image is decoration.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>alt is a file name such as &#39;IMG_1234.jpg&#39;.</li><li>alt does not describe the image or gives only part of the information.</li><li>An informative image has alt=&#39;&#39;.</li><li>alt and title of the same image say different things.</li><li>An image button has alt such as &#39;button&#39; or &#39;submit&#39; that does not say what it does.</li><li>Information is shown only in a CSS background image or inserted with CSS content.</li><li>A spacer image is used for layout.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/images-image-has-alt-and-title-that-are-different.html">Image has alt and title that are different</a></li><li><a href="tests/images-background-image-that-conveys-information-does-not-have-a-text-alternative.html">Background image that conveys information does not have a text alternative</a></li><li><a href="tests/images-image-that-conveys-information-has-an-empty-alt-attribute.html">Image that conveys information has an empty alt attribute</a></li><li><a href="tests/images-image-that-conveys-information-has-inappropriate-alt-text.html">Image that conveys information has inappropriate alt text</a></li><li><a href="tests/images-image-alt-attribute-contains-image-file-name.html">Image alt attribute contains image file name</a></li><li><a href="tests/images-image-with-partial-text-alternative.html">Image with partial text alternative</a></li><li><a href="tests/buttons-uninformative-alt-attribute-value-on-image-button.html">Uninformative alt attribute value on image button</a></li><li><a href="tests/css-non-decorative-content-inserted-using-css.html">Non-decorative content inserted using CSS</a></li><li><a href="tests/html-spacer-image-found.html">Spacer image found</a></li>
+      </ul>
+      
+      <h3 id="hidden-content">Content meant for screen readers is not hidden from them</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Content meant for screen readers is not hidden from them</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.3.1, 1.3.2, 2.4.4</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>axtree</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Compare the DOM with the accessibility tree. Text that is hidden with display:none or visibility:hidden is removed for screen reader users too. If that text is needed (such as the end of a link name like &#39;about rugby&#39;), it should be hidden visually with a technique that keeps it in the accessibility tree.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Visually hidden helper text is still in the accessibility tree.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Part of a link name is hidden with display:none or visibility:hidden, so the link is only &#39;Read more&#39;.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader.html">visibility:hidden used to visually hide content when it should be available to screenreader</a></li><li><a href="tests/css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader.html">display:none used to visually hide content when it should be available to screenreader</a></li>
+      </ul>
+      
+      <h3 id="headings-structure">Headings, lists and groups are marked up</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Headings, lists and groups are marked up</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.3.1, 2.4.6, 2.4.10</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.1, 5.2, 5.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>axtree</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Compare how the page looks with its markup. Text that looks like a heading must be a heading element. Items that look like a list (bullets typed as characters, one per line) must be list markup. Long content should be divided into sections with headings, lists and paragraphs. Empty paragraphs used for spacing and other leftover markup are best-practice failures.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Visual headings are h1 to h6, visual lists are ul or ol, and long content is split into sections.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A bold, large div is used as a heading.</li><li>A list is typed with &#39;*&#39; and line breaks.</li><li>A long page of text has no headings or other structure.</li><li>Empty p elements are used to add space.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/headings-text-formatting-used-instead-of-an-actual-heading.html">Text formatting used instead of an actual heading</a></li><li><a href="tests/lists-list-not-marked-up-as-a-list.html">List not marked up as a list</a></li><li><a href="tests/content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms.html">Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms</a></li><li><a href="tests/html-empty-paragraph.html">Empty paragraph</a></li>
+      </ul>
+      
+      <h3 id="tables">Data tables have a clear and simple structure</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Data tables have a clear and simple structure</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.3.1</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.1, 5.2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each table, check: data tables have a caption or another way to name the table; headers are th and data are td (a table made only of th is wrong); tables are not nested inside other tables; empty data cells are avoided or explained; and layout is not done with tables.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>The table has a caption, header cells for rows or columns, data cells for data, and no nested tables.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A data table has no caption or name.</li><li>Every cell is a th.</li><li>A table contains another table.</li><li>Many cells are empty with no explanation.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/tables-table-nested-within-table.html">Table nested within table</a></li><li><a href="tests/tables-table-that-only-has-th-elements-in-it.html">Table that only has TH elements in it</a></li><li><a href="tests/tables-table-is-missing-a-caption.html">Table is missing a caption</a></li><li><a href="tests/tables-table-with-some-empty-cells.html">Table with some empty cells</a></li>
+      </ul>
+      
+      <h3 id="language">The language and direction of text are marked up</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: The language and direction of text are marked up</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>3.1.1, 3.1.2, 1.3.2</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.2, 8.4</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Read the text and identify the language of the page and of every phrase in another language. The html element must have the correct lang. Each phrase in another language needs a lang attribute with the correct code. Text in a right-to-left language (Arabic, Hebrew) needs dir=&#39;rtl&#39;, and left-to-right text must not be set to rtl.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>lang on html matches the page, phrases in other languages have the correct lang, and direction is correct.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A French phrase in English text has no lang attribute.</li><li>A phrase has lang set to the wrong language.</li><li>Arabic text has no dir=&#39;rtl&#39;.</li><li>English text is marked dir=&#39;rtl&#39;.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> Proper names and words that have become part of the surrounding language do not need lang.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/language-of-content-text-language-changed-without-required-change-in-direction.html">Text language changed without required change in direction</a></li><li><a href="tests/language-of-content-lang-attribute-not-used-to-identify-change-of-language.html">lang attribute not used to identify change of language</a></li><li><a href="tests/language-of-content-text-language-is-in-the-wrong-direction.html">Text language is in the wrong direction</a></li><li><a href="tests/language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language.html">lang attribute used to identify change of language, but with wrong language</a></li>
+      </ul>
+      
+      <h3 id="understandable-text">Text is plain, and unusual words, abbreviations and pronunciation are explained</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Text is plain, and unusual words, abbreviations and pronunciation are explained</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>3.1.3, 3.1.4, 3.1.5, 3.1.6</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.A3, 8.A3</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Read the text. Text that needs more than lower secondary education to understand should be simplified or have a simpler version (3.1.5). Jargon and idioms must be explained (3.1.3). The first use of an abbreviation must be expanded or marked up (3.1.4, and best practice for the first instance). Where the meaning of a word depends on how it is pronounced (such as &#39;record&#39; as noun or verb), the pronunciation must be given (3.1.6).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Text is short and plain, and abbreviations, idioms and ambiguous words are explained.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Long legal or technical sentences with no plain summary.</li><li>An abbreviation is used without being expanded.</li><li>Idioms or jargon such as &#39;kicked into the long grass&#39; are not explained.</li><li>Words that are spelled the same but pronounced differently make the meaning unclear, and no pronunciation is given.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/content-plain-language-is-not-used.html">Plain language is not used</a></li><li><a href="tests/content-first-instance-of-abbreviation-not-expanded.html">First instance of abbreviation not expanded</a></li><li><a href="tests/content-idioms-and-jargon-are-not-explained.html">Idioms and jargon are not explained</a></li><li><a href="tests/content-meaning-depends-on-pronunciation-that-is-not-given.html">Meaning depends on pronunciation that is not given</a></li>
+      </ul>
+      
+      <h3 id="frames-and-objects">Frames and embedded objects are named and work for everyone</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Frames and embedded objects are named and work for everyone</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>4.1.2, 2.1.1</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.4</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>axtree</code>, <code>media</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Each iframe needs a title that describes its content or purpose. Compare the title with the content of the frame. Embedded objects (object, embed) should have a text alternative and use wmode=window for plugin content.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>The iframe title describes what is in the frame.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>An iframe title such as &#39;iframe&#39; or a title that does not match the content.</li><li>A plugin object without wmode set to window.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The model sees the frame source file name and its title, and the content if it can be read.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe.html">iframe title attribute does not describe the content or purpose of the iframe</a></li><li><a href="tests/html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window.html">Object not embedded accessibly - wmode parameter not set to window</a></li>
+      </ul>
+      
+      <h3 id="status-and-errors">Status messages and errors are announced and helpful</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Status messages and errors are announced and helpful</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>4.1.3, 3.3.1, 3.3.3</td></tr>
+          <tr><th scope="row">sa11y test</th><td>4.2, 4.3, 5.4</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>activation</code>, <code>submit-empty</code>, <code>timeline</code>, <code>dom</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For each message that appeared after an action (added to basket, saved, errors), check that it is in a live region (role=status, role=alert or aria-live) or that focus moved to it. Messages that disappear after a short time must stay long enough to read, or be available again.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Messages appear in a live region and stay until dismissed.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A message such as &#39;Added to basket&#39; appears in a plain element with no live region.</li><li>An alert is shown for a few seconds and then removed.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The model cannot hear a screen reader. It judges from the markup of the message.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/forms-status-message-is-not-announced-to-assistive-technologies.html">Status message is not announced to assistive technologies</a></li><li><a href="tests/keyboard-access-alert-shows-for-a-short-time.html">Alert shows for a short time</a></li>
+      </ul>
+      
+      <h3 id="forms-help">Forms identify input purpose, help, and do not block or repeat input</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Forms identify input purpose, help, and do not block or repeat input</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.3.5, 3.3.5, 3.3.7, 3.3.8</td></tr>
+          <tr><th scope="row">sa11y test</th><td>4.1, 4.5, 4.6, 4.A1</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>paste</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Fields that ask for information about the user (name, email, phone, address) need the matching autocomplete value (1.3.5). Information the user already gave in the same process must be filled in or selectable, not typed again (3.3.7). Pasting into password and code fields must not be blocked (3.3.8). Complex fields need help or instructions (3.3.5, AAA).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Personal fields have autocomplete, earlier answers are reused, paste works, and complex fields have hints.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Name and email fields have no autocomplete attribute.</li><li>A billing address must be typed again although the delivery address was given in step 1, with no &#39;same as&#39; option.</li><li>Paste is blocked in a password field.</li><li>A field asks for a reference number with no hint where to find it.</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/forms-input-purpose-is-not-identified.html">Input purpose is not identified</a></li><li><a href="tests/forms-information-entered-earlier-must-be-entered-again.html">Information entered earlier must be entered again</a></li><li><a href="tests/forms-pasting-into-the-password-field-is-blocked.html">Pasting into the password field is blocked</a></li><li><a href="tests/forms-no-help-is-available-for-a-complex-field.html">No help is available for a complex field</a></li>
+      </ul>
+      
+      <h3 id="error-prevention">Important submissions can be checked, confirmed or reversed</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Important submissions can be checked, confirmed or reversed</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>3.3.4, 3.3.6</td></tr>
+          <tr><th scope="row">sa11y test</th><td>4.4, 4.A1</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>activation</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>For forms that make payments, legal commitments or delete data, there must be a way to check and correct the information, confirm, or undo (3.3.4 for legal and financial, 3.3.6 AAA for all submissions). Look at what happens on activation: is there a confirmation step?</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>A summary page or a confirmation dialog comes before the action, or the action can be undone.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Pressing &#39;Pay&#39; or &#39;Delete all&#39; acts immediately, with no confirmation or undo.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The harness cannot follow the real flow after a submission. The model judges from what the page shows.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/forms-payment-is-taken-without-a-chance-to-check-or-cancel.html">Payment is taken without a chance to check or cancel</a></li><li><a href="tests/forms-submitting-a-form-cannot-be-checked-confirmed-or-reversed.html">Submitting a form cannot be checked, confirmed or reversed</a></li>
+      </ul>
+      
+      <h3 id="authentication">Signing in does not need a cognitive test</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Signing in does not need a cognitive test</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>3.3.8, 3.3.9</td></tr>
+          <tr><th scope="row">sa11y test</th><td>4.6, 4.A2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>If signing in needs the user to remember, transcribe, solve or recognise something, there must be an alternative. For 3.3.8 (AA), recognising objects or personal content is allowed. For 3.3.9 (AAA) it is not.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Sign in works with a password manager, paste, or a link sent by email.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Sign in requires selecting every picture of an object (3.3.9).</li>
+      </ul>
+
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/forms-sign-in-requires-recognising-objects-in-pictures.html">Sign in requires recognising objects in pictures</a></li>
+      </ul>
+      
+      <h3 id="timing">Time limits and interruptions can be controlled</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Time limits and interruptions can be controlled</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.2.1, 2.2.3, 2.2.4, 2.2.5, 2.2.6</td></tr>
+          <tr><th scope="row">sa11y test</th><td>4.7, 4.A3, 7.A3</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>timeline</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Look for time limits in the text and in the timeline (countdowns, content that is cleared or changes after a delay). For AAA, timing must not be part of an activity unless it is real-time (2.2.3); interruptions such as automatic updates must be possible to postpone or turn off (2.2.4); when a session expires, the user must be able to continue without losing data after signing in again (2.2.5); and users must be told about any inactivity timeout that can lose data (2.2.6).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>There is no time limit, or the user can turn it off, extend it, or is warned and keeps their data.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>A question must be answered within 60 seconds.</li><li>A message is announced every few seconds and cannot be turned off.</li><li>After the session expires, the user must start again from the beginning.</li><li>Typed text is cleared after inactivity without warning.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The harness watches the page for a few seconds only. Long time limits are judged from the text and handlers.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/timing-task-has-a-time-limit.html">Task has a time limit</a></li><li><a href="tests/timing-updates-interrupt-the-user-and-cannot-be-postponed.html">Updates interrupt the user and cannot be postponed</a></li><li><a href="tests/timing-data-is-lost-when-the-session-expires.html">Data is lost when the session expires</a></li><li><a href="tests/timing-users-are-not-warned-about-an-inactivity-timeout.html">Users are not warned about an inactivity timeout</a></li>
+      </ul>
+      
+      <h3 id="motion-and-distraction">Moving, blinking and flashing content can be controlled</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Moving, blinking and flashing content can be controlled</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.2.2, 2.3.1, 2.3.2, 2.3.3</td></tr>
+          <tr><th scope="row">sa11y test</th><td>7.1, 7.A4</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>media</code>, <code>timeline</code>, <code>activation</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Look for animated images (gif), blinking or scrolling text, and content that flashes. Animation that starts automatically and lasts more than 5 seconds needs a pause control. Content that flashes more than three times in a second fails 2.3.2 (AAA). Motion animation started by interaction must respect reduced motion or be possible to turn off (2.3.3, AAA).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>There is no automatic animation, or it can be paused. Animation stops when reduced motion is requested.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>An animated gif loops with no way to stop it.</li><li>An element changes its appearance more than three times a second.</li><li>An element spins or slides on interaction even with reduced motion requested.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The model cannot measure flash rate or area from screenshots. It judges from the timeline and the code-free description of changes. A person must check flash thresholds.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/images-a-distraction-is-present-an-animated-gif.html">A distraction is present, an animated gif</a></li><li><a href="tests/animation-and-flashing-content-flashes-more-than-three-times-in-one-second.html">Content flashes more than three times in one second</a></li><li><a href="tests/multimedia-flashing-content-doesnt-have-warning.html">Flashing content doesn&#39;t have warning</a></li><li><a href="tests/animation-and-flashing-motion-animation-triggered-by-interaction-cannot-be-turned-off.html">Motion animation triggered by interaction cannot be turned off</a></li>
+      </ul>
+      
+      <h3 id="media-alternatives">Audio and video have the alternatives they need</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Audio and video have the alternatives they need</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.6, 1.2.7, 1.2.8, 1.2.9, 1.4.2, 1.4.7</td></tr>
+          <tr><th scope="row">sa11y test</th><td>7.2, 7.3, 7.A1, 7.A2</td></tr>
+          <tr><th scope="row">Level</th><td>Person</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>media</code>, <code>timeline</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>The model cannot hear audio or watch video. From the media evidence it can check: recorded audio needs a transcript nearby or linked (1.2.1); video needs captions (a captions track) and audio description or a text alternative (1.2.2, 1.2.3); live video needs live captions (1.2.4); for AAA, sign language (1.2.6), extended audio description (1.2.7), a full text alternative (1.2.8), and a text alternative for live audio (1.2.9). Audio that plays automatically for more than 3 seconds needs a way to pause or turn down (1.4.2). Links to audio or video files need a transcript nearby. Whether speech has loud background music (1.4.7) cannot be judged without listening.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Media has controls, a captions track and a transcript, and does not play automatically.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>Audio or video with no transcript, captions track or text alternative.</li><li>A live stream with no captions.</li><li>Audio plays on load with no controls.</li><li>A link to an audio or video file with no transcript.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> Report cannot-tell when media is present and the needed alternative depends on its content, such as whether a sign language version, extended description or quiet background is needed.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/multimedia-embedded-video-file-is-missing-text-alternative.html">Embedded video file is missing text alternative</a></li><li><a href="tests/multimedia-embedded-audio-file-is-missing-text-alternative.html">Embedded audio file is missing text alternative</a></li><li><a href="tests/multimedia-live-video-stream-has-no-captions.html">Live video stream has no captions</a></li><li><a href="tests/multimedia-video-has-no-sign-language-interpretation.html">Video has no sign language interpretation</a></li><li><a href="tests/multimedia-video-has-no-extended-audio-description.html">Video has no extended audio description</a></li><li><a href="tests/multimedia-live-audio-stream-has-no-text-alternative.html">Live audio stream has no text alternative</a></li><li><a href="tests/multimedia-audio-plays-automatically-with-no-way-to-stop-it.html">Audio plays automatically with no way to stop it</a></li><li><a href="tests/multimedia-speech-has-loud-background-music.html">Speech has loud background music</a></li><li><a href="tests/links-links-to-a-sound-file-no-transcript.html">Links to a sound file, no transcript</a></li><li><a href="tests/links-link-to-a-multimedia-file-no-transcript.html">Link to a multimedia file, no transcript</a></li>
+      </ul>
+      
+      <h3 id="consistency">Navigation, help and functions are consistent across pages</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Navigation, help and functions are consistent across pages</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>2.4.5, 2.4.8, 3.2.3, 3.2.4, 3.2.6</td></tr>
+          <tr><th scope="row">sa11y test</th><td>8.2, 8.3, 8.A1</td></tr>
+          <tr><th scope="row">Level</th><td>AI with harness</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>multi-page</code>, <code>dom</code>, <code>screenshot</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>When several pages are given, compare them: navigation links in the same order (3.2.3), the same function with the same label (3.2.4), and help (contact, chat, help link) in the same relative place (3.2.6). On any site page: there must be more than one way to find pages, such as search, a site map or links between pages (2.4.5), and for AAA the page must show where the user is in the site, such as breadcrumbs or a highlighted menu item (2.4.8).</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Repeated parts are the same on every page. The site has search or a site map. The current section is shown.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>The help link is in the header on one page and the footer on another.</li><li>The search button is &#39;Search&#39; on one page and &#39;Go&#39; on another.</li><li>The only way to find pages is the menu.</li><li>There are no breadcrumbs or other sign of where the user is.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> 2.4.5 and 2.4.8 are about the whole site. The model judges from what the page itself offers.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/navigation-help-link-is-in-a-different-place-on-each-page.html">Help link is in a different place on each page</a></li><li><a href="tests/navigation-pages-can-only-be-found-in-one-way.html">Pages can only be found in one way</a></li><li><a href="tests/navigation-no-indication-of-where-the-user-is-in-the-site.html">No indication of where the user is in the site</a></li><li><a href="tests/navigation-the-same-function-has-different-labels-on-different-pages.html">The same function has different labels on different pages</a></li>
+      </ul>
+      
+      <h3 id="code-quality">Markup is valid and uses the right elements</h3>
+
+      <table>
+        <caption class="visuallyhidden">About the procedure: Markup is valid and uses the right elements</caption>
+        <tbody>
+          <tr><th scope="row">WCAG</th><td>1.3.1, 4.1.1</td></tr>
+          <tr><th scope="row">sa11y test</th><td>5.2</td></tr>
+          <tr><th scope="row">Level</th><td>AI</td></tr>
+          <tr><th scope="row">Evidence</th><td><code>dom</code>, <code>source</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>Look for markup that produces the wrong structure: start and end tags that do not match, presentational markup such as inline colour styles that carry meaning, and pre elements used for something other than preformatted text or code (such as ASCII art without a text alternative). 4.1.1 Parsing was removed in WCAG 2.2, so mismatched tags are reported as best practice.</p>
+
+      <h4>Pass</h4>
+      <ul class="list list-bullet">
+        <li>Elements are properly nested and closed, and preformatted text is code or has an alternative.</li>
+      </ul>
+
+      <h4>Fail</h4>
+      <ul class="list list-bullet">
+        <li>An element is opened with one tag and closed with another.</li><li>A pre element holds ASCII art with no text alternative.</li><li>Colour set with an inline style is the only cue for meaning.</li>
+      </ul>
+
+      
+      <p><strong>Limits:</strong> The model sees the DOM after the browser has repaired the HTML, so it may not see mismatched tags. The original source is also given for this check.</p>
+      
+
+      <h4>Test cases</h4>
+      <ul class="list list-bullet">
+        <li><a href="tests/html-start-and-close-tags-dont-match.html">Start and close tags don&#39;t match</a></li><li><a href="tests/html-pre-element-without-code-element-inside-it.html">PRE element without CODE element inside it</a></li><li><a href="tests/html-inline-style-adds-colour.html">Inline style adds colour</a></li>
+      </ul>
+      
+    </div>
+  </div>
+
+</main>
+
+
+  <footer id="footer" class="group" role="contentinfo">
+    <div class="footer-wrapper">
+      <div class="footer-meta">
+        <div class="footer-meta-inner">
+            <div class="open-government-licence">
+              <p class="logo">
+                <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">
+                  Open Government Licence
+                </a>
+              </p>
+              <p>
+                All content is available under the
+                <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated.
+                Contains public sector information from the <a href="https://alphagov.github.io/accessibility-tool-audit/">GDS accessibility tool audit</a>, licensed under the Open Government Licence v3.0, adapted to name GDS instead of &ldquo;we&rdquo;.
+                Additions (the retest and the added test cases) are by A11y Intuition Lab (AIL) contributors and are available under the same licence.
+                <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit">Source code</a> is available under the MIT licence.
+                <a href="method.html">How AIL made this copy</a>.
+              </p>
+            </div>
+        </div>
+        <div class="copyright">
+          <a href="http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">
+            Original content © Crown copyright
+          </a>
+        </div>
+      </div>
+    </div>    
+  </footer>
+</body>
+</html>

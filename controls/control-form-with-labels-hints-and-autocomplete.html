@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Form with labels, hints and autocomplete - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Form with labels, hints and autocomplete</h1>
+  <main>
+    <div style="max-width: 38em; line-height: 1.5;"><form action="#" novalidate>
+<div><label for="full-name">Full name</label><br><input type="text" id="full-name" name="full-name" autocomplete="name" style="border: 2px solid #0b0c0c;"></div>
+<div><label for="email">Email address</label><br><span id="email-hint">We will only use this to send you a receipt.</span><br><input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-hint" style="border: 2px solid #0b0c0c;"></div>
+<div><label for="password">Password</label><br><input type="password" id="password" name="password" autocomplete="current-password" style="border: 2px solid #0b0c0c;"></div>
+<div id="errors" role="alert"></div>
+<button type="submit">Continue</button>
+</form>
+<script>
+(function () {
+  var form = document.querySelector('form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var missing = [];
+    if (!form['full-name'].value) missing.push('Enter your full name');
+    if (!form.email.value) missing.push('Enter your email address, like name@example.com');
+    if (!form.password.value) missing.push('Enter your password');
+    document.getElementById('errors').textContent = missing.length ? 'There is a problem: ' + missing.join('. ') + '.' : '';
+  });
+})();
+</script></div>
+  </main>
+</body>
+</html>

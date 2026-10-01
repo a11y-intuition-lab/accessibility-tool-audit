@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Delete with confirmation - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Delete with confirmation</h1>
+  <main>
+    <div style="max-width: 38em; line-height: 1.5;"><p>You have 12 saved messages.</p>
+<p><button type="button" id="delete">Delete all messages</button></p>
+<div id="confirm" hidden>
+<p id="confirm-text">Are you sure you want to delete all 12 messages? You cannot undo this.</p>
+<button type="button" id="yes">Yes, delete all messages</button> <button type="button" id="no">No, keep my messages</button>
+</div>
+<p role="status" id="result"></p>
+<script>
+(function () {
+  var c = document.getElementById('confirm');
+  document.getElementById('delete').addEventListener('click', function () { c.hidden = false; document.getElementById('no').focus(); });
+  document.getElementById('no').addEventListener('click', function () { c.hidden = true; document.getElementById('delete').focus(); });
+  document.getElementById('yes').addEventListener('click', function () { c.hidden = true; document.getElementById('result').textContent = 'All messages deleted.'; });
+})();
+</script></div>
+  </main>
+</body>
+</html>

@@ -293,6 +293,75 @@
 
       <p>Many of the added test cases cover success criteria that need a person to check them, such as timing, consistency across pages and use of language. Low numbers for the added test cases are expected.</p>
 
+      
+      
+      <h3 id="ai-check">With an AI check</h3>
+
+      <p>
+        For the test cases neither tool finds, AIL wrote <a href="ai-checks.html">35 test procedures</a> an AI model can follow, based on the manual checklist in <a href="https://github.com/a11y-intuition-lab/sa11y">sa11y</a>. A script collects evidence from each page, such as the HTML, a screenshot, the Tab order and what happens on hover, zoom and Escape, and Claude Opus 5.5 judges it against the procedures. The model is not told which test case it is looking at.
+      </p>
+
+      <p>
+        Of the 119 test cases neither axe-core nor pa11y finds, the AI check found the intended barrier in 111 (93%).
+        On 34 test pages the barrier is also described in the text of the page, which may help the model. Without them, it found 77 of 85 (91%).
+        On 23 control pages with no known barrier, it reported a barrier on 0 and a possible barrier on 0.
+      </p>
+
+      <table class="numeric-results percentage-summary retest-results">
+        <caption>Test cases detected by axe-core, pa11y or the AI check</caption>
+        <thead>
+          <tr>
+            <th scope="col">Test cases</th>
+            <th scope="col">axe-core and pa11y</th>
+            <th scope="col">With the AI check, intended barrier</th>
+            <th scope="col">With the AI check, any barrier</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <th scope="row" class="retest">142 original test cases</th>
+            <td class="retest">50%</td>
+            <td class="retest">96%</td>
+            <td class="retest">99%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">172 original and added A and AA test cases</th>
+            <td class="retest">44%</td>
+            <td class="retest">97%</td>
+            <td class="retest">99%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">194 all test cases, including AAA</th>
+            <td class="retest">39%</td>
+            <td class="retest">96%</td>
+            <td class="retest">98%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">30 added A and AA test cases only</th>
+            <td class="retest">13%</td>
+            <td class="retest">97%</td>
+            <td class="retest">100%</td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="retest">22 added AAA test cases only</th>
+            <td class="retest">0%</td>
+            <td class="retest">91%</td>
+            <td class="retest">91%</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+      <p>
+        &ldquo;Intended barrier&rdquo; counts the AI only when one of its failures describes the barrier the test case was made for. A second AI pass read every finding and judged this. No person has checked these judgements yet. &ldquo;Any barrier&rdquo; counts any failure the AI reports on the page, as the retest does for axe-core and pa11y. The AI check was made by the same AI assistant that wrote the added test pages, so it is not an independent measurement. <a href="method.html#ai-check">Read how the AI check works and its limitations</a>.
+      </p>
+      
+
       <p>The retest results are proposals based on the tools&rsquo; output and have not all been checked by hand yet. <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/tree/gh-pages/results">Raw results</a> are available. <a href="method.html">Read how the test cases were made and the retest was run</a>, including how to repeat it.</p>
       </section>
       

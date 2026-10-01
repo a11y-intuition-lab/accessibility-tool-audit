@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Accessibility tools audit test - Tooltip that can be dismissed and hovered - GDS accessibility team</title>
+  <script src="../assets/javascript/jquery.min.js"></script>
+  <script src="../assets/javascript/main.js"></script>
+  <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
+</head>
+<body>
+  <h1>Tooltip that can be dismissed and hovered</h1>
+  <main>
+    <div style="max-width: 38em; line-height: 1.5;"><p>
+<button type="button" id="tip-button" aria-describedby="tip">Delivery options</button>
+<span role="tooltip" id="tip" hidden style="margin-left: 0; padding: 0.5em; border: 1px solid #0b0c0c; background: #fff;">Standard delivery takes 3 to 5 working days.</span>
+</p>
+<script>
+(function () {
+  var b = document.getElementById('tip-button');
+  var t = document.getElementById('tip');
+  var wrap = b.parentNode;
+  function show() { t.hidden = false; }
+  function hide() { t.hidden = true; }
+  wrap.addEventListener('mouseenter', show);
+  wrap.addEventListener('mouseleave', hide);
+  b.addEventListener('focus', show);
+  b.addEventListener('blur', hide);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+})();
+</script></div>
+  </main>
+</body>
+</html>

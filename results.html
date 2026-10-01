@@ -133,6 +133,7 @@
       <ul class="list list-bullet">
         <li><strong>Original audit</strong>: the results GDS published in 2017 and updated until 13 April 2018. These have not been changed.</li>
         <li class="retest-legend"><strong>Retest</strong>: results from running axe-core 4.13.0 and pa11y 10.0.0 (HTML_CodeSniffer 2.6.0) on 2026-10-01. This was not carried out by GDS.</li>
+        <li class="retest-legend"><strong>AI check</strong>: results from the <a href="ai-checks.html">AI test procedures</a> run with Claude Opus 5.5 on 2026-10-01. &ldquo;Not the intended barrier&rdquo; means the AI reported a barrier, but not from the procedure written for that test case. This was not carried out by GDS.</li>
       </ul>
       <p>Test cases added after the original audit are marked with the WCAG success criterion they fail. They were not part of the original audit, so only the retest has results for them.</p>
     </div>
@@ -155,11 +156,13 @@
     <colgroup span="2"></colgroup>
     <colgroup span="13" class="original-audit"></colgroup>
     <colgroup span="2" class="retest"></colgroup>
+    <colgroup span="1" class="retest"></colgroup>
     <thead>
       <tr>
         <td colspan="2"></td>
         <th scope="colgroup" colspan="13">Original audit (GDS, 2017 to 2018)</th>
         <th scope="colgroup" colspan="2" class="retest">Retest (2026-10-01)</th>
+        <th scope="colgroup" class="retest">AI check (2026-10-01)</th>
       </tr>
       <tr>
         <th scope="col">Test case</th>
@@ -203,6 +206,12 @@
               <span class="tool-version">10.0.0, HTML_CodeSniffer 2.6.0</span>
             </th>
           
+        
+        
+          <th scope="col" class="retest">
+            <a href="ai-checks.html">AI check</a>
+            <span class="tool-version">Claude Opus 5.5</span>
+          </th>
         
       </tr>
     </thead>
@@ -273,6 +282,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -338,6 +353,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -407,6 +428,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -472,6 +499,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -541,6 +574,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -573,6 +612,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -603,6 +648,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -674,6 +725,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -704,6 +761,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -775,6 +838,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -840,6 +909,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest notfound">Not found</td>
               
             
           </tr>
@@ -909,6 +984,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest notfound">Not found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -974,6 +1055,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest notfound">Not found</td>
               
             
           </tr>
@@ -1043,6 +1130,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest notfound">Not found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -1110,6 +1203,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -1142,6 +1241,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -1172,6 +1277,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -1243,6 +1354,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -1308,6 +1425,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -1377,6 +1500,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -1442,6 +1571,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -1511,6 +1646,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -1576,6 +1717,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -1645,6 +1792,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -1710,6 +1863,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -1781,6 +1940,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -1846,6 +2011,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -1915,6 +2086,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -1980,6 +2157,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -2049,6 +2232,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -2114,6 +2303,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -2183,6 +2378,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -2250,6 +2451,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -2315,6 +2522,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -2386,6 +2599,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -2453,6 +2672,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -2518,6 +2743,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -2589,6 +2820,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -2654,6 +2891,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -2723,6 +2966,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -2788,6 +3037,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -2859,6 +3114,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -2924,6 +3185,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -2993,6 +3260,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -3058,6 +3331,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -3129,6 +3408,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest manual">User to check</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -3194,6 +3479,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest notfound">Not found</td>
               
             
           </tr>
@@ -3263,6 +3554,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -3328,6 +3625,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -3397,6 +3700,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -3462,6 +3771,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -3531,6 +3846,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -3596,6 +3917,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -3665,6 +3992,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -3732,6 +4065,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest notfound">Not found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -3797,6 +4136,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -3868,6 +4213,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -3933,6 +4284,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -4002,6 +4359,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -4067,6 +4430,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -4136,6 +4505,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -4201,6 +4576,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -4270,6 +4651,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -4335,6 +4722,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -4404,6 +4797,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -4471,6 +4870,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -4503,6 +4908,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -4533,6 +4944,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -4604,6 +5021,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -4669,6 +5092,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest manual">User to check</td>
               
             
           </tr>
@@ -4738,6 +5167,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -4768,6 +5203,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -4802,6 +5243,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest manual">User to check</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -4832,6 +5279,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -4866,6 +5319,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="A">
@@ -4898,6 +5357,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -4928,6 +5393,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest notfound">Not found</td>
               
             
           </tr>
@@ -4999,6 +5470,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -5064,6 +5541,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -5133,6 +5616,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -5198,6 +5687,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -5267,6 +5762,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -5332,6 +5833,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -5401,6 +5908,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -5466,6 +5979,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -5535,6 +6054,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -5600,6 +6125,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -5669,6 +6200,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -5734,6 +6271,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -5803,6 +6346,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -5868,6 +6417,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -5937,6 +6492,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -6002,6 +6563,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -6071,6 +6638,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -6136,6 +6709,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -6205,6 +6784,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -6270,6 +6855,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found<span class="tool-version">Not the intended barrier</span></td>
               
             
           </tr>
@@ -6341,6 +6932,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -6406,6 +7003,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -6475,6 +7078,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -6540,6 +7149,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -6611,6 +7226,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -6676,6 +7297,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -6745,6 +7372,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -6810,6 +7443,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -6879,6 +7518,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -6944,6 +7589,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7013,6 +7664,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -7078,6 +7735,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7147,6 +7810,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -7212,6 +7881,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7281,6 +7956,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -7346,6 +8027,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7415,6 +8102,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -7480,6 +8173,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7549,6 +8248,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -7614,6 +8319,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7683,6 +8394,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -7748,6 +8465,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7817,6 +8540,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -7847,6 +8576,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7881,6 +8616,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -7911,6 +8652,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -7945,6 +8692,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -7975,6 +8728,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8009,6 +8768,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -8039,6 +8804,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8073,6 +8844,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -8105,6 +8882,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -8135,6 +8918,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8206,6 +8995,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="A">
@@ -8236,6 +9031,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8270,6 +9071,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -8300,6 +9107,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8334,6 +9147,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -8366,6 +9185,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -8396,6 +9221,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8467,6 +9298,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -8532,6 +9369,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8601,6 +9444,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -8666,6 +9515,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8735,6 +9590,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -8800,6 +9661,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -8869,6 +9736,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -8934,6 +9807,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9003,6 +9882,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -9068,6 +9953,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9137,6 +10028,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -9202,6 +10099,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9271,6 +10174,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -9336,6 +10245,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9405,6 +10320,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -9472,6 +10393,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="A">
@@ -9502,6 +10429,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9536,6 +10469,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found<span class="tool-version">Not the intended barrier</span></td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -9566,6 +10505,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9600,6 +10545,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -9630,6 +10581,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9701,6 +10658,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -9766,6 +10729,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9837,6 +10806,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -9902,6 +10877,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -9971,6 +10952,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -10036,6 +11023,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -10105,6 +11098,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -10137,6 +11136,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -10167,6 +11172,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -10238,6 +11249,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -10303,6 +11320,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest notfound">Not found</td>
               
             
           </tr>
@@ -10372,6 +11395,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -10437,6 +11466,12 @@
                 
                   <td class="retest error">Issue found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -10506,6 +11541,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -10571,6 +11612,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -10640,6 +11687,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -10705,6 +11758,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest notfound">Not found</td>
               
             
           </tr>
@@ -10774,6 +11833,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="original">
@@ -10839,6 +11904,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -10908,6 +11979,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -10938,6 +12015,12 @@
                 
                   <td class="retest manual">User to check</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -10974,6 +12057,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -11004,6 +12093,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -11040,6 +12135,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="A">
@@ -11070,6 +12171,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -11104,6 +12211,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="A">
@@ -11134,6 +12247,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -11168,6 +12287,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AA">
@@ -11200,6 +12325,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -11230,6 +12361,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -11266,6 +12403,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -11296,6 +12439,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -11330,6 +12479,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -11360,6 +12515,12 @@
                 
                   <td class="retest notfound">Not found</td>
                 
+              
+            
+            
+              
+              
+                <td class="retest error">Issue found</td>
               
             
           </tr>
@@ -11396,6 +12557,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
           <tr data-filter="AAA">
@@ -11428,6 +12595,12 @@
                 
               
             
+            
+              
+              
+                <td class="retest error">Issue found</td>
+              
+            
           </tr>
         
 
@@ -11438,6 +12611,13 @@
   <h2 id="changelog">Changelog</h2>
 
   <ol class="summary-data">
+    
+      <li>
+        <time class="timestamp">1 October 2026</time>
+        
+          <a href="ai-checks.html">The retest now checks the linked example pages. Added test procedures an AI can follow for the test cases axe-core and pa11y do not find, and an AI check with Claude.</a>
+        
+      </li>
     
       <li>
         <time class="timestamp">29 September 2026</time>
