@@ -11,15 +11,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
-import { fileURLToPath, pathToFileURL } from 'node:url';
 import puppeteer from 'puppeteer';
 import { AxePuppeteer } from '@axe-core/puppeteer';
 import pa11y from 'pa11y';
+import { root, pageUrl, exampleUrl, targetUrls } from './targets.mjs';
 
 const require = createRequire(import.meta.url);
 const { getFilename } = require('../build/generate.js');
 
-const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const force = process.argv.includes('--force');
 const only = process.argv.find(a => a.startsWith('--only='))?.slice(7);
 const chromePath = process.env.CHROME_PATH || '/usr/bin/google-chrome';
@@ -37,10 +36,6 @@ const versions = {
   pa11y: require('pa11y/package.json').version,
   htmlcs: require('@pa11y/html_codesniffer/package.json').version
 };
-
-function pageUrl(file) {
-  return pathToFileURL(path.join(root, 'tests', file + '.html')).href;
-}
 
 async function runAxe(browser, url) {
   const page = await browser.newPage();
@@ -85,9 +80,13 @@ async function runPa11y(browser, url) {
 }
 
 // Findings that also appear on the empty baseline page come from the page
-// template, not from the test case.
+// template, not from the test case. The example pages have no shared
+// template, so for them a rule is left out if it fires anywhere on
+// example-pages/_baseline.html, which has their structure (no main landmark).
 const key = f => `${f.type}|${f.rule}|${f.target}`;
+const ruleKey = f => `${f.type}|${f.rule}`;
 const withoutBaseline = (findings, baseline) => findings.filter(f => !baseline.has(key(f)));
+const withoutExampleBaseline = (findings, baseline) => findings.filter(f => !baseline.has(ruleKey(f)));
 
 function classifyAxe(findings) {
   if (findings.some(f => f.type === 'violation')) return 'error';
@@ -116,7 +115,7 @@ function summary(tests, raw) {
     `# Retest ${date}`,
     '',
     `axe-core ${versions.axe}, pa11y ${versions.pa11y} (HTML_CodeSniffer ${versions.htmlcs}, ${PA11Y_STANDARD}).`,
-    'Original = result in tests.json (pa11y is compared with codesniffer). Findings on tests/_baseline.html are excluded.',
+    'Original = result in tests.json (pa11y is compared with codesniffer). Findings on tests/_baseline.html are excluded, and so are rules that fire on example-pages/_baseline.html when an example page is tested.',
     '',
     '| Category | Test case | WCAG | axe original | axe proposal | axe rules | codesniffer original | pa11y proposal | pa11y rules |',
     '| --- | --- | --- | --- | --- | --- | --- | --- | --- |'
@@ -153,6 +152,11 @@ async function main() {
       axe: new Set((await runAxe(browser, baselineUrl)).map(key)),
       pa11y: new Set((await runPa11y(browser, baselineUrl)).map(key))
     };
+    const exampleBaselineUrl = exampleUrl('_baseline.html');
+    const exampleBaseline = {
+      axe: new Set((await runAxe(browser, exampleBaselineUrl)).map(ruleKey)),
+      pa11y: new Set((await runPa11y(browser, exampleBaselineUrl)).map(ruleKey))
+    };
 
     const changes = [];
     for (const [cname, category] of Object.entries(tests)) {
@@ -160,9 +164,15 @@ async function main() {
         if (only && !testname.toLowerCase().includes(only.toLowerCase())) continue;
 
         const file = getFilename(cname, testname);
-        const url = pageUrl(file);
-        const axe = withoutBaseline(await runAxe(browser, url), baseline.axe);
-        const pa = withoutBaseline(await runPa11y(browser, url), baseline.pa11y);
+        const axe = [], pa = [];
+        for (const url of targetUrls(category[testname], file)) {
+          const page = path.relative(root, new URL(url).pathname);
+          const [filter, base] = page.startsWith('example-pages/')
+            ? [withoutExampleBaseline, exampleBaseline]
+            : [withoutBaseline, baseline];
+          axe.push(...filter(await runAxe(browser, url), base.axe).map(f => ({ ...f, page })));
+          pa.push(...filter(await runPa11y(browser, url), base.pa11y).map(f => ({ ...f, page })));
+        }
         const proposal = { axe: classifyAxe(axe), pa11y: classifyPa11y(pa) };
 
         raw.axe.tests[testname] = { category: cname, file, proposal: proposal.axe, findings: axe };

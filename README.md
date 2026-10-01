@@ -63,7 +63,8 @@ npm run retest
 
 This runs axe-core and pa11y (HTML_CodeSniffer) against every page in `tests/` using the Chrome installed on your machine (`/usr/bin/google-chrome`, override with `CHROME_PATH`). Run `npm run build` first so the test pages are up to date.
 
-- Findings that also appear on `tests/_baseline.html`, an empty test page, are ignored because they come from the page template.
+- When a test case is only a link to a page in `example-pages/`, the linked page or pages are tested instead of the test page (`scripts/targets.mjs`).
+- Findings that also appear on `tests/_baseline.html`, an empty test page, are ignored because they come from the page template. On example pages, rules that fire on `example-pages/_baseline.html` are ignored.
 - axe violations count as "issue found" and incomplete results as "user to check". pa11y errors count as "issue found" and warnings as "user to check". pa11y notices are ignored.
 - Proposed results are written to `retest.json`. Existing entries are kept unless you run `npm run retest -- --force`. Use `--only=<part of test name>` to run a subset.
 - Raw findings and a summary for review are written to `results/<date>/`.

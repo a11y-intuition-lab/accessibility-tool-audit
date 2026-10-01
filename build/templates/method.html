@@ -110,7 +110,7 @@
           <tr><th scope="row">System</th><td>Linux, Node.js 24.21.0, Google Chrome 153.0.8010.36 (headless, default viewport 800 by 600)</td></tr>
           <tr><th scope="row">axe</th><td>{{ analysis.retest.tools.axe.name }} {{ analysis.retest.tools.axe.version }} via @axe-core/puppeteer, tags <code>wcag2a</code>, <code>wcag2aa</code>, <code>wcag2aaa</code>, <code>wcag21a</code>, <code>wcag21aa</code>, <code>wcag22aa</code>, <code>best-practice</code></td></tr>
           <tr><th scope="row">pa11y</th><td>{{ analysis.retest.tools.pa11y.name }} {{ analysis.retest.tools.pa11y.version }} with the {{ analysis.retest.tools.pa11y.runner }} runner, standard <code>WCAG2AAA</code>, warnings and notices included</td></tr>
-          <tr><th scope="row">Pages</th><td><code>tests/*.html</code> opened as <code>file://</code> URLs, after the page load event</td></tr>
+          <tr><th scope="row">Pages</th><td><code>tests/*.html</code> opened as <code>file://</code> URLs, after the page load event. When a test case is only a link to a page in <code>example-pages/</code>, the linked page or pages are tested instead.</td></tr>
           <tr><th scope="row">Script</th><td><a href="{{ copyInfo.repo }}/blob/gh-pages/scripts/retest.mjs"><code>scripts/retest.mjs</code></a></td></tr>
         </tbody>
       </table>
@@ -118,7 +118,7 @@
       <h3>From findings to results</h3>
 
       <ol class="list list-number">
-        <li>An empty test page, <code>tests/_baseline.html</code>, is checked first. Any finding that also appears on it comes from the page template and is removed from every test page.</li>
+        <li>An empty test page, <code>tests/_baseline.html</code>, is checked first. Any finding that also appears on it comes from the page template and is removed from every test page. The example pages have their own structure, so for them any rule that fires on <code>example-pages/_baseline.html</code> is removed. That page has the same structure as the example pages, without a barrier.</li>
         <li>axe: any violation gives &ldquo;issue found&rdquo;. Otherwise, any incomplete result (&ldquo;needs review&rdquo;) gives &ldquo;user to check&rdquo;. Otherwise the result is &ldquo;not found&rdquo;.</li>
         <li>pa11y: any error gives &ldquo;issue found&rdquo;. Otherwise, any warning gives &ldquo;user to check&rdquo;, in the same way that GDS counted HTML_CodeSniffer warnings as manual checks from April 2018. Notices are ignored because they appear on almost every element.</li>
         <li>The percentages are calculated in the same way as the original: the share of test cases with &ldquo;issue found&rdquo; or &ldquo;warning only&rdquo;, and with &ldquo;user to check&rdquo; added.</li>

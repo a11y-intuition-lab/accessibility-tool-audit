@@ -221,6 +221,26 @@ The overview page now shows the share of test cases found by at least one of the
 
 The maintainer's expectation held. The page notes that part of the increase on the original test cases may come from the method, because the retest counts any finding on the page and not only the intended barrier.
 
+## 12. Testing the linked example pages (1 October 2026, 10:05)
+
+> så axe og pa11y finner 30-40% av feil. klarer vi å definere hvordan teste de kravene som mangler slik at en ai kan sjekke for de? her kan vi og se på den manuelle sjekklista til sa11y, vårt prosjekt for hjelp for hvordan teste.
+>
+> *So axe and pa11y find 30–40% of issues. Can we define how to test the requirements that are missing, so that an AI can check for them? We can also look at the manual checklist in sa11y, our project, for help on how to test.*
+
+While mapping what the tools miss, the assistant found an error in the retest. `scripts/retest.mjs` always tested `tests/<slug>.html`. For 13 test cases the example is only a link to a page in `example-pages/`, so the tools were run on a page that contains just the link. CONTRIBUTING.md says the linked page is what should be tested. The maintainer chose to fix this before any AI check is added, so the AI does not get credit for barriers the tools can find.
+
+- `scripts/targets.mjs` decides which pages to test. If the example only links to example pages, those pages are tested, and the findings from all of them are combined. An iframe that embeds an example page is still tested on the test page.
+- The example pages do not use the test page template, so `tests/_baseline.html` does not remove their template findings. A new page, `example-pages/_baseline.html`, has the same structure as the example pages without a barrier. Any rule that fires on it (`region` and `landmark-one-main`, because there is no `main` element) is removed from the example pages.
+
+Ten test cases changed. Six of them (empty, invalid and missing lang, empty and missing page title, Missing H1) are now found by the same rules as in the original GDS audit. Four are found by rules that are not about the intended barrier: "lang set to wrong language" and "Inappropriate page title" both use `inappropriate.html`, which has no `h1`, and "Keyboard trap" and "Navigation is in a different order" get `target-size`. This is the known limitation that any finding on the page counts.
+
+| Test cases | Barriers found, before | After |
+| --- | --- | --- |
+| Retest, 142 original | 44% | 50% |
+| Retest, 172 original and added A and AA | 38% | 44% |
+| Retest, 194 all, including AAA | 34% | 39% |
+| Retest, 30 added A and AA only | 10% | 13% |
+
 ## Open
 
 - The retest proposals have not all been checked by hand. See `results/2026-09-29/summary.md`.
