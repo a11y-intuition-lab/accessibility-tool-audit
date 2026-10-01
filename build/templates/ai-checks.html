@@ -17,7 +17,7 @@
       <h1>AI test procedures for what axe and pa11y miss <span class="new-tag">Not by GDS</span></h1>
 
       <p>
-        These are the test procedures {{ copyInfo.org.name }} (AIL) wrote for the barriers that axe-core and pa11y do not find in the retest. Each procedure is written so that an AI model can follow it, and is adapted from a test in the manual checklist of <a href="https://github.com/a11y-intuition-lab/sa11y">sa11y</a>. The procedures are in <a href="{{ copyInfo.repo }}/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>. How they were run and what they found is described on the <a href="method.html#ai-check">method page</a>.
+        These are the test procedures {{ copyInfo.org.name }} (AIL) wrote for the barriers that axe-core and pa11y do not find in the retest. Each procedure is written so that an AI model can follow it, and is adapted from a test in the manual checklist of sa11y, an internal tool that is not public. The procedures here are complete on their own and do not need sa11y. The procedures are in <a href="{{ copyInfo.repo }}/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>. How they were run and what they found is described on the <a href="method.html#ai-check">method page</a>.
       </p>
 
       <p>Each procedure has one of three levels:</p>
@@ -54,7 +54,6 @@
         <caption class="visuallyhidden">About the procedure: {{ check.title }}</caption>
         <tbody>
           <tr><th scope="row">WCAG</th><td>{{ check.wcag | join(", ") }}</td></tr>
-          <tr><th scope="row">sa11y test</th><td>{{ check.sa11y | join(", ") }}</td></tr>
           <tr><th scope="row">Level</th><td>{% if check.feasibility == "ai" %}AI{% elif check.feasibility == "ai-with-harness" %}AI with harness{% else %}Person{% endif %}</td></tr>
           <tr><th scope="row">Evidence</th><td>{% for e in check.evidence %}<code>{{ e }}</code>{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>
         </tbody>

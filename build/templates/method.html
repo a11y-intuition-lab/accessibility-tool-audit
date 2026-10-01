@@ -173,7 +173,7 @@ npm run retest -- --force</code></pre>
       <h2 id="ai-check">How the AI check was run</h2>
 
       <p>
-        The retest showed which test cases neither axe-core nor pa11y finds. AIL asked whether it is possible to describe how to test for these barriers so precisely that an AI can do it. The result is {{ ai.checks }} <a href="ai-checks.html">test procedures</a> in <a href="{{ copyInfo.repo }}/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>, adapted from the manual checklist in AIL&rsquo;s <a href="https://github.com/a11y-intuition-lab/sa11y">sa11y</a>. Every test case that the two tools do not find is covered by a procedure. The build fails if one is not.
+        The retest showed which test cases neither axe-core nor pa11y finds. AIL asked whether it is possible to describe how to test for these barriers so precisely that an AI can do it. The result is {{ ai.checks }} <a href="ai-checks.html">test procedures</a> in <a href="{{ copyInfo.repo }}/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>, adapted from the manual checklist in sa11y, an internal tool that is not public. Every test case that the two tools do not find is covered by a procedure. The build fails if one is not.
       </p>
 
       <table>
