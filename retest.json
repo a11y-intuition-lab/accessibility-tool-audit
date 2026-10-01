@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-29",
+  "date": "2026-10-01",
   "tools": {
     "axe": {
       "name": "axe-core",
@@ -117,8 +117,8 @@
       "pa11y": "notfound"
     },
     "html element has an empty lang attribute": {
-      "axe": "notfound",
-      "pa11y": "notfound"
+      "axe": "error",
+      "pa11y": "error"
     },
     "lang attribute not used to identify change of language": {
       "axe": "notfound",
@@ -129,7 +129,7 @@
       "pa11y": "notfound"
     },
     "html element has an invalid value in the lang attribute": {
-      "axe": "notfound",
+      "axe": "error",
       "pa11y": "notfound"
     },
     "lang attribute used to identify change of language, but with invalid value": {
@@ -137,36 +137,36 @@
       "pa11y": "notfound"
     },
     "html element is missing a lang attribute": {
-      "axe": "notfound",
-      "pa11y": "notfound"
+      "axe": "error",
+      "pa11y": "error"
     },
     "html element has lang attribute set to wrong language": {
-      "axe": "notfound",
-      "pa11y": "notfound"
+      "axe": "error",
+      "pa11y": "error"
     },
     "lang attribute used to identify change of language, but with wrong language": {
       "axe": "notfound",
       "pa11y": "notfound"
     },
     "Inappropriate page title": {
-      "axe": "notfound",
-      "pa11y": "notfound"
+      "axe": "error",
+      "pa11y": "error"
     },
     "Empty page title": {
-      "axe": "notfound",
-      "pa11y": "notfound"
+      "axe": "error",
+      "pa11y": "error"
     },
     "Missing page title": {
-      "axe": "notfound",
-      "pa11y": "notfound"
+      "axe": "error",
+      "pa11y": "error"
     },
     "Empty heading": {
       "axe": "error",
       "pa11y": "error"
     },
     "Missing H1": {
-      "axe": "notfound",
-      "pa11y": "notfound"
+      "axe": "error",
+      "pa11y": "error"
     },
     "Text formatting used instead of an actual heading": {
       "axe": "notfound",
@@ -553,7 +553,7 @@
       "pa11y": "notfound"
     },
     "Navigation is in a different order on each page": {
-      "axe": "notfound",
+      "axe": "error",
       "pa11y": "notfound"
     },
     "The same function has different labels on different pages": {
@@ -589,7 +589,7 @@
       "pa11y": "notfound"
     },
     "Keyboard trap": {
-      "axe": "notfound",
+      "axe": "error",
       "pa11y": "notfound"
     },
     "Dropdown navigation - only the top level items receive focus": {

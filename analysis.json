@@ -408,7 +408,7 @@
     ]
   },
   "retest": {
-    "date": "2026-09-29",
+    "date": "2026-10-01",
     "tools": {
       "axe": {
         "name": "axe-core",
@@ -433,41 +433,41 @@
         "original": {
           "tested": 142,
           "counts": {
-            "notfound": 91,
-            "error": 43,
+            "notfound": 82,
+            "error": 52,
             "error_paid": 0,
             "warning": 0,
             "manual": 8,
             "identified": 0
           },
-          "error_warning": 30,
-          "error_warning_manual": 36
+          "error_warning": 37,
+          "error_warning_manual": 42
         },
         "added": {
           "tested": 52,
           "counts": {
-            "notfound": 46,
-            "error": 3,
+            "notfound": 45,
+            "error": 4,
             "error_paid": 0,
             "warning": 0,
             "manual": 3,
             "identified": 0
           },
-          "error_warning": 6,
-          "error_warning_manual": 12
+          "error_warning": 8,
+          "error_warning_manual": 13
         },
         "added_a_aa": {
           "tested": 30,
           "counts": {
-            "notfound": 25,
-            "error": 3,
+            "notfound": 24,
+            "error": 4,
             "error_paid": 0,
             "warning": 0,
             "manual": 2,
             "identified": 0
           },
-          "error_warning": 10,
-          "error_warning_manual": 17
+          "error_warning": 13,
+          "error_warning_manual": 20
         },
         "added_aaa": {
           "tested": 22,
@@ -485,43 +485,43 @@
         "original_a_aa": {
           "tested": 172,
           "counts": {
-            "notfound": 116,
-            "error": 46,
+            "notfound": 106,
+            "error": 56,
             "error_paid": 0,
             "warning": 0,
             "manual": 10,
             "identified": 0
           },
-          "error_warning": 27,
-          "error_warning_manual": 33
+          "error_warning": 33,
+          "error_warning_manual": 38
         },
         "all": {
           "tested": 194,
           "counts": {
-            "notfound": 137,
-            "error": 46,
+            "notfound": 127,
+            "error": 56,
             "error_paid": 0,
             "warning": 0,
             "manual": 11,
             "identified": 0
           },
-          "error_warning": 24,
-          "error_warning_manual": 29
+          "error_warning": 29,
+          "error_warning_manual": 35
         }
       },
       "pa11y": {
         "original": {
           "tested": 142,
           "counts": {
-            "notfound": 80,
-            "error": 44,
+            "notfound": 73,
+            "error": 51,
             "error_paid": 0,
             "warning": 0,
             "manual": 18,
             "identified": 0
           },
-          "error_warning": 31,
-          "error_warning_manual": 44
+          "error_warning": 36,
+          "error_warning_manual": 49
         },
         "added": {
           "tested": 52,
@@ -565,46 +565,46 @@
         "original_a_aa": {
           "tested": 172,
           "counts": {
-            "notfound": 107,
-            "error": 44,
+            "notfound": 100,
+            "error": 51,
             "error_paid": 0,
             "warning": 0,
             "manual": 21,
             "identified": 0
           },
-          "error_warning": 26,
-          "error_warning_manual": 38
+          "error_warning": 30,
+          "error_warning_manual": 42
         },
         "all": {
           "tested": 194,
           "counts": {
-            "notfound": 127,
-            "error": 44,
+            "notfound": 120,
+            "error": 51,
             "error_paid": 0,
             "warning": 0,
             "manual": 23,
             "identified": 0
           },
-          "error_warning": 23,
-          "error_warning_manual": 35
+          "error_warning": 26,
+          "error_warning_manual": 38
         }
       }
     },
     "combined": {
       "original": {
         "tested": 142,
-        "error_warning": 44,
-        "error_warning_manual": 58
+        "error_warning": 50,
+        "error_warning_manual": 64
       },
       "added": {
         "tested": 52,
-        "error_warning": 6,
-        "error_warning_manual": 17
+        "error_warning": 8,
+        "error_warning_manual": 19
       },
       "added_a_aa": {
         "tested": 30,
-        "error_warning": 10,
-        "error_warning_manual": 23
+        "error_warning": 13,
+        "error_warning_manual": 27
       },
       "added_aaa": {
         "tested": 22,
@@ -613,13 +613,13 @@
       },
       "original_a_aa": {
         "tested": 172,
-        "error_warning": 38,
-        "error_warning_manual": 52
+        "error_warning": 44,
+        "error_warning_manual": 58
       },
       "all": {
         "tested": 194,
-        "error_warning": 34,
-        "error_warning_manual": 47
+        "error_warning": 39,
+        "error_warning_manual": 52
       },
       "original_audit": {
         "tested": 142,

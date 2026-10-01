@@ -50,7 +50,7 @@
 
       <ul class="list list-bullet">
         <li><strong>Original (GDS, 2016 to 2018):</strong> 142 test cases and the results for 13 tools, found by people running each tool by hand. These are kept unchanged.</li>
-        <li><strong>Added (2026-09-29):</strong> 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria up to level AAA (30 at level A or AA, 22 at level AAA), and a retest of all 194 test cases with axe-core 4.13.0 and pa11y 10.0.0.</li>
+        <li><strong>Added (2026-10-01):</strong> 52 test cases for WCAG 2.0, 2.1 and 2.2 success criteria up to level AAA (30 at level A or AA, 22 at level AAA), and a retest of all 194 test cases with axe-core 4.13.0 and pa11y 10.0.0.</li>
         <li><strong>Also changed:</strong> the build tools were replaced so the project can be built and run safely today.</li>
         <li><strong>How:</strong> the work was done by one maintainer from AIL together with the AI coding assistant Claude Code in a single working day.</li>
       </ul>
@@ -100,7 +100,7 @@
       </table>
 
       <p>
-        The assistant was Claude Code with the model Claude Opus 5.5 (Anthropic), used on 2026-09-29. The instructions given and the decisions made are recorded in the <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/docs/process-log.md">process log</a>. The log is a summary, not a full transcript, but it includes every instruction AIL gave, word for word.
+        The assistant was Claude Code with the model Claude Opus 5.5 (Anthropic), used on 2026-10-01. The instructions given and the decisions made are recorded in the <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/docs/process-log.md">process log</a>. The log is a summary, not a full transcript, but it includes every instruction AIL gave, word for word.
       </p>
 
       <h2 id="safety">Making the project safe to build</h2>
@@ -132,11 +132,11 @@
       <table>
         <caption class="visuallyhidden">Environment and settings for the retest</caption>
         <tbody>
-          <tr><th scope="row">Date</th><td>2026-09-29</td></tr>
+          <tr><th scope="row">Date</th><td>2026-10-01</td></tr>
           <tr><th scope="row">System</th><td>Linux, Node.js 24.21.0, Google Chrome 153.0.8010.36 (headless, default viewport 800 by 600)</td></tr>
           <tr><th scope="row">axe</th><td>axe-core 4.13.0 via @axe-core/puppeteer, tags <code>wcag2a</code>, <code>wcag2aa</code>, <code>wcag2aaa</code>, <code>wcag21a</code>, <code>wcag21aa</code>, <code>wcag22aa</code>, <code>best-practice</code></td></tr>
           <tr><th scope="row">pa11y</th><td>pa11y 10.0.0 with the HTML_CodeSniffer 2.6.0 runner, standard <code>WCAG2AAA</code>, warnings and notices included</td></tr>
-          <tr><th scope="row">Pages</th><td><code>tests/*.html</code> opened as <code>file://</code> URLs, after the page load event</td></tr>
+          <tr><th scope="row">Pages</th><td><code>tests/*.html</code> opened as <code>file://</code> URLs, after the page load event. When a test case is only a link to a page in <code>example-pages/</code>, the linked page or pages are tested instead.</td></tr>
           <tr><th scope="row">Script</th><td><a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/scripts/retest.mjs"><code>scripts/retest.mjs</code></a></td></tr>
         </tbody>
       </table>
@@ -144,7 +144,7 @@
       <h3>From findings to results</h3>
 
       <ol class="list list-number">
-        <li>An empty test page, <code>tests/_baseline.html</code>, is checked first. Any finding that also appears on it comes from the page template and is removed from every test page.</li>
+        <li>An empty test page, <code>tests/_baseline.html</code>, is checked first. Any finding that also appears on it comes from the page template and is removed from every test page. The example pages have their own structure, so for them any rule that fires on <code>example-pages/_baseline.html</code> is removed. That page has the same structure as the example pages, without a barrier.</li>
         <li>axe: any violation gives &ldquo;issue found&rdquo;. Otherwise, any incomplete result (&ldquo;needs review&rdquo;) gives &ldquo;user to check&rdquo;. Otherwise the result is &ldquo;not found&rdquo;.</li>
         <li>pa11y: any error gives &ldquo;issue found&rdquo;. Otherwise, any warning gives &ldquo;user to check&rdquo;, in the same way that GDS counted HTML_CodeSniffer warnings as manual checks from April 2018. Notices are ignored because they appear on almost every element.</li>
         <li>The percentages are calculated in the same way as the original: the share of test cases with &ldquo;issue found&rdquo; or &ldquo;warning only&rdquo;, and with &ldquo;user to check&rdquo; added.</li>
@@ -163,7 +163,7 @@ npm run retest -- --force</code></pre>
 
       <p>
         <code>npm ci</code> installs the exact package versions in <code>package-lock.json</code>. Set <code>CHROME_PATH</code> if Chrome is not at <code>/usr/bin/google-chrome</code>. The script writes proposals to <code>retest.json</code> and raw findings to <code>results/&lt;date&gt;/</code>.
-        The raw findings from 2026-09-29 are in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/tree/gh-pages/results/2026-09-29"><code>results/2026-09-29/</code></a>: every finding per test page for each tool, and a summary table for review. Commit <code>e6c68ca</code> contains the test pages, the script and the results as published. A different version of Chrome may give slightly different results.
+        The raw findings from 2026-10-01 are in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/tree/gh-pages/results/2026-10-01"><code>results/2026-10-01/</code></a>: every finding per test page for each tool, and a summary table for review. Commit <code>e6c68ca</code> contains the test pages, the script and the results as published. A different version of Chrome may give slightly different results.
       </p>
 
       <h2 id="differences">How this differs from the original method</h2>
