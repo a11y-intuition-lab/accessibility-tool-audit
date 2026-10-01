@@ -156,14 +156,14 @@
 
 <pre><code>git clone https://github.com/a11y-intuition-lab/accessibility-tool-audit.git
 cd accessibility-tool-audit
-git checkout e6c68ca
+git checkout 02b1e1d
 npm ci
 npm run build
 npm run retest -- --force</code></pre>
 
       <p>
         <code>npm ci</code> installs the exact package versions in <code>package-lock.json</code>. Set <code>CHROME_PATH</code> if Chrome is not at <code>/usr/bin/google-chrome</code>. The script writes proposals to <code>retest.json</code> and raw findings to <code>results/&lt;date&gt;/</code>.
-        The raw findings from 2026-10-01 are in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/tree/gh-pages/results/2026-10-01"><code>results/2026-10-01/</code></a>: every finding per test page for each tool, and a summary table for review. Commit <code>e6c68ca</code> contains the test pages, the script and the results as published. A different version of Chrome may give slightly different results.
+        The raw findings from 2026-10-01 are in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/tree/gh-pages/results/2026-10-01"><code>results/2026-10-01/</code></a>: every finding per test page for each tool, and a summary table for review. Commit <code>02b1e1d</code> contains the test pages, the scripts and the results as published, including the AI check. A different version of Chrome may give slightly different results.
       </p>
 
       <h2 id="differences">How this differs from the original method</h2>
@@ -290,7 +290,7 @@ npm run ai-check -- --force</code></pre>
 
       <ul class="list list-bullet">
         <li>Government Digital Service (2016 to 2018). <em>Accessibility tool audit.</em> <a href="https://alphagov.github.io/accessibility-tool-audit/">https://alphagov.github.io/accessibility-tool-audit/</a></li>
-        <li>A11y Intuition Lab (2026). <em>Accessibility tool audit: added WCAG 2.2 test cases and retest with axe-core and pa11y</em> (commit e6c68ca). <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit">https://github.com/a11y-intuition-lab/accessibility-tool-audit</a></li>
+        <li>A11y Intuition Lab (2026). <em>Accessibility tool audit: added WCAG 2.2 test cases, retest with axe-core and pa11y, and AI check</em> (commit 02b1e1d). <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit">https://github.com/a11y-intuition-lab/accessibility-tool-audit</a></li>
       </ul>
 
       <p>
