@@ -14,7 +14,10 @@
 
   <div class="grid-row">
     <div class="column-two-thirds intro-summary">
-      <h1>AI test procedures for what axe and pa11y miss <span class="new-tag">Not by GDS</span></h1>
+      <h1>AI test procedures for what axe and pa11y miss <span class="new-tag">Not by GDS</span> <span class="new-tag preliminary-tag">Preliminary</span></h1>
+
+      {% set ai = analysis.retest.ai %}
+      {% if ai %}{% include "ai-preliminary.html" %}{% endif %}
 
       <p>
         These are the test procedures {{ copyInfo.org.name }} (AIL) wrote for the barriers that axe-core and pa11y do not find in the retest. Each procedure is written so that an AI model can follow it, and is adapted from a test in the manual checklist of sa11y, an internal tool that is not public. The procedures here are complete on their own and do not need sa11y. The procedures are in <a href="{{ copyInfo.repo }}/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>. How they were run and what they found is described on the <a href="method.html#ai-check">method page</a>.

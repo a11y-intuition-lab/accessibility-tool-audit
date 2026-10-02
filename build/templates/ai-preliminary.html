@@ -1,0 +1,6 @@
+{# Shown wherever the AI check results appear. Needs `ai` (analysis.retest.ai). #}
+<div class="ai-preliminary">
+  <p>
+    <strong>Preliminary.</strong> The AI check is an early experiment, and AIL does not yet trust the method. The model is given screenshots, but most of its findings rest on the HTML, the accessibility tree and values the evidence script measured, not on how the page looks: {{ ai.findings.image }} of {{ ai.findings.total }} findings refer to an image. Barriers that can only be seen, and markup errors that do not show on screen, may be judged wrongly. Treat the AI results as indications, not as measurements. <a href="{{ copyInfo.methodPage }}#limitations">Read the limitations</a>.
+  </p>
+</div>

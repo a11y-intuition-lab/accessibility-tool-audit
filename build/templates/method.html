@@ -172,6 +172,8 @@ npm run retest -- --force</code></pre>
       {% if ai %}
       <h2 id="ai-check">How the AI check was run</h2>
 
+      {% include "ai-preliminary.html" %}
+
       <p>
         The retest showed which test cases neither axe-core nor pa11y finds. AIL asked whether it is possible to describe how to test for these barriers so precisely that an AI can do it. The result is {{ ai.checks }} <a href="ai-checks.html">test procedures</a> in <a href="{{ copyInfo.repo }}/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>, adapted from the manual checklist in sa11y, an internal tool that is not public. Every test case that the two tools do not find is covered by a procedure. The build fails if one is not.
       </p>
@@ -254,6 +256,7 @@ npm run ai-check -- --force</code></pre>
         {% if analysis.retest.ai %}
         <li>The same AI session wrote the added test pages, the AI test procedures, the evidence script, the control pages and the checker, and the AI check uses a model from the same family. The procedures were written knowing which test cases they should find. The AI check is not an independent measurement of what AI can do on real websites.</li>
         <li>The test pages are small and each has one intended barrier. Real pages are larger and have many barriers, and the evidence for them would not fit in one request.</li>
+        <li>The AI check is preliminary. The model is given screenshots, but only {{ analysis.retest.ai.findings.image }} of its {{ analysis.retest.ai.findings.total }} findings refer to one. The others rest on the HTML, the accessibility tree and values the evidence script measured, such as line height, characters per line and border contrast. The model judges these values, not how the page looks. The images are also sent after all the text, and screenshots are cut off at 1600 pixels high. Barriers that can only be seen, and markup errors that do not show on screen, may therefore be judged wrongly.</li>
         <li>The findings of the AI check have not all been checked by hand. Each has a reason and the evidence it relies on in <code>results/{{ analysis.retest.ai.date }}/ai-summary.md</code>, so they can be.</li>
         {% endif %}
       </ul>

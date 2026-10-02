@@ -264,6 +264,11 @@ function analyseAi(retest, sets){
     };
   };
 
+  // Which findings rest on an image rather than on the HTML, the
+  // accessibility tree or values the evidence script measured
+  var findings = _.flatMap(_.values(raw.cases), c => c.findings || []);
+  var usesImage = f => /image|screenshot|tab stop|grayscale|zoom-320|text-200|text-spacing|orientation/i.test(f.evidence);
+
   var controls = _.values(raw.controls);
   var controlCount = r => controls.filter(c => c.result === r).length;
 
@@ -276,6 +281,7 @@ function analyseAi(retest, sets){
     missed: missedScore(missed),
     missed_not_in_text: missedScore(missedNotInText),
     described_in_text: describedInText.length,
+    findings: { total: findings.length, image: findings.filter(usesImage).length },
     review: review ? { method: review.method, counts: _.countBy(_.values(review.cases), 'match') } : null,
     controls: {
       tested: controls.length,

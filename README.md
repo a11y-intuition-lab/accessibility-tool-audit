@@ -74,6 +74,8 @@ A finding on a page does not prove the tool found the intended barrier. Check `r
 
 ## Checking with AI
 
+The AI check is preliminary. The model gets screenshots, but most of its findings rest on the HTML, the accessibility tree and values the evidence script measured, not on how the page looks. See the limitations on the method page.
+
 ```
 npm run ai-check
 ```

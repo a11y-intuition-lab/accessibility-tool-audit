@@ -115,7 +115,7 @@
       <ul class="list list-bullet">
         <li><strong>Original audit</strong>: the results GDS published in 2017 and updated until {{ changes.last_updated }}. These have not been changed.</li>
         <li class="retest-legend"><strong>Retest</strong>: results from running {% for key, tool in analysis.retest.tools %}{{ tool.name }} {{ tool.version }}{% if tool.runner %} ({{ tool.runner }}){% endif %}{% if not loop.last %} and {% endif %}{% endfor %} on {{ analysis.retest.date }}. This was not carried out by GDS.</li>
-        {% if aiResults %}<li class="retest-legend"><strong>AI check</strong>: results from the <a href="ai-checks.html">AI test procedures</a> run with {{ retest.ai.model }} on {{ retest.ai.date }}. &ldquo;Not the intended barrier&rdquo; means the AI reported a barrier, but not from the procedure written for that test case. This was not carried out by GDS.</li>{% endif %}
+        {% if aiResults %}<li class="retest-legend"><strong>AI check</strong>: results from the <a href="ai-checks.html">AI test procedures</a> run with {{ retest.ai.model }} on {{ retest.ai.date }}. &ldquo;Not the intended barrier&rdquo; means the AI reported a barrier, but not from the procedure written for that test case. These results are preliminary, see <a href="{{ copyInfo.methodPage }}#limitations">the limitations</a>. This was not carried out by GDS.</li>{% endif %}
       </ul>
       <p>Test cases added after the original audit are marked with the WCAG success criterion they fail. They were not part of the original audit, so only the retest has results for them.</p>
     </div>

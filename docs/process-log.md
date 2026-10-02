@@ -267,6 +267,16 @@ Of the 119 test cases neither tool finds, the AI check found 111 (93%), and 77 o
 
 These numbers are much higher than the tools, but they are not an independent measurement. The same session wrote the test pages, the procedures, the evidence script, the control pages and the checker, and the procedures were written knowing which test cases they should find. The test pages are small and have one barrier each. The method page says this.
 
+## 14. Marking the AI check as preliminary (2 October 2026)
+
+> se over ai testene her. jeg tror vi trenger å legge til en disclaimer om at dette er preliminary for jeg stoler ikke helt på metoden vi har nå. virker ikke som aien i oppsettet vi har nå sjekker hvordan ting ser ut bare leser markup og det har svakheter.
+
+(Translation: look over the AI tests. I think we need to add a disclaimer that this is preliminary, because I do not fully trust the method we have now. The AI in the current setup does not seem to check how things look, it only reads the markup, and that has weaknesses.)
+
+The assistant checked the setup. The model is given screenshots: `scripts/ai-evidence.mjs` sends eight or more images per page. But of the 314 findings in `results/2026-10-01/ai.json`, only 61 refer to an image. 129 refer to the HTML, 41 to the accessibility tree and 34 to computed styles. Visual properties such as line height, characters per line and border contrast are measured by the script and given to the model as numbers. The images come after all the text evidence, and screenshots are cut off at 1600 pixels high.
+
+A notice that the AI check is preliminary was added to the home page, the procedures page and the method page, with a note in the results legend and a new point under limitations. The counts are worked out from `ai.json` when the site is built. The method itself was not changed.
+
 ## Open
 
 - The retest proposals have not all been checked by hand. See `results/2026-09-29/summary.md`.

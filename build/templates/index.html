@@ -163,6 +163,8 @@
       {% if ai %}
       <h3 id="ai-check">With an AI check</h3>
 
+      {% include "ai-preliminary.html" %}
+
       <p>
         For the test cases neither tool finds, AIL wrote <a href="ai-checks.html">{{ ai.checks }} test procedures</a> an AI model can follow, based on the manual checklist in sa11y, an internal tool. A script collects evidence from each page, such as the HTML, a screenshot, the Tab order and what happens on hover, zoom and Escape, and {{ ai.model }} judges it against the procedures. The model is not told which test case it is looking at.
       </p>
