@@ -3,6 +3,10 @@
   "changelog": [
     {
       "date": "2 October 2026",
+      "text": "The results table now shows 5 of the 13 original tools, so it is easier to read. The results for all tools are still in tests.json."
+    },
+    {
+      "date": "2 October 2026",
       "text": "Marked the AI check as preliminary. Most of its findings rest on the markup and on values the script measured, not on how the page looks.",
       "link": "method.html#limitations"
     },

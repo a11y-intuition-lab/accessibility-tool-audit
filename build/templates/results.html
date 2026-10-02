@@ -117,6 +117,8 @@
         <li class="retest-legend"><strong>Retest</strong>: results from running {% for key, tool in analysis.retest.tools %}{{ tool.name }} {{ tool.version }}{% if tool.runner %} ({{ tool.runner }}){% endif %}{% if not loop.last %} and {% endif %}{% endfor %} on {{ analysis.retest.date }}. This was not carried out by GDS.</li>
         {% if aiResults %}<li class="retest-legend"><strong>AI check</strong>: results from the <a href="ai-checks.html">AI test procedures</a> run with {{ retest.ai.model }} on {{ retest.ai.date }}. &ldquo;Not the intended barrier&rdquo; means the AI reported a barrier, but not from the procedure written for that test case. These results are preliminary, see <a href="{{ copyInfo.methodPage }}#limitations">the limitations</a>. This was not carried out by GDS.</li>{% endif %}
       </ul>
+      <p>To keep the table readable, it shows 5 of the {{ analysis.counts | length }} tools from the original audit: Google Accessibility Developer Tools, WAVE, aXe, AChecker and Siteimprove. The results for all of them are in <a href="{{ copyInfo.repo }}/blob/gh-pages/tests.json"><code>tests.json</code></a>.</p>
+
       <p>Test cases added after the original audit are marked with the WCAG success criterion they fail. They were not part of the original audit, so only the retest has results for them.</p>
     </div>
   </div>
@@ -136,13 +138,13 @@
       Table of results
     </caption>
     <colgroup span="2"></colgroup>
-    <colgroup span="13" class="original-audit"></colgroup>
+    <colgroup span="5" class="original-audit"></colgroup>
     {% if retest %}<colgroup span="{{ retestTools | length }}" class="retest"></colgroup>{% endif %}
     {% if aiResults %}<colgroup span="1" class="retest"></colgroup>{% endif %}
     <thead>
       <tr>
         <td colspan="2"></td>
-        <th scope="colgroup" colspan="13">Original audit (GDS, 2017 to 2018)</th>
+        <th scope="colgroup" colspan="5">Original audit (GDS, 2017 to 2018)</th>
         {% if retest %}<th scope="colgroup" colspan="{{ retestTools | length }}" class="retest">Retest ({{ retest.date }})</th>{% endif %}
         {% if aiResults %}<th scope="colgroup" class="retest">AI check ({{ retest.ai.date }})</th>{% endif %}
       </tr>
@@ -152,30 +154,10 @@
         <th scope="col">
           <a href="https://github.com/GoogleChrome/accessibility-developer-tools">Google Accessi&shy;bility Developer Tools</a>
         </th>
-        <th scope="col"><a href="http://tenon.io">Tenon</a></th>
         <th scope="col"><a href="http://wave.webaim.org">WAVE</a></th>
-        <th scope="col"><a href="http://squizlabs.github.io/HTML_CodeSniffer/">HTML_&shy;Code&shy;Sniffer</a></th>
         <th scope="col"><a href="https://www.axe-core.org/">aXe</a></th>
-        <th scope="col"><a href="http://asqatasun.org/">Asqa&shy;tasun</a></th>
-        <th scope="col"><a href="http://www.powermapper.com/products/sortsite/">Sort&shy;Site</a></th>
-        <th scope="col">
-          <a href="http://checkers.eiii.eu/">
-            <abbr title="European Internet Inclusion Initiative">EIII</abbr>
-          </a>
-        </th>
         <th scope="col"><a href="http://achecker.ca/">AChecker</a></th>
-        <th scope="col">
-          <a href="https://validator.w3.org/nu/">
-            Nu Html Checker
-          </a>
-        </th>
         <th scope="col"><a href="https://siteimprove.com/">Site&shy;improve</a></th>
-        <th scope="col">
-          <a href="https://fae.disability.illinois.edu/">
-            <abbr title="Functional Accessibility Evaluator">FAE</abbr>
-          </a>
-        </th>
-        <th scope="col"><a href="https://www.aslint.org/">AS&shy;Lint</a></th>
         {% if retest %}
           {% for key, tool in retestTools %}
             <th scope="col" class="retest">
@@ -213,44 +195,20 @@
             <td class="{{ testobj.results.google }}">
               {{ rcopy[testobj.results.google] | capitalize }}
             </td>
-            <td class="{{ testobj.results.tenon }}">
-              {{ rcopy[testobj.results.tenon] | capitalize }}
-            </td>
             <td class="{{ testobj.results.wave }}">
               {{ rcopy[testobj.results.wave] | capitalize }}
-            </td>
-            <td class="{{ testobj.results.codesniffer }}">
-              {{ rcopy[testobj.results.codesniffer] | capitalize }}
             </td>
             <td class="{{ testobj.results.axe }}">
               {{ rcopy[testobj.results.axe] | capitalize }}
             </td>
-            <td class="{{ testobj.results.asqatasun }}">
-              {{ rcopy[testobj.results.asqatasun] | capitalize }}
-            </td>
-            <td class="{{ testobj.results.sortsite }}">
-              {{ rcopy[testobj.results.sortsite] | capitalize }}
-            </td>
-            <td class="{{ testobj.results.eiii }}">
-              {{ rcopy[testobj.results.eiii] | capitalize }}
-            </td>
             <td class="{{ testobj.results.achecker }}">
               {{ rcopy[testobj.results.achecker] | capitalize }}
-            </td>
-            <td class="{{ testobj.results.nu }}">
-              {{ rcopy[testobj.results.nu] | capitalize }}
             </td>
             <td class="{{ testobj.results.siteimprove }}">
               {{ rcopy[testobj.results.siteimprove] | capitalize }}
             </td>
-            <td class="{{ testobj.results.fae }}">
-              {{ rcopy[testobj.results.fae] | capitalize }}
-            </td>
-            <td class="{{ testobj.results.aslint }}">
-              {{ rcopy[testobj.results.aslint] | capitalize }}
-            </td>
             {% else %}
-            <td colspan="13" class="nottested">Not part of the original audit</td>
+            <td colspan="5" class="nottested">Not part of the original audit</td>
             {% endif %}
             {% if retest %}
               {% for key, tool in retestTools %}
