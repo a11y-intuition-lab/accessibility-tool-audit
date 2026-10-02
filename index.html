@@ -297,6 +297,14 @@
       
       <h3 id="ai-check">With an AI check</h3>
 
+      
+<div class="ai-preliminary">
+  <p>
+    <strong>Preliminary.</strong> The AI check is an early experiment, and AIL does not yet trust the method. The model is given screenshots, but most of its findings rest on the HTML, the accessibility tree and values the evidence script measured, not on how the page looks: 61 of 314 findings refer to an image. Barriers that can only be seen, and markup errors that do not show on screen, may be judged wrongly. Treat the AI results as indications, not as measurements. <a href="method.html#limitations">Read the limitations</a>.
+  </p>
+</div>
+
+
       <p>
         For the test cases neither tool finds, AIL wrote <a href="ai-checks.html">35 test procedures</a> an AI model can follow, based on the manual checklist in sa11y, an internal tool. A script collects evidence from each page, such as the HTML, a screenshot, the Tab order and what happens on hover, zoom and Escape, and Claude Opus 5.5 judges it against the procedures. The model is not told which test case it is looking at.
       </p>

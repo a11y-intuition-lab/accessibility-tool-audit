@@ -2637,6 +2637,20 @@ table.retest-results caption {
   border-left: 4px solid #1d70b8;
 }
 
+.ai-preliminary {
+  margin: 15px 0 20px;
+}
+.ai-preliminary p {
+  margin: 0;
+  padding: 10px 15px;
+  background-color: #fff2d3;
+  border-left: 5px solid #0b0c0c;
+}
+
+.new-tag.preliminary-tag {
+  background-color: #0b0c0c;
+}
+
 .new-tag {
   display: inline-block;
   margin-left: 0.3em;

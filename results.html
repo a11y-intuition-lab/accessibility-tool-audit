@@ -133,7 +133,7 @@
       <ul class="list list-bullet">
         <li><strong>Original audit</strong>: the results GDS published in 2017 and updated until 13 April 2018. These have not been changed.</li>
         <li class="retest-legend"><strong>Retest</strong>: results from running axe-core 4.13.0 and pa11y 10.0.0 (HTML_CodeSniffer 2.6.0) on 2026-10-01. This was not carried out by GDS.</li>
-        <li class="retest-legend"><strong>AI check</strong>: results from the <a href="ai-checks.html">AI test procedures</a> run with Claude Opus 5.5 on 2026-10-01. &ldquo;Not the intended barrier&rdquo; means the AI reported a barrier, but not from the procedure written for that test case. This was not carried out by GDS.</li>
+        <li class="retest-legend"><strong>AI check</strong>: results from the <a href="ai-checks.html">AI test procedures</a> run with Claude Opus 5.5 on 2026-10-01. &ldquo;Not the intended barrier&rdquo; means the AI reported a barrier, but not from the procedure written for that test case. These results are preliminary, see <a href="method.html#limitations">the limitations</a>. This was not carried out by GDS.</li>
       </ul>
       <p>Test cases added after the original audit are marked with the WCAG success criterion they fail. They were not part of the original audit, so only the retest has results for them.</p>
     </div>
@@ -12611,6 +12611,13 @@
   <h2 id="changelog">Changelog</h2>
 
   <ol class="summary-data">
+    
+      <li>
+        <time class="timestamp">2 October 2026</time>
+        
+          <a href="method.html#limitations">Marked the AI check as preliminary. Most of its findings rest on the markup and on values the script measured, not on how the page looks.</a>
+        
+      </li>
     
       <li>
         <time class="timestamp">1 October 2026</time>

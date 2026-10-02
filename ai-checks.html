@@ -40,7 +40,16 @@
 
   <div class="grid-row">
     <div class="column-two-thirds intro-summary">
-      <h1>AI test procedures for what axe and pa11y miss <span class="new-tag">Not by GDS</span></h1>
+      <h1>AI test procedures for what axe and pa11y miss <span class="new-tag">Not by GDS</span> <span class="new-tag preliminary-tag">Preliminary</span></h1>
+
+      
+      
+<div class="ai-preliminary">
+  <p>
+    <strong>Preliminary.</strong> The AI check is an early experiment, and AIL does not yet trust the method. The model is given screenshots, but most of its findings rest on the HTML, the accessibility tree and values the evidence script measured, not on how the page looks: 61 of 314 findings refer to an image. Barriers that can only be seen, and markup errors that do not show on screen, may be judged wrongly. Treat the AI results as indications, not as measurements. <a href="method.html#limitations">Read the limitations</a>.
+  </p>
+</div>
+
 
       <p>
         These are the test procedures A11y Intuition Lab (AIL) wrote for the barriers that axe-core and pa11y do not find in the retest. Each procedure is written so that an AI model can follow it, and is adapted from a test in the manual checklist of sa11y, an internal tool that is not public. The procedures here are complete on their own and do not need sa11y. The procedures are in <a href="https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/ai-checks.json"><code>ai-checks.json</code></a>. How they were run and what they found is described on the <a href="method.html#ai-check">method page</a>.

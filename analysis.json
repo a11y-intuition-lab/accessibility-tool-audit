@@ -709,6 +709,10 @@
         "confirmed_percent": 91
       },
       "described_in_text": 34,
+      "findings": {
+        "total": 314,
+        "image": 61
+      },
       "review": {
         "method": "Each case was read manually: the test name and example HTML in tests.json define the intended barrier, and every fail finding (any check) was compared to it; yes means a fail reason names the right element and problem, partly means the right element with the problem missed or only implied, no means no fail finding describes it.",
         "counts": {
