@@ -57,3 +57,38 @@ from Actions. Test runs use the built files in `_site/`, served over local HTTP.
 **Reason:** Test-case pages and overview pages are generated from one file per test case. Testing the built output means
 testing exactly what is published. `npm run verify` checks that GOV.UK fixtures stay byte-identical to `govuk-final`.
 **Supersedes:** the "committed generated files" approach of the upstream project.
+
+## D-010 — Defective GOV.UK fixtures get corrected AIL versions alongside (2026-10-10)
+
+**Decision:** GOV.UK fixtures that do not show what their title says stay unchanged. AIL adds a corrected test case next
+to each, with `origin: ail-2026` and `corrects: <govuk id>`. AIL fixture styles live in `assets/ail/tests-ail.css`, never
+in the frozen `tests.css`.
+**Reason:** Both versions stay measurable, results remain comparable with 2017, and provenance stays clean.
+
+## D-011 — Borderline mappings are queued for human review (2026-10-10)
+
+**Decision:** Mappings the protocol calls borderline get `"review": "pending"`. `npm run wcag:review` lists them. Until
+reviewed, they count as `related`, so coverage figures are conservative.
+
+## D-012 — 4.1.1-only test cases are kept as historical (2026-10-10)
+
+**Decision:** Test cases whose only failure is 4.1.1 Parsing (removed in WCAG 2.2) are kept and marked `"historical"`.
+**Reason:** They stay relevant for WCAG 2.0/2.1 and for comparing with the 2017 results, but they do not count towards
+WCAG 2.2 coverage.
+
+## D-013 — New categories: Pointer and Motion, Timing, Authentication (2026-10-10)
+
+**Decision:** Accepted for test cases that do not fit the 19 GOV.UK categories (WCAG 2.1/2.2 criteria such as 2.5.x,
+2.2.x and 3.3.8/3.3.9).
+
+## D-014 — Flashing test cases are opt-in and warned (2026-10-10)
+
+**Decision:** A flashing test case (2.3.1/2.3.2) uses a local animation that only starts after an explicit click, with a
+clear photosensitivity warning before it and a stop control. It is never on the combined test-cases page in an active state.
+**Reason:** Flashing content can trigger seizures, including in the people running the tests.
+
+## D-015 — Media fixtures must be openly licensed and stored locally (2026-10-10)
+
+**Decision:** Video and audio for test cases are stored in the repository, under CC0, public domain or another licence
+that allows republication. Source and licence are recorded next to each file.
+**Reason:** Remote media disappears (several GOV.UK multimedia sources may no longer load), and everything here is published.

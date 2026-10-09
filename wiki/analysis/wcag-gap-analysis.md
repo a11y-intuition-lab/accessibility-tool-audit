@@ -35,15 +35,24 @@ Five test cases fail only 4.1.1 Parsing, so they show **no failure under WCAG 2.
 
 ### Fixture issues found while mapping
 
-| Test case | Issue |
-|---|---|
-| `colour-and-contrast-large-text-…-31-so-does-not-meet-aa` | "Large" text is 20 px normal weight, which is not large text in WCAG; it fails 4.5:1 (3.41:1) |
-| `colour-and-contrast-small-text-…-71-so-does-not-meet-aaa` | 2.86:1 also fails AA, not only AAA |
-| `colour-and-contrast-large-text-…-45-1-so-does-not-meet-aaa` | Uses the AA class (`low-contrast-large-aa`), so it is identical to the AA case |
-| `colour-and-contrast-focus-not-visible` | The button does get a thin (1 px) focus outline, so it fails 2.4.13 rather than 2.4.7 |
-| `tables-table-with-inconsistent-numbers-of-columns-in-rows` | Every row spans 10 columns; the grid is consistent |
-| `typography-blink-element-found` | `<blink>` no longer blinks in any browser |
-| Multimedia cases | Remote video, audio and YouTube sources may no longer load |
+The GOV.UK fixtures are frozen (D-006). Where a fixture does not show what its title says, AIL adds a corrected test
+case next to it (D-010), with `corrects:` pointing to the original.
+
+| Test case | Issue | Corrected by |
+|---|---|---|
+| `colour-and-contrast-large-text-…-31-so-does-not-meet-aa` | "Large" text is 20 px normal weight, which is not large text in WCAG; it fails 4.5:1 (3.41:1) | `colour-and-contrast-large-text-below-31-ail` |
+| `colour-and-contrast-small-text-…-71-so-does-not-meet-aaa` | 2.86:1 also fails AA, not only AAA | `colour-and-contrast-small-text-below-71-aaa-ail` |
+| `colour-and-contrast-large-text-…-45-1-so-does-not-meet-aaa` | Uses the AA class (`low-contrast-large-aa`), so it is identical to the AA case | `colour-and-contrast-large-text-below-451-aaa-ail` |
+| `colour-and-contrast-focus-not-visible` | The button does get a thin (1 px) focus outline, so it fails 2.4.13 rather than 2.4.7 | Not needed: 2.4.7 is covered by `keyboard-access-keyboard-focus-is-not-indicated-visually` |
+| `tables-table-with-inconsistent-numbers-of-columns-in-rows` | Every row spans 10 columns; the grid is consistent | `tables-table-rows-have-different-numbers-of-cells-ail` |
+| `typography-blink-element-found` | `<blink>` no longer blinks in any browser | `typography-blinking-text-cannot-be-paused-ail` |
+| Multimedia cases | Remote video, audio and YouTube sources may no longer load | Pending: needs openly licensed local media (D-015) |
+
+### Human review and historical cases
+
+- Mappings marked `"review": "pending"` are borderline and await human review (D-011). List them with
+  `npm run wcag:review`.
+- Five test cases fail only 4.1.1 Parsing, which is removed in WCAG 2.2. They are kept and marked `"historical"` (D-012).
 
 ## Coverage by version and level
 
@@ -198,7 +207,11 @@ High priority:
 ```sh
 node scripts/wcag/fetch-wcag.mjs --offline   # re-normalise data/wcag/raw/wcag.json
 node scripts/wcag/coverage.mjs               # recompute data/gap-analysis/coverage.json
+node scripts/wcag/review-queue.mjs           # list mappings awaiting human review
 ```
+
+Coverage is computed from the GOV.UK baseline (`test-case-wcag.json`) only. AIL test cases are mapped in
+`data/mappings/test-case-wcag-ail.json`.
 
 Edit `data/mappings/test-case-wcag.json` (or `candidates.json`) by hand to change a mapping, then rerun
 `coverage.mjs` and update the tables on this page from its output.

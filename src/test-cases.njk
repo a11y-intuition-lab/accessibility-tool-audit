@@ -22,7 +22,8 @@ fixtures: true
   <h2 id="{{ group.name | replace(' ', '') | lower }}">{{ group.name }}</h2>
   {%- for item in group.items %}
   <h3 id="{{ item.fileSlug }}"><a href="{{ ('/tests/' + item.fileSlug + '.html') | url }}">{{ item.data.title }}</a></h3>
-  <p class="site-origin">Origin: {{ site.origins[item.data.origin] }}</p>
+  <p class="site-origin">Origin: {{ site.origins[item.data.origin] }}
+    {%- if item.data.corrects %}. Corrected version of <a href="#{{ item.data.corrects }}">a GOV.UK test case</a>{% endif %}</p>
   <div class="example">
     {{ item.templateContent | combinedExample | safe }}
   </div>

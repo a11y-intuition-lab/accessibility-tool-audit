@@ -1,0 +1,32 @@
+/* Fixture styles for A11y Intuition Lab (ail-2026) test cases.
+   Part of the experiment: do not change without a log entry (see AGENTS.md).
+   Contrast ratios are against the white page background. */
+
+/* Large text = at least 18pt (24px) regular. 2.52:1, fails 1.4.3 (needs 3:1 for large text). */
+.ail-low-contrast-large-aa {
+  font-size: 24px;
+  font-weight: normal;
+  color: #a3a3a3;
+}
+
+/* Large text, 3.41:1: passes 1.4.3 (3:1), fails 1.4.6 (needs 4.5:1 for large text). */
+.ail-low-contrast-large-aaa {
+  font-size: 24px;
+  font-weight: normal;
+  color: #878c8c;
+}
+
+/* Normal-size text, 5.74:1: passes 1.4.3 (4.5:1), fails 1.4.6 (needs 7:1). */
+.ail-low-contrast-small-aaa {
+  font-size: 16px;
+  color: #666666;
+}
+
+/* Text that blinks indefinitely, with no way to pause, stop or hide it. */
+.ail-blink {
+  animation: ail-blink 1s step-start infinite;
+}
+
+@keyframes ail-blink {
+  50% { visibility: hidden; }
+}

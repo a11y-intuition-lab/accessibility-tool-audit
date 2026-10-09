@@ -36,6 +36,13 @@ Planned and ongoing work (see [decisions](decisions.md) and [log](log.md)):
 4. Retest all test cases with axe-core and pa11y (HTML_CodeSniffer runner), with pinned versions and stored raw output.
 5. Document the method so others can reproduce the retest.
 
+## AIL test cases
+
+AIL test cases have `origin: ail-2026` in their front matter, use the `fixture-ail.njk` layout (title suffix
+"A11y Intuition Lab") and load `assets/ail/tests-ail.css` in addition to the GOV.UK fixture assets. Corrected versions of
+GOV.UK test cases carry `corrects: <govuk id>` (D-010). Their WCAG mappings are in
+`data/mappings/test-case-wcag-ail.json`.
+
 ## Changes to upstream material
 
 Every change to something that came from GOV.UK is listed here, newest last.
@@ -48,6 +55,8 @@ Every change to something that came from GOV.UK is listed here, newest last.
 | 2026-10-10 | Replaced the gulp + Sass + Nunjucks build with Eleventy 3 | The old toolchain does not run on current Node; fixture output is unchanged |
 | 2026-10-10 | Removed GOV.UK branding from the site (crest, Open Government Licence footer, site titles, stylesheet). Test-case pages keep their original `<title>` | We must not look like GOV.UK |
 | 2026-10-10 | Added the line `Copyright (c) 2026 A11y Intuition Lab` to `LICENSE`, below the Crown Copyright line | Credit for AIL's additions; the original line and text are unchanged |
+
+| 2026-10-10 | Added `review` and `historical` annotations to the AI-proposed GOV.UK mapping (`data/mappings/test-case-wcag.json`) | D-011, D-012. This is AIL data about GOV.UK test cases; the test cases themselves are unchanged |
 
 ## Removed upstream material
 

@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "origin": "ail-2026",
+    "status": "ai-proposed",
+    "reviewed": false,
+    "statusNote": "AI-drafted, not human-reviewed",
+    "method": "wiki/method/wcag-mapping.md",
+    "model": "claude-opus-5-5",
+    "date": "2026-10-10",
+    "input": "AIL test cases in src/test-cases/ with origin ail-2026",
+    "successCriteria": "data/wcag/success-criteria.json",
+    "note": "Kept separate from test-case-wcag.json so the GOV.UK baseline coverage is unaffected."
+  },
+  "mappings": {
+    "colour-and-contrast-large-text-below-31-ail": {
+      "category": "Colour and Contrast",
+      "title": "Large text has a contrast ratio below 3:1 (AA)",
+      "corrects": "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa",
+      "wcag": [
+        { "sc": "1.4.3", "relation": "fails", "technique": "F83", "rationale": "24px regular text (large text) at 2.52:1, below the 3:1 minimum for large text." },
+        { "sc": "1.4.6", "relation": "fails", "technique": "F83", "rationale": "Below the 4.5:1 enhanced minimum for large text." }
+      ]
+    },
+    "colour-and-contrast-large-text-below-451-aaa-ail": {
+      "category": "Colour and Contrast",
+      "title": "Large text has a contrast ratio below 4.5:1 but at least 3:1 (AAA only)",
+      "corrects": "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa",
+      "wcag": [
+        { "sc": "1.4.6", "relation": "fails", "technique": "F83", "rationale": "24px regular text at 3.41:1: passes 1.4.3 (3:1) but fails the 4.5:1 enhanced minimum for large text." }
+      ]
+    },
+    "colour-and-contrast-small-text-below-71-aaa-ail": {
+      "category": "Colour and Contrast",
+      "title": "Small text has a contrast ratio below 7:1 but at least 4.5:1 (AAA only)",
+      "corrects": "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa",
+      "wcag": [
+        { "sc": "1.4.6", "relation": "fails", "technique": "F83", "rationale": "16px text at 5.74:1: passes 1.4.3 (4.5:1) but fails the 7:1 enhanced minimum." }
+      ]
+    },
+    "typography-blinking-text-cannot-be-paused-ail": {
+      "category": "Typography",
+      "title": "Blinking text cannot be paused, stopped or hidden",
+      "corrects": "typography-blink-element-found",
+      "wcag": [
+        { "sc": "2.2.2", "relation": "fails", "technique": "F47", "technique_obsolete": true, "rationale": "Text blinks indefinitely via CSS animation with no mechanism to pause, stop or hide it; F47 describes the same failure for the blink element." }
+      ]
+    },
+    "tables-table-rows-have-different-numbers-of-cells-ail": {
+      "category": "Tables",
+      "title": "Table rows have different numbers of cells",
+      "corrects": "tables-table-with-inconsistent-numbers-of-columns-in-rows",
+      "wcag": [
+        { "sc": "1.3.1", "relation": "related", "rationale": "Rows with 3, 2 and 5 cells under 4 column headers make header-cell relationships ambiguous for assistive technology; HTML table model error rather than a listed WCAG failure technique (borderline)." }
+      ],
+      "review": "pending"
+    }
+  }
+}
