@@ -34,9 +34,20 @@ They apply to everyone who clones the repository, because they live in the repos
 - Default `permissions: contents: read`; only the deploy job gets `pages: write` and `id-token: write`.
 - `actions/checkout` runs with `persist-credentials: false`.
 - No `pull_request_target`. Pull requests build and verify, but never deploy.
-- CI runs `npm ci`, `npm audit signatures` (registry signatures and provenance), `npm audit`, build, and fixture verification.
+- CI runs `npm ci`, `npm audit signatures` (registry signatures and provenance; blocking), `npm audit` (reported as a
+  warning, not blocking — see below), build, and fixture verification.
 
 ## Dependabot
 
 `.github/dependabot.yml` checks npm and GitHub Actions weekly, with `cooldown: default-days: 7` so updates follow the
 same 7-day rule.
+
+## Known advisories
+
+`npm audit` is not blocking in CI, because an advisory without a fix would stop every deploy. Each known advisory is
+assessed here instead. Review this list when dependencies change.
+
+| Date | Advisory | Path | Assessment |
+|---|---|---|---|
+| 2026-10-10 | [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) `braces` stack exhaustion (high), no fixed version | `@11ty/eleventy` → `chokidar` → `braces` | Only reachable with attacker-controlled glob patterns; ours are fixed in our own config. Build-time only, nothing ships to the site. Accepted. |
+| 2026-10-10 | [GHSA-hp3w-g68c-fv3c](https://github.com/advisories/GHSA-hp3w-g68c-fv3c) `sprintf-js` unbounded precision (moderate), no fixed version | `@11ty/eleventy` → `gray-matter` → `js-yaml` → `argparse` → `sprintf-js` | Build-time only, inputs are our own templates. Accepted. |

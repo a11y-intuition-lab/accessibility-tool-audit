@@ -23,7 +23,7 @@ Every change to upstream material is recorded in [`wiki/provenance.md`](wiki/pro
 
 ## Build
 
-Requires Node.js 22 or later and npm 11.15 or later (for the `min-release-age` setting in `.npmrc`).
+Requires Node.js 22 or later (CI and development use Node 24) and npm 11.15 or later (for the `min-release-age` setting in `.npmrc`).
 
 ```
 npm ci
