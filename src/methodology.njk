@@ -61,7 +61,7 @@ permalink: methodology.html
   <li><strong>pa11y</strong> with its HTML_CodeSniffer runner, using the WCAG2AAA standard and including warnings and notices, to match the 2017 HTML_CodeSniffer settings (D-016).</li>
 </ul>
 <p>Exact versions of the tools, the browser, Node.js and the operating system are recorded with every run. Dependencies are installed under strict <a href="{{ wiki }}method/supply-chain-security.md">supply-chain rules</a>, such as a seven-day minimum release age and no install scripts (D-008).</p>
-<p><em>Status: the retest harness is being built. This section will list the pinned versions once the first run is published.</em></p>
+<p>Pinned versions: axe-core 4.13.0, pa11y 10.0.0 with HTML_CodeSniffer 2.6.0, Playwright 1.63.0 driving Chromium 153.0.8010.12 (the same browser runs both tools), Node.js 24. Both tools use a 1280&times;1024 viewport and wait for the page to load. axe-core runs every rule enabled by default plus the experimental rules, and reports violations and "needs review" results in full. Remote resources are not blocked, so the runs need internet access. The exact configuration is stored in <code>environment.json</code> in each run; see the <a href="{{ wiki }}method/retest-procedure.md">retest procedure</a>.</p>
 
 <h2 id="procedure">5. Test procedure</h2>
 <ol>
@@ -122,7 +122,8 @@ permalink: methodology.html
   <li>Install with Node.js 24 and npm 11.15 or later: <code>npm ci</code>.</li>
   <li>Build and verify: <code>npm run build</code>, then <code>npm run verify</code>.</li>
   <li>Recompute WCAG coverage: <code>npm run wcag:coverage</code>.</li>
-  <li>Run the retest and classification. <em>The commands will be documented here when the harness is published.</em></li>
+  <li>Install the browser and run the retest: <code>npm run retest:browsers</code>, then <code>npm run retest</code>. Raw output and the environment record are written to <code>data/results/ail-2026/runs/&lt;runId&gt;/</code>. Details are in the <a href="{{ wiki }}method/retest-procedure.md">retest procedure</a>.</li>
+  <li>Classify the raw output. <em>The classification command will be documented here when it is published.</em></li>
 </ol>
 <p>Data lives in <a href="{{ tree }}data">data/</a>: WCAG source data, the mappings, the gap analysis, and results by origin (<code>govuk-2017</code>, <code>ail-2026</code>).</p>
 

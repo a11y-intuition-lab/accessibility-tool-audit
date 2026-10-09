@@ -15,9 +15,14 @@
     "verify": "node scripts/verify-fixtures.mjs",
     "wcag:fetch": "node scripts/wcag/fetch-wcag.mjs",
     "wcag:coverage": "node scripts/wcag/coverage.mjs",
-    "wcag:review": "node scripts/wcag/review-queue.mjs"
+    "wcag:review": "node scripts/wcag/review-queue.mjs",
+    "retest": "node scripts/retest/run.mjs",
+    "retest:browsers": "playwright-core install chromium"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.6"
+    "@11ty/eleventy": "3.1.6",
+    "axe-core": "4.13.0",
+    "pa11y": "10.0.0",
+    "playwright-core": "1.63.0"
   }
 }

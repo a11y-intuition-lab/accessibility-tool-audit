@@ -121,3 +121,17 @@ and compare with 2017; (2) add test cases for uncovered WCAG success criteria an
 (3) phase 2, later: AI-assisted testing on the same test cases, compared with the tools.
 **Supersedes:** D-017's two research questions. The split between AI as object of study (aim 3) and AI as research
 assistant still applies.
+
+## D-018 — Retest dependencies: axe-core, pa11y, playwright-core (2026-10-10)
+
+**Decision:** Three devDependencies, exact versions, all at least 7 days old when added: `axe-core` (the rule engine itself,
+injected as `axe.min.js`, so no wrapper package such as `@axe-core/playwright` is needed), `pa11y` (runs HTML_CodeSniffer, the
+historical counterpart of D-016; it brings `puppeteer` and `@pa11y/html_codesniffer` as transitive dependencies) and
+`playwright-core` (drives Chromium for axe-core and provides the explicit, version-pinned browser install, because install
+scripts are off; the full `playwright` package adds a test runner we do not need). pa11y is pointed at Playwright's
+Chromium through `executablePath`, so both tools run on one recorded browser. Versions and dates are in the run's
+`environment.json` and in [retest procedure](method/retest-procedure.md).
+**Reason:** D-003 requires both tools; D-008 requires few dependencies, pinned, with a reason for each.
+**Consequences:** `npm audit` reports no new advisories beyond those already assessed in
+[supply-chain security](method/supply-chain-security.md). The browser download is a separate step, `npm run retest:browsers`.
+

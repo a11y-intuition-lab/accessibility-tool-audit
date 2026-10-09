@@ -22,7 +22,7 @@ They apply to everyone who clones the repository, because they live in the repos
 
 ## Dependencies
 
-- Keep them few. The site build currently has one direct dependency: `@11ty/eleventy`.
+- Keep them few. Direct dependencies: `@11ty/eleventy` (site build) and, for the retest, `axe-core`, `pa11y` and `playwright-core` (D-018).
 - Every new dependency gets a reason in [decisions](../decisions.md).
 - Because install scripts are disabled, tools that download browsers on install (Playwright, Puppeteer) need an explicit,
   version-pinned browser install step. The browser version is recorded with every test run.
