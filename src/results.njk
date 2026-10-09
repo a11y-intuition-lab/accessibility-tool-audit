@@ -3,21 +3,78 @@ layout: base.njk
 title: Results
 permalink: results.html
 ---
+{%- set cols = results.columns %}
 <h1>Results</h1>
 
-<p class="site-lead">The retest is in progress. No new results are published yet.</p>
+<p class="site-lead">How well automated checkers find each test case, then and now. The GOV.UK columns show the 2017 results for aXe and HTML_CodeSniffer. The AIL columns show the 2026 retest with axe-core and pa11y, which uses HTML_CodeSniffer as its engine.</p>
 
-<h2>Planned retest</h2>
-<p>A11y Intuition Lab will run every test case, each on its own page, with:</p>
-<ul>
-  <li><a href="https://github.com/dequelabs/axe-core">axe-core</a></li>
-  <li><a href="https://pa11y.org/">pa11y</a>, using its HTML_CodeSniffer runner</li>
-</ul>
-<p>Tool versions will be pinned and the raw output stored, so the results can be reproduced.</p>
+<p><strong>The 2026 retest has not run yet.</strong> Until it has, the AIL columns are empty.</p>
 
-<h2>Original GOV.UK results (2017 to 2018)</h2>
-<p>The GDS accessibility team tested 13 tools. Those results are not republished here. They remain available:</p>
+<h2>Summary</h2>
+<div class="site-table-wrap" role="region" aria-labelledby="summary-caption" tabindex="0">
+<table>
+  <caption id="summary-caption">Number of test cases per result, by tool</caption>
+  <thead>
+    <tr>
+      <th scope="col">Result</th>
+      {%- for c in cols %}
+      <th scope="col">{{ c.label }}<br><span class="site-muted">{{ c.who }} {{ c.when }}</span></th>
+      {%- endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {%- for value, label in results.values %}
+    <tr>
+      <th scope="row">{{ label | capitalize }}</th>
+      {%- for c in cols %}
+      <td>{{ collections.testCases | countResult(results.byTest, c.key, value) }}</td>
+      {%- endfor %}
+    </tr>
+    {%- endfor %}
+    <tr>
+      <th scope="row">Not tested</th>
+      {%- for c in cols %}
+      <td>{{ collections.testCases | countResult(results.byTest, c.key, null) }}</td>
+      {%- endfor %}
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>About the comparison</h2>
 <ul>
-  <li><a href="{{ site.originalResults }}">Original results page</a> on the archived GOV.UK site</li>
-  <li><a href="{{ site.upstreamTree }}">The upstream repository at its final state</a> (tag <code>govuk-final</code> in this fork)</li>
+  <li>GOV.UK last retested aXe on 23 December 2017 and HTML_CodeSniffer on 5 December 2017. Tool versions were not recorded. On 13 April 2018 GOV.UK reclassified HTML_CodeSniffer warnings as manual checks without retesting.</li>
+  <li>GOV.UK recorded results by hand. AIL classifies results with a script and a stored mapping from test case to rule IDs, so the categories may not line up exactly.</li>
+  <li>Test cases added by AIL have no 2017 result.</li>
+  <li>The full GOV.UK results for all 13 tools are on the <a href="{{ site.originalResults }}">original results page</a>.</li>
 </ul>
+
+{%- set groups = collections.testCases | groupByCategory %}
+<h2>Results per test case</h2>
+{%- for group in groups %}
+<div class="site-table-wrap" role="region" aria-labelledby="results-{{ loop.index }}" tabindex="0">
+<table>
+  <caption id="results-{{ loop.index }}">{{ group.name }}</caption>
+  <thead>
+    <tr>
+      <th scope="col">Test case</th>
+      {%- for c in cols %}
+      <th scope="col">{{ c.label }}<br><span class="site-muted">{{ c.who }} {{ c.when }}</span></th>
+      {%- endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {%- for item in group.items %}
+    {%- set r = results.byTest[item.fileSlug] %}
+    <tr>
+      <th scope="row"><a href="{{ ('/tests/' + item.fileSlug + '.html') | url }}">{{ item.data.title }}</a>{% if item.data.origin == 'ail-2026' %} <span class="site-muted">(AIL)</span>{% endif %}</th>
+      {%- for c in cols %}
+      {%- set v = r[c.key] if r else null %}
+      <td{% if v %} class="site-result site-result-{{ v }}"{% endif %}>{{ results.values[v] if v else '–' }}</td>
+      {%- endfor %}
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+</div>
+{%- endfor %}

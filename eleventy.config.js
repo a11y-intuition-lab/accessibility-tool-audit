@@ -49,6 +49,11 @@ export default function (eleventyConfig) {
     return groups;
   });
 
+  // Number of test cases whose result in column `key` equals `value` (null = no result).
+  eleventyConfig.addFilter('countResult', (items, byTest, key, value) =>
+    items.filter((item) => (byTest[item.fileSlug]?.[key] ?? null) === value).length,
+  );
+
   return {
     dir: { input: 'src', output: '_site', includes: '_includes', data: '_data' },
     pathPrefix: '/accessibility-tool-audit/',

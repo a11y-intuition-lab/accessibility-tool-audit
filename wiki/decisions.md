@@ -92,3 +92,15 @@ clear photosensitivity warning before it and a stop control. It is never on the 
 **Decision:** Video and audio for test cases are stored in the repository, under CC0, public domain or another licence
 that allows republication. Source and licence are recorded next to each file.
 **Reason:** Remote media disappears (several GOV.UK multimedia sources may no longer load), and everything here is published.
+
+## D-016 — Keep the historical aXe and HTML_CodeSniffer results (2026-10-10)
+
+**Decision:** The GOV.UK results for aXe and HTML_CodeSniffer are kept in `data/results/govuk-2017/results.json`
+(extracted unchanged from `govuk-final` by `scripts/import-govuk-results.mjs`) and shown next to the AIL retest.
+HTML_CodeSniffer is the historical counterpart of pa11y, because pa11y runs it as its engine.
+**Supersedes:** the part of D-003 that removed all old tool results. The other 11 tools stay removed.
+**Reason:** Showing whether the tools have improved over time is one of the main questions.
+**Consequences:** To compare like with like, the retest runs pa11y with the same standard GOV.UK used for
+HTML_CodeSniffer (WCAG2AAA, including warnings and notices) and axe-core with all rule tags, including best practices
+and experimental rules. Remaining differences (manual versus scripted classification, unrecorded 2017 versions) are
+stated on the results page.

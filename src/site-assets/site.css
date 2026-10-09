@@ -100,3 +100,13 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 0.95em; }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+/* Results tables */
+.site-table-wrap { overflow-x: auto; margin-block: 1rem 2rem; }
+.site-table-wrap:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.site-table-wrap table { border-collapse: collapse; min-width: 40rem; width: 100%; }
+.site-table-wrap caption { text-align: left; font-weight: 700; font-size: 1.15rem; padding-block-end: 0.5rem; }
+.site-table-wrap th, .site-table-wrap td { border: 1px solid var(--border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+.site-table-wrap thead th { background: var(--band); }
+.site-muted { font-weight: normal; color: var(--muted, inherit); font-size: 0.9em; }
+.site-result-error { font-weight: 700; }

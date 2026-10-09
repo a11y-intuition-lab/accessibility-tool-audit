@@ -25,3 +25,8 @@ Append-only, newest last.
 - Added five corrected AIL test cases (contrast ×3, blinking text, table cell counts) and `assets/ail/tests-ail.css` (D-010).
 - Marked 24 borderline GOV.UK mappings for human review and 5 4.1.1-only cases as historical (D-011, D-012).
 - Decisions D-013 to D-015: new categories, flashing safety, media licensing.
+
+## 2026-10-10 — Historical results for aXe and HTML_CodeSniffer
+- Extracted GOV.UK's 2017 results for aXe (41 found, 2 manual, 99 not found) and HTML_CodeSniffer (29 found, 19 manual,
+  1 identified, 93 not found) into `data/results/govuk-2017/results.json` (D-016).
+- Results page now shows these next to empty columns for the 2026 axe-core and pa11y retest.

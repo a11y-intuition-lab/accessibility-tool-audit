@@ -56,6 +56,7 @@ Every change to something that came from GOV.UK is listed here, newest last.
 | 2026-10-10 | Removed GOV.UK branding from the site (crest, Open Government Licence footer, site titles, stylesheet). Test-case pages keep their original `<title>` | We must not look like GOV.UK |
 | 2026-10-10 | Added the line `Copyright (c) 2026 A11y Intuition Lab` to `LICENSE`, below the Crown Copyright line | Credit for AIL's additions; the original line and text are unchanged |
 
+| 2026-10-10 | Restored the aXe and HTML_CodeSniffer results as `data/results/govuk-2017/results.json` (`scripts/import-govuk-results.mjs`), values unchanged; counts match upstream `analysis.json` | D-016: compare 2017 with the 2026 retest |
 | 2026-10-10 | Added `review` and `historical` annotations to the AI-proposed GOV.UK mapping (`data/mappings/test-case-wcag.json`) | D-011, D-012. This is AIL data about GOV.UK test cases; the test cases themselves are unchanged |
 
 ## Removed upstream material

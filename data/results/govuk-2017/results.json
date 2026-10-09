@@ -1,0 +1,608 @@
+{
+  "meta": {
+    "origin": "govuk-2017",
+    "source": "tests.json at tag govuk-final (e9e46115caf55f07a9302a5ee187687870510a09)",
+    "extractedBy": "scripts/import-govuk-results.mjs",
+    "tools": {
+      "axe": {
+        "name": "aXe",
+        "lastTested": "2017-12-23",
+        "settings": "All tags (wcag2a, wcag2aa, section508, best-practice, experimental) or the aXe-Coconut extension",
+        "changelog": [
+          "2017-11-23 Fixed broken examples, re-tested and updated 9 results (PR #17)",
+          "2017-12-01 Improved 8 tests, re-tested those in all tools (PR #20)",
+          "2017-12-23 Re-tested and updated 3 results with experimental features (PR #27)"
+        ]
+      },
+      "codesniffer": {
+        "name": "HTML_CodeSniffer",
+        "lastTested": "2017-12-05",
+        "settings": "WCAG2AAA standard, errors, warnings and notices",
+        "changelog": [
+          "2017-12-01 Improved 8 tests, re-tested those in all tools (PR #20)",
+          "2017-12-05 Re-tested and updated 30 results (PR #21)",
+          "2018-04-13 Reclassified warnings as manual checks, no retest (PR #37)"
+        ]
+      }
+    },
+    "values": {
+      "error": "issue found",
+      "error_paid": "issue found (paid)",
+      "warning": "warning only",
+      "manual": "user to check",
+      "identified": "noticed but not a fail",
+      "notfound": "not found"
+    },
+    "tool_versions": "Not recorded upstream"
+  },
+  "results": {
+    "content-content-identified-by-location": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "content-plain-language-is-not-used": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "content-content-is-not-in-correct-reading-order-in-source-code": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "content-first-instance-of-abbreviation-not-expanded": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "page-layout-wide-page-forces-users-to-scroll-horizontally": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "colour-and-contrast-colour-alone-is-used-to-convey-content": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "colour-and-contrast-focus-not-visible": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "typography-inadequate-line-height-used": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "typography-all-caps-text-found": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "typography-blink-element-found": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "typography-italics-used-on-long-sections-of-text": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "typography-marquee-element-found": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "typography-long-lines-of-text": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "typography-very-small-text-found": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "typography-justified-text-found": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "language-of-content-text-language-changed-without-required-change-in-direction": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "language-of-content-html-element-has-an-empty-lang-attribute": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "language-of-content-lang-attribute-not-used-to-identify-change-of-language": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "language-of-content-text-language-is-in-the-wrong-direction": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "language-of-content-html-element-is-missing-a-lang-attribute": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "language-of-content-html-element-has-lang-attribute-set-to-wrong-language": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "page-title-inappropriate-page-title": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "page-title-empty-page-title": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "page-title-missing-page-title": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "headings-empty-heading": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "headings-missing-h1": {
+      "axe": "notfound",
+      "codesniffer": "error"
+    },
+    "headings-text-formatting-used-instead-of-an-actual-heading": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "headings-headings-not-structured-in-a-hierarchical-manner": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "lists-li-element-with-no-parent": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "lists-list-not-marked-up-as-a-list": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "lists-improperly-nested-lists": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "tables-table-with-column-headers-and-double-row-headers": {
+      "axe": "notfound",
+      "codesniffer": "error"
+    },
+    "tables-table-has-no-scope-attributes": {
+      "axe": "notfound",
+      "codesniffer": "error"
+    },
+    "tables-table-nested-within-table-header": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "tables-table-nested-within-table": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "tables-table-has-no-table-headings": {
+      "axe": "error",
+      "codesniffer": "manual"
+    },
+    "tables-table-with-inconsistent-numbers-of-columns-in-rows": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "tables-table-that-only-has-th-elements-in-it": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "tables-table-is-missing-a-caption": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "tables-table-used-for-layout": {
+      "axe": "notfound",
+      "codesniffer": "identified"
+    },
+    "tables-table-has-an-empty-table-header": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "tables-table-with-some-empty-cells": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "images-image-has-alt-and-title-that-are-different": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "images-image-with-presentation-role-has-non-empty-alt": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "images-image-with-no-alt-attribute": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "images-background-image-that-conveys-information-does-not-have-a-text-alternative": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "images-image-has-empty-alt-and-non-empty-title": {
+      "axe": "notfound",
+      "codesniffer": "error"
+    },
+    "images-a-distraction-is-present-an-animated-gif": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "images-image-that-conveys-information-has-an-empty-alt-attribute": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "images-image-that-conveys-information-has-inappropriate-alt-text": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "images-image-alt-attribute-contains-image-file-name": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "images-image-with-partial-text-alternative": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "multimedia-embedded-video-file-is-missing-text-alternative": {
+      "axe": "manual",
+      "codesniffer": "manual"
+    },
+    "multimedia-flashing-content-doesnt-have-warning": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "multimedia-embedded-audio-file-is-missing-text-alternative": {
+      "axe": "manual",
+      "codesniffer": "manual"
+    },
+    "links-image-link-with-no-alternative-text": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "links-link-to-javascript-invalid-hypertext-reference": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-uninformative-link-text": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "links-link-launches-new-window-with-no-warning": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "links-links-not-separated-by-printable-characters": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-link-text-with-identical-title": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-links-to-a-sound-file-no-transcript": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-identifying-links-by-colour-alone": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-link-to-pdf-does-not-include-information-on-file-format-and-file-size": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-link-to-,-invalid-hypertext-reference": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "links-blank-link-text": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "links-links-with-the-same-text-go-to-different-pages": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-link-text-does-not-make-sense-out-of-context": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-adjacent-links-going-to-the-same-destination": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-link-contains-only-a-full-stop": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "links-image-link-alt-text-repeats-text-in-the-link": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-link-to-a-multimedia-file-no-transcript": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "links-non-specific-link-text": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "links-link-to-an-image-no-text-alternative": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "buttons-image-button-has-no-alt-attribute": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "buttons-empty-button": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "buttons-uninformative-alt-attribute-value-on-image-button": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "buttons-empty-alt-attribute-on-image-button": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "forms-errors-identified-by-colour-only": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "forms-left-aligned-form-labels-with-too-much-white-space": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "forms-group-of-radio-buttons-not-enclosed-in-a-fieldset": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "forms-form-element-has-no-label": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "forms-fieldset-without-a-legend": {
+      "axe": "notfound",
+      "codesniffer": "error"
+    },
+    "forms-empty-legend": {
+      "axe": "notfound",
+      "codesniffer": "error"
+    },
+    "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "forms-group-of-check-boxes-not-enclosed-in-a-fieldset": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "forms-empty-label-found": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "forms-two-unique-labels-but-identical-for=-attributes": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "forms-errors-identified-with-a-poor-colour-contrast": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "forms-non-unique-field-label-found": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "forms-missing-labels-in-checkboxes": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "forms-field-hint-not-associated-with-input": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "forms-placeholder-no-label": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "forms-errors-are-not-identified": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "forms-form-control-that-changes-context-without-warning": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "navigation-inadequately-sized-clickable-targets-found": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-alert-shows-for-a-short-time": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-lightbox-close-button-doesnt-receive-focus": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-focus-order-in-wrong-order": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-tabindex-greater-than-0": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-keyboard-focus-is-not-indicated-visually": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-concertina-items-dont-get-keyboard-focus": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-keyboard-trap": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-tooltips-dont-receive-keyboard-focus": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-accesskey-attribute-used": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "keyboard-access-fake-button-is-not-keyboard-accessible": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "frames-iframe-is-missing-a-title-attribute": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe": {
+      "axe": "notfound",
+      "codesniffer": "manual"
+    },
+    "css-content-is-not-readable-and-functional-when-text-is-increased": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "css-non-decorative-content-inserted-using-css": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "css-page-zoom-boxes-that-dont-expand-with-the-text": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "html-duplicate-id": {
+      "axe": "error",
+      "codesniffer": "error"
+    },
+    "html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "html-empty-paragraph": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "html-deprecated-center-element": {
+      "axe": "notfound",
+      "codesniffer": "error"
+    },
+    "html-invalid-aria-role-names": {
+      "axe": "error",
+      "codesniffer": "notfound"
+    },
+    "html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "html-spacer-image-found": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "html-inline-style-adds-colour": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "html-start-and-close-tags-dont-match": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "html-pre-element-without-code-element-inside-it": {
+      "axe": "notfound",
+      "codesniffer": "notfound"
+    },
+    "html-deprecated-font-element": {
+      "axe": "notfound",
+      "codesniffer": "error"
+    }
+  }
+}
