@@ -53,6 +53,172 @@
         { "sc": "1.3.1", "relation": "related", "rationale": "Rows with 3, 2 and 5 cells under 4 column headers make header-cell relationships ambiguous for assistive technology; HTML table model error rather than a listed WCAG failure technique (borderline)." }
       ],
       "review": "pending"
+    },
+    "images-svg-image-without-accessible-name-ail": {
+      "category": "Images",
+      "title": "SVG image without accessible name",
+      "candidate": "images-svg-image-without-accessible-name",
+      "wcag": [
+        { "sc": "1.1.1", "relation": "fails", "rationale": "Inline SVG star rating (4 of 5 stars) conveys information but has no role, <title>, aria-label or other text alternative." }
+      ]
+    },
+    "page-layout-content-locked-to-portrait-orientation-ail": {
+      "category": "Page Layout",
+      "title": "Content locked to portrait orientation",
+      "candidate": "page-layout-content-locked-to-portrait-orientation",
+      "wcag": [
+        { "sc": "1.3.4", "relation": "fails", "technique": "F97", "rationale": "An orientation media query rotates the content 90 degrees in landscape viewports, so it can only be read upright in portrait; orientation is not essential." }
+      ]
+    },
+    "forms-invalid-autocomplete-value-on-personal-data-field-ail": {
+      "category": "Forms",
+      "title": "Invalid autocomplete value on personal data field",
+      "candidate": "forms-invalid-autocomplete-value-on-personal-data-field",
+      "wcag": [
+        { "sc": "1.3.5", "relation": "fails", "technique": "F107", "rationale": "The field for the user's own email address has autocomplete=\"mail\", which is not a valid token, so its purpose is not programmatically determinable." }
+      ]
+    },
+    "forms-missing-autocomplete-on-personal-data-fields-ail": {
+      "category": "Forms",
+      "title": "Missing autocomplete on personal data fields",
+      "candidate": "forms-missing-autocomplete-on-personal-data-fields",
+      "wcag": [
+        { "sc": "1.3.5", "relation": "fails", "rationale": "Fields for the user's own name, email address and postcode have no autocomplete attribute or other means of identifying their purpose programmatically." }
+      ]
+    },
+    "colour-and-contrast-form-field-border-has-insufficient-contrast-ail": {
+      "category": "Colour and Contrast",
+      "title": "Form field border has insufficient contrast",
+      "candidate": "colour-and-contrast-form-field-border-has-insufficient-contrast",
+      "wcag": [
+        { "sc": "1.4.11", "relation": "fails", "rationale": "The #dddddd border (1.36:1 against white) is the only visual boundary of the text inputs; 1.4.11 needs 3:1." }
+      ]
+    },
+    "css-text-clipped-when-text-spacing-is-increased-ail": {
+      "category": "CSS",
+      "title": "Text clipped when text spacing is increased",
+      "candidate": "css-text-clipped-when-text-spacing-is-increased",
+      "wcag": [
+        { "sc": "1.4.12", "relation": "fails", "technique": "F104", "rationale": "Fixed height of three lines at line-height 1.2 with overflow hidden; with line-height 1.5 the third line is cut off (measured in Chromium: content 72px in a 58px box)." }
+      ]
+    },
+    "keyboard-access-focus-removed-by-script-when-received-ail": {
+      "category": "Keyboard Access",
+      "title": "Focus removed by script when received",
+      "candidate": "keyboard-access-focus-removed-by-script-when-received",
+      "wcag": [
+        { "sc": "2.1.1", "relation": "fails", "technique": "F55", "rationale": "The \"Driving and transport\" link calls blur() when it receives focus, so it cannot be activated from the keyboard." },
+        { "sc": "2.4.7", "relation": "fails", "technique": "F55", "rationale": "The link never keeps focus, so no focus indicator is ever visible on it." },
+        { "sc": "2.4.13", "relation": "fails", "technique": "F55", "rationale": "No focus indicator is ever shown on the link (AAA)." },
+        { "sc": "3.2.1", "relation": "fails", "technique": "F55", "rationale": "Receiving focus moves focus away from the component, a change of context on focus." }
+      ]
+    },
+    "keyboard-access-single-character-key-shortcut-cannot-be-turned-off-ail": {
+      "category": "Keyboard Access",
+      "title": "Single character key shortcut cannot be turned off",
+      "candidate": "keyboard-access-single-character-key-shortcut-cannot-be-turned-off",
+      "wcag": [
+        { "sc": "2.1.4", "relation": "fails", "technique": "F99", "rationale": "Pressing \"s\" (no modifier) outside a text field moves focus to the search field; the shortcut cannot be turned off or remapped and is active page-wide." }
+      ]
+    },
+    "keyboard-access-positive-tabindex-scrambles-form-focus-order-ail": {
+      "category": "Keyboard Access",
+      "title": "Positive tabindex scrambles form focus order",
+      "candidate": "keyboard-access-positive-tabindex-scrambles-form-focus-order",
+      "wcag": [
+        { "sc": "2.4.3", "relation": "fails", "technique": "F44", "rationale": "Positive tabindex values make focus go postcode, address, town, name: the reverse of the visual and logical order of the address form." }
+      ]
+    },
+    "keyboard-access-sticky-footer-hides-focused-element-ail": {
+      "category": "Keyboard Access",
+      "title": "Sticky footer hides focused element",
+      "candidate": "keyboard-access-sticky-footer-hides-focused-element",
+      "wcag": [
+        { "sc": "2.4.11", "relation": "fails", "technique": "F110", "rationale": "In a scrolling panel, a sticky help footer entirely covers some links when keyboard focus scrolls them into view (measured in Chromium: \"Universal Credit\" and \"Report a lost or stolen passport\")." },
+        { "sc": "2.4.12", "relation": "fails", "rationale": "The same focused links are hidden entirely, so they are also not fully visible (AAA)." }
+      ]
+    },
+    "timing-auto-rotating-carousel-without-pause-ail": {
+      "category": "Timing",
+      "title": "Auto-rotating carousel without pause",
+      "candidate": "timing-auto-rotating-carousel-without-pause",
+      "wcag": [
+        { "sc": "2.2.2", "relation": "fails", "rationale": "Slides change every 3 seconds indefinitely, start automatically and sit next to other content, with no pause, stop or hide mechanism. Auto-updating content; F16 (scrolling content) is close but not cited because the slides swap rather than scroll." }
+      ]
+    },
+    "navigation-repeated-navigation-block-cannot-be-bypassed-ail": {
+      "category": "Navigation",
+      "title": "Repeated navigation block cannot be bypassed",
+      "candidate": "navigation-repeated-navigation-block-cannot-be-bypassed",
+      "wcag": [
+        { "sc": "2.4.1", "relation": "related", "rationale": "Forty navigation links precede the content with no skip link, nav landmark or heading to jump past them; whether the block is repeated across pages is context not on the single page, and the fixture template wraps everything in <main> (borderline)." }
+      ],
+      "review": "pending"
+    },
+    "pointer-and-motion-path-gesture-required-without-single-pointer-alternative-ail": {
+      "category": "Pointer and Motion",
+      "title": "Path gesture required without single pointer alternative",
+      "candidate": "pointer-and-motion-path-gesture-required-without-single-pointer-alternative",
+      "wcag": [
+        { "sc": "2.5.1", "relation": "fails", "technique": "F105", "rationale": "Slides change only with a horizontal swipe (or arrow keys); there is no single-pointer control such as previous/next buttons." }
+      ]
+    },
+    "pointer-and-motion-action-triggered-on-pointer-down-ail": {
+      "category": "Pointer and Motion",
+      "title": "Action triggered on pointer down",
+      "candidate": "pointer-and-motion-action-triggered-on-pointer-down",
+      "wcag": [
+        { "sc": "2.5.2", "relation": "fails", "technique": "F101", "rationale": "The Delete buttons remove the address on pointerdown, so the action cannot be aborted by moving away before release and there is no undo." }
+      ]
+    },
+    "pointer-and-motion-drag-and-drop-without-single-pointer-alternative-ail": {
+      "category": "Pointer and Motion",
+      "title": "Drag and drop without single pointer alternative",
+      "candidate": "pointer-and-motion-drag-and-drop-without-single-pointer-alternative",
+      "wcag": [
+        { "sc": "2.5.7", "relation": "fails", "technique": "F108", "rationale": "Items can be reordered only by dragging the handle (or arrow keys); clicking or tapping does nothing, so there is no single-pointer alternative." }
+      ]
+    },
+    "forms-focus-on-field-opens-new-window-ail": {
+      "category": "Forms",
+      "title": "Focus on field opens new window",
+      "candidate": "forms-focus-on-field-opens-new-window",
+      "wcag": [
+        { "sc": "3.2.1", "relation": "fails", "rationale": "Focusing the date field opens a new window, a change of context on focus (Understanding 3.2.1); verified in Chromium when focus arrives by Tab." }
+      ]
+    },
+    "forms-status-message-not-announced-ail": {
+      "category": "Forms",
+      "title": "Status message not announced",
+      "candidate": "forms-status-message-not-announced",
+      "wcag": [
+        { "sc": "4.1.3", "relation": "fails", "technique": "F103", "rationale": "\"Added to your basket\" text is written into a plain paragraph after the button is pressed, with no status role or live region." }
+      ]
+    },
+    "forms-custom-checkbox-without-checked-state-ail": {
+      "category": "Forms",
+      "title": "Custom checkbox without checked state",
+      "candidate": "forms-custom-checkbox-without-checked-state",
+      "wcag": [
+        { "sc": "4.1.2", "relation": "fails", "technique": "F15", "rationale": "A role=\"checkbox\" element toggles its visual tick by script but never sets aria-checked, so its state is not programmatically determinable." }
+      ]
+    },
+    "html-focusable-element-inside-aria-hidden-ail": {
+      "category": "HTML",
+      "title": "Focusable element inside aria-hidden",
+      "candidate": "html-focusable-element-inside-aria-hidden",
+      "wcag": [
+        { "sc": "4.1.2", "relation": "fails", "rationale": "The \"Start now\" link is inside aria-hidden=\"true\" but stays in the tab order, so it receives focus with no exposed name or role (ACT rule 6cfa84)." }
+      ]
+    },
+    "authentication-paste-blocked-in-password-field-ail": {
+      "category": "Authentication",
+      "title": "Paste blocked in password field",
+      "candidate": "authentication-paste-blocked-in-password-field",
+      "wcag": [
+        { "sc": "3.3.8", "relation": "fails", "technique": "F109", "rationale": "The password field cancels paste events, so password managers and copy-paste cannot be used and the user must transcribe the password." },
+        { "sc": "3.3.9", "relation": "fails", "technique": "F109", "rationale": "Same failure at AAA level." }
+      ]
     }
   }
 }

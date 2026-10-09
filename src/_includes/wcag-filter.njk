@@ -1,0 +1,37 @@
+{#- WCAG filter controls. Hidden until wcag-filter.js runs; without JavaScript all test cases are shown. -#}
+<form class="site-filter" id="wcag-filter" hidden data-eu-version="{{ wcag.eu.version }}" data-eu-level="{{ wcag.eu.level }}" data-total="{{ collections.testCases.length }}">
+  <fieldset>
+    <legend>Filter by WCAG</legend>
+    <div class="site-filter-fields">
+      <p>
+        <label for="wcag-version">Version</label>
+        <select id="wcag-version" name="wcag">
+          {%- for v in wcag.versions %}<option value="{{ v }}">WCAG {{ v }}</option>{% endfor %}
+          <option value="all">Any version</option>
+        </select>
+      </p>
+      <p>
+        <label for="wcag-level">Level</label>
+        <select id="wcag-level" name="level">
+          <option value="A">A</option>
+          <option value="AA">A and AA</option>
+          <option value="AAA">A, AA and AAA</option>
+          <option value="all">Any level</option>
+        </select>
+      </p>
+      <p>
+        <label for="wcag-relation">Mapping</label>
+        <select id="wcag-relation" name="relation">
+          <option value="fails">Fails the criterion</option>
+          <option value="related">Fails or is related</option>
+        </select>
+      </p>
+    </div>
+    <p class="site-filter-buttons">
+      <button type="button" data-filter-preset="eu">{{ wcag.eu.label }}</button>
+      <button type="button" data-filter-preset="all">Show all test cases</button>
+    </p>
+  </fieldset>
+  <p class="site-filter-status" role="status" aria-live="polite"></p>
+  <p class="site-muted">A test case is shown if it is mapped to at least one success criterion in the selected version and level. Levels are cumulative, as in WCAG conformance. The mapping is AI-drafted; see the <a href="{{ '/methodology.html' | url }}#wcag">methodology</a>. "Show all" also includes test cases that map to no criterion.</p>
+</form>

@@ -11,15 +11,17 @@ permalink: results.html
 
 <p><strong>The 2026 retest has not been published yet.</strong> Until it has, the AIL columns are empty.</p>
 
+{% include "wcag-filter.njk" %}
+
 <h2>Numbers</h2>
 <ul class="site-stats">
-  <li><span class="site-stat-value">{{ collections.testCases.length }}</span> <span class="site-stat-label">test cases</span></li>
+  <li><span class="site-stat-value" data-stat-count>{{ collections.testCases.length }}</span> <span class="site-stat-label">test cases</span></li>
   {%- for c in cols %}
   {%- set rate = collections.testCases | detectionRate(results.byTest, c.key) %}
-  <li><span class="site-stat-value">{{ (rate + '%') if rate !== null else '–' }}</span> <span class="site-stat-label">found or warned by {{ c.label }} ({{ c.who }} {{ c.when }})</span></li>
+  <li><span class="site-stat-value" data-stat-col="{{ c.key }}">{{ (rate + '%') if rate !== null else '–' }}</span> <span class="site-stat-label">found or warned by {{ c.label }} ({{ c.who }} {{ c.when }})</span></li>
   {%- endfor %}
 </ul>
-<p class="site-muted">Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on.</p>
+<p class="site-muted">Numbers follow the WCAG filter. Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on.</p>
 
 <details class="site-details">
   <summary>What each result means</summary>
@@ -58,16 +60,16 @@ permalink: results.html
     </tr>
   </thead>
   {%- for group in groups %}
-  <tbody>
+  <tbody data-wcag-group>
     <tr class="site-results-group"><th scope="rowgroup" colspan="{{ cols.length + 1 }}">{{ group.name }}</th></tr>
     {%- for item in group.items %}
     {%- set r = results.byTest[item.fileSlug] %}
-    <tr>
+    <tr data-wcag-item data-wcag="{{ (wcag.byTest[item.fileSlug] or []) | dump | escape }}">
       <th scope="row"><a href="{{ ('/test-cases.html#' + item.fileSlug) | url }}">{{ item.data.title }}</a>{% if item.data.origin == 'ail-2026' %} <span class="site-muted">(AIL)</span>{% endif %}</th>
       {%- for c in cols %}
       {%- set v = r[c.key] if r else null %}
       {%- if v %}
-      <td class="site-result-cell site-result-{{ v }}">{{ results.values[v] | capitalize }}</td>
+      <td class="site-result-cell site-result-{{ v }}" data-col="{{ c.key }}" data-value="{{ v }}">{{ results.values[v] | capitalize }}</td>
       {%- else %}
       <td class="site-result-cell"><span class="site-muted">Not tested</span></td>
       {%- endif %}
@@ -89,3 +91,6 @@ permalink: results.html
   <li>2026 retest runs, with raw tool output: <a href="{{ tree }}data/results/ail-2026">data/results/ail-2026/</a></li>
   <li>Results for all 13 tools tested in 2017: <a href="{{ site.originalResults }}">original results page</a></li>
 </ul>
+
+<script src="{{ '/site-assets/wcag-filter.js' | url }}" defer></script>
+<script src="{{ '/site-assets/results-stats.js' | url }}" defer></script>

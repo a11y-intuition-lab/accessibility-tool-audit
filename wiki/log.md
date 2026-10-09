@@ -35,3 +35,17 @@ Append-only, newest last.
 - Site restyled with the AIL design (vendored tokens and base CSS, self-hosted Poppins and Nunito Sans, no Google Fonts
   requests). Fixture pages unchanged; on the combined page site styles are scoped away from the examples.
 - Added the public methodology page (`src/methodology.njk`) and decision D-017 (two research questions).
+
+## 2026-10-10 — Retest harness
+- Added `npm run retest` and `npm run retest:browsers` (`scripts/retest/`): axe-core and pa11y against every built test
+  page on one Playwright Chromium, with raw output and an environment record per run (D-018).
+- Added [retest procedure](method/retest-procedure.md) and updated the methodology page (sections 4 and 10).
+- A first proof run worked (147 pages, no load failures). It was discarded because it predates the new test cases; the first published run is made from a clean commit.
+
+## 2026-10-10 — 20 new AIL test cases; WCAG filter
+- Implemented 20 of the 24 high-priority candidates as `ail-2026` test cases (WCAG 2.1/2.2 criteria such as 1.3.4, 1.3.5,
+  1.4.11, 1.4.12, 2.1.4, 2.4.11, 2.5.1, 2.5.2, 2.5.7, 3.3.8, 4.1.3). Four deferred (media, meta refresh, multi-step flow).
+- Added `assets/ail/tests-ail.js` (fixture behaviour, vanilla JS). It is now also loaded by the five earlier AIL test
+  pages; their examples are unchanged.
+- Test cases and results pages get a WCAG filter (version, level, fails/related) with the EU requirement — WCAG 2.1 AA,
+  via EN 301 549 V3.2.1 — as the default and as a reset button. State is kept in the URL.

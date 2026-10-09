@@ -18,7 +18,7 @@
       "expected_detectability": "automatable = rule engines can decide; partially = engines can flag or narrow, human confirms; manual = needs human judgement or interaction",
       "priority": "high = level A/AA and common in practice; medium = A/AA less common or harder to build, or thin-coverage additions; low = AAA or rare"
     },
-    "note": "HTML for these test cases is not written yet."
+    "note": "HTML is written for candidates with status \"implemented\" (test case in src/test-cases/<test_case>.html); high-priority candidates that need media, flows or their own page template have status \"deferred\"."
   },
   "candidates": [
     {
@@ -35,7 +35,9 @@
       "detectability_reason": "Tools can detect a missing <track kind=\"descriptions\"> but not whether visual information is missing from the audio.",
       "priority": "high",
       "fixture": "media",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "deferred",
+      "deferred_reason": "Needs an openly licensed local video file (D-015)."
     },
     {
       "id": "multimedia-live-video-stream-without-captions",
@@ -125,7 +127,9 @@
       "detectability_reason": "autoplay without controls is detectable in markup; duration and audibility need checking.",
       "priority": "high",
       "fixture": "media",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "deferred",
+      "deferred_reason": "Needs an openly licensed local audio file (D-015)."
     },
     {
       "id": "multimedia-speech-audio-with-loud-background-music",
@@ -186,7 +190,9 @@
       "detectability_reason": "axe/HTMLCS can check svg[role=img] and inline SVG for a name.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "images-svg-image-without-accessible-name-ail"
     },
     {
       "id": "images-decorative-image-with-non-empty-alt-text",
@@ -368,7 +374,9 @@
       "detectability_reason": "Needs rendering in both orientations; static CSS heuristics are possible.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "page-layout-content-locked-to-portrait-orientation-ail"
     },
     {
       "id": "page-layout-message-asks-user-to-rotate-device",
@@ -398,7 +406,9 @@
       "detectability_reason": "axe autocomplete-valid checks token validity.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "forms-invalid-autocomplete-value-on-personal-data-field-ail"
     },
     {
       "id": "forms-missing-autocomplete-on-personal-data-fields",
@@ -413,7 +423,9 @@
       "detectability_reason": "Absence is detectable, but whether a field is about the user needs judgement.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "forms-missing-autocomplete-on-personal-data-fields-ail"
     },
     {
       "id": "html-page-regions-not-identified-with-landmarks",
@@ -460,7 +472,9 @@
       "detectability_reason": "Non-text contrast needs rendering; few rule engines check it.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "colour-and-contrast-form-field-border-has-insufficient-contrast-ail"
     },
     {
       "id": "colour-and-contrast-focus-indicator-has-insufficient-contrast",
@@ -536,7 +550,9 @@
       "detectability_reason": "Needs applying the text-spacing override and checking for clipping.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "css-text-clipped-when-text-spacing-is-increased-ail"
     },
     {
       "id": "css-inline-text-spacing-set-with-important",
@@ -598,7 +614,9 @@
       "detectability_reason": "blur-on-focus handlers are detectable by script analysis or interaction.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "keyboard-access-focus-removed-by-script-when-received-ail"
     },
     {
       "id": "keyboard-access-drawing-canvas-with-no-keyboard-alternative",
@@ -628,7 +646,9 @@
       "detectability_reason": "Needs key-press testing; static detection of key handlers is unreliable.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "keyboard-access-single-character-key-shortcut-cannot-be-turned-off-ail"
     },
     {
       "id": "keyboard-access-positive-tabindex-scrambles-form-focus-order",
@@ -643,7 +663,9 @@
       "detectability_reason": "Positive tabindex is detectable; whether order breaks meaning needs judgement.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "keyboard-access-positive-tabindex-scrambles-form-focus-order-ail"
     },
     {
       "id": "keyboard-access-sticky-footer-hides-focused-element",
@@ -659,7 +681,9 @@
       "detectability_reason": "Needs focus traversal with geometry checks.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "keyboard-access-sticky-footer-hides-focused-element-ail"
     },
     {
       "id": "keyboard-access-sticky-header-partly-hides-focused-element",
@@ -691,7 +715,9 @@
       "detectability_reason": "meta refresh is detectable in markup (axe meta-refresh).",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "deferred",
+      "deferred_reason": "Timed reload: a meta refresh in the example body would also reload the combined test-cases page, and the fixture template has no way to put it in <head>. Needs its own page template."
     },
     {
       "id": "timing-timed-meta-redirect",
@@ -723,7 +749,9 @@
       "detectability_reason": "Movement can be observed over time; controls need judgement.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "timing-auto-rotating-carousel-without-pause-ail"
     },
     {
       "id": "timing-content-updates-interrupt-the-user",
@@ -829,7 +857,9 @@
       "detectability_reason": "Tools check for skip links/landmarks/headings; whether blocks repeat needs a site.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "navigation-repeated-navigation-block-cannot-be-bypassed-ail"
     },
     {
       "id": "navigation-only-one-way-to-find-pages-in-a-set",
@@ -919,7 +949,9 @@
       "detectability_reason": "Needs gesture testing.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "pointer-and-motion-path-gesture-required-without-single-pointer-alternative-ail"
     },
     {
       "id": "pointer-and-motion-action-triggered-on-pointer-down",
@@ -934,7 +966,9 @@
       "detectability_reason": "down-event handlers are detectable in script; abort/undo needs judgement.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "pointer-and-motion-action-triggered-on-pointer-down-ail"
     },
     {
       "id": "pointer-and-motion-shake-to-undo-without-alternative",
@@ -979,7 +1013,9 @@
       "detectability_reason": "Needs judging alternatives to dragging.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "pointer-and-motion-drag-and-drop-without-single-pointer-alternative-ail"
     },
     {
       "id": "content-jargon-used-without-definition",
@@ -1024,7 +1060,9 @@
       "detectability_reason": "Can be found by tabbing and observing new windows.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "forms-focus-on-field-opens-new-window-ail"
     },
     {
       "id": "forms-selecting-a-radio-button-opens-a-new-window",
@@ -1114,7 +1152,9 @@
       "detectability_reason": "Needs a multi-step flow and judgement.",
       "priority": "high",
       "fixture": "flow",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "deferred",
+      "deferred_reason": "Needs a multi-step flow (fixture: flow)."
     },
     {
       "id": "forms-status-message-not-announced",
@@ -1129,7 +1169,9 @@
       "detectability_reason": "Needs observing DOM updates and checking roles.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "forms-status-message-not-announced-ail"
     },
     {
       "id": "forms-custom-checkbox-without-checked-state",
@@ -1144,7 +1186,9 @@
       "detectability_reason": "Missing required ARIA state is detectable; state updates need interaction.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "forms-custom-checkbox-without-checked-state-ail"
     },
     {
       "id": "html-focusable-element-inside-aria-hidden",
@@ -1159,7 +1203,9 @@
       "detectability_reason": "axe aria-hidden-focus detects this.",
       "priority": "high",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "html-focusable-element-inside-aria-hidden-ail"
     },
     {
       "id": "keyboard-access-disclosure-button-without-expanded-state",
@@ -1190,7 +1236,9 @@
       "detectability_reason": "Paste handlers can be detected and tested by script.",
       "priority": "high",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "authentication-paste-blocked-in-password-field-ail"
     },
     {
       "id": "authentication-login-requires-transcribing-a-code-without-paste",

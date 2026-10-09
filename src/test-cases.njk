@@ -8,6 +8,8 @@ fixtures: true
 
 <p class="site-lead">{{ collections.testCases.length }} examples of accessibility failures. Each example is deliberately flawed. Select a title to open the example on its own page.</p>
 
+{% include "wcag-filter.njk" %}
+
 {%- set groups = collections.testCases | groupByCategory %}
 <nav aria-label="Categories">
   <ul class="site-cats">
@@ -18,15 +20,21 @@ fixtures: true
 </nav>
 
 {%- for group in groups %}
-<section aria-labelledby="{{ group.name | replace(' ', '') | lower }}">
+<section aria-labelledby="{{ group.name | replace(' ', '') | lower }}" data-wcag-group>
   <h2 id="{{ group.name | replace(' ', '') | lower }}">{{ group.name }}</h2>
   {%- for item in group.items %}
+  {%- set map = wcag.byTest[item.fileSlug] or [] %}
+  <article class="site-case" data-wcag-item data-wcag="{{ map | dump | escape }}">
   <h3 id="{{ item.fileSlug }}"><a href="{{ ('/tests/' + item.fileSlug + '.html') | url }}">{{ item.data.title }}</a></h3>
   <p class="site-origin">Origin: {{ site.origins[item.data.origin] }}
     {%- if item.data.corrects %}. Corrected version of <a href="#{{ item.data.corrects }}">a GOV.UK test case</a>{% endif %}</p>
+  <p class="site-origin">WCAG: {% for m in map %}{{ m.sc }} ({{ m.level }}, {{ m.relation }}){% if not loop.last %}; {% endif %}{% else %}no success criterion (best practice){% endfor %}</p>
   <div class="example">
     {{ item.templateContent | combinedExample | safe }}
   </div>
+  </article>
   {%- endfor %}
 </section>
 {%- endfor %}
+
+<script src="{{ '/site-assets/wcag-filter.js' | url }}" defer></script>

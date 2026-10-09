@@ -1,0 +1,19 @@
+---
+title: "Positive tabindex scrambles form focus order"
+category: "Keyboard Access"
+origin: ail-2026
+candidate: keyboard-access-positive-tabindex-scrambles-form-focus-order
+categoryOrder: 16
+order: 19
+---
+<form>
+<p>Enter your address.</p>
+<p><label for="ail-tabindex-name">Full name</label><br>
+<input id="ail-tabindex-name" name="name" type="text" autocomplete="name" tabindex="4"></p>
+<p><label for="ail-tabindex-address">Address line 1</label><br>
+<input id="ail-tabindex-address" name="address-line-1" type="text" autocomplete="address-line1" tabindex="2"></p>
+<p><label for="ail-tabindex-town">Town or city</label><br>
+<input id="ail-tabindex-town" name="town" type="text" autocomplete="address-level2" tabindex="3"></p>
+<p><label for="ail-tabindex-postcode">Postcode</label><br>
+<input id="ail-tabindex-postcode" name="postcode" type="text" autocomplete="postal-code" tabindex="1"></p>
+</form>

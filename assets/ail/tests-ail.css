@@ -30,3 +30,138 @@
 @keyframes ail-blink {
   50% { visibility: hidden; }
 }
+
+/* page-layout-content-locked-to-portrait-orientation-ail:
+   in a landscape viewport the content is rotated 90 degrees, so it can only be read upright in portrait (F97). */
+.ail-portrait-only {
+  width: 20em;
+  padding: 1em;
+  border: 2px solid #0b0c0c;
+}
+
+@media (orientation: landscape) {
+  .ail-portrait-only {
+    transform: rotate(90deg);
+    margin: 7em 0;
+  }
+}
+
+/* colour-and-contrast-form-field-border-has-insufficient-contrast-ail:
+   the border is the only visual boundary of the text input. #dddddd on white is 1.36:1 (1.4.11 needs 3:1). */
+.ail-low-contrast-border {
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  padding: 0.3em;
+  font-size: 1em;
+}
+
+/* css-text-clipped-when-text-spacing-is-increased-ail:
+   fixed height for exactly three lines at line-height 1.2, with overflow hidden.
+   With the 1.4.12 text spacing (line-height 1.5) the third line is cut off (F104). */
+.ail-fixed-height {
+  line-height: 1.2;
+  height: 3.6em;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* keyboard-access-sticky-footer-hides-focused-element-ail:
+   a scrolling panel with a sticky footer. A link scrolled into view by keyboard focus lands under the footer,
+   which hides it entirely (F110). */
+.ail-sticky-scroller {
+  height: 12em;
+  max-width: 30em;
+  overflow-y: auto;
+  border: 2px solid #0b0c0c;
+}
+
+.ail-sticky-scroller ul {
+  margin: 0;
+  padding: 0.5em 1em;
+  list-style: none;
+}
+
+.ail-sticky-scroller li {
+  margin: 0 0 0.5em 0;
+}
+
+.ail-sticky-footer {
+  position: sticky;
+  bottom: 0;
+  margin: 0;
+  padding: 1em;
+  background: #0b0c0c;
+  color: #ffffff;
+}
+
+/* pointer-and-motion-path-gesture-required-without-single-pointer-alternative-ail:
+   swipe area. touch-action lets the browser keep vertical scrolling and hands horizontal movement to the script. */
+.ail-swipe-carousel {
+  max-width: 30em;
+  padding: 1em;
+  border: 2px solid #0b0c0c;
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+}
+
+/* pointer-and-motion-drag-and-drop-without-single-pointer-alternative-ail: sortable list with drag handles. */
+.ail-sortable {
+  max-width: 20em;
+  padding: 0;
+  list-style: none;
+}
+
+.ail-sortable li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5em 0;
+  padding: 0.5em;
+  border: 2px solid #0b0c0c;
+  background: #ffffff;
+}
+
+.ail-sortable-dragging {
+  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.4);
+}
+
+.ail-drag-handle {
+  min-width: 2.5em;
+  min-height: 2.5em;
+  border: 2px solid #0b0c0c;
+  background: #ffffff;
+  color: #0b0c0c;
+  font-size: 1em;
+  touch-action: none;
+  cursor: grab;
+}
+
+/* forms-custom-checkbox-without-checked-state-ail: custom checkbox; the tick is only visual. */
+.ail-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.ail-checkbox::before {
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  box-sizing: border-box;
+  border: 2px solid #0b0c0c;
+  background: #ffffff no-repeat center / 80%;
+}
+
+.ail-checkbox-checked::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8.5l4 4 8-9' fill='none' stroke='%230b0c0c' stroke-width='2.5'/%3E%3C/svg%3E");
+}
+
+/* navigation-repeated-navigation-block-cannot-be-bypassed-ail:
+   spacing between the stacked links, so they meet 2.5.8 target size and only the bypass barrier remains. */
+.ail-link-list li {
+  margin: 0 0 0.5em 0;
+}
