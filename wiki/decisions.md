@@ -104,3 +104,12 @@ HTML_CodeSniffer is the historical counterpart of pa11y, because pa11y runs it a
 HTML_CodeSniffer (WCAG2AAA, including warnings and notices) and axe-core with all rule tags, including best practices
 and experimental rules. Remaining differences (manual versus scripted classification, unrecorded 2017 versions) are
 stated on the results page.
+
+## D-017 — Two research questions (2026-10-10)
+
+**Decision:** The project answers two questions: (1) Have automated accessibility checkers improved since 2017?
+(2) Can AI find more accessibility barriers than automated checkers? WCAG mapping and new test cases are supporting
+work for both.
+**Consequence:** AI has two roles that are kept apart: object of study (question 2, with published prompts, models and
+settings, classified like the tools) and research assistant (drafting mappings, test cases, code and documentation,
+always stored as data and marked when not human-reviewed). The public method is on the site's methodology page.

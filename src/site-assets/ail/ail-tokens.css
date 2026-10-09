@@ -1,0 +1,182 @@
+/* Vendored unchanged from /home/dag/projects/a11y/design/ail-tokens.css on 2026-10-10 (A11y Intuition Lab design). */
+/*
+ * A11y Intuition Lab (AIL) - design tokens
+ * Source of truth: /a11y-intuition-lab.github.io/index.html (inline <style>), related.html.
+ * Legend:  [exact]   = value copied from the main site
+ *          [derived] = not on the site; added here (accessible choice or missing token)
+ * Fonts: load Poppins + Nunito Sans (both SIL OFL 1.1) via Google Fonts, exactly as the site does:
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+ * Breakpoints (media queries cannot use var()):
+ *   640px  = two-column card grids / 3-col lists   (site: min-width:640px)
+ *   800px  = hero becomes two columns               (site: min-width:800px)
+ * Theme switching: follows prefers-color-scheme; force with <html data-theme="light|dark"> (as on the site).
+ */
+:root {
+  /* ---------- Brand colours ---------- */
+  --ail-color-accent:        #1c516b; /* [exact] --accent: links, hover fill, card hover border */
+  --ail-color-accent-dark:   #103c52; /* [exact] --accent-dark: headings, brand, primary button, favicon bg */
+  --ail-color-accent-fill:   #557a90; /* [exact] --accent-fill from sibling repos only (print artwork; not used on main site). Decorative, no text. */
+
+  /* ---------- Surfaces & text ---------- */
+  --ail-color-bg:            #fdfdfb; /* [exact] --cream: page background */
+  --ail-color-panel:         #fff;    /* [exact] --panel: card background */
+  --ail-color-text:          #222;    /* [exact] --ink: body text */
+  --ail-color-text-lead:     #333;    /* [exact] lead paragraphs (.hero-lead, .why p ...) */
+  --ail-color-text-soft:     #555;    /* [exact] card descriptions (.tool-desc ...) */
+  --ail-color-muted:         #666;    /* [exact] --muted: eyebrow, badges, meta */
+  --ail-color-border:        #ddd;    /* [exact] --border: card borders (decorative) */
+  --ail-color-divider:       #e5e5e5; /* [exact] header/footer/section rules (decorative) */
+  --ail-color-hover-bg:      #eef3f5; /* [exact] nav + secondary-button hover background */
+  --ail-color-on-accent:     #fff;    /* [exact] text on primary button / skip link */
+  --ail-color-link:          var(--ail-color-accent);      /* [exact] a{color:var(--accent)} */
+  --ail-color-heading:       var(--ail-color-accent-dark); /* [exact] h1,h2,.brand */
+  --ail-color-primary-bg:    var(--ail-color-accent-dark); /* [exact] .btn-primary */
+  --ail-color-primary-bg-hover: var(--ail-color-accent);   /* [exact] .btn-primary:hover */
+  --ail-color-border-strong: #666;    /* [derived] border for form controls (3:1 non-text on bg, WCAG 1.4.11); site has no inputs */
+  --ail-color-code-bg:       #eef3f5; /* [derived] = hover-bg, reused for code/table-head */
+  --ail-color-danger:        #b3261e; /* [derived] error text; 6.4:1 on bg. Not on the site. */
+
+  /* ---------- Playful accent palette (fill + readable ink on that fill) ---------- */
+  --ail-color-green:         #8fbf6b; /* [exact] --accent-green */
+  --ail-color-green-ink:     #2b4020; /* [exact] --accent-green-ink */
+  --ail-color-coral:         #f0a898; /* [exact] --accent-coral */
+  --ail-color-coral-ink:     #7a3626; /* [exact] --accent-coral-ink */
+  --ail-color-blue:          #8fb8d9; /* [exact] --accent-blue */
+  --ail-color-blue-ink:      #223f57; /* [exact] --accent-blue-ink */
+  --ail-color-yellow:        #f0c96b; /* [exact] --accent-yellow (also favicon glyph, closing-quote rule) */
+  --ail-color-yellow-ink:    #6b4f14; /* [exact] --accent-yellow-ink */
+
+  /* ---------- Focus ---------- */
+  --ail-focus-color:         var(--ail-color-accent-dark); /* [exact] outline colour */
+  --ail-focus-width:         3px;                          /* [exact] */
+  --ail-focus-offset:        2px;                          /* [exact] */
+  --ail-focus-radius:        4px;                          /* [exact] */
+
+  /* ---------- Typography ---------- */
+  --ail-font-heading: 'Poppins', 'Segoe UI', Arial, sans-serif;     /* [exact family; fallbacks derived: site uses bare sans-serif] */
+  --ail-font-body:    'Nunito Sans', 'Segoe UI', Arial, sans-serif; /* [exact] */
+  --ail-font-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; /* [derived] site has no code */
+
+  --ail-weight-regular: 400; /* [exact] Nunito Sans body */
+  --ail-weight-semibold: 600;/* [exact] Poppins italic captions */
+  --ail-weight-bold:    700; /* [exact] */
+  --ail-weight-extrabold: 800; /* [exact] h1, brand, card names */
+
+  --ail-text-base:  1rem;     /* [exact] body copy in cards, nav, buttons, eyebrow, footer (all >= 1rem) */
+  --ail-text-lead:  1.125rem; /* [exact] lead paragraphs; also related.html h2 */
+  --ail-text-h4:    1.125rem; /* [exact] .ksah-name */
+  --ail-text-h3:    1.25rem;  /* [exact] .tool-name, .prd-name, .brand */
+  --ail-text-h2:    clamp(1.5rem, 3vw, 2rem);      /* [exact] section h2 */
+  --ail-text-h1:    clamp(1.75rem, 4.5vw, 2.75rem);/* [exact] hero h1 (related.html: clamp(1.625rem,4.5vw,2.375rem)) */
+  --ail-text-h1-sub: clamp(1.625rem, 4.5vw, 2.375rem); /* [exact] page h1 on inner pages */
+  --ail-text-small: 1rem;     /* [exact] site never goes below 1rem; keep it that way */
+
+  --ail-leading-body: 1.5;    /* [exact] */
+  --ail-leading-heading: 1.2; /* [derived] site leaves browser default; 1.2 is a sensible heading value */
+  --ail-tracking-eyebrow: .08em; /* [exact] */
+  --ail-tracking-badge:   .04em; /* [exact] */
+  --ail-measure-lead: 65ch;   /* [exact] 60/65/70ch used for lead text */
+  --ail-measure-prose: 70ch;  /* [exact] */
+
+  /* ---------- Spacing (site uses raw px; named here) ---------- */
+  --ail-space-1: 4px;   /* [derived] */
+  --ail-space-2: 8px;   /* [exact] nav gap */
+  --ail-space-3: 12px;  /* [exact] header/ctas gap */
+  --ail-space-4: 16px;  /* [exact] */
+  --ail-space-5: 20px;  /* [exact] card grid gap */
+  --ail-space-6: 24px;  /* [exact] page side padding */
+  --ail-space-8: 32px;  /* [exact] */
+  --ail-space-12: 48px; /* [exact] hero top */
+  --ail-space-14: 56px; /* [exact] section padding-block */
+  --ail-space-card: 22px; /* [exact] card padding (.tool) */
+  --ail-space-section: 56px;
+  --ail-space-page-bottom: 80px; /* [exact] main padding-bottom */
+
+  /* ---------- Shape ---------- */
+  --ail-radius-sm:   4px;    /* [exact] focus radius */
+  --ail-radius-md:   8px;    /* [exact] nav links, skip link */
+  --ail-radius-lg:   10px;   /* [exact] buttons, caption */
+  --ail-radius-xl:   12px;   /* [exact] cards */
+  --ail-radius-pill: 999px;  /* [exact] badges/tags */
+  --ail-radius-round: 50%;   /* [exact] icon discs */
+  --ail-radius-blob: 60% 40% 55% 45% / 45% 55% 45% 55%; /* [exact] decorative hero blobs */
+
+  --ail-border-width: 1px;       /* [exact] rules, badges */
+  --ail-border-width-card: 1.5px;/* [exact] cards, buttons */
+  --ail-border-card: var(--ail-border-width-card) solid var(--ail-color-border);
+  --ail-border-dashed: var(--ail-border-width-card) dashed var(--ail-color-border); /* [exact] "in development" cards, caption */
+
+  /* ---------- Elevation ---------- */
+  --ail-shadow-none: none; /* [exact] the site uses NO box-shadows; hover = border colour change + 2px lift */
+  --ail-lift: -2px;        /* [exact] translateY on card hover (only if prefers-reduced-motion: no-preference) */
+
+  /* ---------- Layout ---------- */
+  --ail-max-width: 960px;        /* [exact] main + header inner */
+  --ail-max-width-narrow: 880px; /* [exact] related.html */
+  --ail-gutter: 24px;            /* [exact] */
+  --ail-tap-min: 44px;           /* [exact] min-height of buttons and nav links (WCAG 2.5.8 target size) */
+  --ail-transition: .15s ease;   /* [exact] */
+}
+
+/* ---------- Dark theme ---------- */
+/* Surface/ink/accent-fill values below are [exact] from the site's dark block. */
+/* Values marked [derived] fix the original, whose dark mode left headings/links/focus at #103c52/#1c516b (1.5:1 and 2.1:1 on #15181a). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ail-color-bg:        #15181a; /* [exact] */
+    --ail-color-panel:     #1e2224; /* [exact] */
+    --ail-color-text:      #e8e8e6; /* [exact] */
+    --ail-color-text-lead: #ccc;    /* [exact] */
+    --ail-color-text-soft: #aaa;    /* [exact] */
+    --ail-color-muted:     #999;    /* [exact] */
+    --ail-color-border:    #333;    /* [exact] */
+    --ail-color-divider:   #333;    /* [exact] */
+    --ail-color-hover-bg:  #22282b; /* [exact] */
+    --ail-color-green-ink: #c9e3b5; /* [exact] (on site's #4f6b3c only 4.32:1 - fill replaced below) */
+    --ail-color-coral:     #6b3f34; /* [exact] */
+    --ail-color-coral-ink: #f2c9bd; /* [exact] */
+    --ail-color-blue:      #3c5570; /* [exact] */
+    --ail-color-blue-ink:  #c7dcee; /* [exact] */
+    --ail-color-yellow:    #6b551f; /* [exact] */
+    --ail-color-yellow-ink:#f2ddab; /* [exact] */
+
+    --ail-color-green:     #476136; /* [derived] site has #4f6b3c; darker here so ink reaches 4.99:1 (site 4.32:1) */
+    --ail-color-accent:        #8cc2e3; /* [derived] light brand blue for links on dark (9.3:1) */
+    --ail-color-accent-dark:   #a9d0e8; /* [derived] headings/brand on dark (10.9:1) */
+    --ail-color-on-accent:     #0b2a3a; /* [derived] text on light primary button */
+    --ail-color-primary-bg-hover: #c4e1f2; /* [derived] */
+    --ail-focus-color:         #a9d0e8; /* [derived] */
+    --ail-color-border-strong: #7d878c; /* [derived] 4.85:1 */
+    --ail-color-code-bg:       #22282b; /* [derived] */
+    --ail-color-danger:        #ff8a80; /* [derived] */
+  }
+}
+:root[data-theme="dark"] {
+  --ail-color-bg:        #15181a;
+  --ail-color-panel:     #1e2224;
+  --ail-color-text:      #e8e8e6;
+  --ail-color-text-lead: #ccc;
+  --ail-color-text-soft: #aaa;
+  --ail-color-muted:     #999;
+  --ail-color-border:    #333;
+  --ail-color-divider:   #333;
+  --ail-color-hover-bg:  #22282b;
+  --ail-color-green:     #476136; /* [derived] */
+  --ail-color-green-ink: #c9e3b5;
+  --ail-color-coral:     #6b3f34;
+  --ail-color-coral-ink: #f2c9bd;
+  --ail-color-blue:      #3c5570;
+  --ail-color-blue-ink:  #c7dcee;
+  --ail-color-yellow:    #6b551f;
+  --ail-color-yellow-ink:#f2ddab;
+  --ail-color-accent:        #8cc2e3; /* [derived] */
+  --ail-color-accent-dark:   #a9d0e8; /* [derived] */
+  --ail-color-on-accent:     #0b2a3a; /* [derived] */
+  --ail-color-primary-bg-hover: #c4e1f2; /* [derived] */
+  --ail-focus-color:         #a9d0e8; /* [derived] */
+  --ail-color-border-strong: #7d878c; /* [derived] */
+  --ail-color-code-bg:       #22282b; /* [derived] */
+  --ail-color-danger:        #ff8a80; /* [derived] */
+}

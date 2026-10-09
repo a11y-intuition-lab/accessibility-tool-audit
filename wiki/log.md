@@ -30,3 +30,8 @@ Append-only, newest last.
 - Extracted GOV.UK's 2017 results for aXe (41 found, 2 manual, 99 not found) and HTML_CodeSniffer (29 found, 19 manual,
   1 identified, 93 not found) into `data/results/govuk-2017/results.json` (D-016).
 - Results page now shows these next to empty columns for the 2026 axe-core and pa11y retest.
+
+## 2026-10-10 — AIL design and methodology page
+- Site restyled with the AIL design (vendored tokens and base CSS, self-hosted Poppins and Nunito Sans, no Google Fonts
+  requests). Fixture pages unchanged; on the combined page site styles are scoped away from the examples.
+- Added the public methodology page (`src/methodology.njk`) and decision D-017 (two research questions).

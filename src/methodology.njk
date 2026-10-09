@@ -1,0 +1,136 @@
+---
+layout: base.njk
+title: Methodology
+permalink: methodology.html
+---
+{%- set wiki = site.repo + '/blob/gh-pages/wiki/' %}
+{%- set tree = site.repo + '/tree/gh-pages/' %}
+<h1>Methodology</h1>
+
+<p class="site-lead">How A11y Intuition Lab (AIL) extends and retests the 2017 GOV.UK accessibility tool audit, what we changed compared with the original study, and how anyone can repeat the work.</p>
+
+<p>This page summarises the method. The detailed, versioned record is the <a href="{{ wiki }}index.md">project wiki</a>: every decision is numbered (D-001, D-002 …) in the <a href="{{ wiki }}decisions.md">decision log</a>, and every change to GOV.UK material is listed under <a href="{{ wiki }}provenance.md">provenance</a>.</p>
+
+<nav aria-labelledby="method-contents">
+  <h2 id="method-contents">Contents</h2>
+  <ol>
+    <li><a href="#questions">Research questions</a></li>
+    <li><a href="#materials">Test material</a></li>
+    <li><a href="#wcag">Mapping test cases to WCAG</a></li>
+    <li><a href="#tools">Tools and configuration</a></li>
+    <li><a href="#procedure">Test procedure</a></li>
+    <li><a href="#classification">Classifying results</a></li>
+    <li><a href="#comparison">Comparing with 2017</a></li>
+    <li><a href="#changes">Changes from the original study</a></li>
+    <li><a href="#ai">Use of AI</a></li>
+    <li><a href="#reproduce">How to reproduce</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+  </ol>
+</nav>
+
+<h2 id="questions">1. Research questions</h2>
+<p>The project has two research questions (D-017):</p>
+<ol>
+  <li><strong>Have automated accessibility checkers improved since 2017?</strong> We run axe-core and pa11y (HTML_CodeSniffer) on the same test cases GOV.UK used, and compare with GOV.UK's 2017 results for aXe and HTML_CodeSniffer.</li>
+  <li><strong>Can AI find more accessibility barriers than automated checkers?</strong> In a second phase, AI-assisted testing is run on the same test cases and compared with the tools. That method will be described here before it is run.</li>
+</ol>
+<p>Supporting work for both questions: mapping every test case to WCAG 2.0, 2.1 and 2.2, so results can be reported per success criterion, and adding test cases where the original set has gaps.</p>
+
+<h2 id="materials">2. Test material</h2>
+<p>A <em>test case</em> is a small HTML example that contains one deliberate accessibility barrier, published on its own page under <code>tests/</code>.</p>
+<ul>
+  <li><strong>GOV.UK test cases</strong> (origin <code>govuk-2017</code>): the {{ collections.testCases | selectattr('data.origin', 'equalto', 'govuk-2017') | length }} cases written by the GDS accessibility team. They are <strong>frozen</strong>: every build checks that these pages and the files they load are byte-identical to the last upstream commit (tag <code>govuk-final</code>). If they were edited, results could no longer be compared with 2017 (D-006).</li>
+  <li><strong>AIL test cases</strong> (origin <code>ail-2026</code>): new cases for gaps in WCAG coverage, and <em>corrected versions</em> of GOV.UK cases that do not show what their title says (D-010). A corrected case names the case it corrects; both stay in the test set. AIL cases use their own stylesheet and never change GOV.UK files.</li>
+</ul>
+<p>Every test case records its origin, which is shown on the <a href="{{ '/test-cases.html' | url }}">test cases page</a> and in the <a href="{{ '/results.html' | url }}">results</a>.</p>
+
+<h2 id="wcag">3. Mapping test cases to WCAG</h2>
+<p>The original study did not link test cases to WCAG. AIL maps each test case to the success criteria of WCAG 2.0, 2.1 and 2.2 at all levels (A, AA, AAA), using W3C's machine-readable WCAG data (D-001). WCAG 3.0 is excluded because it is still a draft with a different structure (D-002).</p>
+<p>A written <a href="{{ wiki }}method/wcag-mapping.md">mapping protocol</a> defines three relations:</p>
+<dl>
+  <dt><code>fails</code></dt><dd>The example, as rendered, fails the success criterion. A W3C failure technique is cited where one exists.</dd>
+  <dt><code>related</code></dt><dd>The example is relevant to the criterion but not by itself a failure.</dd>
+  <dt><code>none</code></dt><dd>No success criterion applies; the case is best practice only.</dd>
+</dl>
+<p>Borderline mappings are recorded as <code>related</code> and queued for human review (D-011), so coverage figures are conservative. Cases that only fail 4.1.1 Parsing, which was removed in WCAG 2.2, are kept and marked historical (D-012). Coverage is computed by a script from the stored mapping. See the <a href="{{ wiki }}analysis/wcag-gap-analysis.md">gap analysis</a>.</p>
+
+<h2 id="tools">4. Tools and configuration</h2>
+<p>The retest uses two free, open-source, scriptable checkers with independent rule engines (D-003):</p>
+<ul>
+  <li><strong>axe-core</strong>, with all rule tags enabled, including best practices and experimental rules, to match the 2017 aXe settings.</li>
+  <li><strong>pa11y</strong> with its HTML_CodeSniffer runner, using the WCAG2AAA standard and including warnings and notices, to match the 2017 HTML_CodeSniffer settings (D-016).</li>
+</ul>
+<p>Exact versions of the tools, the browser, Node.js and the operating system are recorded with every run. Dependencies are installed under strict <a href="{{ wiki }}method/supply-chain-security.md">supply-chain rules</a>, such as a seven-day minimum release age and no install scripts (D-008).</p>
+<p><em>Status: the retest harness is being built. This section will list the pinned versions once the first run is published.</em></p>
+
+<h2 id="procedure">5. Test procedure</h2>
+<ol>
+  <li>Build the site from a specific commit (<code>npm run build</code>) and verify the frozen fixtures (<code>npm run verify</code>).</li>
+  <li>Serve the built files over local HTTP. Tools test the built files, which are exactly what is published (D-009).</li>
+  <li>Run each tool against each test case <strong>on its own page</strong>, so failures cannot mask or trigger each other (D-004).</li>
+  <li>Store the raw output of every tool for every page, together with the environment record.</li>
+  <li>Classify the raw output with the scripted protocol below.</li>
+</ol>
+
+<h2 id="classification">6. Classifying results</h2>
+<p>The 2017 results were recorded by hand into six categories: issue found, issue found (paid), warning only, user to check, noticed but not a fail, and not found. AIL uses the same categories, but the decision is made by a script (D-005):</p>
+<ul>
+  <li>Each test case has a stored list of the tool rule IDs that correspond to its barrier.</li>
+  <li>A tool <em>finds</em> a test case only if one of those rules reports on the relevant element. A violation elsewhere on the page does not count.</li>
+  <li>The category depends on how the tool reports it: violation (issue found), warning (warning only), or "needs review" (user to check).</li>
+</ul>
+<p>The rule mapping is data in the repository, so the classification can be rerun and checked without repeating any human or AI judgement.</p>
+
+<h2 id="comparison">7. Comparing with 2017</h2>
+<p>The <a href="{{ '/results.html' | url }}">results page</a> shows the 2017 results for aXe and HTML_CodeSniffer, copied unchanged from the GOV.UK data, next to the 2026 results. HTML_CodeSniffer is the historical counterpart of pa11y because pa11y runs it as its engine. Results for the other 11 tools tested in 2017 are not repeated here; they remain on the <a href="{{ site.originalResults }}">original results page</a>.</p>
+
+<h2 id="changes">8. Changes from the original study</h2>
+<div class="site-table-wrap" role="region" aria-labelledby="changes-caption" tabindex="0">
+<table>
+  <caption id="changes-caption">Differences between the 2017 GOV.UK method and the 2026 AIL method</caption>
+  <thead>
+    <tr><th scope="col">Aspect</th><th scope="col">GOV.UK 2017</th><th scope="col">AIL 2026</th><th scope="col">Decision</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Tools</th><td>13 tools, free and commercial</td><td>axe-core and pa11y (HTML_CodeSniffer)</td><td>D-003</td></tr>
+    <tr><th scope="row">Pages tested</th><td>Not documented in detail (see the <a href="{{ site.blog }}">GDS blog post</a>)</td><td>Each test case on its own page</td><td>D-004</td></tr>
+    <tr><th scope="row">Classification</th><td>Manual</td><td>Scripted, using a stored rule mapping</td><td>D-005</td></tr>
+    <tr><th scope="row">Tool versions</th><td>Not recorded</td><td>Pinned and recorded with each run</td><td>D-008</td></tr>
+    <tr><th scope="row">Raw output</th><td>Not published</td><td>Published with each run</td><td>D-005</td></tr>
+    <tr><th scope="row">WCAG link</th><td>None</td><td>Mapped to WCAG 2.0, 2.1 and 2.2</td><td>D-001</td></tr>
+    <tr><th scope="row">Test cases</th><td>142</td><td>142 unchanged, plus AIL additions and corrected versions</td><td>D-006, D-010</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="ai">9. Use of AI</h2>
+<p>AI plays two separate roles in this project, which are kept apart:</p>
+<ul>
+  <li><strong>As the object of study</strong> (research question 2): AI-assisted testing is one of the methods being compared. Its prompts, models and settings will be published as part of the method, and its output is classified with the same protocol as the tools.</li>
+  <li><strong>As a research assistant</strong>: AI models (Anthropic Claude) draft the WCAG mapping, propose new test cases and help with code and documentation.</li>
+</ul>
+<p>To keep the assistant role transparent and repeatable:</p>
+<ul>
+  <li>AI output that affects results is stored as data, with the model, the date and a one-sentence rationale for each item.</li>
+  <li>Material that no human has reviewed is marked <q>AI-drafted, not human-reviewed</q>.</li>
+  <li>Results are always computed by deterministic scripts from stored data. Rerunning them does not need an AI.</li>
+</ul>
+
+<h2 id="reproduce">10. How to reproduce</h2>
+<ol>
+  <li>Clone the <a href="{{ site.repo }}">repository</a> and check out the commit named in the run you want to reproduce.</li>
+  <li>Install with Node.js 24 and npm 11.15 or later: <code>npm ci</code>.</li>
+  <li>Build and verify: <code>npm run build</code>, then <code>npm run verify</code>.</li>
+  <li>Recompute WCAG coverage: <code>npm run wcag:coverage</code>.</li>
+  <li>Run the retest and classification. <em>The commands will be documented here when the harness is published.</em></li>
+</ol>
+<p>Data lives in <a href="{{ tree }}data">data/</a>: WCAG source data, the mappings, the gap analysis, and results by origin (<code>govuk-2017</code>, <code>ail-2026</code>).</p>
+
+<h2 id="limitations">11. Limitations</h2>
+<ul>
+  <li>Exact comparison with 2017 is limited: 2017 tool versions are unknown, and classification was manual then and scripted now.</li>
+  <li>Each test case contains one deliberate barrier. Real pages combine many, and tools may behave differently there.</li>
+  <li>Some GOV.UK examples depend on remote media or old browser behaviour (such as <code>&lt;blink&gt;</code>) and may no longer show their barrier. Corrected AIL versions address some of these.</li>
+  <li>Several WCAG criteria cannot be represented by a single static page, such as consistency across pages, timing and authentication. These need multi-page or scripted test cases.</li>
+  <li>The WCAG mapping is AI-drafted and only partly reviewed.</li>
+</ul>

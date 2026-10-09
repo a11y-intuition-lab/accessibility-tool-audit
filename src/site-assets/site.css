@@ -1,112 +1,160 @@
-:root {
-  color-scheme: light dark;
-  --bg: #ffffff;
-  --fg: #1c1f23;
-  --muted: #4a5159;
-  --link: #0b4f9c;
-  --link-hover: #083a73;
-  --band: #f1f3f5;
-  --border: #c5cbd1;
-  --focus: #b35c00;
-}
+/*
+ * Site styles for the accessibility tool audit, built on the AIL tokens (ail/ail-tokens.css).
+ * Use tokens only, no raw colours.
+ *
+ * Fixture isolation: test-cases.html embeds the frozen, deliberately flawed examples inside `.example`.
+ * ail/ail-base.css styles bare elements (h1, a, table, input, ...) and is therefore NOT loaded on that page
+ * (see base.njk). Everything below that targets bare elements is either scoped with child combinators from
+ * `main` (so it cannot reach into `.example`) or lives under a site class.
+ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14171a;
-    --fg: #e9ecef;
-    --muted: #b4bcc4;
-    --link: #8cbcff;
-    --link-hover: #b8d5ff;
-    --band: #1f2327;
-    --border: #444c54;
-    --focus: #ffb454;
-  }
-}
+:root { color-scheme: light dark; }
 
-*, *::before, *::after { box-sizing: border-box; }
+/* Not `*`: on test-cases.html that would reach into the examples. */
+body, main, .site-header-inner, .site-footer-inner { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font: 1rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: var(--ail-color-bg);
+  color: var(--ail-color-text);
+  font-family: var(--ail-font-body);
+  font-size: var(--ail-text-base);
+  line-height: var(--ail-leading-body);
 }
 
-main { flex: 1; padding-block: 1.5rem 3rem; }
-
-.site-wrap {
-  width: 100%;
-  max-width: 62rem;
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
-a { color: var(--link); text-underline-offset: 0.15em; }
-a:hover { color: var(--link-hover); }
-
-a:focus-visible,
-main:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
+/* ---------- Skip link ---------- */
 .site-skip {
   position: absolute;
-  left: 0.5rem;
   top: -4rem;
-  padding: 0.5rem 1rem;
-  background: var(--bg);
-  color: var(--fg);
-  border: 2px solid var(--fg);
-  z-index: 10;
+  left: var(--ail-space-3);
+  z-index: 100;
+  padding: 10px 18px;
+  border-radius: var(--ail-radius-md);
+  background: var(--ail-color-primary-bg);
+  color: var(--ail-color-on-accent);
+  text-decoration: none;
 }
-.site-skip:focus { top: 0.5rem; }
+.site-skip:focus { top: var(--ail-space-3); }
+.site-skip:focus-visible,
+.site-header a:focus-visible,
+.site-footer a:focus-visible,
+main:focus-visible,
+.site-table-wrap:focus-visible,
+main > :is(p, ul, nav, section) a:focus-visible,
+main > section > h3 a:focus-visible {
+  outline: var(--ail-focus-width) solid var(--ail-focus-color);
+  outline-offset: var(--ail-focus-offset);
+  border-radius: var(--ail-focus-radius);
+}
 
-.site-header { background: var(--band); border-bottom: 1px solid var(--border); }
-.site-header .site-wrap {
+/* ---------- Header ---------- */
+.site-header { border-bottom: var(--ail-border-width) solid var(--ail-color-divider); }
+.site-header-inner {
+  max-width: var(--ail-max-width);
+  margin: 0 auto;
+  padding: var(--ail-space-3) var(--ail-gutter);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem 1.5rem;
-  padding-block: 0.75rem;
+  gap: var(--ail-space-2) var(--ail-space-6);
 }
-.site-name { margin: 0; font-weight: 700; font-size: 1.125rem; }
-.site-name a { color: var(--fg); text-decoration: none; }
-.site-nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; margin: 0; padding: 0; }
-.site-nav a[aria-current="page"] { color: var(--fg); font-weight: 700; }
+.site-brand-block { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--ail-space-4); margin: 0; }
+.site-brand,
+.site-name a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--ail-tap-min);
+  text-decoration: none;
+}
+.site-brand {
+  font-family: var(--ail-font-heading);
+  font-weight: var(--ail-weight-extrabold);
+  font-size: var(--ail-text-h3);
+  color: var(--ail-color-heading);
+}
+.site-name a { font-weight: var(--ail-weight-bold); color: var(--ail-color-text); }
+.site-brand:hover, .site-name a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+.site-nav { display: flex; flex-wrap: wrap; gap: var(--ail-space-2); list-style: none; margin: 0; padding: 0; }
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--ail-tap-min);
+  padding: 6px 12px;
+  border-radius: var(--ail-radius-md);
+  font-weight: var(--ail-weight-bold);
+  color: var(--ail-color-heading);
+  text-decoration: none;
+}
+.site-nav a:hover { background: var(--ail-color-hover-bg); }
+.site-nav a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
-.site-footer { background: var(--band); border-top: 1px solid var(--border); color: var(--muted); }
-.site-footer .site-wrap { padding-block: 1.25rem; }
-.site-footer p { margin: 0.25rem 0; }
+/* ---------- Main and footer ---------- */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--ail-max-width);
+  margin: 0 auto;
+  padding: var(--ail-space-8) var(--ail-gutter) var(--ail-space-page-bottom);
+}
+.site-footer { border-top: var(--ail-border-width) solid var(--ail-color-divider); color: var(--ail-color-muted); }
+.site-footer-inner { max-width: var(--ail-max-width); margin: 0 auto; padding: var(--ail-space-5) var(--ail-gutter); }
+.site-footer p { margin: var(--ail-space-1) 0; }
+.site-footer a { color: var(--ail-color-link); }
 
-h1 { font-size: 2rem; line-height: 1.2; margin-block: 0 1rem; }
-h2 { font-size: 1.5rem; line-height: 1.25; margin-block: 2rem 0.75rem; }
-h3 { font-size: 1.15rem; line-height: 1.3; margin-block: 1.75rem 0.25rem; }
+/* ---------- Page content: bare-element styles for pages that do not load ail-base.css (test-cases.html) ----------
+   Child combinators keep these out of `.example`. */
+body.site-fixtures-page main > h1,
+body.site-fixtures-page main > section > h2,
+body.site-fixtures-page main > section > h3 {
+  font-family: var(--ail-font-heading);
+  color: var(--ail-color-heading);
+  line-height: var(--ail-leading-heading);
+}
+body.site-fixtures-page main > h1 { font-weight: var(--ail-weight-extrabold); font-size: var(--ail-text-h1); margin: 0 0 var(--ail-space-4); }
+body.site-fixtures-page main > section > h2 { font-weight: var(--ail-weight-bold); font-size: var(--ail-text-h2); margin: var(--ail-space-8) 0 var(--ail-space-4); }
+body.site-fixtures-page main > section > h3 { font-weight: var(--ail-weight-extrabold); font-size: var(--ail-text-h3); margin: var(--ail-space-6) 0 var(--ail-space-2); }
+body.site-fixtures-page main > p { margin: 0 0 var(--ail-space-4); }
+body.site-fixtures-page main > :is(p, nav) a,
+body.site-fixtures-page main > section > h3 a,
+body.site-fixtures-page .site-origin a { color: var(--ail-color-link); }
 
-.site-lead { font-size: 1.2rem; max-width: 40rem; }
-p, li { max-width: 46rem; }
+/* Content width and spacing on pages with ail-base.css */
+main > :is(p, ul, ol) { max-width: var(--ail-measure-prose); }
+main > h2 { margin-top: var(--ail-space-8); }
+main > ul, main > ol { margin: 0 0 var(--ail-space-4); padding-left: var(--ail-space-6); }
+.site-lead { font-size: var(--ail-text-lead); max-width: var(--ail-measure-lead); color: var(--ail-color-text-lead); }
 
-.site-cats { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; list-style: none; padding: 0; }
-.site-origin { margin: 0 0 0.5rem; color: var(--muted); font-size: 0.9rem; }
+/* ---------- Test case listing ---------- */
+.site-cats { display: flex; flex-wrap: wrap; gap: var(--ail-space-2); list-style: none; margin: 0 0 var(--ail-space-4); padding: 0; }
+.site-cats a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--ail-tap-min);
+  padding: 6px 12px;
+  border: var(--ail-border-card);
+  border-radius: var(--ail-radius-pill);
+  font-weight: var(--ail-weight-bold);
+  text-decoration: none;
+}
+.site-cats a:hover { background: var(--ail-color-hover-bg); border-color: var(--ail-color-accent); }
+.site-origin { margin: 0 0 var(--ail-space-2); color: var(--ail-color-muted); }
+.example {
+  border-left: 4px solid var(--ail-color-border-strong);
+  padding: var(--ail-space-2) 0 var(--ail-space-2) var(--ail-space-4);
+  overflow-x: auto;
+}
 
-.example { border-left: 4px solid var(--border); padding: 0.5rem 0 0.5rem 1rem; overflow-x: auto; }
-
-code { font-family: ui-monospace, Consolas, monospace; font-size: 0.95em; }
+/* ---------- Results tables ---------- */
+.site-table-wrap { overflow-x: auto; margin: var(--ail-space-4) 0 var(--ail-space-8); }
+.site-table-wrap table { min-width: 40rem; }
+.site-table-wrap th, .site-table-wrap td { border-bottom: var(--ail-border-width) solid var(--ail-color-divider); }
+.site-muted { font-weight: var(--ail-weight-regular); color: var(--ail-color-muted); }
+.site-result-error { font-weight: var(--ail-weight-bold); }
 
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
-
-/* Results tables */
-.site-table-wrap { overflow-x: auto; margin-block: 1rem 2rem; }
-.site-table-wrap:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-.site-table-wrap table { border-collapse: collapse; min-width: 40rem; width: 100%; }
-.site-table-wrap caption { text-align: left; font-weight: 700; font-size: 1.15rem; padding-block-end: 0.5rem; }
-.site-table-wrap th, .site-table-wrap td { border: 1px solid var(--border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
-.site-table-wrap thead th { background: var(--band); }
-.site-muted { font-weight: normal; color: var(--muted, inherit); font-size: 0.9em; }
-.site-result-error { font-weight: 700; }

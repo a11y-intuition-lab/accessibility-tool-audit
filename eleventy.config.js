@@ -21,6 +21,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('assets');
   eleventyConfig.addPassthroughCopy('example-pages');
   eleventyConfig.addPassthroughCopy({ 'src/site-assets': 'site-assets' });
+  // Documentation files inside site-assets (e.g. fonts/SOURCE.md) are copied as-is, not rendered as pages.
+  eleventyConfig.ignores.add('src/site-assets/**/*.md');
 
   eleventyConfig.addFilter('processExample', processExample);
 

@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>{{ title }} - {{ site.name }} - {{ site.suffix }}</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%226%22%20fill%3D%22%23103c52%22%2F%3E%3Cg%20transform%3D%22translate(11.7982%2C4)%20scale(0.0161453)%22%3E%3Cpath%20d%3D%22M0%2C0%20L31%2C0%20L41%2C1%20L51%2C3%20L68%2C7%20L87%2C13%20L95%2C16%20L104%2C20%20L123%2C30%20L138%2C40%20L148%2C48%20L158%2C57%20L164%2C62%20L171%2C70%20L180%2C81%20L190%2C95%20L200%2C113%20L209%2C134%20L215%2C155%20L217%2C164%20L219%2C178%20L219%2C219%20L215%2C245%20L211%2C261%20L202%2C283%20L194%2C299%20L184%2C314%20L177%2C323%20L166%2C336%20L150%2C352%20L147%2C355%20L162%2C364%20L176%2C374%20L186%2C382%20L200%2C393%20L215%2C407%20L228%2C419%20L235%2C427%20L242%2C434%20L251%2C445%20L260%2C455%20L272%2C471%20L286%2C490%20L301%2C513%20L313%2C533%20L326%2C556%20L336%2C577%20L344%2C592%20L358%2C624%20L373%2C663%20L387%2C705%20L398%2C745%20L404%2C770%20L410%2C800%20L415%2C833%20L418%2C860%20L419%2C874%20L419%2C917%20L416%2C936%20L410%2C951%20L402%2C963%20L392%2C973%20L381%2C980%20L370%2C985%20L357%2C989%20L343%2C991%20L273%2C991%20L255%2C988%20L242%2C983%20L227%2C974%20L215%2C963%20L207%2C955%20L196%2C940%20L187%2C926%20L178%2C914%20L166%2C900%20L153%2C887%20L139%2C876%20L122%2C864%20L100%2C852%20L80%2C844%20L68%2C840%20L52%2C836%20L30%2C833%20L-7%2C833%20L-31%2C837%20L-61%2C846%20L-90%2C860%20L-108%2C872%20L-121%2C882%20L-133%2C893%20L-146%2C906%20L-155%2C917%20L-167%2C934%20L-174%2C945%20L-183%2C956%20L-190%2C964%20L-201%2C973%20L-211%2C980%20L-225%2C986%20L-235%2C989%20L-248%2C991%20L-319%2C991%20L-336%2C988%20L-351%2C983%20L-361%2C977%20L-371%2C969%20L-379%2C960%20L-387%2C946%20L-391%2C934%20L-393%2C924%20L-394%2C912%20L-394%2C875%20L-390%2C831%20L-386%2C803%20L-380%2C772%20L-372%2C737%20L-366%2C716%20L-358%2C690%20L-346%2C655%20L-331%2C618%20L-316%2C585%20L-305%2C563%20L-292%2C540%20L-279%2C518%20L-263%2C494%20L-253%2C480%20L-241%2C464%20L-230%2C451%20L-222%2C441%20L-208%2C426%20L-182%2C400%20L-174%2C393%20L-157%2C379%20L-139%2C366%20L-122%2C355%20L-121%2C353%20L-125%2C351%20L-137%2C340%20L-144%2C332%20L-152%2C323%20L-164%2C306%20L-175%2C286%20L-183%2C266%20L-189%2C245%20L-192%2C231%20L-193%2C223%20L-193%2C177%20L-188%2C150%20L-179%2C123%20L-169%2C103%20L-160%2C89%20L-148%2C73%20L-141%2C66%20L-134%2C58%20L-123%2C48%20L-107%2C36%20L-92%2C27%20L-75%2C18%20L-61%2C13%20L-53%2C10%20L-36%2C5%20L-20%2C2%20Z%20%22%20fill%3D%22%23f0c96b%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+  <link rel="stylesheet" href="{{ '/site-assets/fonts/fonts.css' | url }}">
+  <link rel="stylesheet" href="{{ '/site-assets/ail/ail-tokens.css' | url }}">
+{%- if not fixtures %}
+  <link rel="stylesheet" href="{{ '/site-assets/ail/ail-base.css' | url }}">
+{%- endif %}
   <link rel="stylesheet" href="{{ '/site-assets/site.css' | url }}">
 {%- if fixtures %}
   <link rel="stylesheet" href="{{ '/assets/stylesheets/tests.css' | url }}">
@@ -13,17 +19,21 @@
   <script src="{{ '/assets/javascript/main.js' | url }}"></script>
 {%- endif %}
 </head>
-<body{% if fixtures %} class="tests"{% endif %}>
+<body{% if fixtures %} class="tests site-fixtures-page"{% endif %}>
   <a class="site-skip" href="#main">Skip to main content</a>
   <header class="site-header">
-    <div class="site-wrap">
-      <p class="site-name"><a href="{{ '/' | url }}">{{ site.name }}</a></p>
+    <div class="site-header-inner">
+      <p class="site-brand-block">
+        <a class="site-brand" href="https://a11yintuition.org/">A11y Intuition Lab</a>
+        <span class="site-name"><a href="{{ '/' | url }}">{{ site.name }}</a></span>
+      </p>
       <nav aria-label="Main">
         <ul class="site-nav">
           {%- set items = [
             { href: '/', label: 'Overview' },
             { href: '/test-cases.html', label: 'Test cases' },
             { href: '/results.html', label: 'Results' },
+            { href: '/methodology.html', label: 'Methodology' },
             { href: '/about.html', label: 'About' }
           ] %}
           {%- for item in items %}
@@ -34,15 +44,13 @@
     </div>
   </header>
   <main id="main" tabindex="-1">
-    <div class="site-wrap">
 {{ content | safe }}
-    </div>
   </main>
   <footer class="site-footer">
-    <div class="site-wrap">
+    <div class="site-footer-inner">
       <p>Released under the <a href="{{ site.repo }}/blob/gh-pages/LICENSE" rel="license">MIT licence</a>.</p>
       <p>Based on work by the <a href="{{ site.upstreamRepo }}">GDS accessibility team</a> (Crown Copyright 2017).</p>
-      <p>Continued by <a href="{{ site.repo }}">A11y Intuition Lab</a>.</p>
+      <p>Continued by A11y Intuition Lab. <a href="{{ site.repo }}">Source code on GitHub</a>.</p>
     </div>
   </footer>
 </body>
