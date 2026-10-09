@@ -113,3 +113,11 @@ work for both.
 **Consequence:** AI has two roles that are kept apart: object of study (question 2, with published prompts, models and
 settings, classified like the tools) and research assistant (drafting mappings, test cases, code and documentation,
 always stored as data and marked when not human-reviewed). The public method is on the site's methodology page.
+
+## D-019 — Three aims instead of research questions (2026-10-10)
+
+**Decision:** The project is described by three aims: (1) retest the GOV.UK test cases with current axe-core and pa11y
+and compare with 2017; (2) add test cases for uncovered WCAG success criteria and see how the tools find them;
+(3) phase 2, later: AI-assisted testing on the same test cases, compared with the tools.
+**Supersedes:** D-017's two research questions. The split between AI as object of study (aim 3) and AI as research
+assistant still applies.

@@ -14,7 +14,7 @@ permalink: methodology.html
 <nav aria-labelledby="method-contents">
   <h2 id="method-contents">Contents</h2>
   <ol>
-    <li><a href="#questions">Research questions</a></li>
+    <li><a href="#questions">Aims</a></li>
     <li><a href="#materials">Test material</a></li>
     <li><a href="#wcag">Mapping test cases to WCAG</a></li>
     <li><a href="#tools">Tools and configuration</a></li>
@@ -28,13 +28,13 @@ permalink: methodology.html
   </ol>
 </nav>
 
-<h2 id="questions">1. Research questions</h2>
-<p>The project has two research questions (D-017):</p>
+<h2 id="questions">1. Aims</h2>
+<p>The project has three aims (D-019):</p>
 <ol>
-  <li><strong>Have automated accessibility checkers improved since 2017?</strong> We run axe-core and pa11y (HTML_CodeSniffer) on the same test cases GOV.UK used, and compare with GOV.UK's 2017 results for aXe and HTML_CodeSniffer.</li>
-  <li><strong>Can AI find more accessibility barriers than automated checkers?</strong> In a second phase, AI-assisted testing is run on the same test cases and compared with the tools. That method will be described here before it is run.</li>
+  <li><strong>Retest.</strong> Run current versions of axe-core and pa11y (HTML_CodeSniffer) on the GOV.UK test cases and compare with GOV.UK's 2017 results for aXe and HTML_CodeSniffer.</li>
+  <li><strong>Extend.</strong> Add test cases for the WCAG 2.0, 2.1 and 2.2 success criteria the original set does not cover, and see how well the tools find them.</li>
+  <li><strong>Test with AI</strong> (phase 2, not started). Try AI-assisted testing on the same test cases and compare with the tools. The method will be described here before it is run.</li>
 </ol>
-<p>Supporting work for both questions: mapping every test case to WCAG 2.0, 2.1 and 2.2, so results can be reported per success criterion, and adding test cases where the original set has gaps.</p>
 
 <h2 id="materials">2. Test material</h2>
 <p>A <em>test case</em> is a small HTML example that contains one deliberate accessibility barrier, published on its own page under <code>tests/</code>.</p>
@@ -106,7 +106,7 @@ permalink: methodology.html
 <h2 id="ai">9. Use of AI</h2>
 <p>AI plays two separate roles in this project, which are kept apart:</p>
 <ul>
-  <li><strong>As the object of study</strong> (research question 2): AI-assisted testing is one of the methods being compared. Its prompts, models and settings will be published as part of the method, and its output is classified with the same protocol as the tools.</li>
+  <li><strong>As the object of study</strong> (aim 3, phase 2): AI-assisted testing is one of the methods being compared. Its prompts, models and settings will be published as part of the method, and its output is classified with the same protocol as the tools.</li>
   <li><strong>As a research assistant</strong>: AI models (Anthropic Claude) draft the WCAG mapping, propose new test cases and help with code and documentation.</li>
 </ul>
 <p>To keep the assistant role transparent and repeatable:</p>
