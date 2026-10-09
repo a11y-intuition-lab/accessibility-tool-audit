@@ -158,3 +158,19 @@ main > ul, main > ol { margin: 0 0 var(--ail-space-4); padding-left: var(--ail-s
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+/* Results page: key numbers, result legend, colour-coded cells (text always present) */
+.site-stats { list-style: none; padding: 0; display: grid; gap: var(--ail-space-4); grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.site-stats li { border: var(--ail-border-width) solid var(--ail-color-border); border-radius: var(--ail-radius-md, 10px); padding: var(--ail-space-4); background: var(--ail-color-panel); }
+.site-stat-value { display: block; font-family: var(--ail-font-heading); font-weight: 800; font-size: 2.25rem; line-height: 1.1; color: var(--ail-color-heading); }
+.site-stat-label { display: block; }
+.site-details { margin-block: var(--ail-space-6); }
+.site-details summary { cursor: pointer; font-weight: var(--ail-weight-bold); color: var(--ail-color-link); min-height: 44px; display: flex; align-items: center; }
+.site-details dt { margin-top: var(--ail-space-3); }
+.site-result { display: inline-block; padding: 0.1em 0.5em; border-radius: 999px; font-weight: var(--ail-weight-bold); }
+.site-result-error, .site-result-error_paid { background: var(--ail-color-green); color: var(--ail-color-green-ink); }
+.site-result-warning, .site-result-manual { background: var(--ail-color-yellow); color: var(--ail-color-yellow-ink); }
+.site-result-identified { background: var(--ail-color-blue); color: var(--ail-color-blue-ink); }
+.site-result-notfound { background: var(--ail-color-coral); color: var(--ail-color-coral-ink); }
+.site-results-table .site-result-cell { font-weight: var(--ail-weight-bold); }
+.site-results-group th { background: var(--ail-color-code-bg); font-family: var(--ail-font-heading); text-align: left; }

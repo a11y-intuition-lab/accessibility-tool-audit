@@ -4,57 +4,51 @@ title: Results
 permalink: results.html
 ---
 {%- set cols = results.columns %}
+{%- set tree = site.repo + '/tree/gh-pages/' %}
 <h1>Results</h1>
 
-<p class="site-lead">How well automated checkers find each test case, then and now. The GOV.UK columns show the 2017 results for aXe and HTML_CodeSniffer. The AIL columns show the 2026 retest with axe-core and pa11y, which uses HTML_CodeSniffer as its engine.</p>
+<p class="site-lead">How well automated checkers find each test case, then and now. Each 2026 retest column sits next to its 2017 counterpart.</p>
 
-<p><strong>The 2026 retest has not run yet.</strong> Until it has, the AIL columns are empty.</p>
+<p><strong>The 2026 retest has not been published yet.</strong> Until it has, the AIL columns are empty.</p>
 
-<h2>Summary</h2>
-<div class="site-table-wrap" role="region" aria-labelledby="summary-caption" tabindex="0">
-<table>
-  <caption id="summary-caption">Number of test cases per result, by tool</caption>
-  <thead>
-    <tr>
-      <th scope="col">Result</th>
-      {%- for c in cols %}
-      <th scope="col">{{ c.label }}<br><span class="site-muted">{{ c.who }} {{ c.when }}</span></th>
-      {%- endfor %}
-    </tr>
-  </thead>
-  <tbody>
-    {%- for value, label in results.values %}
-    <tr>
-      <th scope="row">{{ label | capitalize }}</th>
-      {%- for c in cols %}
-      <td>{{ collections.testCases | countResult(results.byTest, c.key, value) }}</td>
-      {%- endfor %}
-    </tr>
-    {%- endfor %}
-    <tr>
-      <th scope="row">Not tested</th>
-      {%- for c in cols %}
-      <td>{{ collections.testCases | countResult(results.byTest, c.key, null) }}</td>
-      {%- endfor %}
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<h2>About the comparison</h2>
-<ul>
-  <li>GOV.UK last retested aXe on 23 December 2017 and HTML_CodeSniffer on 5 December 2017. Tool versions were not recorded. On 13 April 2018 GOV.UK reclassified HTML_CodeSniffer warnings as manual checks without retesting.</li>
-  <li>GOV.UK recorded results by hand. AIL classifies results with a script and a stored mapping from test case to rule IDs, so the categories may not line up exactly.</li>
-  <li>Test cases added by AIL have no 2017 result.</li>
-  <li>The full GOV.UK results for all 13 tools are on the <a href="{{ site.originalResults }}">original results page</a>.</li>
+<h2>Numbers</h2>
+<ul class="site-stats">
+  <li><span class="site-stat-value">{{ collections.testCases.length }}</span> <span class="site-stat-label">test cases</span></li>
+  {%- for c in cols %}
+  {%- set rate = collections.testCases | detectionRate(results.byTest, c.key) %}
+  <li><span class="site-stat-value">{{ (rate + '%') if rate !== null else '–' }}</span> <span class="site-stat-label">found or warned by {{ c.label }} ({{ c.who }} {{ c.when }})</span></li>
+  {%- endfor %}
 </ul>
+<p class="site-muted">Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on.</p>
+
+<details class="site-details">
+  <summary>What each result means</summary>
+  <p>These categories are the ones GOV.UK used in 2017, with their wording.</p>
+  <h3>Positive result</h3>
+  <dl>
+    <dt><span class="site-result site-result-error">Issue found</span></dt><dd>The tool found the issue.</dd>
+    <dt><span class="site-result site-result-error_paid">Issue found (paid)</span></dt><dd>Only the paid version of the tool found the issue.</dd>
+  </dl>
+  <h3>Mostly positive results</h3>
+  <dl>
+    <dt><span class="site-result site-result-warning">Warning only</span></dt><dd>The tool noticed the issue, but only threw up a warning.</dd>
+    <dt><span class="site-result site-result-manual">User to check</span></dt><dd>The tool pointed out the potentially problematic bit of code and asked us to check ourselves whether it was an issue.</dd>
+  </dl>
+  <h3>Neutral result</h3>
+  <dl>
+    <dt><span class="site-result site-result-identified">Noticed but not a fail</span></dt><dd>The tool noticed this was potentially a problem, but didn't see it as a full-scale issue or give a warning.</dd>
+  </dl>
+  <h3>Negative result</h3>
+  <dl>
+    <dt><span class="site-result site-result-notfound">Not found</span></dt><dd>The tool didn't find the issue.</dd>
+  </dl>
+  <p>In 2026 the category is assigned by a script, not by hand. See the <a href="{{ '/methodology.html' | url }}#classification">methodology</a>.</p>
+</details>
 
 {%- set groups = collections.testCases | groupByCategory %}
-<h2>Results per test case</h2>
-{%- for group in groups %}
-<div class="site-table-wrap" role="region" aria-labelledby="results-{{ loop.index }}" tabindex="0">
-<table>
-  <caption id="results-{{ loop.index }}">{{ group.name }}</caption>
+<div class="site-table-wrap" role="region" aria-labelledby="results-caption" tabindex="0">
+<table class="site-results-table">
+  <caption id="results-caption">Table of results</caption>
   <thead>
     <tr>
       <th scope="col">Test case</th>
@@ -63,18 +57,35 @@ permalink: results.html
       {%- endfor %}
     </tr>
   </thead>
+  {%- for group in groups %}
   <tbody>
+    <tr class="site-results-group"><th scope="rowgroup" colspan="{{ cols.length + 1 }}">{{ group.name }}</th></tr>
     {%- for item in group.items %}
     {%- set r = results.byTest[item.fileSlug] %}
     <tr>
-      <th scope="row"><a href="{{ ('/tests/' + item.fileSlug + '.html') | url }}">{{ item.data.title }}</a>{% if item.data.origin == 'ail-2026' %} <span class="site-muted">(AIL)</span>{% endif %}</th>
+      <th scope="row"><a href="{{ ('/test-cases.html#' + item.fileSlug) | url }}">{{ item.data.title }}</a>{% if item.data.origin == 'ail-2026' %} <span class="site-muted">(AIL)</span>{% endif %}</th>
       {%- for c in cols %}
       {%- set v = r[c.key] if r else null %}
-      <td{% if v %} class="site-result site-result-{{ v }}"{% endif %}>{{ results.values[v] if v else '–' }}</td>
+      {%- if v %}
+      <td class="site-result-cell site-result-{{ v }}">{{ results.values[v] | capitalize }}</td>
+      {%- else %}
+      <td class="site-result-cell"><span class="site-muted">Not tested</span></td>
+      {%- endif %}
       {%- endfor %}
     </tr>
     {%- endfor %}
   </tbody>
+  {%- endfor %}
 </table>
 </div>
-{%- endfor %}
+
+<h2 id="changelog">Changelog</h2>
+<p>AIL retests will be listed here, newest first, with the commit and tool versions used.</p>
+<p>GOV.UK's changelog for 2016 to 2018, including when aXe and HTML_CodeSniffer were last retested, is on the <a href="{{ site.originalResults }}#changelog">original results page</a>.</p>
+
+<h2>Want more detail?</h2>
+<ul>
+  <li>2017 results for aXe and HTML_CodeSniffer, as used here: <a href="{{ tree }}data/results/govuk-2017/results.json">data/results/govuk-2017/results.json</a></li>
+  <li>2026 retest runs, with raw tool output: <a href="{{ tree }}data/results/ail-2026">data/results/ail-2026/</a></li>
+  <li>Results for all 13 tools tested in 2017: <a href="{{ site.originalResults }}">original results page</a></li>
+</ul>

@@ -56,6 +56,14 @@ export default function (eleventyConfig) {
     items.filter((item) => (byTest[item.fileSlug]?.[key] ?? null) === value).length,
   );
 
+  // Percentage of tested cases in column `key` that the tool found or warned about; null if none tested.
+  eleventyConfig.addFilter('detectionRate', (items, byTest, key) => {
+    const values = items.map((item) => byTest[item.fileSlug]?.[key]).filter(Boolean);
+    if (!values.length) return null;
+    const found = values.filter((v) => ['error', 'error_paid', 'warning'].includes(v)).length;
+    return Math.round((found / values.length) * 100);
+  });
+
   return {
     dir: { input: 'src', output: '_site', includes: '_includes', data: '_data' },
     pathPrefix: '/accessibility-tool-audit/',
