@@ -12,7 +12,9 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
-    "verify": "node scripts/verify-fixtures.mjs"
+    "verify": "node scripts/verify-fixtures.mjs",
+    "wcag:fetch": "node scripts/wcag/fetch-wcag.mjs",
+    "wcag:coverage": "node scripts/wcag/coverage.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6"

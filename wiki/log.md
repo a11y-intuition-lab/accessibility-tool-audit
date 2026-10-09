@@ -11,3 +11,11 @@ Append-only, newest last.
   test pages and 20 fixture assets verified byte-identical to `govuk-final` (`npm run verify`).
 - Removed GOV.UK branding, old tool results and the upstream build (listed in [provenance](provenance.md)).
 - Added `.npmrc`, pinned Actions, Dependabot ([supply-chain security](method/supply-chain-security.md); D-008, D-009).
+
+## 2026-10-10 — WCAG gap analysis (AI-drafted)
+- Ingested W3C `wcag.json` (WCAG 2.2 data, includes 2.0/2.1 via `versions`): 61 / 78 / 86 (+4.1.1) success criteria.
+- Wrote the [mapping protocol](method/wcag-mapping.md) and mapped all 142 GOV.UK test cases (status `ai-proposed`):
+  79 with ≥1 `fails`, 48 only `related`, 15 `none`.
+- [Gap analysis](analysis/wcag-gap-analysis.md): WCAG 2.2 coverage 40 covered / 10 related-only / 36 uncovered of 86;
+  80 candidate test cases proposed. Found several defects in GOV.UK fixtures (left unchanged, see the analysis).
+- Reproduce with `npm run wcag:fetch` and `npm run wcag:coverage`.

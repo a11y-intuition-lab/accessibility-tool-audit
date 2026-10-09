@@ -1,0 +1,1242 @@
+{
+  "meta": {
+    "origin": "ail-2026",
+    "status": "ai-proposed",
+    "reviewed": false,
+    "statusNote": "AI-drafted, not human-reviewed",
+    "model": "claude-opus-5-5",
+    "date": "2026-10-10",
+    "method": "wiki/analysis/wcag-gap-analysis.md",
+    "basedOn": [
+      "data/gap-analysis/coverage.json",
+      "data/wcag/success-criteria.json"
+    ],
+    "fields": {
+      "id": "proposed test-case slug: category prefix + title, same style as upstream",
+      "gap": "uncovered = SC had no mapping; related-only = only related/incidental mappings; thin = SC covered, but a distinct common failure (often a W3C Fxx) has no test",
+      "fixture": "single-page | single-page-script (needs fixture script) | linked-page | multi-page | media (needs licensed media asset) | flow (multi-step or timed)",
+      "expected_detectability": "automatable = rule engines can decide; partially = engines can flag or narrow, human confirms; manual = needs human judgement or interaction",
+      "priority": "high = level A/AA and common in practice; medium = A/AA less common or harder to build, or thin-coverage additions; low = AAA or rare"
+    },
+    "note": "HTML for these test cases is not written yet."
+  },
+  "candidates": [
+    {
+      "id": "multimedia-prerecorded-video-without-audio-description-or-media-alternative",
+      "category": "Multimedia",
+      "title": "Prerecorded video without audio description or media alternative",
+      "sc": [
+        "1.2.3",
+        "1.2.5"
+      ],
+      "failure": "A short local video whose key visual information (on-screen text, actions) is not in the soundtrack and has no audio description track or text alternative.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Tools can detect a missing <track kind=\"descriptions\"> but not whether visual information is missing from the audio.",
+      "priority": "high",
+      "fixture": "media",
+      "gap": "related-only"
+    },
+    {
+      "id": "multimedia-live-video-stream-without-captions",
+      "category": "Multimedia",
+      "title": "Live video stream without captions",
+      "sc": [
+        "1.2.4"
+      ],
+      "failure": "A live (or simulated live) video player with speech and no captions.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Live status and caption presence cannot be inferred from markup.",
+      "priority": "medium",
+      "fixture": "media",
+      "gap": "uncovered"
+    },
+    {
+      "id": "multimedia-prerecorded-video-without-sign-language-interpretation",
+      "category": "Multimedia",
+      "title": "Prerecorded video without sign language interpretation",
+      "sc": [
+        "1.2.6"
+      ],
+      "failure": "A video with speech and no sign-language interpretation.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Requires judging the media content.",
+      "priority": "low",
+      "fixture": "media",
+      "gap": "uncovered"
+    },
+    {
+      "id": "multimedia-video-with-no-pauses-for-audio-description-and-no-extended-description",
+      "category": "Multimedia",
+      "title": "Video with no pauses for audio description and no extended description",
+      "sc": [
+        "1.2.7"
+      ],
+      "failure": "A video whose dialogue leaves no gaps for description and offers no extended (paused) audio description.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Requires judging the media content.",
+      "priority": "low",
+      "fixture": "media",
+      "gap": "uncovered"
+    },
+    {
+      "id": "multimedia-prerecorded-video-without-full-text-alternative",
+      "category": "Multimedia",
+      "title": "Prerecorded video without full text alternative",
+      "sc": [
+        "1.2.8"
+      ],
+      "failure": "A video with speech and visual information and no transcript describing both.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "A tool cannot tell whether nearby text is a full alternative.",
+      "priority": "low",
+      "fixture": "media",
+      "gap": "related-only"
+    },
+    {
+      "id": "multimedia-live-audio-stream-without-text-alternative",
+      "category": "Multimedia",
+      "title": "Live audio stream without text alternative",
+      "sc": [
+        "1.2.9"
+      ],
+      "failure": "A live (or simulated live) audio stream with no real-time text alternative.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Live status cannot be inferred from markup.",
+      "priority": "low",
+      "fixture": "media",
+      "gap": "uncovered"
+    },
+    {
+      "id": "multimedia-audio-plays-automatically-with-no-way-to-stop-it",
+      "category": "Multimedia",
+      "title": "Audio plays automatically with no way to stop it",
+      "sc": [
+        "1.4.2"
+      ],
+      "failure": "An <audio autoplay loop> element longer than 3 seconds with no controls and no pause or volume mechanism.",
+      "technique": "F93",
+      "expected_detectability": "partially",
+      "detectability_reason": "autoplay without controls is detectable in markup; duration and audibility need checking.",
+      "priority": "high",
+      "fixture": "media",
+      "gap": "uncovered"
+    },
+    {
+      "id": "multimedia-speech-audio-with-loud-background-music",
+      "category": "Multimedia",
+      "title": "Speech audio with loud background music",
+      "sc": [
+        "1.4.7"
+      ],
+      "failure": "A prerecorded speech recording with background sound less than 20 dB below the speech and no way to turn it off.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs audio analysis.",
+      "priority": "low",
+      "fixture": "media",
+      "gap": "uncovered"
+    },
+    {
+      "id": "multimedia-locally-flashing-animation-above-the-general-flash-threshold",
+      "category": "Multimedia",
+      "title": "Locally flashing animation above the general flash threshold",
+      "sc": [
+        "2.3.1",
+        "2.3.2"
+      ],
+      "failure": "A large self-hosted animation (e.g. CSS) that flashes red more than three times per second, replacing the external YouTube example.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Flash analysis needs rendering over time (PEAT-type tools), not DOM rules.",
+      "priority": "medium",
+      "fixture": "single-page-script",
+      "gap": "thin"
+    },
+    {
+      "id": "multimedia-video-only-content-without-alternative",
+      "category": "Multimedia",
+      "title": "Video-only content without alternative",
+      "sc": [
+        "1.2.1"
+      ],
+      "failure": "A silent prerecorded video (e.g. a how-to animation) with no text or audio alternative.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging what the video shows.",
+      "priority": "medium",
+      "fixture": "media",
+      "gap": "thin"
+    },
+    {
+      "id": "images-svg-image-without-accessible-name",
+      "category": "Images",
+      "title": "SVG image without accessible name",
+      "sc": [
+        "1.1.1"
+      ],
+      "failure": "An informative inline <svg> (a chart or icon) with no <title>, aria-label or role=\"img\" name.",
+      "technique": null,
+      "expected_detectability": "automatable",
+      "detectability_reason": "axe/HTMLCS can check svg[role=img] and inline SVG for a name.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "images-decorative-image-with-non-empty-alt-text",
+      "category": "Images",
+      "title": "Decorative image with non-empty alt text",
+      "sc": [
+        "1.1.1"
+      ],
+      "failure": "A purely decorative flourish with alt=\"decorative border image\".",
+      "technique": "F39",
+      "expected_detectability": "manual",
+      "detectability_reason": "Whether an image is decorative is a human judgement.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "images-icon-font-conveys-meaning-without-text-alternative",
+      "category": "Images",
+      "title": "Icon font conveys meaning without text alternative",
+      "sc": [
+        "1.1.1"
+      ],
+      "failure": "An icon-font glyph (e.g. a phone icon before a number) with no text alternative and no visible text.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Tools may flag empty elements with ::before content, but meaning needs judgement.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "images-image-of-text-used-for-a-heading",
+      "category": "Images",
+      "title": "Image of text used for a heading",
+      "sc": [
+        "1.4.5",
+        "1.4.9"
+      ],
+      "failure": "A section heading rendered as a PNG of styled text where CSS could produce the same look.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Tools can flag images with text-like alt; deciding it is avoidable text needs judgement.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "related-only"
+    },
+    {
+      "id": "tables-data-table-with-role-presentation",
+      "category": "Tables",
+      "title": "Data table with role presentation",
+      "sc": [
+        "1.3.1"
+      ],
+      "failure": "A data table with headers given role=\"presentation\", removing its table semantics.",
+      "technique": "F92",
+      "expected_detectability": "automatable",
+      "detectability_reason": "Role presentation on a table with th cells is detectable.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "tables-headers-attribute-references-wrong-header-ids",
+      "category": "Tables",
+      "title": "Headers attribute references wrong header ids",
+      "sc": [
+        "1.3.1"
+      ],
+      "failure": "A complex table whose td headers attributes point to the wrong th ids.",
+      "technique": "F90",
+      "expected_detectability": "partially",
+      "detectability_reason": "Missing ids are detectable; pointing to the wrong existing header is not.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "tables-layout-table-uses-th-and-caption",
+      "category": "Tables",
+      "title": "Layout table uses th and caption",
+      "sc": [
+        "1.3.1"
+      ],
+      "failure": "A layout table that marks its layout cells as th and has a caption.",
+      "technique": "F46",
+      "expected_detectability": "partially",
+      "detectability_reason": "Tools can flag th/caption, but deciding the table is for layout needs judgement.",
+      "priority": "low",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "content-table-formatted-with-spaces-in-preformatted-text",
+      "category": "Content",
+      "title": "Table formatted with spaces in preformatted text",
+      "sc": [
+        "1.3.1",
+        "1.3.2"
+      ],
+      "failure": "Tabular data laid out with spaces inside a <pre> element instead of table markup.",
+      "technique": "F34",
+      "expected_detectability": "manual",
+      "detectability_reason": "Recognising a whitespace table needs judgement.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "content-spaces-used-to-spread-out-letters-of-a-word",
+      "category": "Content",
+      "title": "Spaces used to spread out letters of a word",
+      "sc": [
+        "1.3.2"
+      ],
+      "failure": "A heading written as \"W E L C O M E\" with spaces between letters for visual effect.",
+      "technique": "F32",
+      "expected_detectability": "partially",
+      "detectability_reason": "Single-letter sequences can be pattern-matched, with false positives.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "html-aria-list-role-without-listitem-children",
+      "category": "HTML",
+      "title": "ARIA list role without listitem children",
+      "sc": [
+        "1.3.1"
+      ],
+      "failure": "An element with role=\"list\" whose children are plain divs without role=\"listitem\".",
+      "technique": null,
+      "expected_detectability": "automatable",
+      "detectability_reason": "ARIA required-children rules detect this.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "content-instructions-rely-on-shape",
+      "category": "Content",
+      "title": "Instructions rely on shape",
+      "sc": [
+        "1.3.3"
+      ],
+      "failure": "Instructions say \"Press the round button to continue\" with no other identification of the control.",
+      "technique": "F14",
+      "expected_detectability": "manual",
+      "detectability_reason": "Requires reading the instructions.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "content-graphical-symbol-alone-conveys-meaning",
+      "category": "Content",
+      "title": "Graphical symbol alone conveys meaning",
+      "sc": [
+        "1.3.3"
+      ],
+      "failure": "A required-field indicator or status shown only by a symbol (e.g. a coloured tick) with no text explanation.",
+      "technique": "F26",
+      "expected_detectability": "manual",
+      "detectability_reason": "Meaning of symbols needs judgement.",
+      "priority": "low",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "page-layout-content-locked-to-portrait-orientation",
+      "category": "Page Layout",
+      "title": "Content locked to portrait orientation",
+      "sc": [
+        "1.3.4"
+      ],
+      "failure": "CSS rotates the page 90 degrees in landscape (orientation media query) so content only displays in portrait.",
+      "technique": "F97",
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs rendering in both orientations; static CSS heuristics are possible.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "page-layout-message-asks-user-to-rotate-device",
+      "category": "Page Layout",
+      "title": "Message asks user to rotate device",
+      "sc": [
+        "1.3.4"
+      ],
+      "failure": "In landscape the content is replaced by \"Please rotate your device\".",
+      "technique": "F100",
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs rendering in both orientations.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "forms-invalid-autocomplete-value-on-personal-data-field",
+      "category": "Forms",
+      "title": "Invalid autocomplete value on personal data field",
+      "sc": [
+        "1.3.5"
+      ],
+      "failure": "An email field collecting the user's own address has autocomplete=\"mail\" (not a valid token).",
+      "technique": "F107",
+      "expected_detectability": "automatable",
+      "detectability_reason": "axe autocomplete-valid checks token validity.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "forms-missing-autocomplete-on-personal-data-fields",
+      "category": "Forms",
+      "title": "Missing autocomplete on personal data fields",
+      "sc": [
+        "1.3.5"
+      ],
+      "failure": "A form collecting the user's own name, email and postcode has no autocomplete attributes.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Absence is detectable, but whether a field is about the user needs judgement.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "html-page-regions-not-identified-with-landmarks",
+      "category": "HTML",
+      "title": "Page regions not identified with landmarks",
+      "sc": [
+        "1.3.6",
+        "2.4.1"
+      ],
+      "failure": "A page with header, navigation, main content and footer built only from divs, with no landmarks, headings or skip link.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Absence of landmarks is detectable; whether regions exist needs judgement.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "colour-and-contrast-text-over-background-image-with-insufficient-contrast",
+      "category": "Colour and Contrast",
+      "title": "Text over background image with insufficient contrast",
+      "sc": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "failure": "White text over a light area of a photo background with no overlay.",
+      "technique": "F83",
+      "expected_detectability": "partially",
+      "detectability_reason": "Tools usually report background images as needing review.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "colour-and-contrast-form-field-border-has-insufficient-contrast",
+      "category": "Colour and Contrast",
+      "title": "Form field border has insufficient contrast",
+      "sc": [
+        "1.4.11"
+      ],
+      "failure": "Text inputs whose only visible boundary is a #dddddd border on white (1.4:1).",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Non-text contrast needs rendering; few rule engines check it.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "colour-and-contrast-focus-indicator-has-insufficient-contrast",
+      "category": "Colour and Contrast",
+      "title": "Focus indicator has insufficient contrast",
+      "sc": [
+        "1.4.11",
+        "2.4.13"
+      ],
+      "failure": "A focus outline in light grey (#cccccc) on white.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs focus-state rendering and comparison.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "colour-and-contrast-informative-icon-has-insufficient-contrast",
+      "category": "Colour and Contrast",
+      "title": "Informative icon has insufficient contrast",
+      "sc": [
+        "1.4.11"
+      ],
+      "failure": "An icon-only status indicator in #c0c0c0 on white.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Contrast of graphics needs rendering and judgement of which parts are required.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "css-text-sized-only-in-viewport-units",
+      "category": "CSS",
+      "title": "Text sized only in viewport units",
+      "sc": [
+        "1.4.4"
+      ],
+      "failure": "Body text sized with font-size: 2vw so browser text zoom does not enlarge it.",
+      "technique": "F94",
+      "expected_detectability": "partially",
+      "detectability_reason": "vw/vh font sizes are detectable in CSS; impact needs zoom testing.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "css-form-controls-do-not-resize-with-text",
+      "category": "CSS",
+      "title": "Form controls do not resize with text",
+      "sc": [
+        "1.4.4"
+      ],
+      "failure": "Inputs with font-size set in px inside text set in em, so input text stays small when text is enlarged.",
+      "technique": "F80",
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs text-only zoom testing.",
+      "priority": "low",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "css-text-clipped-when-text-spacing-is-increased",
+      "category": "CSS",
+      "title": "Text clipped when text spacing is increased",
+      "sc": [
+        "1.4.12"
+      ],
+      "failure": "A fixed-height box with overflow:hidden whose text is cut off when the text-spacing bookmarklet is applied.",
+      "technique": "F104",
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs applying the text-spacing override and checking for clipping.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "related-only"
+    },
+    {
+      "id": "css-inline-text-spacing-set-with-important",
+      "category": "CSS",
+      "title": "Inline text spacing set with important",
+      "sc": [
+        "1.4.12"
+      ],
+      "failure": "Paragraphs with style=\"line-height: 1 !important; letter-spacing: 0 !important\" that block user overrides.",
+      "technique": null,
+      "expected_detectability": "automatable",
+      "detectability_reason": "axe avoid-inline-spacing checks this.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "related-only"
+    },
+    {
+      "id": "page-layout-content-lost-when-reflowed",
+      "category": "Page Layout",
+      "title": "Content lost when reflowed",
+      "sc": [
+        "1.4.10"
+      ],
+      "failure": "At 320 CSS px a media query hides part of the content (e.g. a table column) with no other way to reach it.",
+      "technique": "F102",
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs rendering at 320 px and comparing content.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "keyboard-access-tooltip-cannot-be-dismissed-with-escape",
+      "category": "Keyboard Access",
+      "title": "Tooltip cannot be dismissed with Escape",
+      "sc": [
+        "1.4.13"
+      ],
+      "failure": "A focus- or hover-triggered tooltip that covers other content and only closes when focus or pointer moves away.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs interaction with the tooltip.",
+      "priority": "medium",
+      "fixture": "single-page-script",
+      "gap": "thin"
+    },
+    {
+      "id": "keyboard-access-focus-removed-by-script-when-received",
+      "category": "Keyboard Access",
+      "title": "Focus removed by script when received",
+      "sc": [
+        "2.1.1",
+        "2.4.7",
+        "3.2.1"
+      ],
+      "failure": "A link with onfocus=\"this.blur()\" so it can never keep keyboard focus.",
+      "technique": "F55",
+      "expected_detectability": "partially",
+      "detectability_reason": "blur-on-focus handlers are detectable by script analysis or interaction.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "keyboard-access-drawing-canvas-with-no-keyboard-alternative",
+      "category": "Keyboard Access",
+      "title": "Drawing canvas with no keyboard alternative",
+      "sc": [
+        "2.1.3"
+      ],
+      "failure": "A freehand signature canvas that only accepts pointer input.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging whether the function depends on path input.",
+      "priority": "low",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "keyboard-access-single-character-key-shortcut-cannot-be-turned-off",
+      "category": "Keyboard Access",
+      "title": "Single character key shortcut cannot be turned off",
+      "sc": [
+        "2.1.4"
+      ],
+      "failure": "A script binds the \"s\" key (no modifier) to jump to search, with no way to disable or remap it.",
+      "technique": "F99",
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs key-press testing; static detection of key handlers is unreliable.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "keyboard-access-positive-tabindex-scrambles-form-focus-order",
+      "category": "Keyboard Access",
+      "title": "Positive tabindex scrambles form focus order",
+      "sc": [
+        "2.4.3"
+      ],
+      "failure": "A form whose fields have tabindex values that move focus out of reading order (e.g. postcode before name).",
+      "technique": "F44",
+      "expected_detectability": "partially",
+      "detectability_reason": "Positive tabindex is detectable; whether order breaks meaning needs judgement.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "keyboard-access-sticky-footer-hides-focused-element",
+      "category": "Keyboard Access",
+      "title": "Sticky footer hides focused element",
+      "sc": [
+        "2.4.11",
+        "2.4.12"
+      ],
+      "failure": "A fixed cookie banner covers the bottom of the viewport so focused links scroll underneath it entirely.",
+      "technique": "F110",
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs focus traversal with geometry checks.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "related-only"
+    },
+    {
+      "id": "keyboard-access-sticky-header-partly-hides-focused-element",
+      "category": "Keyboard Access",
+      "title": "Sticky header partly hides focused element",
+      "sc": [
+        "2.4.12"
+      ],
+      "failure": "A fixed header partially overlaps links as they receive focus.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs focus traversal with geometry checks.",
+      "priority": "low",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "timing-page-refreshes-automatically-with-meta-refresh",
+      "category": "Timing",
+      "title": "Page refreshes automatically with meta refresh",
+      "sc": [
+        "2.2.1",
+        "2.2.4",
+        "3.2.5"
+      ],
+      "failure": "A <meta http-equiv=\"refresh\" content=\"30\"> reloads the page with no way to turn it off.",
+      "technique": "F41",
+      "expected_detectability": "automatable",
+      "detectability_reason": "meta refresh is detectable in markup (axe meta-refresh).",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "timing-timed-meta-redirect",
+      "category": "Timing",
+      "title": "Timed meta redirect",
+      "sc": [
+        "2.2.1",
+        "2.2.4",
+        "3.2.5"
+      ],
+      "failure": "A <meta http-equiv=\"refresh\" content=\"10; url=...\"> redirects after a delay.",
+      "technique": "F40",
+      "expected_detectability": "automatable",
+      "detectability_reason": "Detectable in markup.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "timing-auto-rotating-carousel-without-pause",
+      "category": "Timing",
+      "title": "Auto-rotating carousel without pause",
+      "sc": [
+        "2.2.2"
+      ],
+      "failure": "A carousel that advances every 3 seconds indefinitely with no pause, stop or hide control.",
+      "technique": "F16",
+      "expected_detectability": "partially",
+      "detectability_reason": "Movement can be observed over time; controls need judgement.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "thin"
+    },
+    {
+      "id": "timing-content-updates-interrupt-the-user",
+      "category": "Timing",
+      "title": "Content updates interrupt the user",
+      "sc": [
+        "2.2.4"
+      ],
+      "failure": "A news ticker region with aria-live=\"assertive\" that announces an update every 10 seconds with no way to postpone.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs observing updates over time.",
+      "priority": "low",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "timing-session-timeout-loses-entered-data",
+      "category": "Timing",
+      "title": "Session timeout loses entered data",
+      "sc": [
+        "2.2.5",
+        "2.2.6"
+      ],
+      "failure": "A form that \"expires\" after a short simulated session timeout and discards entered data on re-authentication, with no warning of the timeout.",
+      "technique": "F12",
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs waiting for the timeout and checking data retention.",
+      "priority": "low",
+      "fixture": "flow",
+      "gap": "uncovered"
+    },
+    {
+      "id": "timing-animation-triggered-by-scrolling-ignores-reduced-motion",
+      "category": "Timing",
+      "title": "Animation triggered by scrolling ignores reduced motion",
+      "sc": [
+        "2.3.3"
+      ],
+      "failure": "Parallax/scroll-triggered motion that runs even when prefers-reduced-motion is set, with no way to disable it.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Can emulate prefers-reduced-motion and observe motion; non-essential judgement is manual.",
+      "priority": "low",
+      "fixture": "single-page-script",
+      "gap": "related-only"
+    },
+    {
+      "id": "headings-headings-do-not-describe-their-section",
+      "category": "Headings",
+      "title": "Headings do not describe their section",
+      "sc": [
+        "2.4.6"
+      ],
+      "failure": "Headings such as \"Section 1\" and \"More\" above content they do not describe.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Descriptiveness needs human judgement.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "related-only"
+    },
+    {
+      "id": "forms-labels-do-not-describe-the-field-purpose",
+      "category": "Forms",
+      "title": "Labels do not describe the field purpose",
+      "sc": [
+        "2.4.6"
+      ],
+      "failure": "Inputs labelled \"Field 1\" and \"Field 2\" for name and email.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Descriptiveness needs human judgement.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "related-only"
+    },
+    {
+      "id": "headings-long-document-without-section-headings",
+      "category": "Headings",
+      "title": "Long document without section headings",
+      "sc": [
+        "2.4.10"
+      ],
+      "failure": "A long article with clearly separate topics shown only as bold paragraphs or not marked at all.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging that sections exist.",
+      "priority": "low",
+      "fixture": "single-page",
+      "gap": "related-only"
+    },
+    {
+      "id": "navigation-repeated-navigation-block-cannot-be-bypassed",
+      "category": "Navigation",
+      "title": "Repeated navigation block cannot be bypassed",
+      "sc": [
+        "2.4.1"
+      ],
+      "failure": "A page beginning with 40 navigation links before the main content, with no skip link, landmarks or headings.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Tools check for skip links/landmarks/headings; whether blocks repeat needs a site.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "navigation-only-one-way-to-find-pages-in-a-set",
+      "category": "Navigation",
+      "title": "Only one way to find pages in a set",
+      "sc": [
+        "2.4.5"
+      ],
+      "failure": "A small multi-page fixture where pages are reachable only through a linear \"next\" chain, with no menu, search or site map.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs a set of pages and judgement.",
+      "priority": "medium",
+      "fixture": "multi-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "navigation-no-indication-of-location-within-a-set-of-pages",
+      "category": "Navigation",
+      "title": "No indication of location within a set of pages",
+      "sc": [
+        "2.4.8"
+      ],
+      "failure": "A multi-page fixture with no breadcrumb, current-page indication or descriptive titles.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs a set of pages and judgement.",
+      "priority": "low",
+      "fixture": "multi-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "navigation-navigation-order-differs-between-pages",
+      "category": "Navigation",
+      "title": "Navigation order differs between pages",
+      "sc": [
+        "3.2.3"
+      ],
+      "failure": "Two or more pages that repeat the same navigation links in a different order.",
+      "technique": "F66",
+      "expected_detectability": "partially",
+      "detectability_reason": "A crawler can compare repeated navigation blocks across pages.",
+      "priority": "medium",
+      "fixture": "multi-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "navigation-same-function-labelled-differently-on-different-pages",
+      "category": "Navigation",
+      "title": "Same function labelled differently on different pages",
+      "sc": [
+        "3.2.4"
+      ],
+      "failure": "A search button labelled \"Search\" on one page and \"Find\" on another.",
+      "technique": "F31",
+      "expected_detectability": "partially",
+      "detectability_reason": "A crawler can compare repeated components across pages; equivalence needs judgement.",
+      "priority": "medium",
+      "fixture": "multi-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "navigation-help-link-in-inconsistent-place-across-pages",
+      "category": "Navigation",
+      "title": "Help link in inconsistent place across pages",
+      "sc": [
+        "3.2.6"
+      ],
+      "failure": "A \"Contact us\" help link that is in the header on one page and in the footer on another.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Cross-page comparison of help mechanisms; identifying help needs judgement.",
+      "priority": "medium",
+      "fixture": "multi-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "pointer-and-motion-path-gesture-required-without-single-pointer-alternative",
+      "category": "Pointer and Motion",
+      "title": "Path gesture required without single pointer alternative",
+      "sc": [
+        "2.5.1"
+      ],
+      "failure": "A slider or carousel that only responds to swipe gestures, with no buttons.",
+      "technique": "F105",
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs gesture testing.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "pointer-and-motion-action-triggered-on-pointer-down",
+      "category": "Pointer and Motion",
+      "title": "Action triggered on pointer down",
+      "sc": [
+        "2.5.2"
+      ],
+      "failure": "A \"Delete\" button that acts on mousedown/pointerdown with no way to abort.",
+      "technique": "F101",
+      "expected_detectability": "partially",
+      "detectability_reason": "down-event handlers are detectable in script; abort/undo needs judgement.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "pointer-and-motion-shake-to-undo-without-alternative",
+      "category": "Pointer and Motion",
+      "title": "Shake to undo without alternative",
+      "sc": [
+        "2.5.4"
+      ],
+      "failure": "A devicemotion handler that clears a form when the device is shaken, with no UI alternative or way to disable it.",
+      "technique": "F106",
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs device-motion emulation.",
+      "priority": "medium",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "pointer-and-motion-touch-only-interaction",
+      "category": "Pointer and Motion",
+      "title": "Touch only interaction",
+      "sc": [
+        "2.5.6"
+      ],
+      "failure": "A control that listens only to touchstart/touchend, ignoring mouse and keyboard.",
+      "technique": "F98",
+      "expected_detectability": "partially",
+      "detectability_reason": "Touch-only handlers are detectable in script analysis.",
+      "priority": "low",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "pointer-and-motion-drag-and-drop-without-single-pointer-alternative",
+      "category": "Pointer and Motion",
+      "title": "Drag and drop without single pointer alternative",
+      "sc": [
+        "2.5.7"
+      ],
+      "failure": "A sortable list reorderable only by dragging items.",
+      "technique": "F108",
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging alternatives to dragging.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "content-jargon-used-without-definition",
+      "category": "Content",
+      "title": "Jargon used without definition",
+      "sc": [
+        "3.1.3"
+      ],
+      "failure": "Specialised terms (e.g. \"subrogation\", \"indemnity\") used with no glossary or inline definition.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging which words are unusual.",
+      "priority": "low",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "content-ambiguous-word-without-pronunciation",
+      "category": "Content",
+      "title": "Ambiguous word without pronunciation",
+      "sc": [
+        "3.1.6"
+      ],
+      "failure": "A sentence whose meaning depends on how a heteronym is pronounced (e.g. \"read\" or a name), with no pronunciation given.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs language understanding.",
+      "priority": "low",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "forms-focus-on-field-opens-new-window",
+      "category": "Forms",
+      "title": "Focus on field opens new window",
+      "sc": [
+        "3.2.1"
+      ],
+      "failure": "Focusing a date input opens a pop-up window (window.open in onfocus).",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Can be found by tabbing and observing new windows.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "forms-selecting-a-radio-button-opens-a-new-window",
+      "category": "Forms",
+      "title": "Selecting a radio button opens a new window",
+      "sc": [
+        "3.2.2"
+      ],
+      "failure": "Choosing a radio option immediately opens a new window with no prior warning.",
+      "technique": "F37",
+      "expected_detectability": "partially",
+      "detectability_reason": "Observable by interaction; intent needs judgement.",
+      "priority": "medium",
+      "fixture": "single-page-script",
+      "gap": "thin"
+    },
+    {
+      "id": "forms-form-submits-automatically-when-last-field-is-filled",
+      "category": "Forms",
+      "title": "Form submits automatically when last field is filled",
+      "sc": [
+        "3.2.2"
+      ],
+      "failure": "A four-digit code form that submits as soon as the last digit is typed, with no warning.",
+      "technique": "F36",
+      "expected_detectability": "partially",
+      "detectability_reason": "Observable by interaction.",
+      "priority": "medium",
+      "fixture": "single-page-script",
+      "gap": "thin"
+    },
+    {
+      "id": "forms-financial-submission-without-review-or-undo",
+      "category": "Forms",
+      "title": "Financial submission without review or undo",
+      "sc": [
+        "3.3.4"
+      ],
+      "failure": "A payment form that commits a transfer on submit with no review step, confirmation or way to reverse it.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging the transaction type and flow.",
+      "priority": "medium",
+      "fixture": "flow",
+      "gap": "uncovered"
+    },
+    {
+      "id": "forms-no-context-sensitive-help-for-complex-field",
+      "category": "Forms",
+      "title": "No context-sensitive help for complex field",
+      "sc": [
+        "3.3.5"
+      ],
+      "failure": "A tax reference field with an unexplained format and no hint or help link.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging whether help is needed.",
+      "priority": "low",
+      "fixture": "single-page",
+      "gap": "uncovered"
+    },
+    {
+      "id": "forms-data-submission-without-confirmation",
+      "category": "Forms",
+      "title": "Data submission without confirmation",
+      "sc": [
+        "3.3.6"
+      ],
+      "failure": "A general contact form that submits irreversibly with no review or confirmation.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging the flow.",
+      "priority": "low",
+      "fixture": "flow",
+      "gap": "uncovered"
+    },
+    {
+      "id": "forms-previously-entered-information-requested-again",
+      "category": "Forms",
+      "title": "Previously entered information requested again",
+      "sc": [
+        "3.3.7"
+      ],
+      "failure": "A two-step form that asks for the delivery address in step 1 and again for billing in step 2 with no \"same as\" option or pre-fill.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs a multi-step flow and judgement.",
+      "priority": "high",
+      "fixture": "flow",
+      "gap": "uncovered"
+    },
+    {
+      "id": "forms-status-message-not-announced",
+      "category": "Forms",
+      "title": "Status message not announced",
+      "sc": [
+        "4.1.3"
+      ],
+      "failure": "\"3 results found\" or \"Added to basket\" text is inserted after an action without role=\"status\" or a live region.",
+      "technique": "F103",
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs observing DOM updates and checking roles.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "related-only"
+    },
+    {
+      "id": "forms-custom-checkbox-without-checked-state",
+      "category": "Forms",
+      "title": "Custom checkbox without checked state",
+      "sc": [
+        "4.1.2"
+      ],
+      "failure": "A div styled as a checkbox with role=\"checkbox\" but no aria-checked, toggled by script.",
+      "technique": "F15",
+      "expected_detectability": "partially",
+      "detectability_reason": "Missing required ARIA state is detectable; state updates need interaction.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "thin"
+    },
+    {
+      "id": "html-focusable-element-inside-aria-hidden",
+      "category": "HTML",
+      "title": "Focusable element inside aria-hidden",
+      "sc": [
+        "4.1.2"
+      ],
+      "failure": "A link inside a container with aria-hidden=\"true\" that still receives keyboard focus.",
+      "technique": null,
+      "expected_detectability": "automatable",
+      "detectability_reason": "axe aria-hidden-focus detects this.",
+      "priority": "high",
+      "fixture": "single-page",
+      "gap": "thin"
+    },
+    {
+      "id": "keyboard-access-disclosure-button-without-expanded-state",
+      "category": "Keyboard Access",
+      "title": "Disclosure button without expanded state",
+      "sc": [
+        "4.1.2"
+      ],
+      "failure": "A \"Show more\" button that reveals content but never sets aria-expanded.",
+      "technique": null,
+      "expected_detectability": "partially",
+      "detectability_reason": "Needs interaction to see the state change is missing.",
+      "priority": "medium",
+      "fixture": "single-page-script",
+      "gap": "thin"
+    },
+    {
+      "id": "authentication-paste-blocked-in-password-field",
+      "category": "Authentication",
+      "title": "Paste blocked in password field",
+      "sc": [
+        "3.3.8",
+        "3.3.9"
+      ],
+      "failure": "A login form whose password field cancels paste events, blocking password managers.",
+      "technique": "F109",
+      "expected_detectability": "partially",
+      "detectability_reason": "Paste handlers can be detected and tested by script.",
+      "priority": "high",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "authentication-login-requires-transcribing-a-code-without-paste",
+      "category": "Authentication",
+      "title": "Login requires transcribing a code without paste",
+      "sc": [
+        "3.3.8",
+        "3.3.9"
+      ],
+      "failure": "A one-time code split across six inputs that blocks paste and autofill.",
+      "technique": "F109",
+      "expected_detectability": "partially",
+      "detectability_reason": "Paste/autocomplete behaviour is testable by script.",
+      "priority": "medium",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "authentication-object-recognition-captcha-as-only-option",
+      "category": "Authentication",
+      "title": "Object recognition CAPTCHA as only option",
+      "sc": [
+        "3.3.9"
+      ],
+      "failure": "A login step that requires selecting all images with traffic lights, with no other method.",
+      "technique": null,
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging the cognitive function test and alternatives (passes 3.3.8 via exception).",
+      "priority": "low",
+      "fixture": "single-page-script",
+      "gap": "uncovered"
+    },
+    {
+      "id": "links-link-context-only-in-unrelated-content",
+      "category": "Links",
+      "title": "Link context only in unrelated content",
+      "sc": [
+        "2.4.4"
+      ],
+      "failure": "A \"More\" link whose purpose is explained only in a sidebar paragraph not programmatically associated with it.",
+      "technique": "F63",
+      "expected_detectability": "manual",
+      "detectability_reason": "Needs judging programmatic context.",
+      "priority": "medium",
+      "fixture": "single-page",
+      "gap": "thin"
+    }
+  ]
+}

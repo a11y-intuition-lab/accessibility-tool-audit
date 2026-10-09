@@ -1,0 +1,2126 @@
+{
+  "meta": {
+    "origin": "ail-2026",
+    "status": "ai-proposed",
+    "reviewed": false,
+    "statusNote": "AI-drafted, not human-reviewed",
+    "method": "wiki/method/wcag-mapping.md",
+    "model": "claude-opus-5-5",
+    "date": "2026-10-10",
+    "input": "tests.json and tests/*.html at tag govuk-final (e9e46115); test ids are the tests/*.html slugs (build/generate.js getFilename)",
+    "successCriteria": "data/wcag/success-criteria.json",
+    "testCount": 142
+  },
+  "mappings": {
+    "content-content-identified-by-location": {
+      "category": "Content",
+      "title": "Content identified by location",
+      "wcag": [
+        {
+          "sc": "1.3.3",
+          "relation": "fails",
+          "technique": "F14",
+          "rationale": "Instructions identify the winner only by visual position (\"on the right\")."
+        }
+      ]
+    },
+    "content-plain-language-is-not-used": {
+      "category": "Content",
+      "title": "Plain language is not used",
+      "wcag": [
+        {
+          "sc": "3.1.5",
+          "relation": "fails",
+          "rationale": "Dense legislative prose needs more than lower secondary reading ability and no simpler supplement or version is provided (borderline: reading level is a judgement)."
+        }
+      ]
+    },
+    "content-content-is-not-in-correct-reading-order-in-source-code": {
+      "category": "Content",
+      "title": "Content is not in correct reading order in source code",
+      "wcag": [
+        {
+          "sc": "1.3.2",
+          "relation": "fails",
+          "technique": "F1",
+          "rationale": "float:right reverses the steps visually, so the DOM order (Moisturise, Exfoliate, Cleanse) differs from the meaningful visual order."
+        }
+      ]
+    },
+    "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms": {
+      "category": "Content",
+      "title": "Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms",
+      "wcag": [
+        {
+          "sc": "2.4.10",
+          "relation": "related",
+          "rationale": "The linked page is a long run of paragraphs with no section headings; whether sections exist that need headings is a judgement."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "Paragraph markup matches the visual structure, so there is no unmarked structure to fail 1.3.1."
+        }
+      ],
+      "notes": "Object is example-pages/unorganised_content.html."
+    },
+    "content-first-instance-of-abbreviation-not-expanded": {
+      "category": "Content",
+      "title": "First instance of abbreviation not expanded",
+      "wcag": [
+        {
+          "sc": "3.1.4",
+          "relation": "fails",
+          "rationale": "<abbr>GDS</abbr> has no title and no expansion anywhere on the page, so no mechanism gives the expanded form."
+        }
+      ]
+    },
+    "page-layout-wide-page-forces-users-to-scroll-horizontally": {
+      "category": "Page Layout",
+      "title": "Wide page forces users to scroll horizontally",
+      "wcag": [
+        {
+          "sc": "1.4.10",
+          "relation": "fails",
+          "rationale": "A paragraph fixed at 100em wide inside a scrolling box needs horizontal scrolling to read at 320 CSS px."
+        },
+        {
+          "sc": "1.4.8",
+          "relation": "fails",
+          "rationale": "Lines of text cannot be read without horizontal scrolling, which 1.4.8 forbids at 200 % text size."
+        }
+      ]
+    },
+    "colour-and-contrast-colour-alone-is-used-to-convey-content": {
+      "category": "Colour and Contrast",
+      "title": "Colour alone is used to convey content",
+      "wcag": [
+        {
+          "sc": "1.4.1",
+          "relation": "fails",
+          "rationale": "Edible versus poisonous is conveyed only by red/green text colour (the two colours differ by 1.12:1)."
+        },
+        {
+          "sc": "1.3.3",
+          "relation": "related",
+          "rationale": "The instruction refers to colour (\"green\", \"red\"), a sensory characteristic; 1.4.1 is the primary failure."
+        }
+      ]
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa": {
+      "category": "Colour and Contrast",
+      "title": "Small text does not have a contrast ratio of at least 4.5:1 so does not meet AA",
+      "wcag": [
+        {
+          "sc": "1.4.3",
+          "relation": "fails",
+          "rationale": "12px #757980 on white is 4.37:1, below 4.5:1."
+        },
+        {
+          "sc": "1.4.6",
+          "relation": "fails",
+          "rationale": "4.37:1 is also below the 7:1 enhanced threshold."
+        }
+      ]
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa": {
+      "category": "Colour and Contrast",
+      "title": "Large text does not have a contrast ratio of at least 3:1 so does not meet AA",
+      "wcag": [
+        {
+          "sc": "1.4.3",
+          "relation": "fails",
+          "rationale": "20px normal-weight #878c8c on white is 3.41:1; 20px is not large text under WCAG, so the 4.5:1 threshold applies and fails."
+        },
+        {
+          "sc": "1.4.6",
+          "relation": "fails",
+          "rationale": "3.41:1 is below the enhanced threshold."
+        }
+      ],
+      "notes": "Fixture flaw: the \"large\" text is 20px (15pt) normal weight, which WCAG does not count as large text; it would pass 3:1 if it were large."
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa": {
+      "category": "Colour and Contrast",
+      "title": "Small text does not have a contrast ratio of at least 7:1 so does not meet AAA",
+      "wcag": [
+        {
+          "sc": "1.4.6",
+          "relation": "fails",
+          "rationale": "12px #9499a1 on white is 2.86:1, below 7:1."
+        },
+        {
+          "sc": "1.4.3",
+          "relation": "fails",
+          "rationale": "2.86:1 is also below the AA threshold of 4.5:1."
+        }
+      ],
+      "notes": "Fixture flaw: intended to pass AA and fail AAA, but at 2.86:1 it fails AA too."
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa": {
+      "category": "Colour and Contrast",
+      "title": "Large text does not have a contrast ratio of at least 4.5:1 so does not meet AAA",
+      "wcag": [
+        {
+          "sc": "1.4.6",
+          "relation": "fails",
+          "rationale": "Uses class low-contrast-large-aa (20px #878c8c, 3.41:1), below the enhanced threshold."
+        },
+        {
+          "sc": "1.4.3",
+          "relation": "fails",
+          "rationale": "20px normal text is not large text, so 3.41:1 also fails 4.5:1."
+        }
+      ],
+      "notes": "Fixture flaw: uses class low-contrast-large-aa instead of low-contrast-large-aaa, so it is identical to the AA large-text case; neither is large text by the WCAG definition."
+    },
+    "colour-and-contrast-focus-not-visible": {
+      "category": "Colour and Contrast",
+      "title": "Focus not visible",
+      "wcag": [
+        {
+          "sc": "2.4.7",
+          "relation": "related",
+          "technique": "F78",
+          "rationale": "The button's focus style swaps a 2px border for a 1px border plus 1px outline; an indicator exists but is weak (borderline)."
+        },
+        {
+          "sc": "2.4.13",
+          "relation": "fails",
+          "rationale": "The focus indicator change is at most about 1px thick, well short of the 2 CSS px perimeter area with 3:1 change contrast."
+        }
+      ],
+      "notes": "Title says focus is \"not visible\", but the CSS draws a thin outline; mapped to 2.4.13 rather than 2.4.7."
+    },
+    "typography-inadequate-line-height-used": {
+      "category": "Typography",
+      "title": "Inadequate line height used",
+      "wcag": [
+        {
+          "sc": "1.4.8",
+          "relation": "related",
+          "rationale": "line-height: 90% is below 1.5, but users can override it, and 1.4.8 only requires that a mechanism is available."
+        },
+        {
+          "sc": "1.4.12",
+          "relation": "related",
+          "rationale": "Fixed line height does not fail 1.4.12 unless content breaks when the user overrides spacing."
+        }
+      ]
+    },
+    "typography-all-caps-text-found": {
+      "category": "Typography",
+      "title": "All caps text found",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "Uppercase styling (text-transform) is a readability best practice; no SC requires mixed case."
+        }
+      ]
+    },
+    "typography-blink-element-found": {
+      "category": "Typography",
+      "title": "Blink element found",
+      "wcag": [
+        {
+          "sc": "2.2.2",
+          "relation": "related",
+          "technique": "F47",
+          "rationale": "<blink> no longer blinks in any current browser, so nothing moves; would fail 2.2.2 in a browser that blinks.",
+          "technique_obsolete": true
+        }
+      ],
+      "notes": "Judged as rendered today: the element is ignored and the text is static."
+    },
+    "typography-italics-used-on-long-sections-of-text": {
+      "category": "Typography",
+      "title": "Italics used on long sections of text",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "Italic paragraphs are a readability best practice issue; no SC restricts font style."
+        }
+      ]
+    },
+    "typography-marquee-element-found": {
+      "category": "Typography",
+      "title": "Marquee element found",
+      "wcag": [
+        {
+          "sc": "2.2.2",
+          "relation": "fails",
+          "technique": "F16",
+          "rationale": "<marquee> scrolls text indefinitely, starts automatically and offers no pause, stop or hide mechanism."
+        }
+      ]
+    },
+    "typography-long-lines-of-text": {
+      "category": "Typography",
+      "title": "Long lines of text",
+      "wcag": [
+        {
+          "sc": "1.4.8",
+          "relation": "related",
+          "rationale": "Line length can exceed 80 characters at wide viewports, but 1.4.8 is met if a user can narrow the window or override styles (borderline)."
+        }
+      ]
+    },
+    "typography-very-small-text-found": {
+      "category": "Typography",
+      "title": "Very small text found",
+      "wcag": [
+        {
+          "sc": "1.4.4",
+          "relation": "related",
+          "rationale": "8px text is hard to read but can still be resized to 200 %; small default size is not itself a failure."
+        }
+      ]
+    },
+    "typography-justified-text-found": {
+      "category": "Typography",
+      "title": "Justified text found",
+      "wcag": [
+        {
+          "sc": "1.4.8",
+          "relation": "fails",
+          "technique": "F88",
+          "rationale": "text-align: justify is applied to a block of text with no mechanism to remove it."
+        }
+      ]
+    },
+    "language-of-content-text-language-changed-without-required-change-in-direction": {
+      "category": "Language of content",
+      "title": "Text language changed without required change in direction",
+      "wcag": [
+        {
+          "sc": "1.3.2",
+          "relation": "related",
+          "rationale": "Arabic paragraph has no dir=\"rtl\"; the bidi algorithm still orders the characters correctly, so reading sequence is preserved (best practice: H56)."
+        }
+      ]
+    },
+    "language-of-content-html-element-has-an-empty-lang-attribute": {
+      "category": "Language of content",
+      "title": "html element has an empty lang attribute",
+      "wcag": [
+        {
+          "sc": "3.1.1",
+          "relation": "fails",
+          "rationale": "lang=\"\" means the default human language of the page is not programmatically determined."
+        },
+        {
+          "sc": "2.4.2",
+          "relation": "fails",
+          "technique": "F25",
+          "rationale": "The same linked page has an empty <title>.",
+          "incidental": true
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "fails",
+          "technique": "F2",
+          "rationale": "The same linked page uses a styled div as its visible main heading.",
+          "incidental": true
+        }
+      ],
+      "notes": "Object is example-pages/empty.html."
+    },
+    "language-of-content-lang-attribute-not-used-to-identify-change-of-language": {
+      "category": "Language of content",
+      "title": "lang attribute not used to identify change of language",
+      "wcag": [
+        {
+          "sc": "3.1.2",
+          "relation": "fails",
+          "rationale": "The French quotation \"Allons, Madame plaisante!\" in English text has no lang attribute."
+        }
+      ]
+    },
+    "language-of-content-text-language-is-in-the-wrong-direction": {
+      "category": "Language of content",
+      "title": "Text language is in the wrong direction",
+      "wcag": [
+        {
+          "sc": "1.3.2",
+          "relation": "related",
+          "rationale": "English text marked dir=\"rtl\" is right-aligned, but the bidi algorithm keeps word order, so meaning is preserved for this string (would break with punctuation or mixed text)."
+        }
+      ]
+    },
+    "language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute": {
+      "category": "Language of content",
+      "title": "html element has an invalid value in the lang attribute",
+      "wcag": [
+        {
+          "sc": "3.1.1",
+          "relation": "fails",
+          "rationale": "lang=\"foobar\" is not a valid language tag, so the page language is not programmatically determined."
+        }
+      ],
+      "notes": "Object is example-pages/invalid.html."
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value": {
+      "category": "Language of content",
+      "title": "lang attribute used to identify change of language, but with invalid value",
+      "wcag": [
+        {
+          "sc": "3.1.2",
+          "relation": "fails",
+          "rationale": "lang=\"frrr\" is not a valid language tag, so the French passage's language is not programmatically determined."
+        }
+      ]
+    },
+    "language-of-content-html-element-is-missing-a-lang-attribute": {
+      "category": "Language of content",
+      "title": "html element is missing a lang attribute",
+      "wcag": [
+        {
+          "sc": "3.1.1",
+          "relation": "fails",
+          "rationale": "The html element has no lang attribute."
+        },
+        {
+          "sc": "2.4.2",
+          "relation": "fails",
+          "rationale": "The same linked page has no <title>.",
+          "incidental": true
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "fails",
+          "technique": "F2",
+          "rationale": "The same linked page uses a styled div as its visible main heading.",
+          "incidental": true
+        }
+      ],
+      "notes": "Object is example-pages/missing.html."
+    },
+    "language-of-content-html-element-has-lang-attribute-set-to-wrong-language": {
+      "category": "Language of content",
+      "title": "html element has lang attribute set to wrong language",
+      "wcag": [
+        {
+          "sc": "3.1.1",
+          "relation": "fails",
+          "rationale": "The English page declares lang=\"fr\", so the determined language is wrong."
+        },
+        {
+          "sc": "2.4.2",
+          "relation": "fails",
+          "technique": "F25",
+          "rationale": "The same linked page has the placeholder title \"Insert title here\".",
+          "incidental": true
+        }
+      ],
+      "notes": "Object is example-pages/inappropriate.html."
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language": {
+      "category": "Language of content",
+      "title": "lang attribute used to identify change of language, but with wrong language",
+      "wcag": [
+        {
+          "sc": "3.1.2",
+          "relation": "fails",
+          "rationale": "The French quotation is marked lang=\"es\", so its language is determined wrongly."
+        }
+      ]
+    },
+    "page-title-inappropriate-page-title": {
+      "category": "Page Title",
+      "title": "Inappropriate page title",
+      "wcag": [
+        {
+          "sc": "2.4.2",
+          "relation": "fails",
+          "technique": "F25",
+          "rationale": "The title \"Insert title here\" does not describe the page."
+        },
+        {
+          "sc": "3.1.1",
+          "relation": "fails",
+          "rationale": "The same linked page declares lang=\"fr\" for English content.",
+          "incidental": true
+        }
+      ],
+      "notes": "Object is example-pages/inappropriate.html."
+    },
+    "page-title-empty-page-title": {
+      "category": "Page Title",
+      "title": "Empty page title",
+      "wcag": [
+        {
+          "sc": "2.4.2",
+          "relation": "fails",
+          "technique": "F25",
+          "rationale": "The <title> element is empty."
+        },
+        {
+          "sc": "3.1.1",
+          "relation": "fails",
+          "rationale": "The same linked page has lang=\"\".",
+          "incidental": true
+        }
+      ],
+      "notes": "Object is example-pages/empty.html."
+    },
+    "page-title-missing-page-title": {
+      "category": "Page Title",
+      "title": "Missing page title",
+      "wcag": [
+        {
+          "sc": "2.4.2",
+          "relation": "fails",
+          "rationale": "The page has no <title> element."
+        },
+        {
+          "sc": "3.1.1",
+          "relation": "fails",
+          "rationale": "The same linked page has no lang attribute.",
+          "incidental": true
+        }
+      ],
+      "notes": "Object is example-pages/missing.html."
+    },
+    "headings-empty-heading": {
+      "category": "Headings",
+      "title": "Empty heading",
+      "wcag": [
+        {
+          "sc": "2.4.6",
+          "relation": "related",
+          "rationale": "An empty <h4> exposes a heading with no text, so it describes no topic (borderline)."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "A heading with no content conveys no structure; the following paragraph is not described by it."
+        }
+      ]
+    },
+    "headings-missing-h1": {
+      "category": "Headings",
+      "title": "Missing H1",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "No SC requires an h1; a missing top-level heading is best practice (H42) unless a visual heading lacks markup."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "fails",
+          "technique": "F2",
+          "rationale": "The linked page shows a styled div as its main heading, which is a 1.3.1 failure in its own right.",
+          "incidental": true
+        },
+        {
+          "sc": "3.1.1",
+          "relation": "fails",
+          "rationale": "The same linked page has no lang attribute.",
+          "incidental": true
+        },
+        {
+          "sc": "2.4.2",
+          "relation": "fails",
+          "rationale": "The same linked page has no <title>.",
+          "incidental": true
+        }
+      ],
+      "notes": "Object is example-pages/missing.html."
+    },
+    "headings-text-formatting-used-instead-of-an-actual-heading": {
+      "category": "Headings",
+      "title": "Text formatting used instead of an actual heading",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "fails",
+          "technique": "F2",
+          "rationale": "A div styled bold and large acts as a heading but has no heading markup."
+        }
+      ]
+    },
+    "headings-headings-not-structured-in-a-hierarchical-manner": {
+      "category": "Headings",
+      "title": "Headings not structured in a hierarchical manner",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "Skipped heading levels (h3, h5, h4) are best practice, not a 1.3.1 failure."
+        },
+        {
+          "sc": "2.4.10",
+          "relation": "related",
+          "rationale": "Headings exist; their levels do not reflect the section hierarchy (best practice)."
+        }
+      ]
+    },
+    "lists-li-element-with-no-parent": {
+      "category": "Lists",
+      "title": "LI element with no parent",
+      "wcag": [
+        {
+          "sc": "4.1.1",
+          "relation": "fails",
+          "rationale": "An li outside ul/ol/menu is not nested according to the HTML specification."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "A single orphan li loses list semantics but conveys no list relationship to lose."
+        }
+      ],
+      "notes": "Only fails 4.1.1, which is removed in WCAG 2.2."
+    },
+    "lists-list-not-marked-up-as-a-list": {
+      "category": "Lists",
+      "title": "List not marked up as a list",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "fails",
+          "rationale": "A visual bulleted list made of asterisks and <br> has no list markup, so its structure is not programmatically determined."
+        }
+      ]
+    },
+    "lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element": {
+      "category": "Lists",
+      "title": "DT or DD elements that are not contained within a DL element",
+      "wcag": [
+        {
+          "sc": "4.1.1",
+          "relation": "fails",
+          "rationale": "dt and dd outside a dl are not nested according to the HTML specification."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "The term/definition relationship is not exposed, though it is a single pair (borderline)."
+        }
+      ],
+      "notes": "Only fails 4.1.1, which is removed in WCAG 2.2."
+    },
+    "lists-improperly-nested-lists": {
+      "category": "Lists",
+      "title": "Improperly nested lists",
+      "wcag": [
+        {
+          "sc": "4.1.1",
+          "relation": "fails",
+          "rationale": "A ul directly inside a ul is not nested according to the HTML specification."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "Browsers still expose a nested list; the nesting level is misleading but no information is lost."
+        }
+      ],
+      "notes": "Only fails 4.1.1, which is removed in WCAG 2.2."
+    },
+    "tables-table-with-column-headers-and-double-row-headers": {
+      "category": "Tables",
+      "title": "Table with column headers and double row headers",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "Two row-header columns without scope; the HTML header algorithm still assigns headers correctly here, so scope (H63) is good practice."
+        }
+      ]
+    },
+    "tables-table-has-no-scope-attributes": {
+      "category": "Tables",
+      "title": "Table has no scope attributes",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "Simple table with th in first row and column; browsers infer header direction, so scope is good practice (H63)."
+        }
+      ]
+    },
+    "tables-table-nested-within-table-header": {
+      "category": "Tables",
+      "title": "Table nested within table header",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "A table inside a th is valid HTML but makes header/data relationships hard to follow (borderline)."
+        }
+      ]
+    },
+    "tables-table-nested-within-table": {
+      "category": "Tables",
+      "title": "Table nested within table",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "A nested data table is valid but complicates relationships; not a failure on its own."
+        }
+      ]
+    },
+    "tables-table-has-no-table-headings": {
+      "category": "Tables",
+      "title": "Table has no table headings",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "fails",
+          "technique": "F91",
+          "rationale": "Visual header row is marked up with td in thead, so headers are not programmatically determined."
+        }
+      ]
+    },
+    "tables-table-with-inconsistent-numbers-of-columns-in-rows": {
+      "category": "Tables",
+      "title": "Table with inconsistent numbers of columns in rows",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "Rows have different cell counts but colspans add to 10 in every row and headers/id are correct, so relationships are determinable."
+        }
+      ],
+      "notes": "Fixture note: the grid is in fact consistent (every row spans 10 columns)."
+    },
+    "tables-table-that-only-has-th-elements-in-it": {
+      "category": "Tables",
+      "title": "Table that only has TH elements in it",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "A table with only header cells has no data relationships to express; odd but not a failure."
+        }
+      ]
+    },
+    "tables-table-is-missing-a-caption": {
+      "category": "Tables",
+      "title": "Table is missing a caption",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "A caption (H39) is a sufficient technique, not a requirement; the table has correct headers."
+        }
+      ]
+    },
+    "tables-table-used-for-layout": {
+      "category": "Tables",
+      "title": "Table used for layout",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "technique": "F46",
+          "rationale": "Layout table without th or caption (so F46 does not apply); it is still exposed as a table by some AT (borderline)."
+        },
+        {
+          "sc": "1.3.2",
+          "relation": "related",
+          "technique": "F49",
+          "rationale": "The table linearises in a meaningful order (navigation, then content), so F49 does not apply."
+        }
+      ]
+    },
+    "tables-table-has-an-empty-table-header": {
+      "category": "Tables",
+      "title": "Table has an empty table header",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "The name column has an empty th, so name cells have no column header; row headers still identify each row (borderline)."
+        }
+      ]
+    },
+    "tables-table-with-some-empty-cells": {
+      "category": "Tables",
+      "title": "Table with some empty cells",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "Empty data cells are a content-quality issue; no SC requires every cell to have content."
+        }
+      ]
+    },
+    "images-image-has-alt-and-title-that-are-different": {
+      "category": "Images",
+      "title": "Image has alt and title that are different",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "alt=\"BBC\" is an adequate text alternative; a different title is a tooltip, not a failure."
+        }
+      ]
+    },
+    "images-image-with-presentation-role-has-non-empty-alt": {
+      "category": "Images",
+      "title": "Image with presentation role has non-empty alt",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "related",
+          "technique": "F39",
+          "rationale": "A decorative image has alt text (F39 pattern), but role=\"presentation\" hides it from AT in current browsers, so the result depends on the browser (borderline)."
+        }
+      ]
+    },
+    "images-image-with-no-alt-attribute": {
+      "category": "Images",
+      "title": "Image with no alt attribute",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "technique": "F65",
+          "rationale": "The img element has no alt attribute."
+        }
+      ]
+    },
+    "images-background-image-that-conveys-information-does-not-have-a-text-alternative": {
+      "category": "Images",
+      "title": "Background image that conveys information does not have a text alternative",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "technique": "F3",
+          "rationale": "The \"important\" warning icon is a CSS background image with no text equivalent."
+        }
+      ]
+    },
+    "images-image-has-empty-alt-and-non-empty-title": {
+      "category": "Images",
+      "title": "Image has empty alt and non-empty title",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "related",
+          "rationale": "alt=\"\" marks the BBC logo as decorative, so the title is ignored; it fails only if the image is informative in context."
+        }
+      ]
+    },
+    "images-a-distraction-is-present-an-animated-gif": {
+      "category": "Images",
+      "title": "A distraction is present, an animated gif",
+      "wcag": [
+        {
+          "sc": "2.2.2",
+          "relation": "fails",
+          "rationale": "The GIF loops forever (NETSCAPE loop count 0), starts automatically and has no pause or stop mechanism."
+        },
+        {
+          "sc": "2.3.3",
+          "relation": "related",
+          "rationale": "Motion is not triggered by interaction, so 2.3.3 does not apply; listed because the barrier is distraction by motion."
+        }
+      ]
+    },
+    "images-image-that-conveys-information-has-an-empty-alt-attribute": {
+      "category": "Images",
+      "title": "Image that conveys information has an empty alt attribute",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "rationale": "An informative image (per the test title) has alt=\"\", so it has no text alternative."
+        }
+      ]
+    },
+    "images-image-that-conveys-information-has-inappropriate-alt-text": {
+      "category": "Images",
+      "title": "Image that conveys information has inappropriate alt text",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "rationale": "The BBC logo has alt=\"Twitter\", which does not serve the same purpose."
+        }
+      ]
+    },
+    "images-image-alt-attribute-contains-image-file-name": {
+      "category": "Images",
+      "title": "Image alt attribute contains image file name",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "technique": "F30",
+          "rationale": "The alt text is the file name \"bbc-blocks-dark.png\"."
+        }
+      ]
+    },
+    "images-image-with-partial-text-alternative": {
+      "category": "Images",
+      "title": "Image with partial text alternative",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "rationale": "alt=\"25% off sale\" omits the departments and exclusions shown in the image."
+        },
+        {
+          "sc": "1.4.5",
+          "relation": "fails",
+          "rationale": "The sale banner is an image of text that could be presented as styled text.",
+          "incidental": true
+        }
+      ]
+    },
+    "multimedia-embedded-video-file-is-missing-text-alternative": {
+      "category": "Multimedia",
+      "title": "Embedded video file is missing text alternative",
+      "wcag": [
+        {
+          "sc": "1.2.2",
+          "relation": "fails",
+          "rationale": "The video has no captions track and no transcript."
+        },
+        {
+          "sc": "1.2.3",
+          "relation": "related",
+          "rationale": "No audio description or media alternative; fails if the video has visual information not in the audio."
+        },
+        {
+          "sc": "1.2.5",
+          "relation": "related",
+          "rationale": "No audio description; same dependency on the video content."
+        },
+        {
+          "sc": "1.2.8",
+          "relation": "related",
+          "rationale": "No full text alternative for the media."
+        }
+      ],
+      "notes": "The remote video sources may no longer load; judged by markup and title."
+    },
+    "multimedia-flashing-content-doesnt-have-warning": {
+      "category": "Multimedia",
+      "title": "Flashing content doesn't have warning",
+      "wcag": [
+        {
+          "sc": "2.3.1",
+          "relation": "fails",
+          "rationale": "The embedded video is the well-known Pokémon scene with sustained red/blue general flashes far above 3 per second."
+        },
+        {
+          "sc": "2.3.2",
+          "relation": "fails",
+          "rationale": "Same content exceeds three flashes per second."
+        }
+      ],
+      "notes": "A warning would not satisfy 2.3.1 anyway. The YouTube embed may no longer be available; judged by title."
+    },
+    "multimedia-embedded-audio-file-is-missing-text-alternative": {
+      "category": "Multimedia",
+      "title": "Embedded audio file is missing text alternative",
+      "wcag": [
+        {
+          "sc": "1.2.1",
+          "relation": "fails",
+          "rationale": "Prerecorded audio-only content has no transcript or other alternative."
+        }
+      ],
+      "notes": "The remote audio file may no longer load; judged by markup and title."
+    },
+    "links-image-link-with-no-alternative-text": {
+      "category": "Links",
+      "title": "Image link with no alternative text",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "fails",
+          "technique": "F89",
+          "rationale": "The only content of the link is an image with alt=\"\", so the link has no accessible name."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F89",
+          "rationale": "The link has no programmatically determined name."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "fails",
+          "technique": "F89",
+          "rationale": "The link text is empty."
+        },
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "rationale": "A functional image has no text alternative describing its purpose."
+        }
+      ]
+    },
+    "links-link-to-javascript-invalid-hypertext-reference": {
+      "category": "Links",
+      "title": "Link to javascript, invalid hypertext reference",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "related",
+          "rationale": "A javascript: link acts like a button but is exposed as a link; it is keyboard operable, so not a failure (borderline)."
+        }
+      ]
+    },
+    "links-uninformative-link-text": {
+      "category": "Links",
+      "title": "Uninformative link text",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "related",
+          "rationale": "\"Read more\" is preceded by the heading \"Polar bear\", which is a sufficient context (H80)."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "fails",
+          "technique": "F84",
+          "rationale": "\"Read more\" does not identify the purpose from the link text alone."
+        }
+      ]
+    },
+    "links-link-launches-new-window-with-no-warning": {
+      "category": "Links",
+      "title": "Link launches new window with no warning",
+      "wcag": [
+        {
+          "sc": "3.2.5",
+          "relation": "related",
+          "rationale": "Following a link is a user request, so 3.2.5 is met; warning of new windows is advisory (G201)."
+        }
+      ]
+    },
+    "links-links-not-separated-by-printable-characters": {
+      "category": "Links",
+      "title": "Links not separated by printable characters",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "Separating adjacent links with printable characters was a WCAG 1.0 checkpoint (10.5); no WCAG 2.x SC requires it."
+        }
+      ]
+    },
+    "links-link-text-with-identical-title": {
+      "category": "Links",
+      "title": "Link text with identical title",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "A title duplicating link text is redundant but harmless."
+        }
+      ]
+    },
+    "links-links-to-a-sound-file-no-transcript": {
+      "category": "Links",
+      "title": "Links to a sound file, no transcript",
+      "wcag": [
+        {
+          "sc": "1.2.1",
+          "relation": "related",
+          "rationale": "Whether the linked audio needs a transcript on this page depends on the linked content, which is not part of the page."
+        }
+      ]
+    },
+    "links-identifying-links-by-colour-alone": {
+      "category": "Links",
+      "title": "Identifying links by colour alone",
+      "wcag": [
+        {
+          "sc": "1.4.1",
+          "relation": "fails",
+          "technique": "F73",
+          "rationale": "The link has no underline; it differs from body text only by colour and gets no non-colour cue on hover or focus."
+        }
+      ],
+      "notes": "Link colour #005ea5 against black text is 3.14:1, so G183 would be met if hover/focus added a non-colour cue; it does not."
+    },
+    "links-link-to-pdf-does-not-include-information-on-file-format-and-file-size": {
+      "category": "Links",
+      "title": "Link to PDF does not include information on file format and file size",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "Stating file format and size is good practice; link purpose (\"Dyslexia style guide\") is clear without it."
+        }
+      ]
+    },
+    "links-link-to-,-invalid-hypertext-reference": {
+      "category": "Links",
+      "title": "Link to #, invalid hypertext reference",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "href=\"#\" on \"Do something\" is a non-functional or script-dependent link; no SC is failed by the markup itself."
+        }
+      ]
+    },
+    "links-blank-link-text": {
+      "category": "Links",
+      "title": "Blank link text",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "fails",
+          "rationale": "The link has no content, so its purpose cannot be determined."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "rationale": "The link has no programmatically determined name."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "fails",
+          "rationale": "The link text is empty."
+        }
+      ]
+    },
+    "links-links-with-the-same-text-go-to-different-pages": {
+      "category": "Links",
+      "title": "Links with the same text go to different pages",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "related",
+          "rationale": "Two \"Lions\" links in one paragraph go to different sites; both are about lions, so purpose is arguably the same (borderline)."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "related",
+          "rationale": "Same link text for different destinations; whether purposes differ is a judgement."
+        }
+      ]
+    },
+    "links-link-text-does-not-make-sense-out-of-context": {
+      "category": "Links",
+      "title": "Link text does not make sense out of context",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "related",
+          "rationale": "The sentence \"To know more about me, visit my page\" gives the link purpose in context (G53)."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "fails",
+          "rationale": "The link text \"page\" alone does not identify its purpose."
+        }
+      ]
+    },
+    "links-adjacent-links-going-to-the-same-destination": {
+      "category": "Links",
+      "title": "Adjacent links going to the same destination",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "related",
+          "rationale": "Separate image and text links to the same URL create redundant stops; combining them (H2) is the recommended technique, not a requirement."
+        }
+      ]
+    },
+    "links-link-contains-only-a-full-stop": {
+      "category": "Links",
+      "title": "Link contains only a full stop",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "related",
+          "rationale": "The sentence \"Visit the GOV.UK website\" gives context, but the link text \".\" is barely perceivable (borderline)."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "fails",
+          "rationale": "Link text \".\" does not identify the purpose."
+        },
+        {
+          "sc": "2.5.8",
+          "relation": "related",
+          "rationale": "The target is a tiny full stop but sits inline in a sentence, so the inline exception applies."
+        }
+      ]
+    },
+    "links-image-link-alt-text-repeats-text-in-the-link": {
+      "category": "Links",
+      "title": "Image link alt text repeats text in the link",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "related",
+          "rationale": "Alt text duplicates adjacent link text, so the name is announced twice; H2 advises alt=\"\" here, not a failure."
+        }
+      ]
+    },
+    "links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text": {
+      "category": "Links",
+      "title": "Link not clearly identifiable and distinguishable from surrounding text",
+      "wcag": [
+        {
+          "sc": "1.4.1",
+          "relation": "fails",
+          "technique": "F73",
+          "rationale": "The link is the same black bold text as its surroundings with no underline until hover, so it is not visually evident (borderline: no colour difference at all)."
+        }
+      ]
+    },
+    "links-link-to-a-multimedia-file-no-transcript": {
+      "category": "Links",
+      "title": "Link to a multimedia file, no transcript",
+      "wcag": [
+        {
+          "sc": "1.2.2",
+          "relation": "related",
+          "rationale": "Captions for the linked video depend on the linked file, which is not part of this page."
+        },
+        {
+          "sc": "1.2.3",
+          "relation": "related",
+          "rationale": "Audio description or alternative depends on the linked file."
+        }
+      ]
+    },
+    "links-non-specific-link-text": {
+      "category": "Links",
+      "title": "Non-specific link text",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "related",
+          "rationale": "\"Click here\" sits in a sentence that states the purpose (G53)."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "fails",
+          "technique": "F84",
+          "rationale": "\"Click here\" does not identify the purpose from the link text alone."
+        }
+      ]
+    },
+    "links-link-to-an-image-no-text-alternative": {
+      "category": "Links",
+      "title": "Link to an image, no text alternative",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "related",
+          "rationale": "The link opens a bare image file which cannot carry a text alternative; whether that fails depends on whether the image conveys information beyond \"bat\"."
+        }
+      ]
+    },
+    "buttons-image-button-has-no-alt-attribute": {
+      "category": "Buttons",
+      "title": "Image button has no alt attribute",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "technique": "F65",
+          "rationale": "input type=\"image\" has no alt attribute."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "related",
+          "rationale": "Browsers fall back to a default name such as \"Submit\", so a name exists but is not author-provided."
+        },
+        {
+          "sc": "1.4.5",
+          "relation": "fails",
+          "rationale": "The button image is an image of the text \"SUBMIT\".",
+          "incidental": true
+        }
+      ]
+    },
+    "buttons-empty-button": {
+      "category": "Buttons",
+      "title": "Empty button",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F68",
+          "rationale": "The button has no content and no other name source."
+        }
+      ]
+    },
+    "buttons-uninformative-alt-attribute-value-on-image-button": {
+      "category": "Buttons",
+      "title": "Uninformative alt attribute value on image button",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "rationale": "alt=\"click\" does not convey the button's purpose (Submit)."
+        },
+        {
+          "sc": "2.5.3",
+          "relation": "fails",
+          "technique": "F96",
+          "rationale": "The visible label in the image is \"SUBMIT\" but the accessible name is \"click\"."
+        },
+        {
+          "sc": "1.4.5",
+          "relation": "fails",
+          "rationale": "The button image is an image of text.",
+          "incidental": true
+        }
+      ]
+    },
+    "buttons-empty-alt-attribute-on-image-button": {
+      "category": "Buttons",
+      "title": "Empty alt attribute on image button",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "technique": "F65",
+          "rationale": "input type=\"image\" with alt=\"\" has no text alternative."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "related",
+          "rationale": "Browsers fall back to a default name, so a name exists but is not author-provided."
+        },
+        {
+          "sc": "1.4.5",
+          "relation": "fails",
+          "rationale": "The button image is an image of text.",
+          "incidental": true
+        }
+      ]
+    },
+    "forms-errors-identified-by-colour-only": {
+      "category": "Forms",
+      "title": "Errors identified by colour only",
+      "wcag": [
+        {
+          "sc": "1.4.1",
+          "relation": "fails",
+          "technique": "F81",
+          "rationale": "Fields in error are shown only by a pink background and red border."
+        },
+        {
+          "sc": "3.3.1",
+          "relation": "fails",
+          "rationale": "The summary says there are errors but no text identifies which fields or what is wrong."
+        }
+      ]
+    },
+    "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls": {
+      "category": "Forms",
+      "title": "Labels missing when they would look clumsy for some form controls",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F86",
+          "rationale": "Month and year inputs of a multi-part date field have no names."
+        },
+        {
+          "sc": "3.3.2",
+          "relation": "fails",
+          "technique": "F82",
+          "rationale": "Only the first of three date inputs has a label; month and year have no visible label."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "The relationship between the group label and the three inputs is not programmatically determined."
+        }
+      ]
+    },
+    "forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format": {
+      "category": "Forms",
+      "title": "Error messages - no suggestion for corrections given, e.g. required format",
+      "wcag": [
+        {
+          "sc": "3.3.3",
+          "relation": "fails",
+          "rationale": "The required format (pattern 7 followed by 9 digits) is known but the error only says \"is not valid\"."
+        },
+        {
+          "sc": "3.3.2",
+          "relation": "related",
+          "rationale": "No format instructions are given before input either."
+        }
+      ]
+    },
+    "forms-left-aligned-form-labels-with-too-much-white-space": {
+      "category": "Forms",
+      "title": "Left aligned form labels with too much white space",
+      "wcag": [
+        {
+          "sc": "3.3.2",
+          "relation": "related",
+          "rationale": "The label is present and associated, but floated far from its input so magnifier users may not see them together (G162 advisory)."
+        }
+      ]
+    },
+    "forms-group-of-radio-buttons-not-enclosed-in-a-fieldset": {
+      "category": "Forms",
+      "title": "Group of radio buttons not enclosed in a fieldset",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "The question is a visible heading before the group but not programmatically associated (H71 would do it); borderline."
+        }
+      ]
+    },
+    "forms-form-element-has-no-label": {
+      "category": "Forms",
+      "title": "Form element has no label",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F68",
+          "rationale": "The text input has no accessible name."
+        },
+        {
+          "sc": "3.3.2",
+          "relation": "fails",
+          "rationale": "There is no visible label or instruction for the input."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "There is no label text whose relationship could be lost."
+        }
+      ]
+    },
+    "forms-fieldset-without-a-legend": {
+      "category": "Forms",
+      "title": "Fieldset without a legend",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "A fieldset without legend gives a group no name; it contains no controls, so nothing is lost here."
+        }
+      ]
+    },
+    "forms-empty-legend": {
+      "category": "Forms",
+      "title": "Empty legend",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "An empty legend names nothing; the fieldset has no controls, so nothing is lost here."
+        }
+      ]
+    },
+    "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control": {
+      "category": "Forms",
+      "title": "Label element with for= attribute but not matching id= attribute of form control",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "fails",
+          "technique": "F111",
+          "rationale": "Visible text \"form\" is a label element not associated with the checkbox."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F111",
+          "rationale": "The checkbox has no accessible name."
+        },
+        {
+          "sc": "2.5.3",
+          "relation": "fails",
+          "technique": "F111",
+          "rationale": "The control has a visible label but no accessible name, so the name does not contain it."
+        }
+      ],
+      "notes": "The label has id=\"not-matching-anything\" and no for attribute at all."
+    },
+    "forms-group-of-check-boxes-not-enclosed-in-a-fieldset": {
+      "category": "Forms",
+      "title": "Group of check boxes not enclosed in a fieldset",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "The question is a visible heading before the group but not programmatically associated (H71); borderline."
+        }
+      ]
+    },
+    "forms-empty-label-found": {
+      "category": "Forms",
+      "title": "Empty label found",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F68",
+          "rationale": "The input is labelled by an empty label, so it has no name."
+        },
+        {
+          "sc": "3.3.2",
+          "relation": "fails",
+          "rationale": "There is no visible label for the input."
+        }
+      ]
+    },
+    "forms-two-unique-labels-but-identical-for=-attributes": {
+      "category": "Forms",
+      "title": "Two unique labels, but identical for= attributes",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "Two labels point to the day input; browsers concatenate them (\"Date of issue Day\"), so the field is named (borderline across AT)."
+        }
+      ]
+    },
+    "forms-errors-identified-with-a-poor-colour-contrast": {
+      "category": "Forms",
+      "title": "Errors identified with a poor colour contrast",
+      "wcag": [
+        {
+          "sc": "1.4.3",
+          "relation": "fails",
+          "rationale": "White summary text on #fae1e1 is 1.24:1."
+        },
+        {
+          "sc": "1.4.11",
+          "relation": "fails",
+          "rationale": "The error border #fae1e1 on white is 1.24:1, below 3:1 for a graphical indicator needed to understand state."
+        },
+        {
+          "sc": "3.3.1",
+          "relation": "fails",
+          "rationale": "Fields in error are marked only by a near-invisible border; no text identifies them."
+        },
+        {
+          "sc": "1.4.6",
+          "relation": "fails",
+          "rationale": "1.24:1 is below the enhanced threshold."
+        }
+      ]
+    },
+    "forms-non-unique-field-label-found": {
+      "category": "Forms",
+      "title": "Non-unique field label found",
+      "wcag": [
+        {
+          "sc": "2.4.6",
+          "relation": "related",
+          "rationale": "Two fields labelled \"Name\" do not describe how they differ (borderline: purpose may be clear in context)."
+        }
+      ]
+    },
+    "forms-missing-labels-in-checkboxes": {
+      "category": "Forms",
+      "title": "Missing labels in checkboxes",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "fails",
+          "technique": "F111",
+          "rationale": "Visible label elements are not associated with their checkboxes."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F111",
+          "rationale": "The checkboxes have no accessible names."
+        },
+        {
+          "sc": "2.5.3",
+          "relation": "fails",
+          "technique": "F111",
+          "rationale": "Controls have visible labels but no accessible names."
+        }
+      ]
+    },
+    "forms-field-hint-not-associated-with-input": {
+      "category": "Forms",
+      "title": "Field hint not associated with input",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "The hint is visible next to the field but not programmatically associated (aria-describedby); the label is fine (borderline)."
+        },
+        {
+          "sc": "3.3.2",
+          "relation": "related",
+          "rationale": "Instructions are present visually."
+        }
+      ]
+    },
+    "forms-placeholder-no-label": {
+      "category": "Forms",
+      "title": "Placeholder no label",
+      "wcag": [
+        {
+          "sc": "3.3.2",
+          "relation": "related",
+          "rationale": "No label, but the adjacent \"Search\" button labels the purpose (G167) and placeholder shows until typing."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "related",
+          "rationale": "Browsers use the placeholder as the accessible name, so a name exists."
+        }
+      ]
+    },
+    "forms-errors-are-not-identified": {
+      "category": "Forms",
+      "title": "Errors are not identified",
+      "wcag": [
+        {
+          "sc": "3.3.1",
+          "relation": "fails",
+          "rationale": "An error summary appears but no field is marked and no error is described in text."
+        }
+      ]
+    },
+    "forms-form-control-that-changes-context-without-warning": {
+      "category": "Forms",
+      "title": "Form control that changes context without warning",
+      "wcag": [
+        {
+          "sc": "3.2.2",
+          "relation": "fails",
+          "rationale": "Changing the select reloads the page (change of context) with no advance warning."
+        },
+        {
+          "sc": "3.2.5",
+          "relation": "fails",
+          "rationale": "A change of context happens without an explicit user request such as a submit button."
+        }
+      ]
+    },
+    "navigation-inadequately-sized-clickable-targets-found": {
+      "category": "Navigation",
+      "title": "Inadequately-sized clickable targets found",
+      "wcag": [
+        {
+          "sc": "2.5.8",
+          "relation": "fails",
+          "rationale": "Single-letter links are about 9×19 CSS px and only a space apart, so 24 px circles on them overlap; they are a link row, not text in a sentence."
+        },
+        {
+          "sc": "2.5.5",
+          "relation": "fails",
+          "rationale": "Targets are far smaller than 44×44 CSS px."
+        }
+      ]
+    },
+    "keyboard-access-alert-shows-for-a-short-time": {
+      "category": "Keyboard Access",
+      "title": "Alert shows for a short time",
+      "wcag": [
+        {
+          "sc": "2.2.1",
+          "relation": "fails",
+          "rationale": "A message about the time limit appears on focus and disappears after 500 ms with no way to extend it."
+        },
+        {
+          "sc": "2.2.3",
+          "relation": "fails",
+          "rationale": "Timing is an essential part of how the message is presented."
+        },
+        {
+          "sc": "4.1.3",
+          "relation": "related",
+          "rationale": "The message is not exposed as a status message, so AT users are not told about it."
+        }
+      ]
+    },
+    "keyboard-access-lightbox-close-button-doesnt-receive-focus": {
+      "category": "Keyboard Access",
+      "title": "Lightbox - close button doesn't receive focus",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F59",
+          "rationale": "The close \"X\" is a span with a click handler and no role, name-as-button or focusability."
+        },
+        {
+          "sc": "2.1.1",
+          "relation": "related",
+          "rationale": "The span cannot be focused, but Escape closes the lightbox, so the function is keyboard operable (undiscoverably)."
+        }
+      ]
+    },
+    "keyboard-access-focus-order-in-wrong-order": {
+      "category": "Keyboard Access",
+      "title": "Focus order in wrong order",
+      "wcag": [
+        {
+          "sc": "2.4.3",
+          "relation": "related",
+          "rationale": "Floats show the links as First, Third ... Second while focus goes First, Second, Third; the labels keep the meaning clear (borderline)."
+        },
+        {
+          "sc": "1.3.2",
+          "relation": "related",
+          "rationale": "Visual order differs from DOM order, but the sequence is not meaningful beyond the link labels."
+        }
+      ]
+    },
+    "keyboard-access-tabindex-greater-than-0": {
+      "category": "Keyboard Access",
+      "title": "Tabindex greater than 0",
+      "wcag": [
+        {
+          "sc": "2.4.3",
+          "relation": "related",
+          "technique": "F44",
+          "rationale": "Positive tabindex moves the link first in focus order (F44 pattern), but on its own page it is the only focusable element, so order is unaffected."
+        }
+      ]
+    },
+    "keyboard-access-keyboard-focus-is-not-indicated-visually": {
+      "category": "Keyboard Access",
+      "title": "Keyboard focus is not indicated visually",
+      "wcag": [
+        {
+          "sc": "2.4.7",
+          "relation": "fails",
+          "technique": "F78",
+          "rationale": "outline: none and no replacement style on :focus removes any focus indicator."
+        },
+        {
+          "sc": "2.4.13",
+          "relation": "fails",
+          "technique": "F78",
+          "rationale": "There is no focus indicator at all."
+        }
+      ]
+    },
+    "keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0": {
+      "category": "Keyboard Access",
+      "title": "Keyboard focus assigned to a non focusable element using tabindex=0",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "A focusable paragraph adds a useless tab stop; no SC prohibits it."
+        }
+      ]
+    },
+    "keyboard-access-concertina-items-dont-get-keyboard-focus": {
+      "category": "Keyboard Access",
+      "title": "Concertina items don't get keyboard focus",
+      "wcag": [
+        {
+          "sc": "2.1.1",
+          "relation": "fails",
+          "technique": "F54",
+          "rationale": "The dt toggles are mouse-click only; the hidden content cannot be revealed by keyboard."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "rationale": "The dt elements act as buttons but expose no role or expanded state (F59/F15 pattern on dt)."
+        }
+      ]
+    },
+    "keyboard-access-keyboard-trap": {
+      "category": "Keyboard Access",
+      "title": "Keyboard trap",
+      "wcag": [
+        {
+          "sc": "2.1.2",
+          "relation": "fails",
+          "rationale": "A keydown handler on the first link cancels the key and opens a window, so focus cannot move away with the keyboard."
+        },
+        {
+          "sc": "3.2.5",
+          "relation": "related",
+          "technique": "F22",
+          "rationale": "A new window opens on any keypress, a change of context not requested by the user."
+        }
+      ],
+      "notes": "Object is example-pages/keyboardtrap.html."
+    },
+    "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus": {
+      "category": "Keyboard Access",
+      "title": "Dropdown navigation - only the top level items receive focus",
+      "wcag": [
+        {
+          "sc": "2.1.1",
+          "relation": "fails",
+          "rationale": "The submenu is shown only on :hover; its links are display:none and unreachable by keyboard."
+        },
+        {
+          "sc": "1.4.13",
+          "relation": "related",
+          "rationale": "Hover content stays while hovered and does not obscure content, but cannot be dismissed without moving the pointer."
+        }
+      ]
+    },
+    "keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox": {
+      "category": "Keyboard Access",
+      "title": "Lightbox - ESC key doesn't close the lightbox",
+      "wcag": [
+        {
+          "sc": "2.1.1",
+          "relation": "related",
+          "rationale": "The lightbox has a focusable close link, so it can be closed by keyboard; Escape-to-close is best practice."
+        }
+      ]
+    },
+    "keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar": {
+      "category": "Keyboard Access",
+      "title": "Link with a role=button does not work with space bar",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "related",
+          "rationale": "role=\"button\" promises Space activation that the link does not provide; role and behaviour disagree (borderline)."
+        },
+        {
+          "sc": "2.1.1",
+          "relation": "related",
+          "rationale": "The control still works with Enter, so it is keyboard operable."
+        }
+      ]
+    },
+    "keyboard-access-tooltips-dont-receive-keyboard-focus": {
+      "category": "Keyboard Access",
+      "title": "Tooltips don't receive keyboard focus",
+      "wcag": [
+        {
+          "sc": "2.1.1",
+          "relation": "fails",
+          "rationale": "The tooltip is shown only on mouse hover over a non-focusable span, so keyboard users cannot reach the hint."
+        },
+        {
+          "sc": "1.4.13",
+          "relation": "fails",
+          "technique": "F95",
+          "rationale": "Moving the pointer from the icon onto the tooltip hides it, so it is not hoverable."
+        }
+      ]
+    },
+    "keyboard-access-accesskey-attribute-used": {
+      "category": "Keyboard Access",
+      "title": "Accesskey attribute used",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "accesskey uses modifier keys, so 2.1.4 does not apply; conflicts with AT shortcuts are a best practice concern."
+        }
+      ]
+    },
+    "keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox": {
+      "category": "Keyboard Access",
+      "title": "Lightbox - focus is not moved immediately to lightbox",
+      "wcag": [
+        {
+          "sc": "2.4.3",
+          "relation": "fails",
+          "technique": "F85",
+          "rationale": "The lightbox is appended to the end of body, so it is not next to its trigger in focus order and focus is not moved to it."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F59",
+          "rationale": "The close \"X\" is a span with a click handler and no role.",
+          "incidental": true
+        }
+      ]
+    },
+    "keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox": {
+      "category": "Keyboard Access",
+      "title": "Lightbox - focus is not retained within the lightbox",
+      "wcag": [
+        {
+          "sc": "2.4.3",
+          "relation": "related",
+          "rationale": "Focus can leave the open lightbox into the page behind; 2.4.3 does not require modal focus containment (borderline)."
+        },
+        {
+          "sc": "2.4.11",
+          "relation": "related",
+          "technique": "F110",
+          "rationale": "Focus moving behind the fixed lightbox can be hidden by it, depending on layout."
+        }
+      ]
+    },
+    "keyboard-access-fake-button-is-not-keyboard-accessible": {
+      "category": "Keyboard Access",
+      "title": "Fake button is not keyboard accessible",
+      "wcag": [
+        {
+          "sc": "2.1.1",
+          "relation": "fails",
+          "technique": "F54",
+          "rationale": "The div is operated only by a click handler and is not focusable."
+        },
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "technique": "F59",
+          "rationale": "A div made into a control by script has no role or accessible state."
+        }
+      ]
+    },
+    "frames-iframe-is-missing-a-title-attribute": {
+      "category": "Frames",
+      "title": "iframe is missing a title attribute",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "fails",
+          "rationale": "The iframe has no title or other accessible name (H64 not met)."
+        }
+      ]
+    },
+    "frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe": {
+      "category": "Frames",
+      "title": "iframe title attribute does not describe the content or purpose of the iframe",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "related",
+          "rationale": "The iframe has a name (\"Facebook\"), but it does not describe the framed page; 4.1.2 requires a name, not an accurate one (borderline)."
+        }
+      ]
+    },
+    "css-content-is-not-readable-and-functional-when-text-is-increased": {
+      "category": "CSS",
+      "title": "Content is not readable and functional when text is increased",
+      "wcag": [
+        {
+          "sc": "1.4.4",
+          "relation": "fails",
+          "technique": "F69",
+          "rationale": "max-height: 64px with overflow: hidden clips the text when text-only zoom enlarges it."
+        },
+        {
+          "sc": "1.4.12",
+          "relation": "related",
+          "technique": "F104",
+          "rationale": "The same clipping would occur if users increase line height, depending on line wrapping."
+        }
+      ]
+    },
+    "css-non-decorative-content-inserted-using-css": {
+      "category": "CSS",
+      "title": "Non-decorative content inserted using CSS",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "technique": "F87",
+          "rationale": "The word \"Pizza\" comes from ::after content; current browsers expose it, but it is lost when author CSS is disabled.",
+          "technique_obsolete": true
+        }
+      ]
+    },
+    "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "category": "CSS",
+      "title": "visibility:hidden used to visually hide content when it should be available to screenreader",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "fails",
+          "rationale": "visibility:hidden removes \"about rugby\" from the accessible name, leaving \"Read more\" with no context on the page."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "fails",
+          "technique": "F84",
+          "rationale": "The link text alone is \"Read more\"."
+        }
+      ]
+    },
+    "css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "category": "CSS",
+      "title": "display:none used to visually hide content when it should be available to screenreader",
+      "wcag": [
+        {
+          "sc": "2.4.4",
+          "relation": "fails",
+          "rationale": "display:none removes \"about football\" from the accessible name, leaving \"Read more\" with no context on the page."
+        },
+        {
+          "sc": "2.4.9",
+          "relation": "fails",
+          "technique": "F84",
+          "rationale": "The link text alone is \"Read more\"."
+        }
+      ]
+    },
+    "css-page-zoom-boxes-that-dont-expand-with-the-text": {
+      "category": "CSS",
+      "title": "Page zoom - boxes that don't expand with the text",
+      "wcag": [
+        {
+          "sc": "1.4.4",
+          "relation": "fails",
+          "technique": "F69",
+          "rationale": "The box has fixed height 4.2em and overflow hidden while its width is 50 %, so at 200 % zoom wrapped text is clipped."
+        },
+        {
+          "sc": "1.4.10",
+          "relation": "related",
+          "rationale": "At 320 CSS px the 50 % wide fixed-height box clips text; likely a reflow failure (borderline: depends on rendering)."
+        },
+        {
+          "sc": "1.4.12",
+          "relation": "related",
+          "technique": "F104",
+          "rationale": "Increased text spacing would overflow the fixed height."
+        }
+      ]
+    },
+    "html-duplicate-id": {
+      "category": "HTML",
+      "title": "Duplicate id",
+      "wcag": [
+        {
+          "sc": "4.1.1",
+          "relation": "fails",
+          "technique": "F77",
+          "rationale": "Two elements have id=\"nav\".",
+          "technique_obsolete": true
+        }
+      ],
+      "notes": "Only fails 4.1.1 (removed in 2.2); no ID reference uses \"nav\", so 1.3.1 and 4.1.2 are unaffected."
+    },
+    "html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.": {
+      "category": "HTML",
+      "title": "Article element used to mark-up an element that's not an article/blog post etc.",
+      "wcag": [
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "technique": "F43",
+          "rationale": "An article element wraps related navigation, which misrepresents structure slightly (F43 pattern, borderline)."
+        }
+      ]
+    },
+    "html-empty-paragraph": {
+      "category": "HTML",
+      "title": "Empty paragraph",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "An empty p is not exposed by AT and creates no barrier."
+        }
+      ]
+    },
+    "html-deprecated-center-element": {
+      "category": "HTML",
+      "title": "Deprecated center element",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "<center> is obsolete but renders centred text with no accessibility impact."
+        }
+      ]
+    },
+    "html-invalid-aria-role-names": {
+      "category": "HTML",
+      "title": "Invalid ARIA role names",
+      "wcag": [
+        {
+          "sc": "4.1.2",
+          "relation": "related",
+          "rationale": "role=\"breadcrumbs\" is not a valid ARIA role; browsers fall back to the native ol list role, so semantics survive."
+        }
+      ]
+    },
+    "html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window": {
+      "category": "HTML",
+      "title": "Object not embedded accessibly - wmode parameter not set to window",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "The wmode parameter concerned Flash plugin keyboard access, which no longer exists; the object has fallback text."
+        }
+      ]
+    },
+    "html-spacer-image-found": {
+      "category": "HTML",
+      "title": "Spacer image found",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "The spacer GIF has alt=\"\", which is correct for decoration; using images for layout is outdated practice only."
+        }
+      ]
+    },
+    "html-inline-style-adds-colour": {
+      "category": "HTML",
+      "title": "Inline style adds colour",
+      "wcag": [
+        {
+          "sc": "1.4.3",
+          "relation": "related",
+          "technique": "F24",
+          "rationale": "Foreground colour is set without a background colour (F24 pattern); blue on white is 8.6:1, so it fails only if users change background."
+        }
+      ]
+    },
+    "html-start-and-close-tags-dont-match": {
+      "category": "HTML",
+      "title": "Start and close tags don't match",
+      "wcag": [
+        {
+          "sc": "4.1.1",
+          "relation": "fails",
+          "technique": "F70",
+          "rationale": "A stray </span> closes an element that was never opened.",
+          "technique_obsolete": true
+        }
+      ],
+      "notes": "Only fails 4.1.1, which is removed in WCAG 2.2."
+    },
+    "html-pre-element-without-code-element-inside-it": {
+      "category": "HTML",
+      "title": "PRE element without CODE element inside it",
+      "wcag": [
+        {
+          "sc": "1.1.1",
+          "relation": "fails",
+          "technique": "F72",
+          "rationale": "ASCII art inside the pre element has no text alternative."
+        },
+        {
+          "sc": "1.3.1",
+          "relation": "related",
+          "rationale": "Using pre for preformatted text is fine; no code element is required."
+        }
+      ]
+    },
+    "html-deprecated-font-element": {
+      "category": "HTML",
+      "title": "Deprecated font element",
+      "wcag": [
+        {
+          "sc": null,
+          "relation": "none",
+          "rationale": "<font> is obsolete but has no accessibility effect beyond the visual style it sets."
+        }
+      ]
+    }
+  }
+}

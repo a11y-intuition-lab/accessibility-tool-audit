@@ -1,0 +1,1622 @@
+{
+  "meta": {
+    "generatedBy": "scripts/wcag/coverage.mjs",
+    "inputs": [
+      "data/wcag/success-criteria.json",
+      "data/mappings/test-case-wcag.json",
+      "data/gap-analysis/candidates.json"
+    ],
+    "mappingStatus": "ai-proposed",
+    "definitions": {
+      "covered": "at least one non-incidental \"fails\" test case",
+      "relatedOnly": "no covering test case, but at least one \"related\" or incidental entry",
+      "uncovered": "no entries",
+      "version": "SC counted in version v if introduced <= v and not removed in or before v"
+    }
+  },
+  "testCases": {
+    "total": 142,
+    "fails": 79,
+    "relatedOnly": 48,
+    "none": 15,
+    "noneIds": [
+      "html-deprecated-center-element",
+      "html-deprecated-font-element",
+      "html-empty-paragraph",
+      "html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window",
+      "html-spacer-image-found",
+      "images-image-has-alt-and-title-that-are-different",
+      "keyboard-access-accesskey-attribute-used",
+      "keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0",
+      "links-link-text-with-identical-title",
+      "links-link-to-,-invalid-hypertext-reference",
+      "links-link-to-pdf-does-not-include-information-on-file-format-and-file-size",
+      "links-links-not-separated-by-printable-characters",
+      "tables-table-with-some-empty-cells",
+      "typography-all-caps-text-found",
+      "typography-italics-used-on-long-sections-of-text"
+    ]
+  },
+  "summary": {
+    "2.0": {
+      "A": {
+        "total": 25,
+        "covered": 21,
+        "relatedOnly": 1,
+        "uncovered": 3
+      },
+      "AA": {
+        "total": 13,
+        "covered": 5,
+        "relatedOnly": 3,
+        "uncovered": 5
+      },
+      "AAA": {
+        "total": 23,
+        "covered": 8,
+        "relatedOnly": 2,
+        "uncovered": 13
+      },
+      "total": {
+        "total": 61,
+        "covered": 34,
+        "relatedOnly": 6,
+        "uncovered": 21
+      }
+    },
+    "2.1": {
+      "A": {
+        "total": 30,
+        "covered": 22,
+        "relatedOnly": 1,
+        "uncovered": 7
+      },
+      "AA": {
+        "total": 20,
+        "covered": 8,
+        "relatedOnly": 5,
+        "uncovered": 7
+      },
+      "AAA": {
+        "total": 28,
+        "covered": 9,
+        "relatedOnly": 3,
+        "uncovered": 16
+      },
+      "total": {
+        "total": 78,
+        "covered": 39,
+        "relatedOnly": 9,
+        "uncovered": 30
+      }
+    },
+    "2.2": {
+      "A": {
+        "total": 31,
+        "covered": 21,
+        "relatedOnly": 1,
+        "uncovered": 9
+      },
+      "AA": {
+        "total": 24,
+        "covered": 9,
+        "relatedOnly": 6,
+        "uncovered": 9
+      },
+      "AAA": {
+        "total": 31,
+        "covered": 10,
+        "relatedOnly": 3,
+        "uncovered": 18
+      },
+      "total": {
+        "total": 86,
+        "covered": 40,
+        "relatedOnly": 10,
+        "uncovered": 36
+      }
+    }
+  },
+  "criteria": [
+    {
+      "id": "1.1.1",
+      "handle": "Non-text Content",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "buttons-empty-alt-attribute-on-image-button",
+        "buttons-image-button-has-no-alt-attribute",
+        "buttons-uninformative-alt-attribute-value-on-image-button",
+        "html-pre-element-without-code-element-inside-it",
+        "images-background-image-that-conveys-information-does-not-have-a-text-alternative",
+        "images-image-alt-attribute-contains-image-file-name",
+        "images-image-that-conveys-information-has-an-empty-alt-attribute",
+        "images-image-that-conveys-information-has-inappropriate-alt-text",
+        "images-image-with-no-alt-attribute",
+        "images-image-with-partial-text-alternative",
+        "links-image-link-with-no-alternative-text"
+      ],
+      "related": [
+        "images-image-has-empty-alt-and-non-empty-title",
+        "images-image-with-presentation-role-has-non-empty-alt",
+        "links-image-link-alt-text-repeats-text-in-the-link",
+        "links-link-to-an-image-no-text-alternative"
+      ],
+      "incidental": [],
+      "candidates": [
+        "images-decorative-image-with-non-empty-alt-text",
+        "images-icon-font-conveys-meaning-without-text-alternative",
+        "images-svg-image-without-accessible-name"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.2.1",
+      "handle": "Audio-only and Video-only (Prerecorded)",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "multimedia-embedded-audio-file-is-missing-text-alternative"
+      ],
+      "related": [
+        "links-links-to-a-sound-file-no-transcript"
+      ],
+      "incidental": [],
+      "candidates": [
+        "multimedia-video-only-content-without-alternative"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.2.2",
+      "handle": "Captions (Prerecorded)",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "multimedia-embedded-video-file-is-missing-text-alternative"
+      ],
+      "related": [
+        "links-link-to-a-multimedia-file-no-transcript"
+      ],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "1.2.3",
+      "handle": "Audio Description or Media Alternative (Prerecorded)",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "links-link-to-a-multimedia-file-no-transcript",
+        "multimedia-embedded-video-file-is-missing-text-alternative"
+      ],
+      "incidental": [],
+      "candidates": [
+        "multimedia-prerecorded-video-without-audio-description-or-media-alternative"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "1.2.4",
+      "handle": "Captions (Live)",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "multimedia-live-video-stream-without-captions"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.2.5",
+      "handle": "Audio Description (Prerecorded)",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "multimedia-embedded-video-file-is-missing-text-alternative"
+      ],
+      "incidental": [],
+      "candidates": [
+        "multimedia-prerecorded-video-without-audio-description-or-media-alternative"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "1.2.6",
+      "handle": "Sign Language (Prerecorded)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "multimedia-prerecorded-video-without-sign-language-interpretation"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.2.7",
+      "handle": "Extended Audio Description (Prerecorded)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "multimedia-video-with-no-pauses-for-audio-description-and-no-extended-description"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.2.8",
+      "handle": "Media Alternative (Prerecorded)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "multimedia-embedded-video-file-is-missing-text-alternative"
+      ],
+      "incidental": [],
+      "candidates": [
+        "multimedia-prerecorded-video-without-full-text-alternative"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "1.2.9",
+      "handle": "Audio-only (Live)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "multimedia-live-audio-stream-without-text-alternative"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.3.1",
+      "handle": "Info and Relationships",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control",
+        "forms-missing-labels-in-checkboxes",
+        "headings-text-formatting-used-instead-of-an-actual-heading",
+        "lists-list-not-marked-up-as-a-list",
+        "tables-table-has-no-table-headings"
+      ],
+      "related": [
+        "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms",
+        "css-non-decorative-content-inserted-using-css",
+        "forms-empty-legend",
+        "forms-field-hint-not-associated-with-input",
+        "forms-fieldset-without-a-legend",
+        "forms-form-element-has-no-label",
+        "forms-group-of-check-boxes-not-enclosed-in-a-fieldset",
+        "forms-group-of-radio-buttons-not-enclosed-in-a-fieldset",
+        "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls",
+        "forms-two-unique-labels-but-identical-for=-attributes",
+        "headings-empty-heading",
+        "headings-headings-not-structured-in-a-hierarchical-manner",
+        "headings-missing-h1",
+        "html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.",
+        "html-pre-element-without-code-element-inside-it",
+        "lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element",
+        "lists-improperly-nested-lists",
+        "lists-li-element-with-no-parent",
+        "tables-table-has-an-empty-table-header",
+        "tables-table-has-no-scope-attributes",
+        "tables-table-is-missing-a-caption",
+        "tables-table-nested-within-table",
+        "tables-table-nested-within-table-header",
+        "tables-table-that-only-has-th-elements-in-it",
+        "tables-table-used-for-layout",
+        "tables-table-with-column-headers-and-double-row-headers",
+        "tables-table-with-inconsistent-numbers-of-columns-in-rows"
+      ],
+      "incidental": [
+        "headings-missing-h1",
+        "language-of-content-html-element-has-an-empty-lang-attribute",
+        "language-of-content-html-element-is-missing-a-lang-attribute"
+      ],
+      "candidates": [
+        "content-table-formatted-with-spaces-in-preformatted-text",
+        "html-aria-list-role-without-listitem-children",
+        "tables-data-table-with-role-presentation",
+        "tables-headers-attribute-references-wrong-header-ids",
+        "tables-layout-table-uses-th-and-caption"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.3.2",
+      "handle": "Meaningful Sequence",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "content-content-is-not-in-correct-reading-order-in-source-code"
+      ],
+      "related": [
+        "keyboard-access-focus-order-in-wrong-order",
+        "language-of-content-text-language-changed-without-required-change-in-direction",
+        "language-of-content-text-language-is-in-the-wrong-direction",
+        "tables-table-used-for-layout"
+      ],
+      "incidental": [],
+      "candidates": [
+        "content-spaces-used-to-spread-out-letters-of-a-word",
+        "content-table-formatted-with-spaces-in-preformatted-text"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.3.3",
+      "handle": "Sensory Characteristics",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "content-content-identified-by-location"
+      ],
+      "related": [
+        "colour-and-contrast-colour-alone-is-used-to-convey-content"
+      ],
+      "incidental": [],
+      "candidates": [
+        "content-graphical-symbol-alone-conveys-meaning",
+        "content-instructions-rely-on-shape"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.3.4",
+      "handle": "Orientation",
+      "level": "AA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "page-layout-content-locked-to-portrait-orientation",
+        "page-layout-message-asks-user-to-rotate-device"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.3.5",
+      "handle": "Identify Input Purpose",
+      "level": "AA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "forms-invalid-autocomplete-value-on-personal-data-field",
+        "forms-missing-autocomplete-on-personal-data-fields"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.3.6",
+      "handle": "Identify Purpose",
+      "level": "AAA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "html-page-regions-not-identified-with-landmarks"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.4.1",
+      "handle": "Use of Color",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "colour-and-contrast-colour-alone-is-used-to-convey-content",
+        "forms-errors-identified-by-colour-only",
+        "links-identifying-links-by-colour-alone",
+        "links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "1.4.2",
+      "handle": "Audio Control",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "multimedia-audio-plays-automatically-with-no-way-to-stop-it"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.4.3",
+      "handle": "Contrast (Minimum)",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa",
+        "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa",
+        "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa",
+        "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa",
+        "forms-errors-identified-with-a-poor-colour-contrast"
+      ],
+      "related": [
+        "html-inline-style-adds-colour"
+      ],
+      "incidental": [],
+      "candidates": [
+        "colour-and-contrast-text-over-background-image-with-insufficient-contrast"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.4.4",
+      "handle": "Resize Text",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "css-content-is-not-readable-and-functional-when-text-is-increased",
+        "css-page-zoom-boxes-that-dont-expand-with-the-text"
+      ],
+      "related": [
+        "typography-very-small-text-found"
+      ],
+      "incidental": [],
+      "candidates": [
+        "css-form-controls-do-not-resize-with-text",
+        "css-text-sized-only-in-viewport-units"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.4.5",
+      "handle": "Images of Text",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [
+        "buttons-empty-alt-attribute-on-image-button",
+        "buttons-image-button-has-no-alt-attribute",
+        "buttons-uninformative-alt-attribute-value-on-image-button",
+        "images-image-with-partial-text-alternative"
+      ],
+      "candidates": [
+        "images-image-of-text-used-for-a-heading"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "1.4.6",
+      "handle": "Contrast (Enhanced)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa",
+        "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa",
+        "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa",
+        "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa",
+        "forms-errors-identified-with-a-poor-colour-contrast"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "colour-and-contrast-text-over-background-image-with-insufficient-contrast"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.4.7",
+      "handle": "Low or No Background Audio",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "multimedia-speech-audio-with-loud-background-music"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.4.8",
+      "handle": "Visual Presentation",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "page-layout-wide-page-forces-users-to-scroll-horizontally",
+        "typography-justified-text-found"
+      ],
+      "related": [
+        "typography-inadequate-line-height-used",
+        "typography-long-lines-of-text"
+      ],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "1.4.9",
+      "handle": "Images of Text (No Exception)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "images-image-of-text-used-for-a-heading"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "1.4.10",
+      "handle": "Reflow",
+      "level": "AA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [
+        "page-layout-wide-page-forces-users-to-scroll-horizontally"
+      ],
+      "related": [
+        "css-page-zoom-boxes-that-dont-expand-with-the-text"
+      ],
+      "incidental": [],
+      "candidates": [
+        "page-layout-content-lost-when-reflowed"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.4.11",
+      "handle": "Non-text Contrast",
+      "level": "AA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [
+        "forms-errors-identified-with-a-poor-colour-contrast"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "colour-and-contrast-focus-indicator-has-insufficient-contrast",
+        "colour-and-contrast-form-field-border-has-insufficient-contrast",
+        "colour-and-contrast-informative-icon-has-insufficient-contrast"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "1.4.12",
+      "handle": "Text Spacing",
+      "level": "AA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "css-content-is-not-readable-and-functional-when-text-is-increased",
+        "css-page-zoom-boxes-that-dont-expand-with-the-text",
+        "typography-inadequate-line-height-used"
+      ],
+      "incidental": [],
+      "candidates": [
+        "css-inline-text-spacing-set-with-important",
+        "css-text-clipped-when-text-spacing-is-increased"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "1.4.13",
+      "handle": "Content on Hover or Focus",
+      "level": "AA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [
+        "keyboard-access-tooltips-dont-receive-keyboard-focus"
+      ],
+      "related": [
+        "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus"
+      ],
+      "incidental": [],
+      "candidates": [
+        "keyboard-access-tooltip-cannot-be-dismissed-with-escape"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.1.1",
+      "handle": "Keyboard",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "keyboard-access-concertina-items-dont-get-keyboard-focus",
+        "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus",
+        "keyboard-access-fake-button-is-not-keyboard-accessible",
+        "keyboard-access-tooltips-dont-receive-keyboard-focus"
+      ],
+      "related": [
+        "keyboard-access-lightbox-close-button-doesnt-receive-focus",
+        "keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox",
+        "keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar"
+      ],
+      "incidental": [],
+      "candidates": [
+        "keyboard-access-focus-removed-by-script-when-received"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.1.2",
+      "handle": "No Keyboard Trap",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "keyboard-access-keyboard-trap"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "2.1.3",
+      "handle": "Keyboard (No Exception)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "keyboard-access-drawing-canvas-with-no-keyboard-alternative"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.1.4",
+      "handle": "Character Key Shortcuts",
+      "level": "A",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "keyboard-access-single-character-key-shortcut-cannot-be-turned-off"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.2.1",
+      "handle": "Timing Adjustable",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "keyboard-access-alert-shows-for-a-short-time"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "timing-page-refreshes-automatically-with-meta-refresh",
+        "timing-timed-meta-redirect"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.2.2",
+      "handle": "Pause, Stop, Hide",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "images-a-distraction-is-present-an-animated-gif",
+        "typography-marquee-element-found"
+      ],
+      "related": [
+        "typography-blink-element-found"
+      ],
+      "incidental": [],
+      "candidates": [
+        "timing-auto-rotating-carousel-without-pause"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.2.3",
+      "handle": "No Timing",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "keyboard-access-alert-shows-for-a-short-time"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "2.2.4",
+      "handle": "Interruptions",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "timing-content-updates-interrupt-the-user",
+        "timing-page-refreshes-automatically-with-meta-refresh",
+        "timing-timed-meta-redirect"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.2.5",
+      "handle": "Re-authenticating",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "timing-session-timeout-loses-entered-data"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.2.6",
+      "handle": "Timeouts",
+      "level": "AAA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "timing-session-timeout-loses-entered-data"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.3.1",
+      "handle": "Three Flashes or Below Threshold",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "multimedia-flashing-content-doesnt-have-warning"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "multimedia-locally-flashing-animation-above-the-general-flash-threshold"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.3.2",
+      "handle": "Three Flashes",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "multimedia-flashing-content-doesnt-have-warning"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "multimedia-locally-flashing-animation-above-the-general-flash-threshold"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.3.3",
+      "handle": "Animation from Interactions",
+      "level": "AAA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "images-a-distraction-is-present-an-animated-gif"
+      ],
+      "incidental": [],
+      "candidates": [
+        "timing-animation-triggered-by-scrolling-ignores-reduced-motion"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "2.4.1",
+      "handle": "Bypass Blocks",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "html-page-regions-not-identified-with-landmarks",
+        "navigation-repeated-navigation-block-cannot-be-bypassed"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.4.2",
+      "handle": "Page Titled",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "page-title-empty-page-title",
+        "page-title-inappropriate-page-title",
+        "page-title-missing-page-title"
+      ],
+      "related": [],
+      "incidental": [
+        "headings-missing-h1",
+        "language-of-content-html-element-has-an-empty-lang-attribute",
+        "language-of-content-html-element-has-lang-attribute-set-to-wrong-language",
+        "language-of-content-html-element-is-missing-a-lang-attribute"
+      ],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "2.4.3",
+      "handle": "Focus Order",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox"
+      ],
+      "related": [
+        "keyboard-access-focus-order-in-wrong-order",
+        "keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox",
+        "keyboard-access-tabindex-greater-than-0"
+      ],
+      "incidental": [],
+      "candidates": [
+        "keyboard-access-positive-tabindex-scrambles-form-focus-order"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.4.4",
+      "handle": "Link Purpose (In Context)",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader",
+        "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader",
+        "links-blank-link-text",
+        "links-image-link-with-no-alternative-text"
+      ],
+      "related": [
+        "links-adjacent-links-going-to-the-same-destination",
+        "links-link-contains-only-a-full-stop",
+        "links-link-text-does-not-make-sense-out-of-context",
+        "links-links-with-the-same-text-go-to-different-pages",
+        "links-non-specific-link-text",
+        "links-uninformative-link-text"
+      ],
+      "incidental": [],
+      "candidates": [
+        "links-link-context-only-in-unrelated-content"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.4.5",
+      "handle": "Multiple Ways",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "navigation-only-one-way-to-find-pages-in-a-set"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.4.6",
+      "handle": "Headings and Labels",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "forms-non-unique-field-label-found",
+        "headings-empty-heading"
+      ],
+      "incidental": [],
+      "candidates": [
+        "forms-labels-do-not-describe-the-field-purpose",
+        "headings-headings-do-not-describe-their-section"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "2.4.7",
+      "handle": "Focus Visible",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "keyboard-access-keyboard-focus-is-not-indicated-visually"
+      ],
+      "related": [
+        "colour-and-contrast-focus-not-visible"
+      ],
+      "incidental": [],
+      "candidates": [
+        "keyboard-access-focus-removed-by-script-when-received"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.4.8",
+      "handle": "Location",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "navigation-no-indication-of-location-within-a-set-of-pages"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.4.9",
+      "handle": "Link Purpose (Link Only)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader",
+        "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader",
+        "links-blank-link-text",
+        "links-image-link-with-no-alternative-text",
+        "links-link-contains-only-a-full-stop",
+        "links-link-text-does-not-make-sense-out-of-context",
+        "links-non-specific-link-text",
+        "links-uninformative-link-text"
+      ],
+      "related": [
+        "links-links-with-the-same-text-go-to-different-pages"
+      ],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "2.4.10",
+      "handle": "Section Headings",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms",
+        "headings-headings-not-structured-in-a-hierarchical-manner"
+      ],
+      "incidental": [],
+      "candidates": [
+        "headings-long-document-without-section-headings"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "2.4.11",
+      "handle": "Focus Not Obscured (Minimum)",
+      "level": "AA",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox"
+      ],
+      "incidental": [],
+      "candidates": [
+        "keyboard-access-sticky-footer-hides-focused-element"
+      ],
+      "status": "related-only"
+    },
+    {
+      "id": "2.4.12",
+      "handle": "Focus Not Obscured (Enhanced)",
+      "level": "AAA",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "keyboard-access-sticky-footer-hides-focused-element",
+        "keyboard-access-sticky-header-partly-hides-focused-element"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.4.13",
+      "handle": "Focus Appearance",
+      "level": "AAA",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [
+        "colour-and-contrast-focus-not-visible",
+        "keyboard-access-keyboard-focus-is-not-indicated-visually"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "colour-and-contrast-focus-indicator-has-insufficient-contrast"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "2.5.1",
+      "handle": "Pointer Gestures",
+      "level": "A",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "pointer-and-motion-path-gesture-required-without-single-pointer-alternative"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.5.2",
+      "handle": "Pointer Cancellation",
+      "level": "A",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "pointer-and-motion-action-triggered-on-pointer-down"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.5.3",
+      "handle": "Label in Name",
+      "level": "A",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [
+        "buttons-uninformative-alt-attribute-value-on-image-button",
+        "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control",
+        "forms-missing-labels-in-checkboxes"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "2.5.4",
+      "handle": "Motion Actuation",
+      "level": "A",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "pointer-and-motion-shake-to-undo-without-alternative"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.5.5",
+      "handle": "Target Size (Enhanced)",
+      "level": "AAA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [
+        "navigation-inadequately-sized-clickable-targets-found"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "2.5.6",
+      "handle": "Concurrent Input Mechanisms",
+      "level": "AAA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "pointer-and-motion-touch-only-interaction"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.5.7",
+      "handle": "Dragging Movements",
+      "level": "AA",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "pointer-and-motion-drag-and-drop-without-single-pointer-alternative"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "2.5.8",
+      "handle": "Target Size (Minimum)",
+      "level": "AA",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [
+        "navigation-inadequately-sized-clickable-targets-found"
+      ],
+      "related": [
+        "links-link-contains-only-a-full-stop"
+      ],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "3.1.1",
+      "handle": "Language of Page",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "language-of-content-html-element-has-an-empty-lang-attribute",
+        "language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute",
+        "language-of-content-html-element-has-lang-attribute-set-to-wrong-language",
+        "language-of-content-html-element-is-missing-a-lang-attribute"
+      ],
+      "related": [],
+      "incidental": [
+        "headings-missing-h1",
+        "page-title-empty-page-title",
+        "page-title-inappropriate-page-title",
+        "page-title-missing-page-title"
+      ],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "3.1.2",
+      "handle": "Language of Parts",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "language-of-content-lang-attribute-not-used-to-identify-change-of-language",
+        "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value",
+        "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "3.1.3",
+      "handle": "Unusual Words",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "content-jargon-used-without-definition"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.1.4",
+      "handle": "Abbreviations",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "content-first-instance-of-abbreviation-not-expanded"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "3.1.5",
+      "handle": "Reading Level",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "content-plain-language-is-not-used"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "3.1.6",
+      "handle": "Pronunciation",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "content-ambiguous-word-without-pronunciation"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.2.1",
+      "handle": "On Focus",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "forms-focus-on-field-opens-new-window",
+        "keyboard-access-focus-removed-by-script-when-received"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.2.2",
+      "handle": "On Input",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "forms-form-control-that-changes-context-without-warning"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "forms-form-submits-automatically-when-last-field-is-filled",
+        "forms-selecting-a-radio-button-opens-a-new-window"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "3.2.3",
+      "handle": "Consistent Navigation",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "navigation-navigation-order-differs-between-pages"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.2.4",
+      "handle": "Consistent Identification",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "navigation-same-function-labelled-differently-on-different-pages"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.2.5",
+      "handle": "Change on Request",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "forms-form-control-that-changes-context-without-warning"
+      ],
+      "related": [
+        "keyboard-access-keyboard-trap",
+        "links-link-launches-new-window-with-no-warning"
+      ],
+      "incidental": [],
+      "candidates": [
+        "timing-page-refreshes-automatically-with-meta-refresh",
+        "timing-timed-meta-redirect"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "3.2.6",
+      "handle": "Consistent Help",
+      "level": "A",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "navigation-help-link-in-inconsistent-place-across-pages"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.3.1",
+      "handle": "Error Identification",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "forms-errors-are-not-identified",
+        "forms-errors-identified-by-colour-only",
+        "forms-errors-identified-with-a-poor-colour-contrast"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "3.3.2",
+      "handle": "Labels or Instructions",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "forms-empty-label-found",
+        "forms-form-element-has-no-label",
+        "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls"
+      ],
+      "related": [
+        "forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format",
+        "forms-field-hint-not-associated-with-input",
+        "forms-left-aligned-form-labels-with-too-much-white-space",
+        "forms-placeholder-no-label"
+      ],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "3.3.3",
+      "handle": "Error Suggestion",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "3.3.4",
+      "handle": "Error Prevention (Legal, Financial, Data)",
+      "level": "AA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "forms-financial-submission-without-review-or-undo"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.3.5",
+      "handle": "Help",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "forms-no-context-sensitive-help-for-complex-field"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.3.6",
+      "handle": "Error Prevention (All)",
+      "level": "AAA",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "forms-data-submission-without-confirmation"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.3.7",
+      "handle": "Redundant Entry",
+      "level": "A",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "forms-previously-entered-information-requested-again"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.3.8",
+      "handle": "Accessible Authentication (Minimum)",
+      "level": "AA",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "authentication-login-requires-transcribing-a-code-without-paste",
+        "authentication-paste-blocked-in-password-field"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "3.3.9",
+      "handle": "Accessible Authentication (Enhanced)",
+      "level": "AAA",
+      "introduced": "2.2",
+      "removed": null,
+      "fails": [],
+      "related": [],
+      "incidental": [],
+      "candidates": [
+        "authentication-login-requires-transcribing-a-code-without-paste",
+        "authentication-object-recognition-captcha-as-only-option",
+        "authentication-paste-blocked-in-password-field"
+      ],
+      "status": "uncovered"
+    },
+    {
+      "id": "4.1.1",
+      "handle": "Parsing",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": "2.2",
+      "fails": [
+        "html-duplicate-id",
+        "html-start-and-close-tags-dont-match",
+        "lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element",
+        "lists-improperly-nested-lists",
+        "lists-li-element-with-no-parent"
+      ],
+      "related": [],
+      "incidental": [],
+      "candidates": [],
+      "status": "covered"
+    },
+    {
+      "id": "4.1.2",
+      "handle": "Name, Role, Value",
+      "level": "A",
+      "introduced": "2.0",
+      "removed": null,
+      "fails": [
+        "buttons-empty-button",
+        "forms-empty-label-found",
+        "forms-form-element-has-no-label",
+        "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control",
+        "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls",
+        "forms-missing-labels-in-checkboxes",
+        "frames-iframe-is-missing-a-title-attribute",
+        "keyboard-access-concertina-items-dont-get-keyboard-focus",
+        "keyboard-access-fake-button-is-not-keyboard-accessible",
+        "keyboard-access-lightbox-close-button-doesnt-receive-focus",
+        "links-blank-link-text",
+        "links-image-link-with-no-alternative-text"
+      ],
+      "related": [
+        "buttons-empty-alt-attribute-on-image-button",
+        "buttons-image-button-has-no-alt-attribute",
+        "forms-placeholder-no-label",
+        "frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe",
+        "html-invalid-aria-role-names",
+        "keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar",
+        "links-link-to-javascript-invalid-hypertext-reference"
+      ],
+      "incidental": [
+        "keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox"
+      ],
+      "candidates": [
+        "forms-custom-checkbox-without-checked-state",
+        "html-focusable-element-inside-aria-hidden",
+        "keyboard-access-disclosure-button-without-expanded-state"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "4.1.3",
+      "handle": "Status Messages",
+      "level": "AA",
+      "introduced": "2.1",
+      "removed": null,
+      "fails": [],
+      "related": [
+        "keyboard-access-alert-shows-for-a-short-time"
+      ],
+      "incidental": [],
+      "candidates": [
+        "forms-status-message-not-announced"
+      ],
+      "status": "related-only"
+    }
+  ]
+}

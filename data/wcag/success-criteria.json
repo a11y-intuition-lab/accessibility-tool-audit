@@ -1,0 +1,1972 @@
+{
+  "meta": {
+    "source": "https://www.w3.org/WAI/WCAG22/wcag.json",
+    "sha256": "3a034865a879a7d874b60ff2aec7f430cf37bc1597a1e00985680fd80ef5cf75",
+    "retrieved": "2026-10-09T22:09:04.692Z",
+    "licence": "W3C Document License, https://www.w3.org/copyright/document-license/",
+    "attribution": "Web Content Accessibility Guidelines (WCAG) 2.2, W3C Recommendation. Copyright © World Wide Web Consortium.",
+    "generatedBy": "scripts/wcag/fetch-wcag.mjs",
+    "counts": {
+      "2.0": 61,
+      "2.1": 78,
+      "2.2": 86,
+      "2.2 incl. removed 4.1.1": 87
+    },
+    "notes": "`introduced` = earliest entry of the W3C `versions` array; `removed` = version after the last entry when that is not 2.2. 4.1.1 Parsing has an empty level in the 2.2 data; its WCAG 2.0/2.1 level (A) is used."
+  },
+  "successCriteria": [
+    {
+      "id": "1.1.1",
+      "slug": "non-text-content",
+      "handle": "Non-text Content",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.1 Text Alternatives",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html",
+      "failureTechniques": [
+        {
+          "id": "F3",
+          "title": "Failure of Success Criterion 1.1.1 due to conveying information exclusively using CSS background images"
+        },
+        {
+          "id": "F13",
+          "title": "Failure of Success Criterion 1.1.1 and 1.4.1 due to having a text alternative that does not include information that is conveyed by color differences in the image"
+        },
+        {
+          "id": "F20",
+          "title": "Failure of Success Criterion 1.1.1 and 4.1.2 due to not updating text alternatives when changes to non-text content occur"
+        },
+        {
+          "id": "F30",
+          "title": "Failure of Success Criterion 1.1.1 and 1.2.1 due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)"
+        },
+        {
+          "id": "F38",
+          "title": "Failure of Success Criterion 1.1.1 due to not marking up decorative images in HTML in a way that allows assistive technology to ignore them"
+        },
+        {
+          "id": "F39",
+          "title": "Failure of Success Criterion 1.1.1 due to providing a text alternative that is not null (e.g., alt=\"spacer\" or alt=\"image\") for images that should be ignored by assistive technology"
+        },
+        {
+          "id": "F65",
+          "title": "Failure of Success Criterion 1.1.1 due to omitting the alt attribute or text alternative on img elements, area elements, and input elements of type \"image\""
+        },
+        {
+          "id": "F67",
+          "title": "Failure of Success Criterion 1.1.1 and 1.2.1 due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information"
+        },
+        {
+          "id": "F71",
+          "title": "Failure of Success Criterion 1.1.1 due to using text look-alikes to represent text without providing a text alternative"
+        },
+        {
+          "id": "F72",
+          "title": "Failure of Success Criterion 1.1.1 due to using ASCII art without providing a text alternative"
+        }
+      ]
+    },
+    {
+      "id": "1.2.1",
+      "slug": "audio-only-and-video-only-prerecorded",
+      "handle": "Audio-only and Video-only (Prerecorded)",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded.html",
+      "failureTechniques": [
+        {
+          "id": "F30",
+          "title": "Failure of Success Criterion 1.1.1 and 1.2.1 due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)"
+        },
+        {
+          "id": "F67",
+          "title": "Failure of Success Criterion 1.1.1 and 1.2.1 due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information"
+        }
+      ]
+    },
+    {
+      "id": "1.2.2",
+      "slug": "captions-prerecorded",
+      "handle": "Captions (Prerecorded)",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html",
+      "failureTechniques": [
+        {
+          "id": "F8",
+          "title": "Failure of Success Criterion 1.2.2 due to captions omitting some dialogue or important sound effects"
+        },
+        {
+          "id": "F75",
+          "title": "Failure of Success Criterion 1.2.2 by providing synchronized media without captions when the synchronized media presents more information than is presented on the page"
+        },
+        {
+          "id": "F74",
+          "title": "Failure of Success Criterion 1.2.2 and 1.2.8 due to not labeling a synchronized media alternative to text as an alternative"
+        }
+      ]
+    },
+    {
+      "id": "1.2.3",
+      "slug": "audio-description-or-media-alternative-prerecorded",
+      "handle": "Audio Description or Media Alternative (Prerecorded)",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-or-media-alternative-prerecorded.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.2.4",
+      "slug": "captions-live",
+      "handle": "Captions (Live)",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-live.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.2.5",
+      "slug": "audio-description-prerecorded",
+      "handle": "Audio Description (Prerecorded)",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-prerecorded.html",
+      "failureTechniques": [
+        {
+          "id": "F113",
+          "title": "Failure of Success Criterion 1.2.5 due to not using available pauses in dialogue to provide audio descriptions of important visual content"
+        }
+      ]
+    },
+    {
+      "id": "1.2.6",
+      "slug": "sign-language-prerecorded",
+      "handle": "Sign Language (Prerecorded)",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/sign-language-prerecorded.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.2.7",
+      "slug": "extended-audio-description-prerecorded",
+      "handle": "Extended Audio Description (Prerecorded)",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/extended-audio-description-prerecorded.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.2.8",
+      "slug": "media-alternative-prerecorded",
+      "handle": "Media Alternative (Prerecorded)",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/media-alternative-prerecorded.html",
+      "failureTechniques": [
+        {
+          "id": "F74",
+          "title": "Failure of Success Criterion 1.2.2 and 1.2.8 due to not labeling a synchronized media alternative to text as an alternative"
+        }
+      ]
+    },
+    {
+      "id": "1.2.9",
+      "slug": "audio-only-live",
+      "handle": "Audio-only (Live)",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.2 Time-based Media",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-live.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.3.1",
+      "slug": "info-and-relationships",
+      "handle": "Info and Relationships",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.3 Adaptable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html",
+      "failureTechniques": [
+        {
+          "id": "F2",
+          "title": "Failure of Success Criterion 1.3.1 due to using changes in text presentation to convey information without using the appropriate markup or text"
+        },
+        {
+          "id": "F33",
+          "title": "Failure of Success Criterion 1.3.1 and 1.3.2 due to using white space characters to create multiple columns in plain text content"
+        },
+        {
+          "id": "F34",
+          "title": "Failure of Success Criterion 1.3.1 and 1.3.2 due to using white space characters to format tables in plain text content"
+        },
+        {
+          "id": "F42",
+          "title": "Failure of Success Criteria 1.3.1, 2.1.1, 2.1.3, or 4.1.2 when emulating links"
+        },
+        {
+          "id": "F43",
+          "title": "Failure of Success Criterion 1.3.1 due to using structural markup in a way that does not represent relationships in the content"
+        },
+        {
+          "id": "F46",
+          "title": "Failure of Success Criterion 1.3.1 due to using th elements, caption elements, or non-empty summary attributes in layout tables"
+        },
+        {
+          "id": "F48",
+          "title": "Failure of Success Criterion 1.3.1 due to using the pre element to markup tabular information"
+        },
+        {
+          "id": "F90",
+          "title": "Failure of Success Criterion 1.3.1 for incorrectly associating table headers and content via the headers and id attributes"
+        },
+        {
+          "id": "F91",
+          "title": "Failure of Success Criterion 1.3.1 for not correctly marking up table headers"
+        },
+        {
+          "id": "F92",
+          "title": "Failure of Success Criterion 1.3.1 due to the use of role presentation on content which conveys semantic information"
+        },
+        {
+          "id": "F111",
+          "title": "Failure of Success Criteria 1.3.1, 2.5.3, and 4.1.2 due to a control with visible label text but no accessible name"
+        }
+      ]
+    },
+    {
+      "id": "1.3.2",
+      "slug": "meaningful-sequence",
+      "handle": "Meaningful Sequence",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.3 Adaptable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html",
+      "failureTechniques": [
+        {
+          "id": "F34",
+          "title": "Failure of Success Criterion 1.3.1 and 1.3.2 due to using white space characters to format tables in plain text content"
+        },
+        {
+          "id": "F33",
+          "title": "Failure of Success Criterion 1.3.1 and 1.3.2 due to using white space characters to create multiple columns in plain text content"
+        },
+        {
+          "id": "F32",
+          "title": "Failure of Success Criterion 1.3.2 due to using white space characters to control spacing within a word"
+        },
+        {
+          "id": "F49",
+          "title": "Failure of Success Criterion 1.3.2 due to using an HTML layout table that does not make sense when linearized"
+        },
+        {
+          "id": "F1",
+          "title": "Failure of Success Criterion 1.3.2 due to changing the meaning of content by positioning information with CSS"
+        }
+      ]
+    },
+    {
+      "id": "1.3.3",
+      "slug": "sensory-characteristics",
+      "handle": "Sensory Characteristics",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.3 Adaptable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics.html",
+      "failureTechniques": [
+        {
+          "id": "F14",
+          "title": "Failure of Success Criterion 1.3.3 due to identifying content only by its shape or location"
+        },
+        {
+          "id": "F26",
+          "title": "Failure of Success Criterion 1.3.3 due to using a graphical symbol alone to convey information"
+        }
+      ]
+    },
+    {
+      "id": "1.3.4",
+      "slug": "orientation",
+      "handle": "Orientation",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.3 Adaptable",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/orientation.html",
+      "failureTechniques": [
+        {
+          "id": "F97",
+          "title": "Failure due to locking the orientation to landscape or portrait view"
+        },
+        {
+          "id": "F100",
+          "title": "Failure of Success Criterion 1.3.4 due to showing a message asking to reorient device"
+        }
+      ]
+    },
+    {
+      "id": "1.3.5",
+      "slug": "identify-input-purpose",
+      "handle": "Identify Input Purpose",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.3 Adaptable",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html",
+      "failureTechniques": [
+        {
+          "id": "F107",
+          "title": "Failure of Success Criterion 1.3.5 due to incorrect autocomplete attribute values"
+        }
+      ]
+    },
+    {
+      "id": "1.3.6",
+      "slug": "identify-purpose",
+      "handle": "Identify Purpose",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.3 Adaptable",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/identify-purpose.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.4.1",
+      "slug": "use-of-color",
+      "handle": "Use of Color",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+      "failureTechniques": [
+        {
+          "id": "F13",
+          "title": "Failure of Success Criterion 1.1.1 and 1.4.1 due to having a text alternative that does not include information that is conveyed by color differences in the image"
+        },
+        {
+          "id": "F73",
+          "title": "Failure of Success Criterion 1.4.1 due to creating links that are not visually evident without color vision"
+        },
+        {
+          "id": "F81",
+          "title": "Failure of Success Criterion 1.4.1 due to identifying required or error fields using color differences only"
+        }
+      ]
+    },
+    {
+      "id": "1.4.2",
+      "slug": "audio-control",
+      "handle": "Audio Control",
+      "level": "A",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html",
+      "failureTechniques": [
+        {
+          "id": "F23",
+          "title": "Failure of 1.4.2 due to playing a sound longer than 3 seconds where there is no mechanism to turn it off"
+        },
+        {
+          "id": "F93",
+          "title": "Failure of Success Criterion 1.4.2 for absence of a way to pause or stop an HTML5 media element that autoplays"
+        }
+      ]
+    },
+    {
+      "id": "1.4.3",
+      "slug": "contrast-minimum",
+      "handle": "Contrast (Minimum)",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "failureTechniques": [
+        {
+          "id": "F24",
+          "title": "Failure of Success Criterion 1.4.3, 1.4.6 and 1.4.8 due to specifying foreground colors without specifying background colors or vice versa"
+        },
+        {
+          "id": "F83",
+          "title": "Failure of Success Criterion 1.4.3 and 1.4.6 due to using background images that do not provide sufficient contrast with foreground text (or images of text)"
+        }
+      ]
+    },
+    {
+      "id": "1.4.4",
+      "slug": "resize-text",
+      "handle": "Resize Text",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html",
+      "failureTechniques": [
+        {
+          "id": "F69",
+          "title": "Failure of Success Criterion 1.4.4 when resizing visually rendered text up to 200 percent causes the text, image or controls to be clipped, truncated or obscured"
+        },
+        {
+          "id": "F80",
+          "title": "Failure of Success Criterion 1.4.4 when text-based form controls do not resize when visually rendered text is resized up to 200%"
+        },
+        {
+          "id": "F94",
+          "title": "Failure of Success Criterion 1.4.4 due to incorrect use of viewport units to resize text"
+        }
+      ]
+    },
+    {
+      "id": "1.4.5",
+      "slug": "images-of-text",
+      "handle": "Images of Text",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.4.6",
+      "slug": "contrast-enhanced",
+      "handle": "Contrast (Enhanced)",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html",
+      "failureTechniques": [
+        {
+          "id": "F24",
+          "title": "Failure of Success Criterion 1.4.3, 1.4.6 and 1.4.8 due to specifying foreground colors without specifying background colors or vice versa"
+        },
+        {
+          "id": "F83",
+          "title": "Failure of Success Criterion 1.4.3 and 1.4.6 due to using background images that do not provide sufficient contrast with foreground text (or images of text)"
+        }
+      ]
+    },
+    {
+      "id": "1.4.7",
+      "slug": "low-or-no-background-audio",
+      "handle": "Low or No Background Audio",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/low-or-no-background-audio.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.4.8",
+      "slug": "visual-presentation",
+      "handle": "Visual Presentation",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html",
+      "failureTechniques": [
+        {
+          "id": "F24",
+          "title": "Failure of Success Criterion 1.4.3, 1.4.6 and 1.4.8 due to specifying foreground colors without specifying background colors or vice versa"
+        },
+        {
+          "id": "F88",
+          "title": "Failure of Success Criterion 1.4.8 due to using text that is justified (aligned to both the left and the right margins)"
+        }
+      ]
+    },
+    {
+      "id": "1.4.9",
+      "slug": "images-of-text-no-exception",
+      "handle": "Images of Text (No Exception)",
+      "level": "AAA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text-no-exception.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "1.4.10",
+      "slug": "reflow",
+      "handle": "Reflow",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+      "failureTechniques": [
+        {
+          "id": "F102",
+          "title": "Failure of Success Criterion 1.4.10 due to content disappearing and not being available when content has reflowed"
+        }
+      ]
+    },
+    {
+      "id": "1.4.11",
+      "slug": "non-text-contrast",
+      "handle": "Non-text Contrast",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html",
+      "failureTechniques": [
+        {
+          "id": "F78",
+          "title": "Failure of Success Criterion 1.4.11, 2.4.7 and 2.4.13 due to styling element outlines and borders in a way that removes or renders non-visible the visual focus indicator"
+        }
+      ]
+    },
+    {
+      "id": "1.4.12",
+      "slug": "text-spacing",
+      "handle": "Text Spacing",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html",
+      "failureTechniques": [
+        {
+          "id": "F104",
+          "title": "Failure of Success Criterion 1.4.12 due to clipped or overlapped content when text spacing is adjusted"
+        }
+      ]
+    },
+    {
+      "id": "1.4.13",
+      "slug": "content-on-hover-or-focus",
+      "handle": "Content on Hover or Focus",
+      "level": "AA",
+      "principle": "1 Perceivable",
+      "guideline": "1.4 Distinguishable",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html",
+      "failureTechniques": [
+        {
+          "id": "F95",
+          "title": "Failure of Success Criterion 1.4.13 due to content shown on hover not being hoverable"
+        }
+      ]
+    },
+    {
+      "id": "2.1.1",
+      "slug": "keyboard",
+      "handle": "Keyboard",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.1 Keyboard Accessible",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html",
+      "failureTechniques": [
+        {
+          "id": "F54",
+          "title": "Failure of Success Criterion 2.1.1 due to using only pointing-device-specific event handlers (including gesture) for a function"
+        },
+        {
+          "id": "F55",
+          "title": "Failure of Success Criteria 2.1.1, 2.4.7, 2.4.13, and 3.2.1 due to using script to remove focus when focus is received"
+        },
+        {
+          "id": "F42",
+          "title": "Failure of Success Criteria 1.3.1, 2.1.1, 2.1.3, or 4.1.2 when emulating links"
+        }
+      ]
+    },
+    {
+      "id": "2.1.2",
+      "slug": "no-keyboard-trap",
+      "handle": "No Keyboard Trap",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.1 Keyboard Accessible",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html",
+      "failureTechniques": [
+        {
+          "id": "F10",
+          "title": "Failure of Success Criterion 2.1.2 and Conformance Requirement 5 due to combining multiple content formats in a way that traps users inside one format type"
+        }
+      ]
+    },
+    {
+      "id": "2.1.3",
+      "slug": "keyboard-no-exception",
+      "handle": "Keyboard (No Exception)",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.1 Keyboard Accessible",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard-no-exception.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.1.4",
+      "slug": "character-key-shortcuts",
+      "handle": "Character Key Shortcuts",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.1 Keyboard Accessible",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html",
+      "failureTechniques": [
+        {
+          "id": "F99",
+          "title": "Failure of Success Criterion 2.1.4 due to implementing character key shortcuts that cannot be turned off or remapped"
+        }
+      ]
+    },
+    {
+      "id": "2.2.1",
+      "slug": "timing-adjustable",
+      "handle": "Timing Adjustable",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.2 Enough Time",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html",
+      "failureTechniques": [
+        {
+          "id": "F40",
+          "title": "Failure due to using meta redirect with a time limit"
+        },
+        {
+          "id": "F41",
+          "title": "Failure of Success Criterion 2.2.1, 2.2.4, and 3.2.5 due to using meta refresh to reload the page"
+        },
+        {
+          "id": "F58",
+          "title": "Failure of Success Criterion 2.2.1 due to using server-side techniques to automatically redirect pages after a time-out"
+        }
+      ]
+    },
+    {
+      "id": "2.2.2",
+      "slug": "pause-stop-hide",
+      "handle": "Pause, Stop, Hide",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.2 Enough Time",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html",
+      "failureTechniques": [
+        {
+          "id": "F16",
+          "title": "Failure of Success Criterion 2.2.2 due to including scrolling content where movement is not essential to the activity without also including a mechanism to pause and restart the content"
+        },
+        {
+          "id": "F112",
+          "title": "Failure of Success Criterion 2.2.2 due to using blinking content that lasts for more than five seconds without a mechanism to stop it"
+        },
+        {
+          "id": "F50",
+          "title": "Failure of Success Criterion 2.2.2 due to a script that causes a blink effect without a mechanism to stop the blinking at 5 seconds or less"
+        },
+        {
+          "id": "F7",
+          "title": "Failure of Success Criterion 2.2.2 due to an object or applet that has blinking content without a mechanism to pause the content that blinks for more than five seconds"
+        }
+      ]
+    },
+    {
+      "id": "2.2.3",
+      "slug": "no-timing",
+      "handle": "No Timing",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.2 Enough Time",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-timing.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.2.4",
+      "slug": "interruptions",
+      "handle": "Interruptions",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.2 Enough Time",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/interruptions.html",
+      "failureTechniques": [
+        {
+          "id": "F40",
+          "title": "Failure due to using meta redirect with a time limit"
+        },
+        {
+          "id": "F41",
+          "title": "Failure of Success Criterion 2.2.1, 2.2.4, and 3.2.5 due to using meta refresh to reload the page"
+        }
+      ]
+    },
+    {
+      "id": "2.2.5",
+      "slug": "re-authenticating",
+      "handle": "Re-authenticating",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.2 Enough Time",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/re-authenticating.html",
+      "failureTechniques": [
+        {
+          "id": "F12",
+          "title": "Failure of Success Criterion 2.2.5 due to having a session time limit without a mechanism for saving user's input and re-establishing that information upon re-authentication"
+        }
+      ]
+    },
+    {
+      "id": "2.2.6",
+      "slug": "timeouts",
+      "handle": "Timeouts",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.2 Enough Time",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.3.1",
+      "slug": "three-flashes-or-below-threshold",
+      "handle": "Three Flashes or Below Threshold",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.3 Seizures and Physical Reactions",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.3.2",
+      "slug": "three-flashes",
+      "handle": "Three Flashes",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.3 Seizures and Physical Reactions",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.3.3",
+      "slug": "animation-from-interactions",
+      "handle": "Animation from Interactions",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.3 Seizures and Physical Reactions",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.4.1",
+      "slug": "bypass-blocks",
+      "handle": "Bypass Blocks",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.4.2",
+      "slug": "page-titled",
+      "handle": "Page Titled",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html",
+      "failureTechniques": [
+        {
+          "id": "F25",
+          "title": "Failure of Success Criterion 2.4.2 due to the title of a web page not identifying the contents"
+        }
+      ]
+    },
+    {
+      "id": "2.4.3",
+      "slug": "focus-order",
+      "handle": "Focus Order",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html",
+      "failureTechniques": [
+        {
+          "id": "F44",
+          "title": "Failure of Success Criterion 2.4.3 due to using tabindex to create a tab order that does not preserve meaning and operability"
+        },
+        {
+          "id": "F85",
+          "title": "Failure of Success Criterion 2.4.3 due to using dialogs or menus that are not adjacent to their trigger control in the sequential navigation order"
+        }
+      ]
+    },
+    {
+      "id": "2.4.4",
+      "slug": "link-purpose-in-context",
+      "handle": "Link Purpose (In Context)",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html",
+      "failureTechniques": [
+        {
+          "id": "F63",
+          "title": "Failure of Success Criterion 2.4.4 due to providing link context only in content that is not related to the link"
+        },
+        {
+          "id": "F89",
+          "title": "Failure of Success Criteria 2.4.4, 2.4.9 and 4.1.2 due to not providing an accessible name for an image which is the only content in a link"
+        }
+      ]
+    },
+    {
+      "id": "2.4.5",
+      "slug": "multiple-ways",
+      "handle": "Multiple Ways",
+      "level": "AA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.4.6",
+      "slug": "headings-and-labels",
+      "handle": "Headings and Labels",
+      "level": "AA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.4.7",
+      "slug": "focus-visible",
+      "handle": "Focus Visible",
+      "level": "AA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html",
+      "failureTechniques": [
+        {
+          "id": "F55",
+          "title": "Failure of Success Criteria 2.1.1, 2.4.7, 2.4.13, and 3.2.1 due to using script to remove focus when focus is received"
+        },
+        {
+          "id": "F78",
+          "title": "Failure of Success Criterion 1.4.11, 2.4.7 and 2.4.13 due to styling element outlines and borders in a way that removes or renders non-visible the visual focus indicator"
+        }
+      ]
+    },
+    {
+      "id": "2.4.8",
+      "slug": "location",
+      "handle": "Location",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/location.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.4.9",
+      "slug": "link-purpose-link-only",
+      "handle": "Link Purpose (Link Only)",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html",
+      "failureTechniques": [
+        {
+          "id": "F84",
+          "title": "Failure of Success Criterion 2.4.9 due to using a non-specific link such as \"click here\" or \"more\" without a mechanism to change the link text to specific text."
+        },
+        {
+          "id": "F89",
+          "title": "Failure of Success Criteria 2.4.4, 2.4.9 and 4.1.2 due to not providing an accessible name for an image which is the only content in a link"
+        }
+      ]
+    },
+    {
+      "id": "2.4.10",
+      "slug": "section-headings",
+      "handle": "Section Headings",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/section-headings.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.4.11",
+      "slug": "focus-not-obscured-minimum",
+      "handle": "Focus Not Obscured (Minimum)",
+      "level": "AA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html",
+      "failureTechniques": [
+        {
+          "id": "F110",
+          "title": "Failure of Success Criterion 2.4.11 Focus Not Obscured (Minimum) due to a sticky footer or header completely hiding focused elements"
+        }
+      ]
+    },
+    {
+      "id": "2.4.12",
+      "slug": "focus-not-obscured-enhanced",
+      "handle": "Focus Not Obscured (Enhanced)",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.4.13",
+      "slug": "focus-appearance",
+      "handle": "Focus Appearance",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.4 Navigable",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html",
+      "failureTechniques": [
+        {
+          "id": "F55",
+          "title": "Failure of Success Criteria 2.1.1, 2.4.7, 2.4.13, and 3.2.1 due to using script to remove focus when focus is received"
+        },
+        {
+          "id": "F78",
+          "title": "Failure of Success Criterion 1.4.11, 2.4.7 and 2.4.13 due to styling element outlines and borders in a way that removes or renders non-visible the visual focus indicator"
+        }
+      ]
+    },
+    {
+      "id": "2.5.1",
+      "slug": "pointer-gestures",
+      "handle": "Pointer Gestures",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.5 Input Modalities",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html",
+      "failureTechniques": [
+        {
+          "id": "F105",
+          "title": "Failure of Success Criterion 2.5.1 due to providing functionality via a path-based gesture without simple pointer alternative"
+        }
+      ]
+    },
+    {
+      "id": "2.5.2",
+      "slug": "pointer-cancellation",
+      "handle": "Pointer Cancellation",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.5 Input Modalities",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html",
+      "failureTechniques": [
+        {
+          "id": "F101",
+          "title": "Failure of Success Criterion 2.5.2 due to activating a control on the down-event"
+        }
+      ]
+    },
+    {
+      "id": "2.5.3",
+      "slug": "label-in-name",
+      "handle": "Label in Name",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.5 Input Modalities",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html",
+      "failureTechniques": [
+        {
+          "id": "F96",
+          "title": "Failure due to the accessible name not containing the visible label text"
+        },
+        {
+          "id": "F111",
+          "title": "Failure of Success Criteria 1.3.1, 2.5.3, and 4.1.2 due to a control with visible label text but no accessible name"
+        }
+      ]
+    },
+    {
+      "id": "2.5.4",
+      "slug": "motion-actuation",
+      "handle": "Motion Actuation",
+      "level": "A",
+      "principle": "2 Operable",
+      "guideline": "2.5 Input Modalities",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation.html",
+      "failureTechniques": [
+        {
+          "id": "F106",
+          "title": "Failure due to inability to deactivate motion actuation"
+        }
+      ]
+    },
+    {
+      "id": "2.5.5",
+      "slug": "target-size-enhanced",
+      "handle": "Target Size (Enhanced)",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.5 Input Modalities",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "2.5.6",
+      "slug": "concurrent-input-mechanisms",
+      "handle": "Concurrent Input Mechanisms",
+      "level": "AAA",
+      "principle": "2 Operable",
+      "guideline": "2.5 Input Modalities",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/concurrent-input-mechanisms.html",
+      "failureTechniques": [
+        {
+          "id": "F98",
+          "title": "Failure due to interactions being limited to touch-only on touchscreen devices"
+        }
+      ]
+    },
+    {
+      "id": "2.5.7",
+      "slug": "dragging-movements",
+      "handle": "Dragging Movements",
+      "level": "AA",
+      "principle": "2 Operable",
+      "guideline": "2.5 Input Modalities",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html",
+      "failureTechniques": [
+        {
+          "id": "F108",
+          "title": "Failure of Success Criterion 2.5.7 Dragging Movements due to not providing a single pointer method that does not require a dragging movement"
+        }
+      ]
+    },
+    {
+      "id": "2.5.8",
+      "slug": "target-size-minimum",
+      "handle": "Target Size (Minimum)",
+      "level": "AA",
+      "principle": "2 Operable",
+      "guideline": "2.5 Input Modalities",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.1.1",
+      "slug": "language-of-page",
+      "handle": "Language of Page",
+      "level": "A",
+      "principle": "3 Understandable",
+      "guideline": "3.1 Readable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.1.2",
+      "slug": "language-of-parts",
+      "handle": "Language of Parts",
+      "level": "AA",
+      "principle": "3 Understandable",
+      "guideline": "3.1 Readable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.1.3",
+      "slug": "unusual-words",
+      "handle": "Unusual Words",
+      "level": "AAA",
+      "principle": "3 Understandable",
+      "guideline": "3.1 Readable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/unusual-words.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.1.4",
+      "slug": "abbreviations",
+      "handle": "Abbreviations",
+      "level": "AAA",
+      "principle": "3 Understandable",
+      "guideline": "3.1 Readable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/abbreviations.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.1.5",
+      "slug": "reading-level",
+      "handle": "Reading Level",
+      "level": "AAA",
+      "principle": "3 Understandable",
+      "guideline": "3.1 Readable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.1.6",
+      "slug": "pronunciation",
+      "handle": "Pronunciation",
+      "level": "AAA",
+      "principle": "3 Understandable",
+      "guideline": "3.1 Readable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/pronunciation.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.2.1",
+      "slug": "on-focus",
+      "handle": "On Focus",
+      "level": "A",
+      "principle": "3 Understandable",
+      "guideline": "3.2 Predictable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html",
+      "failureTechniques": [
+        {
+          "id": "F55",
+          "title": "Failure of Success Criteria 2.1.1, 2.4.7, 2.4.13, and 3.2.1 due to using script to remove focus when focus is received"
+        }
+      ]
+    },
+    {
+      "id": "3.2.2",
+      "slug": "on-input",
+      "handle": "On Input",
+      "level": "A",
+      "principle": "3 Understandable",
+      "guideline": "3.2 Predictable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-input.html",
+      "failureTechniques": [
+        {
+          "id": "F36",
+          "title": "Failure of Success Criterion 3.2.2 due to automatically submitting a form and presenting new content without prior warning when the last field in the form is given a value"
+        },
+        {
+          "id": "F37",
+          "title": "Failure of Success Criterion 3.2.2 due to launching a new window without prior warning when the selection of a radio button, check box or select list is changed"
+        }
+      ]
+    },
+    {
+      "id": "3.2.3",
+      "slug": "consistent-navigation",
+      "handle": "Consistent Navigation",
+      "level": "AA",
+      "principle": "3 Understandable",
+      "guideline": "3.2 Predictable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html",
+      "failureTechniques": [
+        {
+          "id": "F66",
+          "title": "Failure of Success Criterion 3.2.3 due to presenting navigation links in a different relative order on different pages"
+        }
+      ]
+    },
+    {
+      "id": "3.2.4",
+      "slug": "consistent-identification",
+      "handle": "Consistent Identification",
+      "level": "AA",
+      "principle": "3 Understandable",
+      "guideline": "3.2 Predictable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html",
+      "failureTechniques": [
+        {
+          "id": "F31",
+          "title": "Failure of Success Criterion 3.2.4 due to using two different labels for the same function on different web pages within a set of web pages"
+        }
+      ]
+    },
+    {
+      "id": "3.2.5",
+      "slug": "change-on-request",
+      "handle": "Change on Request",
+      "level": "AAA",
+      "principle": "3 Understandable",
+      "guideline": "3.2 Predictable",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/change-on-request.html",
+      "failureTechniques": [
+        {
+          "id": "F60",
+          "title": "Failure of Success Criterion 3.2.5 due to launching a new window when a user enters text into an input field"
+        },
+        {
+          "id": "F61",
+          "title": "Failure of Success Criterion 3.2.5 due to complete change of main content through an automatic update that the user cannot disable from within the content"
+        },
+        {
+          "id": "F9",
+          "title": "Failure of Success Criterion 3.2.5 due to changing the context when the user removes focus from a form element"
+        },
+        {
+          "id": "F22",
+          "title": "Failure of Success Criterion 3.2.5 due to opening windows that are not requested by the user"
+        },
+        {
+          "id": "F52",
+          "title": "Failure of Success Criterion 3.2.5 due to opening a new window as soon as a new page is loaded"
+        },
+        {
+          "id": "F40",
+          "title": "Failure due to using meta redirect with a time limit"
+        },
+        {
+          "id": "F41",
+          "title": "Failure of Success Criterion 2.2.1, 2.2.4, and 3.2.5 due to using meta refresh to reload the page"
+        }
+      ]
+    },
+    {
+      "id": "3.2.6",
+      "slug": "consistent-help",
+      "handle": "Consistent Help",
+      "level": "A",
+      "principle": "3 Understandable",
+      "guideline": "3.2 Predictable",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.3.1",
+      "slug": "error-identification",
+      "handle": "Error Identification",
+      "level": "A",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.3.2",
+      "slug": "labels-or-instructions",
+      "handle": "Labels or Instructions",
+      "level": "A",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html",
+      "failureTechniques": [
+        {
+          "id": "F82",
+          "title": "Failure of Success Criterion 3.3.2 by visually formatting a set of phone number fields but not including a text label"
+        }
+      ]
+    },
+    {
+      "id": "3.3.3",
+      "slug": "error-suggestion",
+      "handle": "Error Suggestion",
+      "level": "AA",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.3.4",
+      "slug": "error-prevention-legal-financial-data",
+      "handle": "Error Prevention (Legal, Financial, Data)",
+      "level": "AA",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.3.5",
+      "slug": "help",
+      "handle": "Help",
+      "level": "AAA",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/help.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.3.6",
+      "slug": "error-prevention-all",
+      "handle": "Error Prevention (All)",
+      "level": "AAA",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-all.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.3.7",
+      "slug": "redundant-entry",
+      "handle": "Redundant Entry",
+      "level": "A",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "3.3.8",
+      "slug": "accessible-authentication-minimum",
+      "handle": "Accessible Authentication (Minimum)",
+      "level": "AA",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html",
+      "failureTechniques": [
+        {
+          "id": "F109",
+          "title": "Failure of Success Criterion 3.3.8 and 3.3.9 due to preventing password or code re-entry in the same format"
+        }
+      ]
+    },
+    {
+      "id": "3.3.9",
+      "slug": "accessible-authentication-enhanced",
+      "handle": "Accessible Authentication (Enhanced)",
+      "level": "AAA",
+      "principle": "3 Understandable",
+      "guideline": "3.3 Input Assistance",
+      "introduced": "2.2",
+      "removed": null,
+      "versions": [
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html",
+      "failureTechniques": [
+        {
+          "id": "F109",
+          "title": "Failure of Success Criterion 3.3.8 and 3.3.9 due to preventing password or code re-entry in the same format"
+        }
+      ]
+    },
+    {
+      "id": "4.1.1",
+      "slug": "parsing",
+      "handle": "Parsing",
+      "level": "A",
+      "principle": "4 Robust",
+      "guideline": "4.1 Compatible",
+      "introduced": "2.0",
+      "removed": "2.2",
+      "versions": [
+        "2.0",
+        "2.1"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/parsing.html",
+      "failureTechniques": []
+    },
+    {
+      "id": "4.1.2",
+      "slug": "name-role-value",
+      "handle": "Name, Role, Value",
+      "level": "A",
+      "principle": "4 Robust",
+      "guideline": "4.1 Compatible",
+      "introduced": "2.0",
+      "removed": null,
+      "versions": [
+        "2.0",
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html",
+      "failureTechniques": [
+        {
+          "id": "F59",
+          "title": "Failure of Success Criterion 4.1.2 due to using script to make div or span a user interface control in HTML without providing a role for the control"
+        },
+        {
+          "id": "F15",
+          "title": "Failure of Success Criterion 4.1.2 due to implementing custom controls that do not use an accessibility API for the technology, or do so incompletely"
+        },
+        {
+          "id": "F20",
+          "title": "Failure of Success Criterion 1.1.1 and 4.1.2 due to not updating text alternatives when changes to non-text content occur"
+        },
+        {
+          "id": "F42",
+          "title": "Failure of Success Criteria 1.3.1, 2.1.1, 2.1.3, or 4.1.2 when emulating links"
+        },
+        {
+          "id": "F68",
+          "title": "Failure of Success Criterion 4.1.2 due to a user interface control not having a programmatically determined name"
+        },
+        {
+          "id": "F79",
+          "title": "Failure of Success Criterion 4.1.2 due to the focus state of a user interface component not being programmatically determinable or no notification of change of focus state available"
+        },
+        {
+          "id": "F86",
+          "title": "Failure of Success Criterion 4.1.2 due to not providing names for each part of a multi-part form field, such as a US telephone number"
+        },
+        {
+          "id": "F89",
+          "title": "Failure of Success Criteria 2.4.4, 2.4.9 and 4.1.2 due to not providing an accessible name for an image which is the only content in a link"
+        },
+        {
+          "id": "F111",
+          "title": "Failure of Success Criteria 1.3.1, 2.5.3, and 4.1.2 due to a control with visible label text but no accessible name"
+        }
+      ]
+    },
+    {
+      "id": "4.1.3",
+      "slug": "status-messages",
+      "handle": "Status Messages",
+      "level": "AA",
+      "principle": "4 Robust",
+      "guideline": "4.1 Compatible",
+      "introduced": "2.1",
+      "removed": null,
+      "versions": [
+        "2.1",
+        "2.2"
+      ],
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+      "failureTechniques": [
+        {
+          "id": "F103",
+          "title": "Failure of Success Criterion 4.1.3 due to providing status messages that cannot be programmatically determined through role or properties"
+        }
+      ]
+    }
+  ]
+}
