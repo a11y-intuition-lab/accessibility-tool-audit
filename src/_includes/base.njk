@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>{{ title }} - {{ site.name }} - {{ site.suffix }}</title>
+  <link rel="stylesheet" href="{{ '/site-assets/site.css' | url }}">
+{%- if fixtures %}
+  <link rel="stylesheet" href="{{ '/assets/stylesheets/tests.css' | url }}">
+  <script src="{{ '/assets/javascript/jquery-1.12.0.min.js' | url }}"></script>
+  <script src="{{ '/assets/javascript/main.js' | url }}"></script>
+{%- endif %}
+</head>
+<body{% if fixtures %} class="tests"{% endif %}>
+  <a class="site-skip" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="site-wrap">
+      <p class="site-name"><a href="{{ '/' | url }}">{{ site.name }}</a></p>
+      <nav aria-label="Main">
+        <ul class="site-nav">
+          {%- set items = [
+            { href: '/', label: 'Overview' },
+            { href: '/test-cases.html', label: 'Test cases' },
+            { href: '/results.html', label: 'Results' },
+            { href: '/about.html', label: 'About' }
+          ] %}
+          {%- for item in items %}
+          <li><a href="{{ item.href | url }}"{% if item.href == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="site-wrap">
+{{ content | safe }}
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-wrap">
+      <p>Released under the <a href="{{ site.repo }}/blob/gh-pages/LICENSE" rel="license">MIT licence</a>.</p>
+      <p>Based on work by the <a href="{{ site.upstreamRepo }}">GDS accessibility team</a> (Crown Copyright 2017).</p>
+      <p>Continued by <a href="{{ site.repo }}">A11y Intuition Lab</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "Accessibility tool audit",
+  "suffix": "A11y Intuition Lab",
+  "originalSite": "https://alphagov.github.io/accessibility-tool-audit/",
+  "originalResults": "https://alphagov.github.io/accessibility-tool-audit/results.html",
+  "blog": "https://accessibility.blog.gov.uk/2017/02/24/what-we-found-when-we-tested-tools-on-the-worlds-least-accessible-webpage/",
+  "upstreamRepo": "https://github.com/alphagov/accessibility-tool-audit",
+  "upstreamTree": "https://github.com/alphagov/accessibility-tool-audit/tree/e9e46115caf55f07a9302a5ee187687870510a09",
+  "repo": "https://github.com/a11y-intuition-lab/accessibility-tool-audit",
+  "provenance": "https://github.com/a11y-intuition-lab/accessibility-tool-audit/blob/gh-pages/wiki/provenance.md",
+  "origins": {
+    "govuk-2017": "GOV.UK (GDS accessibility team, 2017)",
+    "ail-2026": "A11y Intuition Lab (2026)"
+  }
+}

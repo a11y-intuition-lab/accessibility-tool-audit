@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: Overview
+permalink: index.html
+---
+<h1>Accessibility tool audit</h1>
+
+<p class="site-lead">A collection of {{ collections.testCases.length }} accessibility failures, used to test how well automated accessibility checkers find them.</p>
+
+<p>Automated accessibility checkers are good at finding simple and obvious problems, but they cannot detect many accessibility issues. This project measures what they find and what they miss, using test cases that each contain one specific failure.</p>
+
+<h2>Where this comes from</h2>
+<p>This is the continuation, by <a href="{{ site.repo }}">A11y Intuition Lab</a> (AIL), of the 2017 audit by the GDS accessibility team. The test cases, and the pages that carry them, are the GDS team's work and are kept unchanged so that results stay comparable. Full credit goes to the original authors.</p>
+<ul>
+  <li><a href="{{ site.originalSite }}">The original site</a> (GOV.UK, archived)</li>
+  <li><a href="{{ site.blog }}">Blog post: What we found when we tested tools on the world's least accessible webpage</a></li>
+  <li><a href="{{ '/about.html' | url }}">About this fork and its provenance</a></li>
+</ul>
+
+<h2>Retest in progress</h2>
+<p>AIL is retesting every test case with <a href="https://github.com/dequelabs/axe-core">axe-core</a> and <a href="https://pa11y.org/">pa11y</a>, with pinned tool versions and stored raw output. New test cases will be added for gaps in the coverage of WCAG 2.0, 2.1 and 2.2. The <a href="{{ '/results.html' | url }}">results page</a> will be filled in as the retest completes.</p>
+
+<h2>Explore</h2>
+<ul>
+  <li><a href="{{ '/test-cases.html' | url }}">Test cases</a>: all {{ collections.testCases.length }} examples on one page, with the origin of each.</li>
+  <li><a href="{{ '/results.html' | url }}">Results</a>: status of the retest.</li>
+</ul>

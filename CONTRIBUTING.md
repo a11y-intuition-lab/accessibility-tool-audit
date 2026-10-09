@@ -1,55 +1,54 @@
 # How to contribute
 
-We welcome issues / pull requests for updated or new test cases or tool results.
+We welcome issues and pull requests, in particular new test cases. Read [`AGENTS.md`](AGENTS.md) and
+[`wiki/provenance.md`](wiki/provenance.md) first.
 
-Make changes to the build files first (mainly 'tests.json' but also anything under the 'build' folder) and add the static files that get created or updated via the `gulp` command in a separate commit last.
-You also might want to update 'changelog.json' but it likely needs changing again to update the date to be the date when the Pull Request gets merged.
-It's also fine if you don't add the changes to the the changelog and static files at all, we can do that before we merge.
+## One file per test case
 
-When using a tool, use all the most inquisitive options. For example, if you have the choice between AA and AAA, choose AAA. If you have the choice to add options which don't seem to be related to accessibility (SEO, for example), test those as well.
-Check the list of [options we used](tools-info.md#options-and-settings).
+Each test case is a file in `src/test-cases/`. The file name is the slug and the URL, so
+`src/test-cases/forms-example.html` is built to `tests/forms-example.html`.
 
-You should check each test page on its own and not the one big page including (nearly) all tests. Then check if the one particular issue we were expecting to find on that page is found or not. To look for just one issue makes it easier to find.
-Don't test any of the test pages which contain only a link to an "example page" but test that example page instead to which the links points. Those are the pages that are not included within the one big page but need to be on pages of their own.
+```
+---
+title: "Name of the test case"
+category: "Forms"
+origin: ail-2026
+categoryOrder: 14
+order: 12
+---
+<form>... the example HTML, exactly as it should appear ...</form>
+```
 
-When you add or change the test results, you need to note them as the key in the `resultsCopy` variable in 'build/generate.js'. That will be automatically translated to what you see on the results page (for example, "error" translates to "Issue found" and "notfound" translates to "Not found").
+- `title` is the heading of the test page.
+- `category` groups test cases. `categoryOrder` and `order` set the order of categories and of test cases within a
+  category.
+- `origin` says where the test case comes from: `govuk-2017` (original, frozen) or `ail-2026` (added by AIL).
+- The body is the example HTML. It is not processed by any template engine, so it appears in the page as written.
+- Make the example as isolated as possible: one failure per test case.
 
+Images used by an example go in `assets/test_images/` and are referenced as `images/<file>`; links to local example
+pages use `example-pages/<file>`. The build rewrites both to the right relative paths.
 
-## Update test results
+## Frozen fixtures
 
-When you have found a result you disagree with or you re-test a tool because it was updated, you should add your changes to the `results` of each relevant test entry within 'tests.json'.
-Check the [tools' changelogs](tools-info.md#changelogs) to know when a tool has been updated.
+The 142 `govuk-2017` test cases, `assets/javascript/`, `assets/stylesheets/tests.css`, `assets/test_images/` and
+`example-pages/` are the objects being measured. Do not change them. `npm run verify` fails if any of them differs from
+the `govuk-final` tag. If a change is truly needed, record it and the reason in `wiki/provenance.md` and update the
+verification deliberately.
 
+New `ail-2026` test cases use a separate page template that differs from the GOV.UK one only in the `<title>` suffix
+("A11y Intuition Lab").
 
-## Change code examples
+## Before you open a pull request
 
-When you can think of an improvement to an existing test case, you should update the `example` of each relevant test entry within 'tests.json'. Then you should re-test that example with **every single tool** and update their results accordingly.
+```
+npm ci
+npm run build
+npm run verify
+```
 
+## Testing a tool against the test cases
 
-## Add new code examples
-
-If you like to add a new test case, create a new entry within 'tests.json' as the last entry under its most relevant section ("Content", "Page Layout", etc). Then test **every single tool** with that example and update their results accordingly.
-
-Because some tools don't work with local files, you can add the example to a [JS Bin](http://jsbin.com/) or similar and test that instead. That also helps developing that example as making the changes within 'tests.json' is cumbersome.
-
-Try to make the example as isolated as possible. Although complex examples make more realistic test cases, testing for one specific issue is easier and more reliable to test for.
-
-
-## Add new tool
-
-We currently only accept tools which are either free or free to try and which are not based on any tool we have already covered. When it's a paid for tool, it should have a pricing option which is affordable by a small team. It must have a web presence with all important information.
-It's best to first open a [GitHub issue](https://github.com/alphagov/accessibility-tool-audit/issues/new) and ask if we would accept the tool. That will reduce potentially wasted efforts.
-
-When you add a new tool, you will need to check every single of the test cases.
-
-To add a new tool you would need to add it to these files:
-
-* 'build/analysis.js': add the name as a slug to `toolNames`
-* 'build/generate.js': add that slug and its proper full name to `toolNamesCopy`
-* 'build/generate.js': add the name and URL to `tools`
-* 'build/templates/results.html': add a new `th` to the end of the table head
-* 'build/templates/results.html': add a new `td` to the end of the inner loop within the table body by referencing the slug within the variables
-* 'build/templates/index.html': research the necessary features and add a new table row at the end of the feature comparison table and fill it with the relevant facts about the tool
-* 'tools-info.md': add info about settings and where to find the tool's changelog to the end of each list
-
-Then add results of this tool by adding a new `results` line to every single entry in 'tests.json'.
+Check each test case on its own page, not the combined page. Use the most inquisitive options (for example AAA rather
+than AA), and look for the one issue the test case is meant to show. Some test cases only link to an example page; test
+that example page instead.

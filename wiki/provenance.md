@@ -43,6 +43,11 @@ Every change to something that came from GOV.UK is listed here, newest last.
 | Date | What | Why |
 |---|---|---|
 | 2026-10-10 | Tagged `e9e46115` as `govuk-final` | Fixed reference point for the upstream state |
+| 2026-10-10 | Converted `tests.json` to one file per test case in `src/test-cases/` (`scripts/import-govuk-tests.mjs`); example HTML verbatim, slugs unchanged | One file per test case is easier to review and extend; fixtures verified byte-identical by `npm run verify` |
+| 2026-10-10 | Removed the `results` data for the 13 original tools | Decision D-003; results remain upstream at `govuk-final` |
+| 2026-10-10 | Replaced the gulp + Sass + Nunjucks build with Eleventy 3 | The old toolchain does not run on current Node; fixture output is unchanged |
+| 2026-10-10 | Removed GOV.UK branding from the site (crest, Open Government Licence footer, site titles, stylesheet). Test-case pages keep their original `<title>` | We must not look like GOV.UK |
+| 2026-10-10 | Added the line `Copyright (c) 2026 A11y Intuition Lab` to `LICENSE`, below the Crown Copyright line | Credit for AIL's additions; the original line and text are unchanged |
 
 ## Removed upstream material
 
@@ -50,4 +55,11 @@ Material removed from this repository remains available upstream at `govuk-final
 
 | Date | What | Where to find it |
 |---|---|---|
-| | | |
+| 2026-10-10 | `gulpfile.js`, `build/` | upstream at `govuk-final` (Gulp build, Nunjucks templates and result analysis) |
+| 2026-10-10 | `assets/sass/` (incl. vendored GOV.UK frontend toolkit) | upstream at `govuk-final` (Sass sources) |
+| 2026-10-10 | `assets/stylesheets/application.css` | upstream at `govuk-final` (Compiled GOV.UK site stylesheet) |
+| 2026-10-10 | `assets/images/` except `important.png` | upstream at `govuk-final` (GOV.UK crest, Open Government Licence logos, touch icons, sprites; duplicates of `assets/test_images/`. `important.png` stays because `tests.css` loads it) |
+| 2026-10-10 | `index.html`, `results.html`, `test-cases.html`, `tests/*.html` at repository root | upstream at `govuk-final` (Generated files; now built into `_site/`) |
+| 2026-10-10 | `tests.json` | upstream at `govuk-final` (Converted to `src/test-cases/`) |
+| 2026-10-10 | `analysis.json`, `changelog.json` | upstream at `govuk-final` (Result analysis and results changelog (D-003)) |
+| 2026-10-10 | `tools-info.md` | upstream at `govuk-final` (Settings and changelogs of the 13 original tools (D-003)) |

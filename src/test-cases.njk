@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: Test cases
+permalink: test-cases.html
+fixtures: true
+---
+<h1>Test cases</h1>
+
+<p class="site-lead">{{ collections.testCases.length }} examples of accessibility failures. Each example is deliberately flawed. Select a title to open the example on its own page.</p>
+
+{%- set groups = collections.testCases | groupByCategory %}
+<nav aria-label="Categories">
+  <ul class="site-cats">
+    {%- for group in groups %}
+    <li><a href="#{{ group.name | replace(' ', '') | lower }}">{{ group.name }}</a></li>
+    {%- endfor %}
+  </ul>
+</nav>
+
+{%- for group in groups %}
+<section aria-labelledby="{{ group.name | replace(' ', '') | lower }}">
+  <h2 id="{{ group.name | replace(' ', '') | lower }}">{{ group.name }}</h2>
+  {%- for item in group.items %}
+  <h3 id="{{ item.fileSlug }}"><a href="{{ ('/tests/' + item.fileSlug + '.html') | url }}">{{ item.data.title }}</a></h3>
+  <p class="site-origin">Origin: {{ site.origins[item.data.origin] }}</p>
+  <div class="example">
+    {{ item.templateContent | combinedExample | safe }}
+  </div>
+  {%- endfor %}
+</section>
+{%- endfor %}

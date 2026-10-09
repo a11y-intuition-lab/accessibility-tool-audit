@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: About
+permalink: about.html
+---
+<h1>About this project</h1>
+
+<h2>Origin</h2>
+<p>This repository is a fork of <a href="{{ site.upstreamRepo }}">alphagov/accessibility-tool-audit</a>, created by the Government Digital Service (GDS) accessibility team in 2017 and archived in 2019. It is now maintained by A11y Intuition Lab (AIL). The original site is still online at <a href="{{ site.originalSite }}">{{ site.originalSite }}</a>.</p>
+
+<h2>What stays the same</h2>
+<p>The {{ collections.testCases.length }} GOV.UK test cases, the pages that present them, and the files those pages load are frozen. A script checks on every build that each test page is byte-identical to the upstream final state.</p>
+
+<h2>What AIL has changed</h2>
+<ul>
+  <li>Replaced the build (gulp, Sass, Nunjucks) with <a href="https://www.11ty.dev/">Eleventy</a>.</li>
+  <li>Stored each test case in its own file, marked with its origin.</li>
+  <li>Removed the results for the 13 original tools. They remain upstream.</li>
+  <li>Rebuilt the site around the fixtures, without GOV.UK branding.</li>
+  <li>Started a retest with axe-core and pa11y, and a mapping of test cases to WCAG success criteria.</li>
+</ul>
+
+<h2>Provenance</h2>
+<p>Every change to upstream material is recorded in the <a href="{{ site.provenance }}">provenance page</a>. Each test case carries an <code>origin</code>: <code>govuk-2017</code> for the original cases, <code>ail-2026</code> for cases added by AIL.</p>
+
+<h2>Licence</h2>
+<p>MIT licence. The original work is Crown Copyright 2017 (Government Digital Service). Additions are copyright 2026 A11y Intuition Lab. This site is not affiliated with or endorsed by GOV.UK or GDS.</p>

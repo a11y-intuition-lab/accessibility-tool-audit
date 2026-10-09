@@ -41,3 +41,19 @@ such as keyboard traps, so it is part of the experiment, not part of the site.
 ## D-007 — Work directly on the default branch (2026-10-10)
 
 **Decision:** Changes go directly on `gh-pages`. Deployment moves to GitHub Actions so a failing build is not published.
+
+## D-008 — Supply-chain hardening (2026-10-10)
+
+**Decision:** Repository-level `.npmrc` with a 7-day minimum release age, install scripts disabled, exact versions and
+registry-only dependencies; GitHub Actions pinned to commit SHAs with least-privilege permissions; Dependabot with a
+7-day cooldown. Details in [supply-chain security](method/supply-chain-security.md).
+**Reason:** The project is public and runs third-party code in CI and on contributors' machines. Rules in the repository
+apply to everyone, not just one machine.
+
+## D-009 — Build with Eleventy, locally and in CI (2026-10-10)
+
+**Decision:** The site is built with Eleventy 3 (`npm run build`), the same way locally and in GitHub Actions, and deployed
+from Actions. Test runs use the built files in `_site/`, served over local HTTP.
+**Reason:** Test-case pages and overview pages are generated from one file per test case. Testing the built output means
+testing exactly what is published. `npm run verify` checks that GOV.UK fixtures stay byte-identical to `govuk-final`.
+**Supersedes:** the "committed generated files" approach of the upstream project.
