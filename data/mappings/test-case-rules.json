@@ -1792,6 +1792,30 @@
       "htmlcs": [],
       "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. The flashing only starts after a button is selected; neither tool measures flashing. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_3_2.G19)"
     },
+    "multimedia-prerecorded-video-without-audio-description-or-media-alternative-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_5.G78,G173,G8",
+          "rationale": "Asks to check that the video has audio description."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_8.G69,G159",
+          "rationale": "Asks to check for a full text alternative, which would also meet 1.2.3 as a media alternative."
+        }
+      ],
+      "notes": "Generated video with music only, 12 s (D-023): the steps are shown, never spoken. axe-core 4.13 has no audio description rule; video-caption fires (incomplete) but targets captions (1.2.2), which music-only sound does not need. HTML_CodeSniffer has no 1.2.3 sniff in its WCAG2AAA standard (1.2.5 replaces it)."
+    },
+    "multimedia-video-only-content-without-alternative-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_1.G159,G166",
+          "rationale": "Asks to check that video-only content has a text or audio alternative."
+        }
+      ],
+      "notes": "Generated silent video, 12 s (D-023). axe-core video-caption fires (incomplete) but targets captions (1.2.2), which a video without sound does not need, so it is not listed."
+    },
     "navigation-help-link-in-inconsistent-place-across-pages-ail": {
       "axe": [],
       "htmlcs": [],

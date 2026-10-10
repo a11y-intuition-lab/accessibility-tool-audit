@@ -124,3 +124,19 @@ Append-only, newest last.
   cover the AIL test cases, which mostly target criteria the tools do not check. Under the default EU filter that made
   2026 look worse (axe 41% → 32%, HTML_CodeSniffer 24% → 15%); on the same 70 GOV.UK test cases both are unchanged
   (41% and 24%).
+
+## 2026-10-10 — Generated video; HTML_CodeSniffer WCAG2AAA skips the 2.2.1 sniff
+
+- `scripts/media/generate-video.mjs` records a 12-second canvas animation ("how to repot a plant", steps shown only on
+  screen) in Chromium, silent and with the generated music. Not byte-identical on regeneration; checksums in
+  `assets/ail/media/README.md` (D-023).
+- New test cases `multimedia-video-only-content-without-alternative-ail` (1.2.1) and
+  `multimedia-prerecorded-video-without-audio-description-or-media-alternative-ail` (1.2.3, 1.2.5, 1.2.8). A partial
+  check: axe-core 4.13 has no rule for either (`video-caption` fires but targets captions); HTML_CodeSniffer emits its
+  generic media notices. 6 candidates remain deferred; all need speech or a human (sign language).
+- Why HTML_CodeSniffer F40.2/F41.2 (meta refresh) did not fire: in HTML_CodeSniffer 2.6.0 the `WCAG2AAA` ruleset does
+  not include the `Principle2.Guideline2_2.2_2_1` sniff, which holds those checks; `WCAG2A` and `WCAG2AA` do. pa11y's
+  `rules` option cannot add it, because pa11y only accepts sniffs listed in `WCAG2AAA`. Other `WCAG2AA` sniffs missing
+  from `WCAG2AAA` (1.3.1_A, 1.4.3, 1.4.4, 1.4.5, 2.3.1, 2.4.4, 3.3.4) appear to be replaced by their AAA counterparts.
+  GOV.UK also ran HTML_CodeSniffer with WCAG2AAA in 2017 (upstream `tools-info.md`), so the retest keeps WCAG2AAA for
+  comparability. A supplementary `WCAG2AA` pass is possible but not decided.

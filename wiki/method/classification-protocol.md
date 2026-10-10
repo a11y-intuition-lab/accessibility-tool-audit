@@ -141,6 +141,9 @@ missing. A page the tool never saw cannot count as a miss.
   check" results for HTML_CodeSniffer appear to come from notices (for example link-text cases), which this protocol
   codes as `identified`. The detection rate on the results page (issue found and warning only) is not affected; the split
   between "user to check" and "noticed" is not strictly comparable.
+- **HTML_CodeSniffer standard.** The retest uses `WCAG2AAA`, as GOV.UK did. In HTML_CodeSniffer 2.6.0 that ruleset
+  leaves out the 2.2.1 sniff (meta refresh errors F40.2 and F41.2), which `WCAG2A` and `WCAG2AA` include, so these
+  checks never run. See the [log](../log.md) entry of 2026-10-10.
 - **Mapping quality.** The mapping is AI-proposed and not yet reviewed. 35 of 218 test cases are marked
   `review: pending`.
 

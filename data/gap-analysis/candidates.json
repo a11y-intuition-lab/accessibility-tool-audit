@@ -36,8 +36,8 @@
       "priority": "high",
       "fixture": "media",
       "gap": "related-only",
-      "status": "deferred",
-      "deferred_reason": "Needs an openly licensed local video file (D-015)."
+      "status": "implemented",
+      "test_case": "multimedia-prerecorded-video-without-audio-description-or-media-alternative-ail"
     },
     {
       "id": "multimedia-live-video-stream-without-captions",
@@ -190,8 +190,8 @@
       "priority": "medium",
       "fixture": "media",
       "gap": "thin",
-      "status": "deferred",
-      "deferred_reason": "Needs openly licensed media (D-015)."
+      "status": "implemented",
+      "test_case": "multimedia-video-only-content-without-alternative-ail"
     },
     {
       "id": "images-svg-image-without-accessible-name",

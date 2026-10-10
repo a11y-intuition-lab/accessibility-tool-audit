@@ -229,6 +229,24 @@
         { "sc": "2.3.2", "relation": "fails", "rationale": "The same area flashes more than three times in one second, whatever its size (AAA)." }
       ]
     },
+    "multimedia-video-only-content-without-alternative-ail": {
+      "category": "Multimedia",
+      "title": "Video-only content without alternative",
+      "candidate": "multimedia-video-only-content-without-alternative",
+      "wcag": [
+        { "sc": "1.2.1", "relation": "fails", "rationale": "A silent 12-second video shows the four steps of repotting a plant as on-screen text and animation, with no text or audio alternative." }
+      ]
+    },
+    "multimedia-prerecorded-video-without-audio-description-or-media-alternative-ail": {
+      "category": "Multimedia",
+      "title": "Prerecorded video without audio description or media alternative",
+      "candidate": "multimedia-prerecorded-video-without-audio-description-or-media-alternative",
+      "wcag": [
+        { "sc": "1.2.3", "relation": "fails", "rationale": "The steps are only shown on screen; the soundtrack is music. There is no audio description and no media alternative." },
+        { "sc": "1.2.5", "relation": "fails", "rationale": "No audio description of the on-screen steps (AA)." },
+        { "sc": "1.2.8", "relation": "fails", "rationale": "No full text alternative (AAA)." }
+      ]
+    },
     "multimedia-audio-plays-automatically-with-no-way-to-stop-it-ail": {
       "category": "Multimedia",
       "title": "Audio plays automatically with no way to stop it",

@@ -56,6 +56,7 @@ AIL fixtures are not frozen like GOV.UK's, but every change that can affect resu
 | 2026-10-10 | Retest harness and classifier accept `linkedPages` (a list) next to `linkedPage` in `data/mappings/test-case-rules.json`; output stays `axe/linked-<page>/<slug>.json` and `pa11y/linked-<page>/<slug>.json`. | A barrier spread over several pages. Reclassifying run `20261010T080254Z` with the new classifier gives identical results. |
 | 2026-10-10 | Replaced the phone numbers `0300 123 4567`/`4568` with `020 7946 0123`/`0124` in three AIL test cases and in `example-pages/ail/help-1.html` and `help-2.html`. | `0300 123` is a real UK number range; `020 7946 0xxx` is reserved by Ofcom for drama and fiction. Text-only change in content that no listed rule inspects; not retested. |
 | 2026-10-10 | Added `assets/ail/media/` with generated CC0 audio (`scripts/media/generate-audio.mjs`, D-023) and the test case `multimedia-audio-plays-automatically-with-no-way-to-stop-it-ail`. | First media test case. |
+| 2026-10-10 | Added generated CC0 video (`scripts/media/generate-video.mjs`, D-023) and the test cases `multimedia-video-only-content-without-alternative-ail` and `multimedia-prerecorded-video-without-audio-description-or-media-alternative-ail`. | Media test cases that need no speech. |
 
 ## Changes to upstream material
 
