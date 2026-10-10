@@ -171,3 +171,14 @@ Append-only, newest last.
   column mostly repeated the main column. The results page now shows it as a note in the 2026 HTML_CodeSniffer cell
   ("WCAG2AA pass: issue found") where it gives a stronger result. Data and classification are unchanged; the
   percentages never included it.
+
+## 2026-10-10 — Phase 2 started: test-method grouping (D-025 to D-027)
+
+- Decisions D-025 (ten test-method groups, triage automated → AI → human, recipes for people and AI), D-026 (AI tests
+  blinded pages) and D-027 (AI runs only on go-ahead; one run first; prompts and findings published, not transcripts).
+- Nine new source pages on earlier groupings (Nav, WCAG-EM, ACT Rules, Trusted Tester, Uutilsynet, Accessibility
+  Insights, GOV.UK, coverage studies, A11y Project). No source was found for a Nav "test pyramid".
+- `data/mappings/sc-test-methods.json`: AI-proposed group and triage for all 87 criteria, with retest evidence; 11
+  marked for review. Validated by `npm run wcag:methods`; pending entries in `npm run wcag:review`.
+- [Test-method grouping](analysis/test-method-grouping.md): reasoning, comparison and assessment.
+- Testing recipes per group in `testing-kit/`.

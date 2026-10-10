@@ -1,0 +1,2736 @@
+{
+  "meta": {
+    "origin": "ail-2026",
+    "status": "ai-proposed",
+    "reviewed": false,
+    "statusNote": "AI-drafted, not human-reviewed",
+    "method": "wiki/analysis/test-method-grouping.md",
+    "model": "claude-opus-5-5",
+    "date": "2026-10-10",
+    "successCriteria": "data/wcag/success-criteria.json",
+    "evidenceRun": "data/results/ail-2026/runs/20261010T112606Z",
+    "evidenceNote": "Retest counts are per test case mapped as failing the criterion. 'flagged' means a rule mapped to that test case reported an error, which can be a rule for a different criterion on the same page; 'asked for review' is axe incomplete or an HTML_CodeSniffer warning; 'notice' is an HTML_CodeSniffer notice; 'missed' means nothing relevant was reported.",
+    "levels": {
+      "automation": {
+        "full": "A rule can decide both pass and fail for the whole criterion.",
+        "partial": "Rules catch some failures or only flag items for review.",
+        "none": "No reliable rule."
+      },
+      "ai": {
+        "likely": "With the listed data, a capable model should judge it reliably.",
+        "possible": "Judgeable in some cases; error-prone.",
+        "unlikely": "Needs perception or judgement a model cannot verify well (real audio, lived assistive-technology experience, subjective adequacy)."
+      },
+      "human": {
+        "must": "Tools and AI cannot verify it well enough; a person must test.",
+        "should": "AI can do a first pass; a person should confirm.",
+        "optional": "Tools and AI suffice."
+      },
+      "needs": {
+        "dom": "Rendered DOM with computed styles and scripts",
+        "accessibility-tree": "Browser accessibility tree",
+        "screenshot": "Rendered screenshot",
+        "focus-trace": "Sequence of focused elements with screenshots per Tab step",
+        "zoomed-render": "Renders at 200%/400% zoom or 320 CSS px width",
+        "text-spacing-render": "Render with the WCAG 1.4.12 text-spacing override",
+        "interaction": "Scripted interaction (click, hover, type, key presses, viewport changes)",
+        "media": "Audio/video content and its tracks",
+        "timing": "Observation over time",
+        "multi-page": "Several pages or steps of a process"
+      },
+      "review": {
+        "pending": "Borderline call; needs a human decision."
+      },
+      "primary": "The pass where a tester verifies the criterion most efficiently in full; 'automated' is primary only when automation is 'full'."
+    }
+  },
+  "groups": {
+    "automated": {
+      "name": "Automated rule checks",
+      "summary": "axe-core and HTML_CodeSniffer run over the page; the tools decide."
+    },
+    "code-and-tree": {
+      "name": "Code and accessibility tree",
+      "summary": "Reading markup, the DOM and the accessibility tree for names, roles, states, relationships, language and structure."
+    },
+    "visual": {
+      "name": "Visual inspection",
+      "summary": "Inspecting rendered screenshots for colour use, contrast, images of text, sensory instructions and consistent identification."
+    },
+    "keyboard": {
+      "name": "Keyboard pass",
+      "summary": "Operating the page with the keyboard only: focus order, visible focus, traps, shortcuts, focus obscured and changes on focus or input."
+    },
+    "screen-reader": {
+      "name": "Screen-reader pass",
+      "summary": "Listening to, or reading, what a screen reader announces: reading order, status messages, link purpose in context."
+    },
+    "zoom-reflow": {
+      "name": "Zoom and reflow",
+      "summary": "Zoom to 200% and 400%, 320 CSS px reflow, text-spacing override, orientation, and content on hover or focus."
+    },
+    "pointer-motion": {
+      "name": "Pointer and motion",
+      "summary": "Pointer gestures, cancellation, target size, dragging, motion actuation and label in name for speech input."
+    },
+    "time-media": {
+      "name": "Time and media",
+      "summary": "Time limits, moving and flashing content, autoplaying audio, captions, audio description, sign language and media alternatives."
+    },
+    "language-cognition": {
+      "name": "Language and cognition",
+      "summary": "Wording and content quality: descriptive headings and labels, unusual words, abbreviations, reading level, pronunciation, error suggestions and help."
+    },
+    "multi-step-flow": {
+      "name": "Multi-step flow",
+      "summary": "Processes over several steps or pages: error prevention, redundant entry, accessible authentication, consistency across pages, multiple ways and location."
+    }
+  },
+  "criteria": {
+    "1.1.1": {
+      "handle": "Non-text Content",
+      "level": "A",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "visual",
+          "screen-reader"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:image-alt",
+          "axe:input-image-alt",
+          "axe:area-alt",
+          "axe:object-alt",
+          "axe:role-img-alt",
+          "axe:svg-img-alt",
+          "htmlcs:Principle1.Guideline1_1.1_1_1.H37",
+          "htmlcs:Principle1.Guideline1_1.1_1_1.H36",
+          "htmlcs:Principle1.Guideline1_1.1_1_1.H30.2",
+          "htmlcs:Principle1.Guideline1_1.1_1_1.H67.1",
+          "htmlcs:Principle1.Guideline1_1.1_1_1.G94.Image"
+        ],
+        "evidence": "Retest (15 failing cases): axe 4 flagged, 11 missed; HTML_CodeSniffer WCAG2AAA 4 flagged, 1 asked for review, 5 notice, 5 missed. Rules detect missing or empty alternatives; whether the text is equivalent, or the image decorative, is only flagged as a notice."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "accessibility-tree",
+          "screenshot"
+        ],
+        "why": "Comparing each image with its computed text alternative and surrounding text is a task vision models do well."
+      },
+      "human": {
+        "level": "should",
+        "why": "Equivalence for complex images (charts, diagrams) and context-dependent purpose needs confirmation."
+      },
+      "rationale": "The decision rests on the computed text alternative per image, read from markup and tree, checked against the picture."
+    },
+    "1.2.1": {
+      "handle": "Audio-only and Video-only (Prerecorded)",
+      "level": "A",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "code-and-tree"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:audio-caption",
+          "htmlcs:Principle1.Guideline1_2.1_2_1.G158",
+          "htmlcs:Principle1.Guideline1_2.1_2_1.G159,G166"
+        ],
+        "evidence": "Retest (2 failing cases): axe 1 asked for review, 1 missed; HTML_CodeSniffer WCAG2AAA 2 notice. Rules only notice that audio or video exists and ask for a check; they cannot judge whether an alternative exists or is equivalent."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "media"
+        ],
+        "why": "A model can transcribe audio and describe video, then compare with the alternative, but equivalence errors are easy to miss."
+      },
+      "human": {
+        "level": "should",
+        "why": "Equivalence of the alternative to the media needs a person who has watched or listened to it."
+      },
+      "rationale": "Requires consuming the media and comparing it with its alternative."
+    },
+    "1.2.2": {
+      "handle": "Captions (Prerecorded)",
+      "level": "A",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "screen-reader"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:video-caption",
+          "htmlcs:Principle1.Guideline1_2.1_2_2.G87,G93"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 notice. axe asks for review when a video has no track element; neither tool judges caption accuracy or synchronisation."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "media",
+          "timing"
+        ],
+        "why": "Speech recognition can compare captions with the dialogue; non-speech sounds and timing are error-prone."
+      },
+      "human": {
+        "level": "should",
+        "why": "Caption accuracy, completeness and sync need a person to confirm."
+      },
+      "rationale": "Requires playing the media with captions on."
+    },
+    "1.2.3": {
+      "handle": "Audio Description or Media Alternative (Prerecorded)",
+      "level": "A",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_2.1_2_3.G69,G78,G173,G8"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. The 1.2.3 sniff is only in the WCAG2AA ruleset; in WCAG2AAA the related 1.2.5/1.2.8 sniffs give page-level notices. axe has no rule."
+      },
+      "ai": {
+        "level": "unlikely",
+        "needs": [
+          "media",
+          "timing"
+        ],
+        "why": "Deciding which visual information is important and whether the soundtrack or a text alternative conveys it needs reliable video understanding."
+      },
+      "human": {
+        "level": "must",
+        "why": "A person must watch the video and judge whether the important visual information is available."
+      },
+      "rationale": "Requires watching the video against its audio or text alternative.",
+      "review": "pending"
+    },
+    "1.2.4": {
+      "handle": "Captions (Live)",
+      "level": "AA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_2.1_2_4.G9,G87,G93"
+        ],
+        "evidence": "No test case in the 2026 retest. Only a notice asking for a manual check; live captions cannot be inspected from the page."
+      },
+      "ai": {
+        "level": "unlikely",
+        "needs": [
+          "media",
+          "timing"
+        ],
+        "why": "Live events are hard to capture for analysis and captions depend on what happens live."
+      },
+      "human": {
+        "level": "must",
+        "why": "Needs a person observing a live stream."
+      },
+      "rationale": "Live media pass."
+    },
+    "1.2.5": {
+      "handle": "Audio Description (Prerecorded)",
+      "level": "AA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_2.1_2_5.G78,G173,G8"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted per video; no rule can tell whether an audio description track exists or is adequate."
+      },
+      "ai": {
+        "level": "unlikely",
+        "needs": [
+          "media",
+          "timing"
+        ],
+        "why": "Judging whether description covers the important visual information needs reliable video understanding."
+      },
+      "human": {
+        "level": "must",
+        "why": "A person must watch with audio description and judge adequacy."
+      },
+      "rationale": "Requires watching the video with its audio description.",
+      "review": "pending"
+    },
+    "1.2.6": {
+      "handle": "Sign Language (Prerecorded)",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_2.1_2_6.G54,G81"
+        ],
+        "evidence": "No test case in the 2026 retest. Notice only; no rule can detect sign-language interpretation."
+      },
+      "ai": {
+        "level": "unlikely",
+        "needs": [
+          "media"
+        ],
+        "why": "A model may notice that an interpreter is shown, but cannot verify the interpretation."
+      },
+      "human": {
+        "level": "must",
+        "why": "Only a sign-language user can judge the interpretation."
+      },
+      "rationale": "Media pass with a sign-language-competent tester."
+    },
+    "1.2.7": {
+      "handle": "Extended Audio Description (Prerecorded)",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_2.1_2_7.G8"
+        ],
+        "evidence": "No test case in the 2026 retest. Notice only; whether pauses are too short for standard description is a judgement."
+      },
+      "ai": {
+        "level": "unlikely",
+        "needs": [
+          "media",
+          "timing"
+        ],
+        "why": "Requires judging whether standard description would be insufficient."
+      },
+      "human": {
+        "level": "must",
+        "why": "A person must watch and judge."
+      },
+      "rationale": "Media pass."
+    },
+    "1.2.8": {
+      "handle": "Media Alternative (Prerecorded)",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_2.1_2_8.G69,G159"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted per video; no rule checks for a full text alternative."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "media"
+        ],
+        "why": "A model can compare a transcript with transcribed audio and described video, but completeness is error-prone."
+      },
+      "human": {
+        "level": "should",
+        "why": "Completeness of the text alternative needs confirmation."
+      },
+      "rationale": "Requires consuming the media and reading its alternative."
+    },
+    "1.2.9": {
+      "handle": "Audio-only (Live)",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_2.1_2_9.G150,G151,G157"
+        ],
+        "evidence": "No test case in the 2026 retest. Notice only; live audio cannot be inspected from the page."
+      },
+      "ai": {
+        "level": "unlikely",
+        "needs": [
+          "media",
+          "timing"
+        ],
+        "why": "Live content cannot be captured reliably for analysis."
+      },
+      "human": {
+        "level": "must",
+        "why": "Needs a person observing the live audio."
+      },
+      "rationale": "Live media pass."
+    },
+    "1.3.1": {
+      "handle": "Info and Relationships",
+      "level": "A",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "screen-reader",
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:label",
+          "axe:td-has-header",
+          "axe:th-has-data-cells",
+          "axe:td-headers-attr",
+          "axe:list",
+          "axe:listitem",
+          "axe:definition-list",
+          "axe:dlitem",
+          "axe:aria-required-children",
+          "axe:aria-required-parent",
+          "axe:p-as-heading",
+          "htmlcs:Principle1.Guideline1_3.1_3_1.F68",
+          "htmlcs:Principle1.Guideline1_3.1_3_1.F92,ARIA4",
+          "htmlcs:Principle1.Guideline1_3.1_3_1.H42",
+          "htmlcs:Principle1.Guideline1_3.1_3_1.H48",
+          "htmlcs:Principle1.Guideline1_3.1_3_1.H63.1",
+          "htmlcs:Principle1.Guideline1_3.1_3_1.H71.SameName",
+          "htmlcs:Principle1.Guideline1_3.1_3_1_AAA.G141"
+        ],
+        "evidence": "Retest (13 failing cases): axe 7 flagged, 6 missed; HTML_CodeSniffer WCAG2AAA 5 flagged, 3 notice, 5 missed. Rules catch broken or missing markup patterns; structure that is visual only (bold text as headings, text lists, layout tables) is mostly a notice or missed."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "accessibility-tree",
+          "screenshot"
+        ],
+        "why": "Comparing the visual structure in a screenshot with the semantics in the tree is a strength of current models."
+      },
+      "human": {
+        "level": "should",
+        "why": "Broad SC with many patterns; a person should confirm the AI's comparison."
+      },
+      "rationale": "Verified by comparing rendered structure with markup and the accessibility tree."
+    },
+    "1.3.2": {
+      "handle": "Meaningful Sequence",
+      "level": "A",
+      "groups": {
+        "primary": "screen-reader",
+        "secondary": [
+          "code-and-tree",
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. No rule compares DOM order with visual order or judges meaning."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "accessibility-tree",
+          "screenshot"
+        ],
+        "why": "Comparing linearised reading order with the visual layout is tractable with both inputs."
+      },
+      "human": {
+        "level": "should",
+        "why": "Whether a different order changes meaning is a judgement to confirm."
+      },
+      "rationale": "Reading order is what a screen reader exposes; listening to the linear order is the most direct check."
+    },
+    "1.3.3": {
+      "handle": "Sensory Characteristics",
+      "level": "A",
+      "groups": {
+        "primary": "visual",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_3.1_3_3.G96"
+        ],
+        "evidence": "Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. Page-level notice only; no rule interprets instructions."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "screenshot"
+        ],
+        "why": "Finding instructions that rely on shape, colour, size, location or sound is a reading task with a visual cross-check."
+      },
+      "human": {
+        "level": "should",
+        "why": "AI can do the first pass; borderline wording needs confirmation."
+      },
+      "rationale": "Instructions are read in the rendered page, where the referenced sensory cues are visible."
+    },
+    "1.3.4": {
+      "handle": "Orientation",
+      "level": "AA",
+      "groups": {
+        "primary": "zoom-reflow",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:css-orientation-lock"
+        ],
+        "evidence": "Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 2 missed. axe detects CSS orientation locks in media queries; locks done in script or by the manifest are missed."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "screenshot",
+          "interaction"
+        ],
+        "why": "Rendering in portrait and landscape viewports and comparing is straightforward."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Renders in both orientations settle it; the 'essential' exception is rare."
+      },
+      "rationale": "Checked by switching viewport orientation, alongside the other viewport tests."
+    },
+    "1.3.5": {
+      "handle": "Identify Input Purpose",
+      "level": "AA",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:autocomplete-valid",
+          "htmlcs:Principle1.Guideline1_3.1_3_5.H98"
+        ],
+        "evidence": "Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 asked for review, 1 notice. axe validates autocomplete values that are present; neither tool can know which fields collect data about the user, so missing autocomplete is at best a notice."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "accessibility-tree"
+        ],
+        "why": "Matching field labels to the input-purpose list is a reliable reading task."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Markup inspection plus AI suffices."
+      },
+      "rationale": "Pure markup check of autocomplete against field purpose."
+    },
+    "1.3.6": {
+      "handle": "Identify Purpose",
+      "level": "AAA",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:region",
+          "axe:landmark-one-main",
+          "htmlcs:Principle1.Guideline1_3.1_3_6.ARIA11"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 flagged; HTML_CodeSniffer WCAG2AAA 1 missed. Landmark rules (axe best-practice, not WCAG-tagged) catch missing regions; purpose of icons and components is not checked."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "accessibility-tree",
+          "screenshot"
+        ],
+        "why": "Landmarks are easy; deciding which icons and components need programmatic purpose is open-ended."
+      },
+      "human": {
+        "level": "should",
+        "why": "Scope of 'purpose' is interpretive."
+      },
+      "rationale": "Programmatic purpose lives in markup and the tree.",
+      "review": "pending"
+    },
+    "1.4.1": {
+      "handle": "Use of Color",
+      "level": "A",
+      "groups": {
+        "primary": "visual",
+        "secondary": [
+          "code-and-tree"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:link-in-text-block"
+        ],
+        "evidence": "Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 3 missed. axe only checks links in text blocks; colour-only cues in forms, charts and states are missed."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "screenshot",
+          "dom"
+        ],
+        "why": "A greyscale render compared with the colour render shows information lost without colour."
+      },
+      "human": {
+        "level": "should",
+        "why": "Charts and state cues can be subtle; confirm."
+      },
+      "rationale": "Requires looking at the rendered page with and without colour."
+    },
+    "1.4.2": {
+      "handle": "Audio Control",
+      "level": "A",
+      "groups": {
+        "primary": "time-media",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:no-autoplay-audio",
+          "htmlcs:Principle1.Guideline1_4.1_4_2.F23"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 notice. axe checks autoplaying media elements and asks for review when duration is unknown; HTML_CodeSniffer only gives a notice. Audio started by script is missed."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "media",
+          "timing"
+        ],
+        "why": "Detecting audio playing for more than 3 seconds and a control near the top is observable in a scripted browser."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Scripted observation settles it."
+      },
+      "rationale": "Media behaviour at page load."
+    },
+    "1.4.3": {
+      "handle": "Contrast (Minimum)",
+      "level": "AA",
+      "groups": {
+        "primary": "visual",
+        "secondary": [
+          "automated"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:color-contrast",
+          "htmlcs:Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+          "htmlcs:Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "htmlcs:Principle1.Guideline1_4.1_4_6.G18.BgImage"
+        ],
+        "evidence": "Retest (7 failing cases): axe 6 flagged, 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 asked for review, 5 missed. axe decides plain text on solid backgrounds well but returns 'needs review' over images, gradients and overlaps. HTML_CodeSniffer at WCAG2AAA uses the 1.4.6 sniff, so many 1.4.3 failures surface only as 1.4.6 codes."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "screenshot",
+          "dom"
+        ],
+        "why": "Pixel sampling of rendered text plus computed styles covers the cases rules cannot compute."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Tools plus pixel-based AI checks suffice."
+      },
+      "rationale": "Rules handle most cases; the remainder is judged on the rendered screenshot."
+    },
+    "1.4.4": {
+      "handle": "Resize Text",
+      "level": "AA",
+      "groups": {
+        "primary": "zoom-reflow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:meta-viewport"
+        ],
+        "evidence": "Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 4 missed. axe only catches viewport settings that block zoom; text clipped or overlapping at 200% is not tested. The 1.4.4 sniff is not in the WCAG2AAA ruleset."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "zoomed-render",
+          "screenshot"
+        ],
+        "why": "Comparing 100% and 200% renders for clipped, overlapping or missing text is feasible."
+      },
+      "human": {
+        "level": "should",
+        "why": "Overlap and truncation in screenshots are easy to overlook; confirm."
+      },
+      "rationale": "Zoom pass."
+    },
+    "1.4.5": {
+      "handle": "Images of Text",
+      "level": "AA",
+      "groups": {
+        "primary": "visual",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_4.1_4_9.G140,C22,C30.NoException"
+        ],
+        "evidence": "Retest (5 failing cases): axe 2 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 3 notice. Only notices for every image; the retest 'flagged' results come from missing-alt rules on the same images, not from an images-of-text check."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "screenshot",
+          "dom"
+        ],
+        "why": "Recognising text inside images is reliable; the 'essential' and customisable exceptions need judgement."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI covers it; edge cases are logos and essential presentations."
+      },
+      "rationale": "Images of text are found by looking at rendered images."
+    },
+    "1.4.6": {
+      "handle": "Contrast (Enhanced)",
+      "level": "AAA",
+      "groups": {
+        "primary": "visual",
+        "secondary": [
+          "automated"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:color-contrast-enhanced",
+          "htmlcs:Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "htmlcs:Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "htmlcs:Principle1.Guideline1_4.1_4_6.G17.BgImage"
+        ],
+        "evidence": "Retest (9 failing cases): axe 8 flagged, 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 asked for review, 7 missed. Same limits as 1.4.3: text over images, gradients and overlaps cannot be computed. axe flags most cases via color-contrast or color-contrast-enhanced."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "screenshot",
+          "dom"
+        ],
+        "why": "Pixel sampling covers what rules cannot compute."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Tools plus AI suffice."
+      },
+      "rationale": "Same pass as 1.4.3."
+    },
+    "1.4.7": {
+      "handle": "Low or No Background Audio",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_4.1_4_7.G56"
+        ],
+        "evidence": "No test case in the 2026 retest. Notice only; background level in mixed audio cannot be measured by page rules."
+      },
+      "ai": {
+        "level": "unlikely",
+        "needs": [
+          "media"
+        ],
+        "why": "Separating speech from background in a mixed track and judging 20 dB is not reliable."
+      },
+      "human": {
+        "level": "must",
+        "why": "A person must listen."
+      },
+      "rationale": "Audio pass."
+    },
+    "1.4.8": {
+      "handle": "Visual Presentation",
+      "level": "AAA",
+      "groups": {
+        "primary": "zoom-reflow",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_4.1_4_8.H87,C20",
+          "htmlcs:Principle1.Guideline1_4.1_4_8.C19,G172,G169",
+          "htmlcs:Principle1.Guideline1_4.1_4_8.G188,C21"
+        ],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notices only, one per requirement; no rule decides line length, justification, spacing or colour selection."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "screenshot",
+          "zoomed-render"
+        ],
+        "why": "Line length, justification and spacing are measurable from computed styles; user colour selection and 200% without horizontal scroll need interaction."
+      },
+      "human": {
+        "level": "should",
+        "why": "Several sub-requirements; confirm."
+      },
+      "rationale": "Mostly a presentation-and-resize check."
+    },
+    "1.4.9": {
+      "handle": "Images of Text (No Exception)",
+      "level": "AAA",
+      "groups": {
+        "primary": "visual",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_4.1_4_9.G140,C22,C30.NoException"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted once per page with images."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "screenshot",
+          "dom"
+        ],
+        "why": "Recognising text in images is reliable."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI covers it."
+      },
+      "rationale": "Found by looking at rendered images."
+    },
+    "1.4.10": {
+      "handle": "Reflow",
+      "level": "AA",
+      "groups": {
+        "primary": "zoom-reflow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_4.1_4_10.C32,C31,C33,C38,SCR34,G206"
+        ],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. HTML_CodeSniffer warns about fixed-width elements that may scroll in two dimensions; axe has no rule."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "zoomed-render",
+          "screenshot",
+          "dom"
+        ],
+        "why": "Rendering at 320 CSS px, checking scroll width and comparing content is scriptable."
+      },
+      "human": {
+        "level": "should",
+        "why": "Loss of content or function at 320 px and the 2D-layout exception need confirmation."
+      },
+      "rationale": "Viewport pass at 320 CSS px."
+    },
+    "1.4.11": {
+      "handle": "Non-text Contrast",
+      "level": "AA",
+      "groups": {
+        "primary": "visual",
+        "secondary": [
+          "keyboard"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [],
+        "evidence": "Retest (4 failing cases): axe 1 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 notice, 2 missed. No WCAG-tagged axe rule; HTML_CodeSniffer's 1.4.11 sniff is a notice. Retest detections came from text-contrast and focus rules on the same pages."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "screenshot",
+          "dom",
+          "focus-trace"
+        ],
+        "why": "Identifying which graphics and component boundaries are required, in every state, is error-prone; the pixel maths is easy."
+      },
+      "human": {
+        "level": "should",
+        "why": "Deciding what is required for understanding needs confirmation."
+      },
+      "rationale": "Visual inspection of components, states and graphics."
+    },
+    "1.4.12": {
+      "handle": "Text Spacing",
+      "level": "AA",
+      "groups": {
+        "primary": "zoom-reflow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:avoid-inline-spacing",
+          "htmlcs:Principle1.Guideline1_4.1_4_12.C36,C35"
+        ],
+        "evidence": "Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 2 missed. axe only finds inline !important spacing that blocks overrides; clipping after the override is not tested."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "text-spacing-render",
+          "screenshot"
+        ],
+        "why": "Comparing renders before and after the text-spacing bookmarklet styles shows clipping and overlap."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm clipping found or missed in screenshots."
+      },
+      "rationale": "Text-spacing override pass."
+    },
+    "1.4.13": {
+      "handle": "Content on Hover or Focus",
+      "level": "AA",
+      "groups": {
+        "primary": "zoom-reflow",
+        "secondary": [
+          "keyboard",
+          "pointer-motion"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle1.Guideline1_4.1_4_13.F95"
+        ],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only; dismissable, hoverable and persistent behaviour needs interaction."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "interaction",
+          "screenshot"
+        ],
+        "why": "A scripted agent can hover, focus, press Escape and move into the popup, but finding all triggers is error-prone."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm with pointer and keyboard."
+      },
+      "rationale": "Checked during the magnified-view pass, where hover content matters most."
+    },
+    "2.1.1": {
+      "handle": "Keyboard",
+      "level": "A",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": [
+          "code-and-tree"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:scrollable-region-focusable",
+          "axe:frame-focusable-content",
+          "axe:server-side-image-map",
+          "htmlcs:Principle2.Guideline2_1.2_1_1.SCR20.MouseDown",
+          "htmlcs:Principle2.Guideline2_1.2_1_1.G90"
+        ],
+        "evidence": "Retest (5 failing cases): axe 5 missed; HTML_CodeSniffer WCAG2AAA 5 missed. Rules catch a few patterns; operability of custom controls with the keyboard needs interaction."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "focus-trace",
+          "interaction",
+          "dom"
+        ],
+        "why": "An agent can tab through and operate controls, but finding every pointer-only function is error-prone."
+      },
+      "human": {
+        "level": "should",
+        "why": "A keyboard pass by a person is quick and reliable."
+      },
+      "rationale": "Keyboard-only pass."
+    },
+    "2.1.2": {
+      "handle": "No Keyboard Trap",
+      "level": "A",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_1.2_1_2.F10"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; traps appear only when focus moves."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "focus-trace",
+          "interaction"
+        ],
+        "why": "A focus trace that stops cycling through the page shows a trap."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm escape methods advised to the user."
+      },
+      "rationale": "Keyboard-only pass."
+    },
+    "2.1.3": {
+      "handle": "Keyboard (No Exception)",
+      "level": "AAA",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:scrollable-region-focusable"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Same limits as 2.1.1, without exceptions."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "focus-trace",
+          "interaction",
+          "dom"
+        ],
+        "why": "Same as 2.1.1."
+      },
+      "human": {
+        "level": "should",
+        "why": "Same as 2.1.1."
+      },
+      "rationale": "Keyboard-only pass."
+    },
+    "2.1.4": {
+      "handle": "Character Key Shortcuts",
+      "level": "A",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; shortcuts live in script."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "interaction",
+          "dom"
+        ],
+        "why": "Pressing printable keys outside inputs and watching for actions can find shortcuts; script reading helps."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm turn-off or remap mechanism."
+      },
+      "rationale": "Keyboard pass."
+    },
+    "2.2.1": {
+      "handle": "Timing Adjustable",
+      "level": "A",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "multi-step-flow"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:meta-refresh",
+          "htmlcs:Principle2.Guideline2_2.2_2_1.F40.2",
+          "htmlcs:Principle2.Guideline2_2.2_2_1.F41.2"
+        ],
+        "evidence": "Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 3 missed; WCAG2AA supplement 2 flagged, 1 missed. Rules catch meta refresh only; script timers and session timeouts are missed. The 2.2.1 sniff is missing from the WCAG2AAA ruleset; the WCAG2AA supplement (D-024) catches the meta refresh cases."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "timing",
+          "interaction",
+          "dom"
+        ],
+        "why": "Waiting and observing can reveal limits; long or server-side limits are hard to trigger."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm the limit and the adjust/extend options."
+      },
+      "rationale": "Time-limit observation pass."
+    },
+    "2.2.2": {
+      "handle": "Pause, Stop, Hide",
+      "level": "A",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:blink",
+          "axe:marquee",
+          "htmlcs:Principle2.Guideline2_2.2_2_2.F4",
+          "htmlcs:Principle2.Guideline2_2.2_2_2.F47",
+          "htmlcs:Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191"
+        ],
+        "evidence": "Retest (4 failing cases): axe 1 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 4 missed. Rules catch obsolete blink and marquee only; CSS/JS animation and auto-updating content are missed."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "timing",
+          "screenshot",
+          "interaction"
+        ],
+        "why": "Screenshots over time show motion; finding and testing pause controls is error-prone."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm pause/stop/hide works."
+      },
+      "rationale": "Observation over time."
+    },
+    "2.2.3": {
+      "handle": "No Timing",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "multi-step-flow"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_2.2_2_3.G5"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "timing",
+          "interaction"
+        ],
+        "why": "Same limits as 2.2.1, without exceptions."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm."
+      },
+      "rationale": "Time-limit pass."
+    },
+    "2.2.4": {
+      "handle": "Interruptions",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:meta-refresh-no-exceptions",
+          "htmlcs:Principle2.Guideline2_2.2_2_4.SCR14"
+        ],
+        "evidence": "Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 3 missed; WCAG2AA supplement 2 flagged, 1 missed. Rules catch meta refresh only; script interruptions such as pop-ups and live updates are missed."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "timing",
+          "interaction"
+        ],
+        "why": "Observing a page over time reveals interruptions; whether they can be postponed needs interaction."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm."
+      },
+      "rationale": "Observation over time."
+    },
+    "2.2.5": {
+      "handle": "Re-authenticating",
+      "level": "AAA",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": [
+          "time-media"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_2.2_2_5.G105,G181"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; session expiry is server behaviour."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "multi-page",
+          "timing",
+          "interaction"
+        ],
+        "why": "Requires letting a session expire mid-process and checking data survives; slow and environment-dependent."
+      },
+      "human": {
+        "level": "should",
+        "why": "Session behaviour on a real system needs confirmation."
+      },
+      "rationale": "Tested along a multi-step process with a session expiry.",
+      "review": "pending"
+    },
+    "2.2.6": {
+      "handle": "Timeouts",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "multi-step-flow"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; data-loss timeouts are server behaviour."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "multi-page",
+          "timing",
+          "dom"
+        ],
+        "why": "Can read warnings in the flow; verifying actual timeout duration is slow."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm."
+      },
+      "rationale": "Time-limit check along a process."
+    },
+    "2.3.1": {
+      "handle": "Three Flashes or Below Threshold",
+      "level": "A",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Neither tool analyses flashing. Dedicated flash analysers (outside our toolset) can decide this from video frames."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "media",
+          "timing"
+        ],
+        "why": "Only with frame-accurate capture fed to a flash analyser; models cannot judge flashes from sparse screenshots."
+      },
+      "human": {
+        "level": "should",
+        "why": "Use a flash analyser rather than human viewing, which is risky; a person confirms the result."
+      },
+      "rationale": "Media and animation pass.",
+      "review": "pending"
+    },
+    "2.3.2": {
+      "handle": "Three Flashes",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_3.2_3_2.G19"
+        ],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only; see 2.3.1."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "media",
+          "timing"
+        ],
+        "why": "Same as 2.3.1; the count rule (no more than three) is simpler than the threshold."
+      },
+      "human": {
+        "level": "should",
+        "why": "Same as 2.3.1."
+      },
+      "rationale": "Media and animation pass.",
+      "review": "pending"
+    },
+    "2.3.3": {
+      "handle": "Animation from Interactions",
+      "level": "AAA",
+      "groups": {
+        "primary": "time-media",
+        "secondary": [
+          "pointer-motion"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_3.2_3_3.C39"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "interaction",
+          "timing",
+          "screenshot"
+        ],
+        "why": "Comparing behaviour with and without prefers-reduced-motion emulation finds some cases."
+      },
+      "human": {
+        "level": "should",
+        "why": "Whether motion is essential is a judgement."
+      },
+      "rationale": "Observing animation triggered by interaction."
+    },
+    "2.4.1": {
+      "handle": "Bypass Blocks",
+      "level": "A",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "keyboard",
+          "screen-reader"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:bypass",
+          "htmlcs:Principle2.Guideline2_4.2_4_1.H64.1",
+          "htmlcs:Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID"
+        ],
+        "evidence": "No test case in the 2026 retest. axe checks for a skip link, heading or landmark; HTML_CodeSniffer checks skip-link targets and frame titles. Whether the mechanism works is not tested."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "accessibility-tree",
+          "focus-trace"
+        ],
+        "why": "Landmarks, headings and a working skip link are visible in tree and focus trace."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Tools plus AI suffice."
+      },
+      "rationale": "Markup and tree check, confirmed in the keyboard pass."
+    },
+    "2.4.2": {
+      "handle": "Page Titled",
+      "level": "A",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:document-title",
+          "htmlcs:Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl",
+          "htmlcs:Principle2.Guideline2_4.2_4_2.H25.1.EmptyTitle",
+          "htmlcs:Principle2.Guideline2_4.2_4_2.H25.2"
+        ],
+        "evidence": "Retest (7 failing cases): axe 5 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 4 flagged, 3 missed. Rules catch missing or empty titles; whether the title describes topic or purpose is only a notice."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "screenshot"
+        ],
+        "why": "Judging a title against page content is an easy reading task."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Tools plus AI suffice."
+      },
+      "rationale": "Reading the title element."
+    },
+    "2.4.3": {
+      "handle": "Focus Order",
+      "level": "A",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": [
+          "screen-reader"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_4.2_4_3.H4.2"
+        ],
+        "evidence": "Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. HTML_CodeSniffer only notices tabindex use; axe's tabindex rule is best-practice. Order without tabindex (CSS reordering, dialogs) is missed."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "focus-trace",
+          "screenshot"
+        ],
+        "why": "Overlaying the focus sequence on the screenshot shows illogical jumps."
+      },
+      "human": {
+        "level": "should",
+        "why": "Whether order preserves meaning is a judgement to confirm."
+      },
+      "rationale": "Keyboard pass."
+    },
+    "2.4.4": {
+      "handle": "Link Purpose (In Context)",
+      "level": "A",
+      "groups": {
+        "primary": "screen-reader",
+        "secondary": [
+          "code-and-tree",
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:link-name",
+          "axe:area-alt",
+          "htmlcs:Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+          "htmlcs:Principle2.Guideline2_4.2_4_9.H30"
+        ],
+        "evidence": "Retest (5 failing cases): axe 2 flagged, 2 asked for review, 1 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 3 notice. Rules catch links with no name; vague names are at best a notice. The 2.4.4 sniff is only in the WCAG2AA ruleset."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "accessibility-tree",
+          "dom"
+        ],
+        "why": "Judging link names with their programmatic context is a reliable reading task."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Link purpose as announced with its context; also answerable from the tree."
+    },
+    "2.4.5": {
+      "handle": "Multiple Ways",
+      "level": "AA",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs knowledge of the whole site."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "multi-page",
+          "dom"
+        ],
+        "why": "Looking for search, sitemap, navigation or links across pages is straightforward."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Site-level check across pages."
+    },
+    "2.4.6": {
+      "handle": "Headings and Labels",
+      "level": "AA",
+      "groups": {
+        "primary": "language-cognition",
+        "secondary": [
+          "code-and-tree"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_4.2_4_6.G130,G131"
+        ],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "accessibility-tree"
+        ],
+        "why": "Judging whether headings and labels describe content is a reading task."
+      },
+      "human": {
+        "level": "should",
+        "why": "'Descriptive' is a quality judgement."
+      },
+      "rationale": "Wording quality."
+    },
+    "2.4.7": {
+      "handle": "Focus Visible",
+      "level": "AA",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31"
+        ],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. Page-level notice only, not tied to the element; axe has no rule."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "focus-trace",
+          "screenshot"
+        ],
+        "why": "Diffing screenshots before and after each focus move shows whether an indicator appears."
+      },
+      "human": {
+        "level": "should",
+        "why": "Subtle indicators need confirmation."
+      },
+      "rationale": "Keyboard pass with visual check."
+    },
+    "2.4.8": {
+      "handle": "Location",
+      "level": "AAA",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_4.2_4_8.H59.1",
+          "htmlcs:Principle2.Guideline2_4.2_4_8.H59.2a"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notices only."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "multi-page",
+          "screenshot",
+          "dom"
+        ],
+        "why": "Breadcrumbs, current-page indicators and step indicators are recognisable."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Site and process level."
+    },
+    "2.4.9": {
+      "handle": "Link Purpose (Link Only)",
+      "level": "AAA",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "screen-reader",
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:link-name",
+          "axe:identical-links-same-purpose",
+          "htmlcs:Principle2.Guideline2_4.2_4_9.H30"
+        ],
+        "evidence": "Retest (9 failing cases): axe 2 flagged, 2 asked for review, 5 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 7 notice. Rules catch empty links; vague link text is a notice per link."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "accessibility-tree"
+        ],
+        "why": "Judging link names alone is a reading task."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Accessible names of links, read without context."
+    },
+    "2.4.10": {
+      "handle": "Section Headings",
+      "level": "AAA",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule decides whether content should be organised with headings."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "screenshot"
+        ],
+        "why": "Spotting sections without headings is a structure-reading task."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Headings structure in markup."
+    },
+    "2.4.11": {
+      "handle": "Focus Not Obscured (Minimum)",
+      "level": "AA",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "focus-trace",
+          "screenshot",
+          "dom"
+        ],
+        "why": "Bounding boxes of the focused element versus sticky or overlay elements can be computed per focus step."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm, especially with user-movable content."
+      },
+      "rationale": "Keyboard pass."
+    },
+    "2.4.12": {
+      "handle": "Focus Not Obscured (Enhanced)",
+      "level": "AAA",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. No rule."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "focus-trace",
+          "screenshot",
+          "dom"
+        ],
+        "why": "Same as 2.4.11 with full visibility required."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm."
+      },
+      "rationale": "Keyboard pass."
+    },
+    "2.4.13": {
+      "handle": "Focus Appearance",
+      "level": "AAA",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31"
+        ],
+        "evidence": "Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 3 notice, 1 missed. Only the page-level 2.4.7 notice; no rule measures indicator area or change contrast."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "focus-trace",
+          "screenshot"
+        ],
+        "why": "Area and 3:1 change contrast can be computed from focused/unfocused screenshot pairs, but the measurement rules are fiddly."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm measurements."
+      },
+      "rationale": "Keyboard pass with visual measurement."
+    },
+    "2.5.1": {
+      "handle": "Pointer Gestures",
+      "level": "A",
+      "groups": {
+        "primary": "pointer-motion",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; gestures live in script."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "interaction"
+        ],
+        "why": "Script reading can find multipoint or path handlers and look for single-pointer alternatives."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm on a touch device."
+      },
+      "rationale": "Pointer pass."
+    },
+    "2.5.2": {
+      "handle": "Pointer Cancellation",
+      "level": "A",
+      "groups": {
+        "primary": "pointer-motion",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "interaction"
+        ],
+        "why": "Down-event handlers can be found in script and tested with press-and-move-away."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm."
+      },
+      "rationale": "Pointer pass."
+    },
+    "2.5.3": {
+      "handle": "Label in Name",
+      "level": "A",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "visual",
+          "pointer-motion"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:label-content-name-mismatch"
+        ],
+        "evidence": "Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 1 notice. axe's rule is experimental and covers some widgets; the retest detections came from missing-label rules on the same pages, not from a mismatch check."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "screenshot",
+          "accessibility-tree"
+        ],
+        "why": "Comparing visible label text with the accessible name is reliable."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices; speech-input testing confirms if wanted."
+      },
+      "rationale": "Most efficiently verified by comparing tree names with visible labels, although the barrier affects speech-input users.",
+      "review": "pending"
+    },
+    "2.5.4": {
+      "handle": "Motion Actuation",
+      "level": "A",
+      "groups": {
+        "primary": "pointer-motion",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "interaction"
+        ],
+        "why": "devicemotion/deviceorientation listeners are findable in script; real-device behaviour is not."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm on a real device."
+      },
+      "rationale": "Device motion pass."
+    },
+    "2.5.5": {
+      "handle": "Target Size (Enhanced)",
+      "level": "AAA",
+      "groups": {
+        "primary": "pointer-motion",
+        "secondary": [
+          "visual"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:target-size"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 flagged; HTML_CodeSniffer WCAG2AAA 1 missed. axe's target-size checks the 24 px minimum (2.5.8), so it only catches 2.5.5 failures that are also below 24 px."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "screenshot"
+        ],
+        "why": "Target bounding boxes are computable; exceptions (inline, equivalent) need judgement."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Pointer-target measurement."
+    },
+    "2.5.6": {
+      "handle": "Concurrent Input Mechanisms",
+      "level": "AAA",
+      "groups": {
+        "primary": "pointer-motion",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "interaction"
+        ],
+        "why": "Script reading can find pointer-type restrictions."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm with several input devices."
+      },
+      "rationale": "Input device pass."
+    },
+    "2.5.7": {
+      "handle": "Dragging Movements",
+      "level": "AA",
+      "groups": {
+        "primary": "pointer-motion",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "interaction",
+          "screenshot"
+        ],
+        "why": "Drag interactions and alternatives can be found; operating them reliably is harder."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm."
+      },
+      "rationale": "Pointer pass."
+    },
+    "2.5.8": {
+      "handle": "Target Size (Minimum)",
+      "level": "AA",
+      "groups": {
+        "primary": "pointer-motion",
+        "secondary": [
+          "automated"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:target-size"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 flagged; HTML_CodeSniffer WCAG2AAA 1 missed. axe measures size and spacing; exceptions (inline, equivalent control, essential) and overlapping targets can need review."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "screenshot"
+        ],
+        "why": "Target geometry is computable."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Tools plus AI suffice."
+      },
+      "rationale": "Pointer-target measurement."
+    },
+    "3.1.1": {
+      "handle": "Language of Page",
+      "level": "A",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:html-has-lang",
+          "axe:html-lang-valid",
+          "axe:html-xml-lang-mismatch",
+          "htmlcs:Principle3.Guideline3_1.3_1_1.H57.2",
+          "htmlcs:Principle3.Guideline3_1.3_1_1.H57.3.Lang"
+        ],
+        "evidence": "Retest (8 failing cases): axe 6 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 4 flagged, 4 missed. Rules catch missing or invalid lang; a valid code for the wrong language passes."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom"
+        ],
+        "why": "Identifying the language of the text and comparing with lang is reliable."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Tools plus AI suffice."
+      },
+      "rationale": "Markup check."
+    },
+    "3.1.2": {
+      "handle": "Language of Parts",
+      "level": "AA",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:valid-lang",
+          "htmlcs:Principle3.Guideline3_1.3_1_2.H58.1.Lang",
+          "htmlcs:Principle3.Guideline3_1.3_1_2.H58"
+        ],
+        "evidence": "Retest (3 failing cases): axe 1 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 3 missed. Rules catch invalid lang values on elements; passages in another language without lang are missed."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom"
+        ],
+        "why": "Language identification of passages is reliable; proper names and loanwords are exceptions."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Markup plus reading."
+    },
+    "3.1.3": {
+      "handle": "Unusual Words",
+      "level": "AAA",
+      "groups": {
+        "primary": "language-cognition",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_1.3_1_3.H40,H54,H60,G62,G70"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom"
+        ],
+        "why": "Finding jargon and idioms is feasible; what is 'unusual' depends on audience."
+      },
+      "human": {
+        "level": "should",
+        "why": "Audience-dependent judgement."
+      },
+      "rationale": "Content reading."
+    },
+    "3.1.4": {
+      "handle": "Abbreviations",
+      "level": "AAA",
+      "groups": {
+        "primary": "language-cognition",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_1.3_1_4.G102,G55,G62,H28,G97"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom"
+        ],
+        "why": "Finding abbreviations and checking for an expansion is a reading task."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Content reading."
+    },
+    "3.1.5": {
+      "handle": "Reading Level",
+      "level": "AAA",
+      "groups": {
+        "primary": "language-cognition",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_1.3_1_5.G86,G103,G79,G153,G160"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom"
+        ],
+        "why": "Estimating reading level and spotting a simpler version is a strength of language models."
+      },
+      "human": {
+        "level": "should",
+        "why": "Readability formulas are language-specific; the level is a judgement."
+      },
+      "rationale": "Content reading."
+    },
+    "3.1.6": {
+      "handle": "Pronunciation",
+      "level": "AAA",
+      "groups": {
+        "primary": "language-cognition",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_1.3_1_6.H62.1.HTML5"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom"
+        ],
+        "why": "Finding words whose meaning depends on pronunciation is language-specific and rare."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm in the content's language."
+      },
+      "rationale": "Content reading."
+    },
+    "3.2.1": {
+      "handle": "On Focus",
+      "level": "A",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_2.3_2_1.G107"
+        ],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. Notice for every input, not tied to behaviour."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "focus-trace",
+          "interaction"
+        ],
+        "why": "Watching URL, window, focus and DOM changes on each focus move detects context changes."
+      },
+      "human": {
+        "level": "should",
+        "why": "Change of context versus change of content is a judgement."
+      },
+      "rationale": "Keyboard pass."
+    },
+    "3.2.2": {
+      "handle": "On Input",
+      "level": "A",
+      "groups": {
+        "primary": "keyboard",
+        "secondary": [
+          "multi-step-flow"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_2.3_2_2.H32.2"
+        ],
+        "evidence": "Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 2 missed. HTML_CodeSniffer flags forms without a submit button; auto-submitting scripts are missed."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "interaction",
+          "dom"
+        ],
+        "why": "Changing each control and watching for context changes is scriptable."
+      },
+      "human": {
+        "level": "should",
+        "why": "Advance warning exception needs judgement."
+      },
+      "rationale": "Keyboard/form interaction pass."
+    },
+    "3.2.3": {
+      "handle": "Consistent Navigation",
+      "level": "AA",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_2.3_2_3.G61"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs several pages."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "multi-page",
+          "dom"
+        ],
+        "why": "Comparing navigation order across pages is a diff."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Cross-page comparison."
+    },
+    "3.2.4": {
+      "handle": "Consistent Identification",
+      "level": "AA",
+      "groups": {
+        "primary": "visual",
+        "secondary": [
+          "multi-step-flow",
+          "code-and-tree"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_2.3_2_4.G197"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs several pages."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "multi-page",
+          "screenshot",
+          "accessibility-tree"
+        ],
+        "why": "Comparing icons and names of same-function components across pages is feasible."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Visual and name comparison across pages.",
+      "review": "pending"
+    },
+    "3.2.5": {
+      "handle": "Change on Request",
+      "level": "AAA",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "keyboard",
+          "multi-step-flow"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:meta-refresh-no-exceptions",
+          "htmlcs:Principle3.Guideline3_2.3_2_5.H83.3",
+          "htmlcs:Principle2.Guideline2_2.2_2_1.F40.2"
+        ],
+        "evidence": "Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 2 missed; WCAG2AA supplement 3 flagged. Rules catch meta refresh and notice new-window links; script redirects and pop-ups are missed."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "interaction"
+        ],
+        "why": "target attributes, redirects and pop-ups are detectable."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Mostly markup and script inspection with a little interaction.",
+      "review": "pending"
+    },
+    "3.2.6": {
+      "handle": "Consistent Help",
+      "level": "A",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; needs several pages."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "multi-page",
+          "dom",
+          "screenshot"
+        ],
+        "why": "Comparing location and order of help mechanisms across pages is a diff."
+      },
+      "human": {
+        "level": "optional",
+        "why": "AI suffices."
+      },
+      "rationale": "Cross-page comparison."
+    },
+    "3.3.1": {
+      "handle": "Error Identification",
+      "level": "A",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": [
+          "screen-reader",
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_3.3_3_1.G83,G84,G85"
+        ],
+        "evidence": "Retest (3 failing cases): axe 1 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 2 notice. Notice once per form; errors only exist after submission. The retest 'flagged' result came from a contrast rule on the same page."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "interaction",
+          "dom",
+          "accessibility-tree"
+        ],
+        "why": "Submitting invalid data and reading errors and their associations is scriptable."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm the error is perceivable in text and programmatically."
+      },
+      "rationale": "Requires going through a form with invalid input.",
+      "review": "pending"
+    },
+    "3.3.2": {
+      "handle": "Labels or Instructions",
+      "level": "A",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:label",
+          "axe:form-field-multiple-labels",
+          "htmlcs:Principle1.Guideline1_3.1_3_1.F68",
+          "htmlcs:Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90"
+        ],
+        "evidence": "Retest (3 failing cases): axe 3 flagged; HTML_CodeSniffer WCAG2AAA 2 flagged, 1 missed. Rules catch missing labels; whether labels and instructions suffice is a notice."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom",
+          "accessibility-tree",
+          "screenshot"
+        ],
+        "why": "Reading labels and required-format hints is reliable."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Tools plus AI suffice."
+      },
+      "rationale": "Markup and tree check of form fields."
+    },
+    "3.3.3": {
+      "handle": "Error Suggestion",
+      "level": "AA",
+      "groups": {
+        "primary": "language-cognition",
+        "secondary": [
+          "multi-step-flow"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_3.3_3_3.G177"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice once per form."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "interaction",
+          "dom"
+        ],
+        "why": "Triggering errors and judging whether suggestions are given is feasible."
+      },
+      "human": {
+        "level": "should",
+        "why": "Quality of suggestions is a judgement."
+      },
+      "rationale": "Wording quality of error messages."
+    },
+    "3.3.4": {
+      "handle": "Error Prevention (Legal, Financial, Data)",
+      "level": "AA",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only; the 3.3.4 sniff is only in the WCAG2AA ruleset (the retest notice came from the 3.3.6 AllForms code)."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "multi-page",
+          "interaction"
+        ],
+        "why": "Needs to decide whether the transaction is legal/financial and to complete it to test review, check or reversal."
+      },
+      "human": {
+        "level": "should",
+        "why": "Real transactions are risky to test automatically."
+      },
+      "rationale": "Process pass."
+    },
+    "3.3.5": {
+      "handle": "Help",
+      "level": "AAA",
+      "groups": {
+        "primary": "language-cognition",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_3.3_3_5.G71,G184,G193"
+        ],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice once per form."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "dom",
+          "screenshot"
+        ],
+        "why": "Help presence is easy to find; whether it is context-sensitive and adequate is a judgement."
+      },
+      "human": {
+        "level": "should",
+        "why": "Adequacy of help."
+      },
+      "rationale": "Content quality."
+    },
+    "3.3.6": {
+      "handle": "Error Prevention (All)",
+      "level": "AAA",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "htmlcs:Principle3.Guideline3_3.3_3_6.G98,G99,G155,G164,G168.AllForms"
+        ],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 notice. Notice once per form."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "multi-page",
+          "interaction"
+        ],
+        "why": "Same as 3.3.4 for all submissions."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm."
+      },
+      "rationale": "Process pass."
+    },
+    "3.3.7": {
+      "handle": "Redundant Entry",
+      "level": "A",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": []
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; needs a multi-step process."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "multi-page",
+          "interaction",
+          "dom"
+        ],
+        "why": "Walking a process and comparing requested data across steps is feasible."
+      },
+      "human": {
+        "level": "should",
+        "why": "Essential and security exceptions need judgement."
+      },
+      "rationale": "Process pass."
+    },
+    "3.3.8": {
+      "handle": "Accessible Authentication (Minimum)",
+      "level": "AA",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. No rule detects a cognitive function test; paste blocking lives in script."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "multi-page",
+          "interaction",
+          "dom",
+          "screenshot"
+        ],
+        "why": "Can spot CAPTCHAs and test paste and autofill; recognising every cognitive test and acceptable alternatives is error-prone."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm the alternative works."
+      },
+      "rationale": "Process pass through login."
+    },
+    "3.3.9": {
+      "handle": "Accessible Authentication (Enhanced)",
+      "level": "AAA",
+      "groups": {
+        "primary": "multi-step-flow",
+        "secondary": [
+          "language-cognition"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. No rule."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "multi-page",
+          "interaction",
+          "dom",
+          "screenshot"
+        ],
+        "why": "Same as 3.3.8 without the object-recognition exception."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm."
+      },
+      "rationale": "Process pass through login."
+    },
+    "4.1.1": {
+      "handle": "Parsing",
+      "level": "A",
+      "removed": "2.2",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "automated"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:duplicate-id",
+          "axe:duplicate-id-active",
+          "htmlcs:Principle4.Guideline4_1.4_1_1.F77"
+        ],
+        "evidence": "Retest (5 failing cases): axe 4 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 4 missed. Removed in WCAG 2.2 (always satisfied for HTML). axe and HTML_CodeSniffer only check duplicate ids; an HTML validator (not in our toolset) could decide it fully. Some retest detections came from list rules."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "dom"
+        ],
+        "why": "Parsing errors are mechanical."
+      },
+      "human": {
+        "level": "optional",
+        "why": "Tools suffice; consider adding a validator."
+      },
+      "rationale": "Markup check; kept for WCAG 2.0/2.1.",
+      "review": "pending"
+    },
+    "4.1.2": {
+      "handle": "Name, Role, Value",
+      "level": "A",
+      "groups": {
+        "primary": "code-and-tree",
+        "secondary": [
+          "screen-reader",
+          "keyboard"
+        ]
+      },
+      "automation": {
+        "level": "partial",
+        "rules": [
+          "axe:button-name",
+          "axe:link-name",
+          "axe:label",
+          "axe:aria-required-attr",
+          "axe:aria-valid-attr-value",
+          "axe:aria-hidden-focus",
+          "axe:frame-title",
+          "axe:nested-interactive",
+          "axe:select-name",
+          "axe:input-button-name",
+          "htmlcs:Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+          "htmlcs:Principle4.Guideline4_1.4_1_2.H91.Button.Name",
+          "htmlcs:Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+          "htmlcs:Principle1.Guideline1_3.1_3_1.F68"
+        ],
+        "evidence": "Retest (16 failing cases): axe 11 flagged, 5 missed; HTML_CodeSniffer WCAG2AAA 8 flagged, 8 missed. Rules catch missing names and invalid ARIA well; state and value updates on interaction are not tested."
+      },
+      "ai": {
+        "level": "likely",
+        "needs": [
+          "accessibility-tree",
+          "dom",
+          "interaction"
+        ],
+        "why": "Reading the tree before and after operating widgets checks names, roles, states and values."
+      },
+      "human": {
+        "level": "should",
+        "why": "Real assistive technology behaviour should be confirmed."
+      },
+      "rationale": "Names, roles and states are read from the tree; a screen reader confirms."
+    },
+    "4.1.3": {
+      "handle": "Status Messages",
+      "level": "AA",
+      "groups": {
+        "primary": "screen-reader",
+        "secondary": [
+          "code-and-tree"
+        ]
+      },
+      "automation": {
+        "level": "none",
+        "rules": [],
+        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; status messages appear after interaction."
+      },
+      "ai": {
+        "level": "possible",
+        "needs": [
+          "interaction",
+          "accessibility-tree",
+          "dom"
+        ],
+        "why": "Can trigger status changes and check for live regions or status roles; actual announcement depends on assistive technology."
+      },
+      "human": {
+        "level": "should",
+        "why": "Confirm the message is announced without focus."
+      },
+      "rationale": "Best heard with a screen reader while interacting."
+    }
+  }
+}

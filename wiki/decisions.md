@@ -200,3 +200,45 @@ column, marked "Supplement".
 the main pass keeps it for comparability (D-016).
 **Consequences:** The main pa11y column remains comparable with 2017; the supplement is not. Runs before
 `20261010T110125Z` (inclusive) have no supplement.
+
+## D-025 — Phase 2 structure: test-method groups, triage and testing recipes (2026-10-10)
+
+**Decision:** Phase 2 (aim 3, D-019) starts by grouping all 87 WCAG 2.x success criteria by test method into ten groups
+(automated, code and accessibility tree, visual, keyboard, screen reader, zoom and reflow, pointer and motion, time and
+media, language and cognition, multi-step flows). Each criterion is triaged in three steps: can automated tools test it,
+can AI test it, and must or should a human test it. The mapping is stored as data in
+`data/mappings/sc-test-methods.json` (AI-proposed, review-pending entries marked, like the WCAG mapping) and validated by
+`npm run wcag:methods`. For each group, a testing recipe in `testing-kit/recipes/` says how to test, written so that both
+a person and an AI agent can follow it. The AI-oriented layer (prompts or a skill, possibly an orchestrator with one
+subagent per group and data collection separated from judging) is generated from the recipes later; the generated
+prompt and its structured result are published as part of the method.
+**Reason:** Grouping by method keeps tools, setup and mental mode together, so a tester switches context as little as
+possible. Triage puts automated checks first because they are cheapest, spends AI on what tools cannot decide, and
+names what still needs a person. Prior groupings (Nav's test protocols, WCAG-EM, ACT Rules, Trusted Tester and others,
+see `wiki/sources/`) are compared in [the grouping analysis](analysis/test-method-grouping.md). Phase 1 retested and
+extended earlier work; phase 2 is new, so its reasoning is documented in full.
+**Consequences:** The automation triage cites the phase 1 retest as evidence. The recipes are meant to be reusable in
+software development, and may move to their own repository once stable.
+
+## D-026 — AI testing is blind to the expected barrier (2026-10-10)
+
+**Decision:** AI test runs use a separate blinded build of the test pages: a neutral page title, no heading or text
+naming the barrier, and an opaque file name. The key from blinded page to test case is used only when results are
+classified.
+**Reason:** Every test page names its barrier in `<title>` and `<h1>` (`fixture-govuk.njk`, `fixture-ail.njk`). An AI
+that reads the page would be told the answer. The automated tools do not read titles this way, so the comparison would
+be unfair without blinding.
+**Consequences:** The blinded build is built when the first AI run is prepared. Matching a reported finding to a test case
+is done by a script: the finding must name a success criterion that the test case is mapped to (`fails`).
+
+## D-027 — AI runs: only on explicit go-ahead, one run first, no transcripts published (2026-10-10)
+
+**Decision:** No AI run against the test pages starts until the project owner says the material is ready. The first
+published AI run is a single run per page (token budget); repeated runs follow over time so variation can be reported.
+Each run records the model IDs and settings in its environment record, and publishes the generated prompt and the
+structured findings. Full transcripts are not published.
+**Reason:** Runs cost tokens and should test a finished method, not a draft. Model output is not deterministic, so a
+single run is reported as such, not as a stable result. Prompt, model and findings are enough to repeat and check a
+run (D-017).
+**Consequences:** Smaller models (such as Claude Sonnet or Haiku) may be used for groups where they are good enough;
+the choice per group is recorded with the run.

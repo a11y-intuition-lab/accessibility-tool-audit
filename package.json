@@ -18,7 +18,8 @@
     "wcag:review": "node scripts/wcag/review-queue.mjs",
     "retest": "node scripts/retest/run.mjs",
     "retest:browsers": "playwright-core install chromium",
-    "classify": "node scripts/classify.mjs"
+    "classify": "node scripts/classify.mjs",
+    "wcag:methods": "node scripts/wcag/test-methods.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",
