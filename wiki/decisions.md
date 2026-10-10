@@ -176,3 +176,14 @@ hits on either page. "No result" remains only for a page that failed to load or 
 **Reason:** Ten GOV.UK test cases (page titles, html `lang`, missing `h1`, keyboard trap, unorganised content) were
 otherwise untestable; GOV.UK tested the linked pages in 2017.
 
+
+## D-023 — Generate media fixtures with scripts (2026-10-10)
+
+**Decision:** Where a test case needs audio or video but no particular recording, AIL generates the media with a script
+in this repository (`scripts/media/`), from arithmetic only, and releases it under CC0 1.0. Files live in
+`assets/ail/media/`, listed with script, length and checksum in its `README.md`.
+**Refines:** D-015. Generated media meets its rule (local, openly licensed) without sourcing third-party files.
+**Reason:** The tools inspect markup and media metadata (for example axe-core `no-autoplay-audio` reads the duration),
+not what the media says, so synthetic content is enough for many media barriers. The script makes the file reproducible.
+**Consequences:** Candidates that need real speech or a human (sign language, audio description, speech over music)
+stay deferred until speech can be generated reproducibly or openly licensed recordings are found.

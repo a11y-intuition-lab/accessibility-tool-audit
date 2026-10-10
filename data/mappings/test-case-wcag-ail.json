@@ -229,6 +229,14 @@
         { "sc": "2.3.2", "relation": "fails", "rationale": "The same area flashes more than three times in one second, whatever its size (AAA)." }
       ]
     },
+    "multimedia-audio-plays-automatically-with-no-way-to-stop-it-ail": {
+      "category": "Multimedia",
+      "title": "Audio plays automatically with no way to stop it",
+      "candidate": "multimedia-audio-plays-automatically-with-no-way-to-stop-it",
+      "wcag": [
+        { "sc": "1.4.2", "relation": "fails", "technique": "F93", "rationale": "A 12-second looping music track starts automatically when the page loads, with no controls and no other way to pause, stop or change its volume." }
+      ]
+    },
     "images-decorative-image-with-non-empty-alt-text-ail": {
       "category": "Images",
       "title": "Decorative image with non-empty alt text",

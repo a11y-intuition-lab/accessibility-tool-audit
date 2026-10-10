@@ -1735,6 +1735,21 @@
       ],
       "notes": "axe-core has no rule for text that looks like a list."
     },
+    "multimedia-audio-plays-automatically-with-no-way-to-stop-it-ail": {
+      "axe": [
+        {
+          "rationale": "Flags <audio>/<video> that autoplay for more than 3 seconds without a control mechanism.",
+          "rule": "no-autoplay-audio"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_2.F23",
+          "rationale": "Notice emitted only when the page has audio or object elements: check that autoplaying audio can be paused or stopped."
+        }
+      ],
+      "notes": "Generated audio, 12 s, autoplay and loop, no controls (D-023)."
+    },
     "multimedia-embedded-audio-file-is-missing-text-alternative": {
       "axe": [
         {

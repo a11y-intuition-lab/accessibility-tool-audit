@@ -138,8 +138,8 @@
       "priority": "high",
       "fixture": "media",
       "gap": "uncovered",
-      "status": "deferred",
-      "deferred_reason": "Needs an openly licensed local audio file (D-015)."
+      "status": "implemented",
+      "test_case": "multimedia-audio-plays-automatically-with-no-way-to-stop-it-ail"
     },
     {
       "id": "multimedia-speech-audio-with-loud-background-music",
