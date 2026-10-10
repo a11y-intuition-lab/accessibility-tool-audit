@@ -1,0 +1,352 @@
+{
+  "tool": "pa11y",
+  "version": "10.0.0",
+  "htmlcsVersion": "2.6.0",
+  "standard": "WCAG2AAA",
+  "slug": "navigation-only-one-way-to-find-pages-in-a-set-ail",
+  "origin": "ail-2026",
+  "url": "http://127.0.0.1:34247/accessibility-tool-audit/example-pages/ail/ways-2.html",
+  "startedAt": "2026-10-10T11:39:35.708Z",
+  "error": null,
+  "documentTitle": "Fishing licence guide, part 2 of 3: buying a licence - Example Council",
+  "issues": [
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_2.H25.2",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that the title element describes the document.",
+      "selector": "html > head > title",
+      "context": "<title>Fishing licence guide, part 2 o...</title>"
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that text of the link describes the purpose of the link.",
+      "selector": "html > body > main > p:nth-child(4) > a",
+      "context": "<a href=\"ways-1.html\">Previous: who needs a licence</a>"
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that text of the link describes the purpose of the link.",
+      "selector": "html > body > main > p:nth-child(5) > a",
+      "context": "<a href=\"ways-3.html\">Next: rules when you fish</a>"
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_2.G57",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that the content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_3.G96",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_4.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_6.ARIA11",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that the purpose of User Interface Components, icons, and regions can be programmatically determined.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_1.G14,G182",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that any information conveyed using colour alone is also available in text, or through other visual cues.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_8.G148,G156,G175",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that a mechanism is available for the user to select foreground and background colours for blocks of text, either through the Web page or the browser.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_8.H87,C20",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that a mechanism exists to reduce the width of a block of text to no more than 80 characters (or 40 in Chinese, Japanese or Korean script).",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_8.C19,G172,G169",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that blocks of text are not fully justified - that is, to both left and right edges - or a mechanism exists to remove full justification.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_8.G188,C21",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that line spacing in blocks of text are at least 150% in paragraphs, and paragraph spacing is at least 1.5 times the line spacing, or that a mechanism is available to achieve this.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_8.H87,G146,C26",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that text can be resized without assistive technology up to 200 percent without requiring the user to scroll horizontally on a full-screen window.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_10.C32,C31,C33,C38,SCR34,G206",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for:     Vertical scrolling content at a width equivalent to 320 CSS pixels;     Horizontal scrolling content at a height equivalent to 256 CSS pixels;     Except for parts of the content which require two-dimensional layout for usage or meaning.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_11.G195,G207,G18,G145,G174,F78",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that the visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):     User Interface Components: Visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author;     Graphical Objects: Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_12.C36,C35",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that no loss of content or functionality occurs by setting all of the following and by changing no other style property:              Line height (line spacing) to at least 1.5 times the font size;         Spacing following paragraphs to at least 2 times the font size;         Letter spacing (tracking) to at least 0.12 times the font size;         Word spacing to at least 0.16 times the font size.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_13.F95",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:              Dismissable: A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content;         Hoverable: If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing;         Persistent: The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_1.2_1_4.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that if a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:              Turn off: A mechanism is available to turn the shortcut off;         Remap: A mechanism is available to remap the shortcut to use one or more non-printable keyboard characters (e.g. Ctrl, Alt, etc);         Active only on focus: The keyboard shortcut for a user interface component is only active when that component has focus.     ",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "If any part of the content moves, scrolls or blinks for more than 5 seconds, or auto-updates, check that there is a mechanism available to pause, stop, or hide the content.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_3.G5",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_4.SCR14",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that all interruptions (including updates to content) can be postponed or suppressed by the user, except interruptions involving an emergency.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_5.G105,G181",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "If this Web page is part of a set of Web pages with an inactivity time limit, check that an authenticated user can continue the activity without loss of data after re-authenticating.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_6.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_3.2_3_2.G19",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that no component of the content flashes more than three times in any 1-second period.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_3.2_3_3.C39",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "If this Web page is not part of a linear process, check that there is more than one way of locating this Web page within a set of Web pages.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_6.G130,G131",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that headings and labels describe topic or purpose.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that there is at least one mode of operation where the keyboard focus indicator can be visually located on user interface controls.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_5.2_5_1.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that all functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_5.2_5_2.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that for functionality that can be operated using a single pointer, at least one of the following is true:         No Down-Event: The down-event of the pointer is not used to execute any part of the function;         Abort or Undo: Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion;         Up Reversal: The up-event reverses any outcome of the preceding down-event;         Essential: Completing the function on the down-event is essential.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_5.2_5_3.F96",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that for user interface components with labels that include text or images of text, the name contains the text that is presented visually.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_5.2_5_4.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when:              Supported Interface: The motion is used to operate functionality through an accessibility supported interface;         Essential: The motion is essential for the function and doing so would invalidate the activity.     ",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_5.2_5_5.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that the size of the target for pointer inputs is at least 44 by 44 CSS pixels except when:              Equivalent: The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels;         Inline: The target is in a sentence or block of text;         User Agent Control: The size of the target is determined by the user agent and is not modified by the author;         Essential: A particular presentation of the target is essential to the information being conveyed.     ",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle2.Guideline2_5.2_5_6.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that the content does not restrict use of input modalities available on a platform except where the restriction is essential, required to ensure the security of the content, or required to respect user settings.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle3.Guideline3_1.3_1_2.H58",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Ensure that any change in language is marked using the lang and/or xml:lang attribute on an element, as appropriate.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle3.Guideline3_1.3_1_3.H40,H54,H60,G62,G70",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that there is a mechanism available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle3.Guideline3_1.3_1_4.G102,G55,G62,H28,G97",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that a mechanism for identifying the expanded form or meaning of abbreviations is available.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle3.Guideline3_1.3_1_5.G86,G103,G79,G153,G160",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Where the content requires reading ability more advanced than the lower secondary education level, supplemental content or an alternative version should be provided.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_3.G61",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that navigational mechanisms that are repeated on multiple Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_4.G197",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that components that have the same functionality within this Web page are identified consistently in the set of Web pages to which it belongs.",
+      "selector": "",
+      "context": null
+    },
+    {
+      "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_3.",
+      "type": "notice",
+      "typeCode": 3,
+      "message": "Check that status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.",
+      "selector": "",
+      "context": null
+    }
+  ],
+  "durationMs": 1783,
+  "linkedPage": "example-pages/ail/ways-2.html"
+}

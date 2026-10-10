@@ -1,0 +1,202 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "multimedia-flashing-content-doesnt-have-warning",
+  "origin": "govuk-2017",
+  "url": "http://127.0.0.1:34247/accessibility-tool-audit/tests/multimedia-flashing-content-doesnt-have-warning.html",
+  "startedAt": "2026-10-10T11:38:20.077Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T11:38:21.748Z",
+    "violations": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1>Flashing content doesn't have warning</h1>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "frame-tested",
+        "impact": "critical",
+        "tags": [
+          "cat.structure",
+          "best-practice",
+          "review-item"
+        ],
+        "description": "Ensure <iframe> and <frame> elements contain the axe-core script",
+        "help": "Frames should be tested with axe-core",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-tested?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "iframe"
+            ],
+            "html": "<iframe allowfullscreen=\"\" frameborder=\"0\" height=\"315\" src=\"https://www.youtube.com/embed/gwoQRKCEHgY\" title=\"Banned Pokemon scene\" width=\"560\"></iframe>",
+            "impact": "critical",
+            "failureSummary": "Fix all of the following:\n  The iframe still has to be tested with axe-core",
+            "checks": {
+              "any": [],
+              "all": [
+                "frame-tested"
+              ],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "passesCount": 18,
+    "passesRuleIds": [
+      "aria-hidden-body",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "empty-heading",
+      "frame-title",
+      "frame-title-unique",
+      "heading-order",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-main",
+      "landmark-one-main",
+      "landmark-unique",
+      "page-has-heading-one",
+      "region"
+    ],
+    "inapplicableCount": 86,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-roles",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "autocomplete-valid",
+      "avoid-inline-spacing",
+      "blink",
+      "button-name",
+      "bypass",
+      "definition-list",
+      "dlitem",
+      "duplicate-id",
+      "duplicate-id-active",
+      "duplicate-id-aria",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "html-xml-lang-mismatch",
+      "identical-links-same-purpose",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-content-name-mismatch",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "link-in-text-block",
+      "link-name",
+      "list",
+      "listitem",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "p-as-heading",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "target-size",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [
+    {
+      "url": "https://www.youtube.com/api/stats/qoe?cpn=keGmReoFteN8EK3P&el=embedded&ns=yt&fexp=v1%2C100673025%2C627%2C-76669008%2C494890%2C26564109%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C5470%2C24976%2C18706%2C26008%2C13016%2C16087%2C6621%2C2783%2C23826%2C9500%2C1840%2C29673%2C23959%2C41206%2C20588%2C4199%2C30114%2C9181%2C32874%2C20109%2C6032%2C1168%2C372%2C3793%2C3965%2C34321%2C11462%2C26844%2C1355%2C13723%2C4366%2C9716%2C3614%2C24249%2C2290%2C3844%2C17159%2C1340%2C6470%2C4434%2C3243%2C2%2C17339%2C9037%2C1538%2C5824%2C20491%2C17956%2C15389%2C9178%2C8035%2C1658%2C2511%2C2085%2C9279%2C3637%2C11%2C5315%2C4012%2C3038%2C8892%2C5018%2C2971%2C4251%2C3749%2C8417%2C310%2C1405%2C12409%2C9%2C2535%2C1548%2C186%2C165%2C14024%2C1217%2C4328&cl=994693141&seq=1&event=streamingstats&docid=gwoQRKCEHgY&cbr=HeadlessChrome&cbrver=153.0.0.0&c=WEB_EMBEDDED_PLAYER&cver=2.20261007.01.00&cplayer=UNIPLAYER&cos=X11&cplatform=DESKTOP&vps=0.000:N,0.000:ER&cmt=0.000:0.000,0.000:0.000&error=0.000:auth::0.000:0;a6s.0;r.Video_unavailable&vis=0.000:0&bh=0.000:0.000&qclc=ChBrZUdtUmVvRnRlTjhFSzNQEAE",
+      "resourceType": "fetch",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "localNon200": [],
+  "durationMs": 1710
+}

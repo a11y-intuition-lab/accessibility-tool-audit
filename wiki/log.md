@@ -156,3 +156,11 @@ Append-only, newest last.
 - Mapping: the two meta refresh cases list their WCAG2AA-only codes (`2_2_1.F41.2`, `2_2_1.F40.2`) in `htmlcsAA`. A
   partial check confirmed both fire in the WCAG2AA pass.
 - Older classified runs are unchanged (reclassifying them with the new script gives the same results).
+
+## 2026-10-10 — Retest run 20261010T112606Z (first with the WCAG2AA supplement)
+
+- Full run from a clean commit, 221 test pages. axe-core and the main pa11y pass give the same results as run
+  `20261010T110125Z` for every test case.
+- Supplement (`pa11yAA`): differs from the main pa11y result on 2 test cases, the two meta refresh cases (not found →
+  issue found). Other WCAG2AA-only warnings either duplicate a WCAG2AAA check (contrast under 1.4.3 instead of 1.4.6) or
+  are incidental (heading-nesting warning G141 on fixtures that use `h4`), so no other `htmlcsAA` codes were added.
