@@ -56,7 +56,7 @@ export default {
     { key: 'ail:pa11y', label: 'pa11y (HTML_CodeSniffer)', who: 'AIL', when: '2026', era: 'now', engine: 'HTML_CodeSniffer', version: latest?.tools.html_codesniffer },
     // Supplementary WCAG2AA pass (D-024): not comparable with 2017, shown after the comparable columns.
     ...(latest?.hasSupplement
-      ? [{ key: 'ail:pa11yAA', label: 'pa11y, WCAG2AA added', who: 'AIL', when: '2026', era: 'supplement', engine: 'HTML_CodeSniffer', version: latest.tools.html_codesniffer }]
+      ? [{ key: 'ail:pa11yAA', label: 'pa11y, WCAG2AA standard', who: 'AIL', when: '2026', era: 'supplement', engine: 'HTML_CodeSniffer' }]
       : []),
   ],
   engines: [
