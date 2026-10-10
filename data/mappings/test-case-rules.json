@@ -415,6 +415,12 @@
       "htmlcs": [],
       "notes": "HTML_CodeSniffer does not check required ARIA states."
     },
+    "forms-data-submission-without-confirmation-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPage": "example-pages/ail/message-sent.html",
+      "notes": "rules not yet mapped"
+    },
     "forms-empty-label-found": {
       "axe": [
         {
@@ -534,6 +540,12 @@
         }
       ],
       "notes": "axe-core has no rule for a fieldset without a legend."
+    },
+    "forms-financial-submission-without-review-or-undo-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPage": "example-pages/ail/payment-sent.html",
+      "notes": "rules not yet mapped"
     },
     "forms-focus-on-field-opens-new-window-ail": {
       "axe": [],
@@ -701,6 +713,12 @@
         }
       ],
       "notes": "axe-core now accepts a placeholder as an accessible name, so label passes; GOV.UK counted it as found in 2017."
+    },
+    "forms-previously-entered-information-requested-again-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPage": "example-pages/ail/billing-address.html",
+      "notes": "rules not yet mapped"
     },
     "forms-status-message-not-announced-ail": {
       "axe": [],
@@ -881,6 +899,12 @@
       "axe": [],
       "htmlcs": [],
       "notes": "No rule checks the wmode parameter. HTML_CodeSniffer 2_1_2.F10 (plugin keyboard trap) and the media notices on this object are different problems."
+    },
+    "html-page-regions-not-identified-with-landmarks-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPage": "example-pages/ail/no-landmarks.html",
+      "notes": "rules not yet mapped"
     },
     "html-pre-element-without-code-element-inside-it": {
       "axe": [],
@@ -1491,6 +1515,15 @@
       "htmlcs": [],
       "notes": "No rule analyses flashing in embedded video. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_3_x)"
     },
+    "navigation-help-link-in-inconsistent-place-across-pages-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPages": [
+        "example-pages/ail/help-1.html",
+        "example-pages/ail/help-2.html"
+      ],
+      "notes": "rules not yet mapped"
+    },
     "navigation-inadequately-sized-clickable-targets-found": {
       "axe": [
         {
@@ -1501,6 +1534,36 @@
       "htmlcs": [],
       "notes": "HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_5_5)"
     },
+    "navigation-navigation-order-differs-between-pages-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPages": [
+        "example-pages/ail/nav-order-1.html",
+        "example-pages/ail/nav-order-2.html",
+        "example-pages/ail/nav-order-3.html"
+      ],
+      "notes": "rules not yet mapped"
+    },
+    "navigation-no-indication-of-location-within-a-set-of-pages-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPages": [
+        "example-pages/ail/location-1.html",
+        "example-pages/ail/location-2.html",
+        "example-pages/ail/location-3.html"
+      ],
+      "notes": "rules not yet mapped"
+    },
+    "navigation-only-one-way-to-find-pages-in-a-set-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPages": [
+        "example-pages/ail/ways-1.html",
+        "example-pages/ail/ways-2.html",
+        "example-pages/ail/ways-3.html"
+      ],
+      "notes": "rules not yet mapped"
+    },
     "navigation-repeated-navigation-block-cannot-be-bypassed-ail": {
       "axe": [
         {
@@ -1510,6 +1573,15 @@
       ],
       "htmlcs": [],
       "notes": "HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_4_1.G1,G123,G124,H69) The barrier is only meaningful across pages (2.4.1 is mapped as related)."
+    },
+    "navigation-same-function-labelled-differently-on-different-pages-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPages": [
+        "example-pages/ail/search-1.html",
+        "example-pages/ail/search-2.html"
+      ],
+      "notes": "rules not yet mapped"
     },
     "page-layout-content-locked-to-portrait-orientation-ail": {
       "axe": [

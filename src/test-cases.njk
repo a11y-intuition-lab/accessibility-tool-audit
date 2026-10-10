@@ -29,9 +29,15 @@ fixtures: true
   <p class="site-origin">Origin: {{ site.origins[item.data.origin] }}
     {%- if item.data.corrects %}. Corrected version of <a href="#{{ item.data.corrects }}">a GOV.UK test case</a>{% endif %}</p>
   <p class="site-origin">WCAG: {% for m in map %}{{ m.sc }} ({{ m.level }}, {{ m.relation }}){% if not loop.last %}; {% endif %}{% else %}no success criterion (best practice){% endfor %}</p>
+  {%- if item.data.head or item.data.combinedNote %}
+  {#- Barriers in the page head (such as a meta refresh) or that must never be active here (flashing, timers) are only
+      on the test case's own page. #}
+  <p class="site-origin">{{ item.data.combinedNote or "This example works through the page head, so it is only active on its own page." }} <a href="{{ ('/tests/' + item.fileSlug + '.html') | url }}">Open the example on its own page</a>.</p>
+  {%- else %}
   <div class="example">
     {{ item.templateContent | combinedExample | safe }}
   </div>
+  {%- endif %}
   </article>
   {%- endfor %}
 </section>

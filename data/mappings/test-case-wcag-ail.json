@@ -219,6 +219,438 @@
         { "sc": "3.3.8", "relation": "fails", "technique": "F109", "rationale": "The password field cancels paste events, so password managers and copy-paste cannot be used and the user must transcribe the password." },
         { "sc": "3.3.9", "relation": "fails", "technique": "F109", "rationale": "Same failure at AAA level." }
       ]
+    },
+    "multimedia-locally-flashing-animation-above-the-general-flash-threshold-ail": {
+      "category": "Multimedia",
+      "title": "Locally flashing animation above the general flash threshold",
+      "candidate": "multimedia-locally-flashing-animation-above-the-general-flash-threshold",
+      "wcag": [
+        { "sc": "2.3.1", "relation": "fails", "rationale": "After the start button is selected, a 400 x 300 px area (larger than the 341 x 256 px small safe area) alternates between black and saturated red five times a second, above the general and red flash thresholds of three flashes per second." },
+        { "sc": "2.3.2", "relation": "fails", "rationale": "The same area flashes more than three times in one second, whatever its size (AAA)." }
+      ]
+    },
+    "images-decorative-image-with-non-empty-alt-text-ail": {
+      "category": "Images",
+      "title": "Decorative image with non-empty alt text",
+      "candidate": "images-decorative-image-with-non-empty-alt-text",
+      "wcag": [
+        { "sc": "1.1.1", "relation": "fails", "technique": "F39", "rationale": "A purely decorative wavy line has alt=\"decorative border image\", so screen readers announce it instead of ignoring it." }
+      ]
+    },
+    "images-icon-font-conveys-meaning-without-text-alternative-ail": {
+      "category": "Images",
+      "title": "Icon conveys meaning without text alternative (icon font pattern)",
+      "candidate": "images-icon-font-conveys-meaning-without-text-alternative",
+      "wcag": [
+        { "sc": "1.1.1", "relation": "fails", "technique": "F3", "rationale": "Only the CSS-drawn phone and fax icons on empty <i> elements (the icon-font pattern) say which number is for phone calls and which for fax; they have no text alternative." }
+      ]
+    },
+    "images-image-of-text-used-for-a-heading-ail": {
+      "category": "Images",
+      "title": "Image of text used for a heading",
+      "candidate": "images-image-of-text-used-for-a-heading",
+      "wcag": [
+        { "sc": "1.4.5", "relation": "fails", "rationale": "The heading \"Opening hours\" is a PNG of bold serif text that CSS could produce; users cannot change its font, size, colour or spacing." },
+        { "sc": "1.4.9", "relation": "fails", "rationale": "Image of text that is neither decoration nor essential (AAA)." }
+      ]
+    },
+    "tables-data-table-with-role-presentation-ail": {
+      "category": "Tables",
+      "title": "Data table with role=\"presentation\"",
+      "candidate": "tables-data-table-with-role-presentation",
+      "wcag": [
+        { "sc": "1.3.1", "relation": "fails", "technique": "F92", "rationale": "role=\"presentation\" on a data table removes its table, row and header semantics, so the relationships shown visually are not programmatically determinable." }
+      ]
+    },
+    "tables-headers-attribute-references-wrong-header-ids-ail": {
+      "category": "Tables",
+      "title": "Headers attribute references wrong header ids",
+      "candidate": "tables-headers-attribute-references-wrong-header-ids",
+      "wcag": [
+        { "sc": "1.3.1", "relation": "fails", "technique": "F90", "rationale": "The headers attributes of every cell in the Child row point to the Adult row header and to the wrong fare columns, so assistive technology announces the wrong headers for those cells." }
+      ]
+    },
+    "tables-layout-table-uses-th-and-caption-ail": {
+      "category": "Tables",
+      "title": "Layout table uses th and caption",
+      "candidate": "tables-layout-table-uses-th-and-caption",
+      "wcag": [
+        { "sc": "1.3.1", "relation": "fails", "technique": "F46", "rationale": "A table used only to place a start link beside a paragraph has a caption and a th cell, so it is announced as a data table with a header that has no tabular relationship." }
+      ]
+    },
+    "content-table-formatted-with-spaces-in-preformatted-text-ail": {
+      "category": "Content",
+      "title": "Table formatted with spaces in preformatted text",
+      "candidate": "content-table-formatted-with-spaces-in-preformatted-text",
+      "wcag": [
+        { "sc": "1.3.1", "relation": "fails", "technique": "F34", "rationale": "Tabular data is laid out with spaces in a pre element, so rows, columns and headers are not programmatically determinable." },
+        { "sc": "1.3.2", "relation": "fails", "technique": "F34", "rationale": "Read in source order the columns run together line by line, so the meaning of each value depends on its visual position." }
+      ]
+    },
+    "content-spaces-used-to-spread-out-letters-of-a-word-ail": {
+      "category": "Content",
+      "title": "Spaces used to spread out letters of a word",
+      "candidate": "content-spaces-used-to-spread-out-letters-of-a-word",
+      "wcag": [
+        { "sc": "1.3.2", "relation": "fails", "technique": "F32", "rationale": "The heading \"Welcome\" is typed with spaces between its letters for visual effect, so it is read as separate letters rather than as a word." }
+      ]
+    },
+    "content-instructions-rely-on-shape-ail": {
+      "category": "Content",
+      "title": "Instructions rely on shape",
+      "candidate": "content-instructions-rely-on-shape",
+      "wcag": [
+        { "sc": "1.3.3", "relation": "fails", "technique": "F14", "rationale": "The instructions identify the two buttons only by their shape (\"round\", \"square\"); the buttons have no visible text that the instructions refer to." }
+      ]
+    },
+    "content-graphical-symbol-alone-conveys-meaning-ail": {
+      "category": "Content",
+      "title": "Graphical symbol alone conveys meaning",
+      "candidate": "content-graphical-symbol-alone-conveys-meaning",
+      "wcag": [
+        { "sc": "1.3.3", "relation": "fails", "technique": "F26", "rationale": "Only a tick symbol shows which sections are complete; there is no text that says so." },
+        { "sc": "1.1.1", "relation": "fails", "technique": "F26", "rationale": "The ticks convey information (section complete) but are hidden from assistive technology and have no text alternative." }
+      ]
+    },
+    "content-jargon-used-without-definition-ail": {
+      "category": "Content",
+      "title": "Jargon used without definition",
+      "candidate": "content-jargon-used-without-definition",
+      "wcag": [
+        { "sc": "3.1.3", "relation": "fails", "rationale": "Specialised insurance terms (subrogation, indemnity, average clause, contributory negligence, pro rata) are used with no definition, glossary or explanation (AAA)." }
+      ]
+    },
+    "content-ambiguous-word-without-pronunciation-ail": {
+      "category": "Content",
+      "title": "Ambiguous word without pronunciation",
+      "candidate": "content-ambiguous-word-without-pronunciation",
+      "wcag": [
+        { "sc": "3.1.6", "relation": "fails", "rationale": "\"Minute\" can mean \"very small\" (my-NEWT) or refer to the minutes of a meeting (MIN-it); the meaning depends on the pronunciation, which is not given (AAA)." }
+      ]
+    },
+    "page-layout-message-asks-user-to-rotate-device-ail": {
+      "category": "Page Layout",
+      "title": "Message asks user to rotate device",
+      "candidate": "page-layout-message-asks-user-to-rotate-device",
+      "wcag": [
+        { "sc": "1.3.4", "relation": "fails", "technique": "F100", "rationale": "In a landscape viewport the content is hidden and only a message asking the user to rotate the device to portrait is shown." }
+      ]
+    },
+    "page-layout-content-lost-when-reflowed-ail": {
+      "category": "Page Layout",
+      "title": "Content lost when reflowed",
+      "candidate": "page-layout-content-lost-when-reflowed",
+      "wcag": [
+        { "sc": "1.4.10", "relation": "fails", "technique": "F102", "rationale": "At a width of 320 CSS px (and up to 30em) a media query hides the Weekends column, and the information is not available in any other way." }
+      ]
+    },
+    "html-aria-list-role-without-listitem-children-ail": {
+      "category": "HTML",
+      "title": "ARIA list role without listitem children",
+      "candidate": "html-aria-list-role-without-listitem-children",
+      "wcag": [
+        { "sc": "1.3.1", "relation": "fails", "rationale": "The container has role=\"list\" but its children are plain div elements without role=\"listitem\", so the list is exposed with no items." }
+      ]
+    },
+    "html-page-regions-not-identified-with-landmarks-ail": {
+      "category": "HTML",
+      "title": "Page regions not identified with landmarks",
+      "candidate": "html-page-regions-not-identified-with-landmarks",
+      "wcag": [
+        { "sc": "1.3.6", "relation": "fails", "rationale": "On the linked page the header, navigation, main content and footer are plain div elements, so the purpose of the regions cannot be programmatically determined (no landmarks; AAA)." },
+        { "sc": "2.4.1", "relation": "related", "rationale": "The linked page has no skip link, landmarks or headings to bypass the navigation; whether the navigation repeats across pages is context not on the page (borderline)." },
+        { "sc": "1.3.1", "relation": "related", "rationale": "The regions are visually distinct but not marked up; landmarks are one of several ways to meet 1.3.1 for page regions." }
+      ]
+    },
+    "colour-and-contrast-text-over-background-image-with-insufficient-contrast-ail": {
+      "category": "Colour and Contrast",
+      "title": "Text over background image with insufficient contrast",
+      "candidate": "colour-and-contrast-text-over-background-image-with-insufficient-contrast",
+      "wcag": [
+        { "sc": "1.4.3", "relation": "fails", "technique": "F83", "rationale": "White 20px text over a light sky background image with no overlay: about 1.1:1 to 1.3:1, far below 4.5:1." },
+        { "sc": "1.4.6", "relation": "fails", "technique": "F83", "rationale": "Below the 7:1 enhanced minimum (AAA)." }
+      ]
+    },
+    "colour-and-contrast-focus-indicator-has-insufficient-contrast-ail": {
+      "category": "Colour and Contrast",
+      "title": "Focus indicator has insufficient contrast",
+      "candidate": "colour-and-contrast-focus-indicator-has-insufficient-contrast",
+      "wcag": [
+        { "sc": "1.4.11", "relation": "fails", "technique": "F78", "rationale": "The only focus indicator is a light grey (#cccccc) outline on white, 1.61:1, below the 3:1 needed for a visual state of a component." },
+        { "sc": "2.4.13", "relation": "fails", "technique": "F78", "rationale": "The focus indicator does not have a 3:1 contrast between focused and unfocused states (AAA)." },
+        { "sc": "2.4.7", "relation": "related", "rationale": "A focus indicator is present, so focus is technically visible; its low contrast makes it hard to see." }
+      ]
+    },
+    "colour-and-contrast-informative-icon-has-insufficient-contrast-ail": {
+      "category": "Colour and Contrast",
+      "title": "Informative icon has insufficient contrast",
+      "candidate": "colour-and-contrast-informative-icon-has-insufficient-contrast",
+      "wcag": [
+        { "sc": "1.4.11", "relation": "fails", "rationale": "The status icons (accepted, rejected) are the only visual indication of status and are light grey (#c0c0c0) on white, 1.81:1, below 3:1." }
+      ]
+    },
+    "css-text-sized-only-in-viewport-units-ail": {
+      "category": "CSS",
+      "title": "Text sized only in viewport units",
+      "candidate": "css-text-sized-only-in-viewport-units",
+      "wcag": [
+        { "sc": "1.4.4", "relation": "fails", "technique": "F94", "rationale": "The text is sized only with vw units (font-size: 1.5vw), so browser zoom does not make it larger; it gets smaller as the viewport narrows." }
+      ]
+    },
+    "css-form-controls-do-not-resize-with-text-ail": {
+      "category": "CSS",
+      "title": "Form controls do not resize with text",
+      "candidate": "css-form-controls-do-not-resize-with-text",
+      "wcag": [
+        { "sc": "1.4.4", "relation": "fails", "technique": "F80", "rationale": "The labels are sized in em but the text inputs in px, so when only the text size is increased (browser font-size setting) the input text stays at 14px; page zoom enlarges both (borderline)." }
+      ],
+      "review": "pending"
+    },
+    "css-inline-text-spacing-set-with-important-ail": {
+      "category": "CSS",
+      "title": "Inline text spacing set with !important",
+      "candidate": "css-inline-text-spacing-set-with-important",
+      "wcag": [
+        { "sc": "1.4.12", "relation": "fails", "rationale": "line-height, letter-spacing and word-spacing are set in style attributes with !important, so user styles cannot apply the 1.4.12 text spacing (ACT rules 24afc2, 78fd32, 9e45ec)." }
+      ]
+    },
+    "keyboard-access-tooltip-cannot-be-dismissed-with-escape-ail": {
+      "category": "Keyboard Access",
+      "title": "Tooltip cannot be dismissed with Escape",
+      "candidate": "keyboard-access-tooltip-cannot-be-dismissed-with-escape",
+      "wcag": [
+        { "sc": "1.4.13", "relation": "fails", "rationale": "The tooltip that appears on hover or focus covers the paragraph below and can only be hidden by moving the pointer or focus away; Escape does not dismiss it." }
+      ]
+    },
+    "keyboard-access-drawing-canvas-with-no-keyboard-alternative-ail": {
+      "category": "Keyboard Access",
+      "title": "Drawing canvas with no keyboard alternative",
+      "candidate": "keyboard-access-drawing-canvas-with-no-keyboard-alternative",
+      "wcag": [
+        { "sc": "2.1.3", "relation": "fails", "rationale": "The signature can only be drawn with a pointer; there is no keyboard way to sign, such as typing a name (AAA, no exception for path-dependent input)." },
+        { "sc": "2.1.1", "relation": "related", "rationale": "Freehand signing depends on the path of movement, which is the exception in 2.1.1." }
+      ]
+    },
+    "keyboard-access-sticky-header-partly-hides-focused-element-ail": {
+      "category": "Keyboard Access",
+      "title": "Sticky header partly hides focused element",
+      "candidate": "keyboard-access-sticky-header-partly-hides-focused-element",
+      "wcag": [
+        { "sc": "2.4.12", "relation": "fails", "rationale": "When focus moves back up the list (Shift+Tab), the focused link scrolls to the top of the panel and the sticky header covers its upper part (AAA)." },
+        { "sc": "2.4.11", "relation": "related", "rationale": "The focused link is only partly hidden, so 2.4.11 (not entirely hidden) is met." }
+      ]
+    },
+    "keyboard-access-disclosure-button-without-expanded-state-ail": {
+      "category": "Keyboard Access",
+      "title": "Disclosure button without expanded state",
+      "candidate": "keyboard-access-disclosure-button-without-expanded-state",
+      "wcag": [
+        { "sc": "4.1.2", "relation": "fails", "rationale": "The button shows and hides a section but never sets aria-expanded, so its expanded or collapsed state is not exposed to assistive technology." }
+      ]
+    },
+    "timing-page-refreshes-automatically-with-meta-refresh-ail": {
+      "category": "Timing",
+      "title": "Page refreshes automatically with meta refresh",
+      "candidate": "timing-page-refreshes-automatically-with-meta-refresh",
+      "wcag": [
+        { "sc": "2.2.1", "relation": "fails", "technique": "F41", "rationale": "<meta http-equiv=\"refresh\" content=\"30\"> reloads the page every 30 seconds; the user cannot turn off, adjust or extend this time limit." },
+        { "sc": "2.2.4", "relation": "fails", "technique": "F41", "rationale": "The automatic reload interrupts the user and cannot be postponed or suppressed (AAA)." },
+        { "sc": "3.2.5", "relation": "fails", "technique": "F41", "rationale": "The reload is a change of context that the user did not request (AAA)." }
+      ]
+    },
+    "timing-timed-meta-redirect-ail": {
+      "category": "Timing",
+      "title": "Timed meta redirect",
+      "candidate": "timing-timed-meta-redirect",
+      "wcag": [
+        { "sc": "2.2.1", "relation": "fails", "technique": "F40", "rationale": "<meta http-equiv=\"refresh\" content=\"10; url=...\"> redirects after 10 seconds; the user cannot turn off, adjust or extend this time limit." },
+        { "sc": "2.2.4", "relation": "fails", "technique": "F40", "rationale": "The timed redirect interrupts the user and cannot be postponed or suppressed (AAA)." },
+        { "sc": "3.2.5", "relation": "fails", "technique": "F40", "rationale": "The redirect is a change of context that the user did not request (AAA)." }
+      ]
+    },
+    "timing-content-updates-interrupt-the-user-ail": {
+      "category": "Timing",
+      "title": "Content updates interrupt the user",
+      "candidate": "timing-content-updates-interrupt-the-user",
+      "wcag": [
+        { "sc": "2.2.4", "relation": "fails", "rationale": "Ten seconds after the page loads a non-urgent announcement is pushed into an alert, interrupting the user; there is no way to postpone or turn off such interruptions (AAA)." }
+      ]
+    },
+    "timing-session-timeout-loses-entered-data-ail": {
+      "category": "Timing",
+      "title": "Session timeout loses entered data",
+      "candidate": "timing-session-timeout-loses-entered-data",
+      "wcag": [
+        { "sc": "2.2.5", "relation": "fails", "technique": "F12", "rationale": "When the session ends after inactivity the answers are deleted, so after signing in again the user has to start over." },
+        { "sc": "2.2.6", "relation": "fails", "rationale": "Nothing tells the user in advance how long a period of inactivity ends the session or that their answers will then be lost (AAA)." },
+        { "sc": "2.2.1", "relation": "related", "rationale": "A warning 20 seconds before the end lets the user extend the session with one button, which meets 2.2.1." }
+      ]
+    },
+    "timing-animation-triggered-by-scrolling-ignores-reduced-motion-ail": {
+      "category": "Timing",
+      "title": "Animation triggered by scrolling ignores reduced motion",
+      "candidate": "timing-animation-triggered-by-scrolling-ignores-reduced-motion",
+      "wcag": [
+        { "sc": "2.3.3", "relation": "fails", "rationale": "Scrolling the panel moves and rotates a decorative block; the motion is not essential, ignores prefers-reduced-motion and cannot be turned off (AAA)." }
+      ]
+    },
+    "headings-headings-do-not-describe-their-section-ail": {
+      "category": "Headings",
+      "title": "Headings do not describe their section",
+      "candidate": "headings-headings-do-not-describe-their-section",
+      "wcag": [
+        { "sc": "2.4.6", "relation": "fails", "rationale": "The headings \"Section 1\" and \"More\" do not describe the topic of the sections they introduce (renewing a passport, lost or stolen passports)." }
+      ]
+    },
+    "headings-long-document-without-section-headings-ail": {
+      "category": "Headings",
+      "title": "Long document without section headings",
+      "candidate": "headings-long-document-without-section-headings",
+      "wcag": [
+        { "sc": "2.4.10", "relation": "fails", "rationale": "A long text covering several separate topics (who can apply, what you need, cost, how long it takes, using and renewing the badge) has no section headings (AAA)." }
+      ]
+    },
+    "forms-labels-do-not-describe-the-field-purpose-ail": {
+      "category": "Forms",
+      "title": "Labels do not describe the field purpose",
+      "candidate": "forms-labels-do-not-describe-the-field-purpose",
+      "wcag": [
+        { "sc": "2.4.6", "relation": "fails", "rationale": "The labels \"Field 1\" and \"Field 2\" do not describe what to enter (full name, email address)." },
+        { "sc": "3.3.2", "relation": "related", "rationale": "Each field has a label, but the labels do not tell the user what input is expected (borderline)." }
+      ]
+    },
+    "forms-selecting-a-radio-button-opens-a-new-window-ail": {
+      "category": "Forms",
+      "title": "Selecting a radio button opens a new window",
+      "candidate": "forms-selecting-a-radio-button-opens-a-new-window",
+      "wcag": [
+        { "sc": "3.2.2", "relation": "fails", "technique": "F37", "rationale": "Choosing a radio option immediately opens a new window, a change of context on change of setting with no advance warning." }
+      ]
+    },
+    "forms-form-submits-automatically-when-last-field-is-filled-ail": {
+      "category": "Forms",
+      "title": "Form submits automatically when last field is filled",
+      "candidate": "forms-form-submits-automatically-when-last-field-is-filled",
+      "wcag": [
+        { "sc": "3.2.2", "relation": "fails", "technique": "F36", "rationale": "The form is submitted as soon as the fourth digit is typed, a change of context on input with no advance warning." }
+      ]
+    },
+    "forms-financial-submission-without-review-or-undo-ail": {
+      "category": "Forms",
+      "title": "Financial submission without review or undo",
+      "candidate": "forms-financial-submission-without-review-or-undo",
+      "wcag": [
+        { "sc": "3.3.4", "relation": "fails", "rationale": "Submitting the payment form takes the payment at once: there is no review step, no confirmation and, as the linked result page says, no way to cancel it." },
+        { "sc": "3.3.6", "relation": "fails", "rationale": "The same submission is neither reversible, checked nor confirmed (AAA)." }
+      ]
+    },
+    "forms-no-context-sensitive-help-for-complex-field-ail": {
+      "category": "Forms",
+      "title": "No context-sensitive help for complex field",
+      "candidate": "forms-no-context-sensitive-help-for-complex-field",
+      "wcag": [
+        { "sc": "3.3.5", "relation": "fails", "rationale": "The field asks for a Unique Taxpayer Reference with no hint or help on what it is, its format or where to find it (AAA)." },
+        { "sc": "3.3.2", "relation": "related", "rationale": "The field has a label; whether a format instruction is also needed depends on validation not shown on the page." }
+      ]
+    },
+    "forms-data-submission-without-confirmation-ail": {
+      "category": "Forms",
+      "title": "Data submission without confirmation",
+      "candidate": "forms-data-submission-without-confirmation",
+      "wcag": [
+        { "sc": "3.3.6", "relation": "fails", "rationale": "The message is sent as soon as the form is submitted, with no review or confirmation step and, as the linked page says, no way to withdraw it (AAA)." }
+      ]
+    },
+    "forms-previously-entered-information-requested-again-ail": {
+      "category": "Forms",
+      "title": "Previously entered information requested again",
+      "candidate": "forms-previously-entered-information-requested-again",
+      "wcag": [
+        { "sc": "3.3.7", "relation": "fails", "rationale": "Step 2 (the linked page) asks for the billing address again with no \"same as delivery address\" option and no pre-filled values, although the address was entered in step 1." }
+      ]
+    },
+    "navigation-only-one-way-to-find-pages-in-a-set-ail": {
+      "category": "Navigation",
+      "title": "Only one way to find pages in a set",
+      "candidate": "navigation-only-one-way-to-find-pages-in-a-set",
+      "wcag": [
+        { "sc": "2.4.5", "relation": "fails", "rationale": "The three pages of the guide (linked) can only be reached through previous and next links; there is no menu, contents list, site map or search." }
+      ]
+    },
+    "navigation-no-indication-of-location-within-a-set-of-pages-ail": {
+      "category": "Navigation",
+      "title": "No indication of location within a set of pages",
+      "candidate": "navigation-no-indication-of-location-within-a-set-of-pages",
+      "wcag": [
+        { "sc": "2.4.8", "relation": "fails", "rationale": "On the linked pages there is no breadcrumb, the menu does not mark the current page and the page titles do not name the set the page belongs to (AAA)." }
+      ]
+    },
+    "navigation-navigation-order-differs-between-pages-ail": {
+      "category": "Navigation",
+      "title": "Navigation order differs between pages",
+      "candidate": "navigation-navigation-order-differs-between-pages",
+      "wcag": [
+        { "sc": "3.2.3", "relation": "fails", "technique": "F66", "rationale": "The main menu repeated on the three linked pages lists the same links, but in a different order on page 2." }
+      ]
+    },
+    "navigation-same-function-labelled-differently-on-different-pages-ail": {
+      "category": "Navigation",
+      "title": "Same function labelled differently on different pages",
+      "candidate": "navigation-same-function-labelled-differently-on-different-pages",
+      "wcag": [
+        { "sc": "3.2.4", "relation": "fails", "technique": "F31", "rationale": "The site search button has the same function on both linked pages but is labelled \"Search\" on one and \"Find\" on the other." }
+      ]
+    },
+    "navigation-help-link-in-inconsistent-place-across-pages-ail": {
+      "category": "Navigation",
+      "title": "Help in inconsistent place across pages",
+      "candidate": "navigation-help-link-in-inconsistent-place-across-pages",
+      "wcag": [
+        { "sc": "3.2.6", "relation": "fails", "rationale": "The housing team's contact details (a help mechanism) are at the top of page 1 but in the footer of page 2, so they are not in the same relative order." }
+      ]
+    },
+    "pointer-and-motion-shake-to-undo-without-alternative-ail": {
+      "category": "Pointer and Motion",
+      "title": "Shake to undo without alternative",
+      "candidate": "pointer-and-motion-shake-to-undo-without-alternative",
+      "wcag": [
+        { "sc": "2.5.4", "relation": "fails", "technique": "F106", "rationale": "Shaking the device clears the message; there is no button that does the same and no way to turn off the motion response." }
+      ]
+    },
+    "pointer-and-motion-touch-only-interaction-ail": {
+      "category": "Pointer and Motion",
+      "title": "Touch-only interaction",
+      "candidate": "pointer-and-motion-touch-only-interaction",
+      "wcag": [
+        { "sc": "2.5.6", "relation": "fails", "technique": "F98", "rationale": "The button responds to touch and keyboard but ignores mouse clicks, so a user cannot switch to a mouse on a touch device (AAA)." }
+      ]
+    },
+    "authentication-login-requires-transcribing-a-code-without-paste-ail": {
+      "category": "Authentication",
+      "title": "Login requires transcribing a code without paste",
+      "candidate": "authentication-login-requires-transcribing-a-code-without-paste",
+      "wcag": [
+        { "sc": "3.3.8", "relation": "fails", "technique": "F109", "rationale": "The one-time code is split over six fields that block paste and autofill (autocomplete=\"off\"), so the user must transcribe it digit by digit." },
+        { "sc": "3.3.9", "relation": "fails", "technique": "F109", "rationale": "Same failure at AAA level." }
+      ]
+    },
+    "authentication-object-recognition-captcha-as-only-option-ail": {
+      "category": "Authentication",
+      "title": "Object recognition CAPTCHA as only option",
+      "candidate": "authentication-object-recognition-captcha-as-only-option",
+      "wcag": [
+        { "sc": "3.3.9", "relation": "fails", "rationale": "Signing in requires either recognising objects in pictures or solving a word puzzle; both are cognitive function tests and there is no other method (AAA has no object-recognition exception)." },
+        { "sc": "3.3.8", "relation": "related", "rationale": "The object-recognition option meets the 3.3.8 exception for recognising objects." }
+      ]
+    },
+    "links-link-context-only-in-unrelated-content-ail": {
+      "category": "Links",
+      "title": "Link context only in unrelated content",
+      "candidate": "links-link-context-only-in-unrelated-content",
+      "wcag": [
+        { "sc": "2.4.4", "relation": "fails", "technique": "F63", "rationale": "The link text \"More\" is in a paragraph of its own; the only text that explains it (buying a fishing licence) is in a later paragraph not associated with the link." },
+        { "sc": "2.4.9", "relation": "fails", "rationale": "The link text alone does not identify its purpose (AAA)." }
+      ]
     }
   }
 }

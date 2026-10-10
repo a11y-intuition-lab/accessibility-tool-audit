@@ -75,3 +75,18 @@ Append-only, newest last.
 - Full run from clean commit `d17e577` with all axe rules enabled and linked example pages tested (D-021, D-022).
 - GOV.UK cases, 2017 → 2026: axe found 41 → 40, manual 2 → 7; HTML_CodeSniffer/pa11y found 29 → 29, manual 19 → 6,
   identified 1 → 23. Classification is AI-proposed (rule mapping) and scripted.
+
+## 2026-10-10 — 51 more AIL test cases; head field, linked page sets, own-page timers
+- Implemented every remaining medium- and low-priority candidate that does not need video or audio, plus the two
+  high-priority ones deferred for other reasons (meta refresh; redundant entry, which needed a multi-step flow): 51 new
+  `ail-2026` test cases, 76 AIL test cases in all. Seven media candidates are deferred: they need openly licensed media (D-015).
+- Infrastructure: a `head` front-matter field in the AIL fixture layout for head-level barriers (the combined page shows a
+  note instead), `combinedNote` for examples that must not run on the combined page (flashing, D-014; timers),
+  20 AIL example pages in `example-pages/ail/`, and `linkedPages` in the rule mapping, supported by the harness and the
+  classifier. Details in [provenance](provenance.md).
+- Each new page was checked with axe-core 4.13.0 (all rules) and pa11y 10.0.0: apart from template noise only the intended
+  rules fire; no page scrolls horizontally at 320 CSS px.
+- WCAG mappings added to `data/mappings/test-case-wcag-ail.json` (AI-proposed, not reviewed). The rule mapping has
+  entries only for the 9 linked-page cases (`axe: []`, `htmlcs: []`, "rules not yet mapped"); the other new cases need
+  rule mappings before `npm run classify` can run on a full run.
+

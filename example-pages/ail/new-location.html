@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- A11y Intuition Lab (ail-2026) example page for the test case timing-timed-meta-redirect-ail.
+     Target of the timed redirect; no barrier on this page. -->
+<title>Bin collection calendar - Example Council</title>
+<style>
+body { font-family: sans-serif; line-height: 1.5; margin: 1em; color: #0b0c0c; background: #ffffff; }
+header, footer { border-color: #0b0c0c; border-style: solid; border-width: 0; }
+header { border-bottom-width: 2px; margin: 0 0 1em 0; }
+footer { border-top-width: 2px; margin: 2em 0 0 0; }
+nav ul, footer ul { padding-left: 1.25em; }
+li { margin: 0 0 0.5em 0; }
+a[aria-current="page"] { color: #0b0c0c; font-weight: bold; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+<p>Example Council</p>
+</header>
+<main>
+<h1>Bin collection calendar</h1>
+<p>Enter your postcode to see your bin collection days for the next 12 months.</p>
+<form action="new-location.html" method="get">
+<p><label for="calendar-postcode">Postcode</label><br>
+<input id="calendar-postcode" name="postcode" type="text" autocomplete="postal-code"></p>
+<p><button type="submit">Show collection days</button></p>
+</form>
+</main>
+<footer>
+<p>Example Council is a fictional council used in accessibility test pages.</p>
+</footer>
+</body>
+</html>

@@ -18,7 +18,7 @@
       "expected_detectability": "automatable = rule engines can decide; partially = engines can flag or narrow, human confirms; manual = needs human judgement or interaction",
       "priority": "high = level A/AA and common in practice; medium = A/AA less common or harder to build, or thin-coverage additions; low = AAA or rare"
     },
-    "note": "HTML is written for candidates with status \"implemented\" (test case in src/test-cases/<test_case>.html); high-priority candidates that need media, flows or their own page template have status \"deferred\"."
+    "note": "HTML is written for candidates with status \"implemented\" (test case in src/test-cases/<test_case>.html). Candidates that need video or audio files have status \"deferred\" until openly licensed media is available (D-015)."
   },
   "candidates": [
     {
@@ -52,7 +52,9 @@
       "detectability_reason": "Live status and caption presence cannot be inferred from markup.",
       "priority": "medium",
       "fixture": "media",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "deferred",
+      "deferred_reason": "Needs openly licensed media (D-015)."
     },
     {
       "id": "multimedia-prerecorded-video-without-sign-language-interpretation",
@@ -67,7 +69,9 @@
       "detectability_reason": "Requires judging the media content.",
       "priority": "low",
       "fixture": "media",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "deferred",
+      "deferred_reason": "Needs openly licensed media (D-015)."
     },
     {
       "id": "multimedia-video-with-no-pauses-for-audio-description-and-no-extended-description",
@@ -82,7 +86,9 @@
       "detectability_reason": "Requires judging the media content.",
       "priority": "low",
       "fixture": "media",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "deferred",
+      "deferred_reason": "Needs openly licensed media (D-015)."
     },
     {
       "id": "multimedia-prerecorded-video-without-full-text-alternative",
@@ -97,7 +103,9 @@
       "detectability_reason": "A tool cannot tell whether nearby text is a full alternative.",
       "priority": "low",
       "fixture": "media",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "deferred",
+      "deferred_reason": "Needs openly licensed media (D-015)."
     },
     {
       "id": "multimedia-live-audio-stream-without-text-alternative",
@@ -112,7 +120,9 @@
       "detectability_reason": "Live status cannot be inferred from markup.",
       "priority": "low",
       "fixture": "media",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "deferred",
+      "deferred_reason": "Needs openly licensed media (D-015)."
     },
     {
       "id": "multimedia-audio-plays-automatically-with-no-way-to-stop-it",
@@ -144,7 +154,9 @@
       "detectability_reason": "Needs audio analysis.",
       "priority": "low",
       "fixture": "media",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "deferred",
+      "deferred_reason": "Needs openly licensed media (D-015)."
     },
     {
       "id": "multimedia-locally-flashing-animation-above-the-general-flash-threshold",
@@ -160,7 +172,9 @@
       "detectability_reason": "Flash analysis needs rendering over time (PEAT-type tools), not DOM rules.",
       "priority": "medium",
       "fixture": "single-page-script",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "multimedia-locally-flashing-animation-above-the-general-flash-threshold-ail"
     },
     {
       "id": "multimedia-video-only-content-without-alternative",
@@ -175,7 +189,9 @@
       "detectability_reason": "Needs judging what the video shows.",
       "priority": "medium",
       "fixture": "media",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "deferred",
+      "deferred_reason": "Needs openly licensed media (D-015)."
     },
     {
       "id": "images-svg-image-without-accessible-name",
@@ -207,7 +223,9 @@
       "detectability_reason": "Whether an image is decorative is a human judgement.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "images-decorative-image-with-non-empty-alt-text-ail"
     },
     {
       "id": "images-icon-font-conveys-meaning-without-text-alternative",
@@ -222,7 +240,9 @@
       "detectability_reason": "Tools may flag empty elements with ::before content, but meaning needs judgement.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "images-icon-font-conveys-meaning-without-text-alternative-ail"
     },
     {
       "id": "images-image-of-text-used-for-a-heading",
@@ -238,7 +258,9 @@
       "detectability_reason": "Tools can flag images with text-like alt; deciding it is avoidable text needs judgement.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "images-image-of-text-used-for-a-heading-ail"
     },
     {
       "id": "tables-data-table-with-role-presentation",
@@ -253,7 +275,9 @@
       "detectability_reason": "Role presentation on a table with th cells is detectable.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "tables-data-table-with-role-presentation-ail"
     },
     {
       "id": "tables-headers-attribute-references-wrong-header-ids",
@@ -268,7 +292,9 @@
       "detectability_reason": "Missing ids are detectable; pointing to the wrong existing header is not.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "tables-headers-attribute-references-wrong-header-ids-ail"
     },
     {
       "id": "tables-layout-table-uses-th-and-caption",
@@ -283,7 +309,9 @@
       "detectability_reason": "Tools can flag th/caption, but deciding the table is for layout needs judgement.",
       "priority": "low",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "tables-layout-table-uses-th-and-caption-ail"
     },
     {
       "id": "content-table-formatted-with-spaces-in-preformatted-text",
@@ -299,7 +327,9 @@
       "detectability_reason": "Recognising a whitespace table needs judgement.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "content-table-formatted-with-spaces-in-preformatted-text-ail"
     },
     {
       "id": "content-spaces-used-to-spread-out-letters-of-a-word",
@@ -314,7 +344,9 @@
       "detectability_reason": "Single-letter sequences can be pattern-matched, with false positives.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "content-spaces-used-to-spread-out-letters-of-a-word-ail"
     },
     {
       "id": "html-aria-list-role-without-listitem-children",
@@ -329,7 +361,9 @@
       "detectability_reason": "ARIA required-children rules detect this.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "html-aria-list-role-without-listitem-children-ail"
     },
     {
       "id": "content-instructions-rely-on-shape",
@@ -344,7 +378,9 @@
       "detectability_reason": "Requires reading the instructions.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "content-instructions-rely-on-shape-ail"
     },
     {
       "id": "content-graphical-symbol-alone-conveys-meaning",
@@ -359,7 +395,9 @@
       "detectability_reason": "Meaning of symbols needs judgement.",
       "priority": "low",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "content-graphical-symbol-alone-conveys-meaning-ail"
     },
     {
       "id": "page-layout-content-locked-to-portrait-orientation",
@@ -391,7 +429,9 @@
       "detectability_reason": "Needs rendering in both orientations.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "page-layout-message-asks-user-to-rotate-device-ail"
     },
     {
       "id": "forms-invalid-autocomplete-value-on-personal-data-field",
@@ -441,7 +481,9 @@
       "detectability_reason": "Absence of landmarks is detectable; whether regions exist needs judgement.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "html-page-regions-not-identified-with-landmarks-ail"
     },
     {
       "id": "colour-and-contrast-text-over-background-image-with-insufficient-contrast",
@@ -457,7 +499,9 @@
       "detectability_reason": "Tools usually report background images as needing review.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "colour-and-contrast-text-over-background-image-with-insufficient-contrast-ail"
     },
     {
       "id": "colour-and-contrast-form-field-border-has-insufficient-contrast",
@@ -490,7 +534,9 @@
       "detectability_reason": "Needs focus-state rendering and comparison.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "colour-and-contrast-focus-indicator-has-insufficient-contrast-ail"
     },
     {
       "id": "colour-and-contrast-informative-icon-has-insufficient-contrast",
@@ -505,7 +551,9 @@
       "detectability_reason": "Contrast of graphics needs rendering and judgement of which parts are required.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "colour-and-contrast-informative-icon-has-insufficient-contrast-ail"
     },
     {
       "id": "css-text-sized-only-in-viewport-units",
@@ -520,7 +568,9 @@
       "detectability_reason": "vw/vh font sizes are detectable in CSS; impact needs zoom testing.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "css-text-sized-only-in-viewport-units-ail"
     },
     {
       "id": "css-form-controls-do-not-resize-with-text",
@@ -535,7 +585,9 @@
       "detectability_reason": "Needs text-only zoom testing.",
       "priority": "low",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "css-form-controls-do-not-resize-with-text-ail"
     },
     {
       "id": "css-text-clipped-when-text-spacing-is-increased",
@@ -567,7 +619,9 @@
       "detectability_reason": "axe avoid-inline-spacing checks this.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "css-inline-text-spacing-set-with-important-ail"
     },
     {
       "id": "page-layout-content-lost-when-reflowed",
@@ -582,7 +636,9 @@
       "detectability_reason": "Needs rendering at 320 px and comparing content.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "page-layout-content-lost-when-reflowed-ail"
     },
     {
       "id": "keyboard-access-tooltip-cannot-be-dismissed-with-escape",
@@ -597,7 +653,9 @@
       "detectability_reason": "Needs interaction with the tooltip.",
       "priority": "medium",
       "fixture": "single-page-script",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "keyboard-access-tooltip-cannot-be-dismissed-with-escape-ail"
     },
     {
       "id": "keyboard-access-focus-removed-by-script-when-received",
@@ -631,7 +689,9 @@
       "detectability_reason": "Needs judging whether the function depends on path input.",
       "priority": "low",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "keyboard-access-drawing-canvas-with-no-keyboard-alternative-ail"
     },
     {
       "id": "keyboard-access-single-character-key-shortcut-cannot-be-turned-off",
@@ -698,7 +758,9 @@
       "detectability_reason": "Needs focus traversal with geometry checks.",
       "priority": "low",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "keyboard-access-sticky-header-partly-hides-focused-element-ail"
     },
     {
       "id": "timing-page-refreshes-automatically-with-meta-refresh",
@@ -716,8 +778,8 @@
       "priority": "high",
       "fixture": "single-page",
       "gap": "uncovered",
-      "status": "deferred",
-      "deferred_reason": "Timed reload: a meta refresh in the example body would also reload the combined test-cases page, and the fixture template has no way to put it in <head>. Needs its own page template."
+      "status": "implemented",
+      "test_case": "timing-page-refreshes-automatically-with-meta-refresh-ail"
     },
     {
       "id": "timing-timed-meta-redirect",
@@ -734,7 +796,9 @@
       "detectability_reason": "Detectable in markup.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "timing-timed-meta-redirect-ail"
     },
     {
       "id": "timing-auto-rotating-carousel-without-pause",
@@ -766,7 +830,9 @@
       "detectability_reason": "Needs observing updates over time.",
       "priority": "low",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "timing-content-updates-interrupt-the-user-ail"
     },
     {
       "id": "timing-session-timeout-loses-entered-data",
@@ -782,7 +848,9 @@
       "detectability_reason": "Needs waiting for the timeout and checking data retention.",
       "priority": "low",
       "fixture": "flow",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "timing-session-timeout-loses-entered-data-ail"
     },
     {
       "id": "timing-animation-triggered-by-scrolling-ignores-reduced-motion",
@@ -797,7 +865,9 @@
       "detectability_reason": "Can emulate prefers-reduced-motion and observe motion; non-essential judgement is manual.",
       "priority": "low",
       "fixture": "single-page-script",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "timing-animation-triggered-by-scrolling-ignores-reduced-motion-ail"
     },
     {
       "id": "headings-headings-do-not-describe-their-section",
@@ -812,7 +882,9 @@
       "detectability_reason": "Descriptiveness needs human judgement.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "headings-headings-do-not-describe-their-section-ail"
     },
     {
       "id": "forms-labels-do-not-describe-the-field-purpose",
@@ -827,7 +899,9 @@
       "detectability_reason": "Descriptiveness needs human judgement.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "forms-labels-do-not-describe-the-field-purpose-ail"
     },
     {
       "id": "headings-long-document-without-section-headings",
@@ -842,7 +916,9 @@
       "detectability_reason": "Needs judging that sections exist.",
       "priority": "low",
       "fixture": "single-page",
-      "gap": "related-only"
+      "gap": "related-only",
+      "status": "implemented",
+      "test_case": "headings-long-document-without-section-headings-ail"
     },
     {
       "id": "navigation-repeated-navigation-block-cannot-be-bypassed",
@@ -874,7 +950,9 @@
       "detectability_reason": "Needs a set of pages and judgement.",
       "priority": "medium",
       "fixture": "multi-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "navigation-only-one-way-to-find-pages-in-a-set-ail"
     },
     {
       "id": "navigation-no-indication-of-location-within-a-set-of-pages",
@@ -889,7 +967,9 @@
       "detectability_reason": "Needs a set of pages and judgement.",
       "priority": "low",
       "fixture": "multi-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "navigation-no-indication-of-location-within-a-set-of-pages-ail"
     },
     {
       "id": "navigation-navigation-order-differs-between-pages",
@@ -904,7 +984,9 @@
       "detectability_reason": "A crawler can compare repeated navigation blocks across pages.",
       "priority": "medium",
       "fixture": "multi-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "navigation-navigation-order-differs-between-pages-ail"
     },
     {
       "id": "navigation-same-function-labelled-differently-on-different-pages",
@@ -919,7 +1001,9 @@
       "detectability_reason": "A crawler can compare repeated components across pages; equivalence needs judgement.",
       "priority": "medium",
       "fixture": "multi-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "navigation-same-function-labelled-differently-on-different-pages-ail"
     },
     {
       "id": "navigation-help-link-in-inconsistent-place-across-pages",
@@ -934,7 +1018,9 @@
       "detectability_reason": "Cross-page comparison of help mechanisms; identifying help needs judgement.",
       "priority": "medium",
       "fixture": "multi-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "navigation-help-link-in-inconsistent-place-across-pages-ail"
     },
     {
       "id": "pointer-and-motion-path-gesture-required-without-single-pointer-alternative",
@@ -983,7 +1069,9 @@
       "detectability_reason": "Needs device-motion emulation.",
       "priority": "medium",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "pointer-and-motion-shake-to-undo-without-alternative-ail"
     },
     {
       "id": "pointer-and-motion-touch-only-interaction",
@@ -998,7 +1086,9 @@
       "detectability_reason": "Touch-only handlers are detectable in script analysis.",
       "priority": "low",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "pointer-and-motion-touch-only-interaction-ail"
     },
     {
       "id": "pointer-and-motion-drag-and-drop-without-single-pointer-alternative",
@@ -1030,7 +1120,9 @@
       "detectability_reason": "Needs judging which words are unusual.",
       "priority": "low",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "content-jargon-used-without-definition-ail"
     },
     {
       "id": "content-ambiguous-word-without-pronunciation",
@@ -1045,7 +1137,9 @@
       "detectability_reason": "Needs language understanding.",
       "priority": "low",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "content-ambiguous-word-without-pronunciation-ail"
     },
     {
       "id": "forms-focus-on-field-opens-new-window",
@@ -1077,7 +1171,9 @@
       "detectability_reason": "Observable by interaction; intent needs judgement.",
       "priority": "medium",
       "fixture": "single-page-script",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "forms-selecting-a-radio-button-opens-a-new-window-ail"
     },
     {
       "id": "forms-form-submits-automatically-when-last-field-is-filled",
@@ -1092,7 +1188,9 @@
       "detectability_reason": "Observable by interaction.",
       "priority": "medium",
       "fixture": "single-page-script",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "forms-form-submits-automatically-when-last-field-is-filled-ail"
     },
     {
       "id": "forms-financial-submission-without-review-or-undo",
@@ -1107,7 +1205,9 @@
       "detectability_reason": "Needs judging the transaction type and flow.",
       "priority": "medium",
       "fixture": "flow",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "forms-financial-submission-without-review-or-undo-ail"
     },
     {
       "id": "forms-no-context-sensitive-help-for-complex-field",
@@ -1122,7 +1222,9 @@
       "detectability_reason": "Needs judging whether help is needed.",
       "priority": "low",
       "fixture": "single-page",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "forms-no-context-sensitive-help-for-complex-field-ail"
     },
     {
       "id": "forms-data-submission-without-confirmation",
@@ -1137,7 +1239,9 @@
       "detectability_reason": "Needs judging the flow.",
       "priority": "low",
       "fixture": "flow",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "forms-data-submission-without-confirmation-ail"
     },
     {
       "id": "forms-previously-entered-information-requested-again",
@@ -1153,8 +1257,8 @@
       "priority": "high",
       "fixture": "flow",
       "gap": "uncovered",
-      "status": "deferred",
-      "deferred_reason": "Needs a multi-step flow (fixture: flow)."
+      "status": "implemented",
+      "test_case": "forms-previously-entered-information-requested-again-ail"
     },
     {
       "id": "forms-status-message-not-announced",
@@ -1220,7 +1324,9 @@
       "detectability_reason": "Needs interaction to see the state change is missing.",
       "priority": "medium",
       "fixture": "single-page-script",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "keyboard-access-disclosure-button-without-expanded-state-ail"
     },
     {
       "id": "authentication-paste-blocked-in-password-field",
@@ -1254,7 +1360,9 @@
       "detectability_reason": "Paste/autocomplete behaviour is testable by script.",
       "priority": "medium",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "authentication-login-requires-transcribing-a-code-without-paste-ail"
     },
     {
       "id": "authentication-object-recognition-captcha-as-only-option",
@@ -1269,7 +1377,9 @@
       "detectability_reason": "Needs judging the cognitive function test and alternatives (passes 3.3.8 via exception).",
       "priority": "low",
       "fixture": "single-page-script",
-      "gap": "uncovered"
+      "gap": "uncovered",
+      "status": "implemented",
+      "test_case": "authentication-object-recognition-captcha-as-only-option-ail"
     },
     {
       "id": "links-link-context-only-in-unrelated-content",
@@ -1284,7 +1394,9 @@
       "detectability_reason": "Needs judging programmatic context.",
       "priority": "medium",
       "fixture": "single-page",
-      "gap": "thin"
+      "gap": "thin",
+      "status": "implemented",
+      "test_case": "links-link-context-only-in-unrelated-content-ail"
     }
   ]
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- A11y Intuition Lab (ail-2026) example page for the test case forms-previously-entered-information-requested-again-ail.
+     Barrier (3.3.7): step 2 asks for the billing address again. There is no "same as delivery address" option and the fields are not pre-filled, although the user entered the address in step 1. -->
+<title>Step 2 of 2: billing address - Order a garden waste bin - Example Council</title>
+<style>
+body { font-family: sans-serif; line-height: 1.5; margin: 1em; color: #0b0c0c; background: #ffffff; }
+header, footer { border-color: #0b0c0c; border-style: solid; border-width: 0; }
+header { border-bottom-width: 2px; margin: 0 0 1em 0; }
+footer { border-top-width: 2px; margin: 2em 0 0 0; }
+nav ul, footer ul { padding-left: 1.25em; }
+li { margin: 0 0 0.5em 0; }
+a[aria-current="page"] { color: #0b0c0c; font-weight: bold; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+<p>Example Council</p>
+</header>
+<main>
+<h1>Step 2 of 2: billing address</h1>
+<form action="order-received.html" method="get">
+<p><label for="billing-line1">Address line 1</label><br>
+<input id="billing-line1" name="billing-line1" type="text" autocomplete="billing address-line1"></p>
+<p><label for="billing-town">Town or city</label><br>
+<input id="billing-town" name="billing-town" type="text" autocomplete="billing address-level2"></p>
+<p><label for="billing-postcode">Postcode</label><br>
+<input id="billing-postcode" name="billing-postcode" type="text" autocomplete="billing postal-code"></p>
+<p><button type="submit">Place order</button></p>
+</form>
+</main>
+<footer>
+<p>Example Council is a fictional council used in accessibility test pages.</p>
+</footer>
+</body>
+</html>

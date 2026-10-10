@@ -31,8 +31,8 @@ A dirty run is not publishable evidence.
    fetches the first page's assets and aborts unless they return 200.
 2. For each `_site/tests/<slug>.html` in alphabetical order (one page at a time): runs axe-core in Playwright's Chromium,
    then pa11y in the same Chromium binary. Each tool gets a fresh browser context or process per page. If the test case
-   has a `linkedPage` in `data/mappings/test-case-rules.json` (the barrier is on a linked `example-pages/` page), both
-   tools also run on that page.
+   has a `linkedPage` (one page) or `linkedPages` (a list) in `data/mappings/test-case-rules.json` (the barrier is on
+   linked `example-pages/` pages, including AIL pages in `example-pages/ail/`), both tools also run on each of them.
 3. Reads each page's origin (`govuk-2017` or `ail-2026`) from `src/test-cases/<slug>.html` front matter.
 4. Writes everything to `data/results/ail-2026/runs/<runId>/`, where `runId` is the UTC start time, `YYYYMMDDTHHMMSSZ`.
    A page that fails to load or time out is recorded with an `error` field and does not stop the run.
@@ -67,7 +67,8 @@ data/results/ail-2026/runs/<runId>/
                      check ids); passes and inapplicable as counts and rule ids; failed requests; local non-200 responses
   pa11y/<slug>.json  all issues: code, type, typeCode, message, selector, context
   axe/linked-<page>/<slug>.json, pa11y/linked-<page>/<slug>.json
-                     the same for the linked example page of a test case with linkedPage (field linkedPage in the file)
+                     the same for each linked example page of a test case with linkedPage or linkedPages
+                     (<page> = the page's file name without .html)
 ```
 
 Absolute paths and user names are not written to the output (the repository is public).

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- A11y Intuition Lab (ail-2026) example page for the test case navigation-same-function-labelled-differently-on-different-pages-ail.
+     Barrier (3.2.4): the site search button is labelled "Search" on page 1 and "Find" on page 2. -->
+<title>Libraries - Example Council</title>
+<style>
+body { font-family: sans-serif; line-height: 1.5; margin: 1em; color: #0b0c0c; background: #ffffff; }
+header, footer { border-color: #0b0c0c; border-style: solid; border-width: 0; }
+header { border-bottom-width: 2px; margin: 0 0 1em 0; }
+footer { border-top-width: 2px; margin: 2em 0 0 0; }
+nav ul, footer ul { padding-left: 1.25em; }
+li { margin: 0 0 0.5em 0; }
+a[aria-current="page"] { color: #0b0c0c; font-weight: bold; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+<p>Example Council</p>
+<form role="search" action="search-1.html" method="get">
+<p><label for="site-search">Search this site</label><br>
+<input id="site-search" name="q" type="search"> <button type="submit">Search</button></p>
+</form>
+</header>
+<nav aria-label="Main">
+<ul>
+<li><a href="search-1.html" aria-current="page">Libraries</a></li>
+<li><a href="search-2.html">Leisure centres</a></li>
+</ul>
+</nav>
+<main>
+<h1>Libraries</h1>
+<p>All libraries are open Monday to Saturday. You can borrow up to 15 books at a time.</p>
+<h2>Related pages</h2>
+<ul>
+<li><a href="search-2.html">Leisure centres</a></li>
+</ul>
+</main>
+<footer>
+<p>Example Council is a fictional council used in accessibility test pages.</p>
+</footer>
+</body>
+</html>

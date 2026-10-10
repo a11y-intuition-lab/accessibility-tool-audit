@@ -1,0 +1,32 @@
+---
+title: "Object recognition CAPTCHA as only option"
+category: "Authentication"
+origin: ail-2026
+candidate: authentication-object-recognition-captcha-as-only-option
+categoryOrder: 22
+order: 3
+---
+<form>
+<p>Before you sign in, show that you are not a robot.</p>
+<fieldset>
+<legend>Select all pictures that show traffic lights</legend>
+<ul class="ail-captcha-grid">
+<li><label for="ail-captcha-1"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><rect x="28" y="8" width="24" height="64" rx="4" fill="#0b0c0c"/><circle cx="40" cy="22" r="7" fill="#d4351c"/><circle cx="40" cy="40" r="7" fill="#ffdd00"/><circle cx="40" cy="58" r="7" fill="#00703c"/></svg>
+<span><input id="ail-captcha-1" name="picture" type="checkbox" value="1"> Picture 1</span></label></li>
+<li><label for="ail-captcha-2"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><rect x="10" y="34" width="60" height="18" rx="4" fill="#1d70b8"/><rect x="22" y="22" width="34" height="16" rx="4" fill="#1d70b8"/><circle cx="24" cy="54" r="7" fill="#0b0c0c"/><circle cx="56" cy="54" r="7" fill="#0b0c0c"/></svg>
+<span><input id="ail-captcha-2" name="picture" type="checkbox" value="2"> Picture 2</span></label></li>
+<li><label for="ail-captcha-3"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><rect x="36" y="44" width="8" height="28" fill="#6f4e37"/><circle cx="40" cy="32" r="22" fill="#00703c"/></svg>
+<span><input id="ail-captcha-3" name="picture" type="checkbox" value="3"> Picture 3</span></label></li>
+<li><label for="ail-captcha-4"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><rect x="28" y="8" width="24" height="64" rx="4" fill="#0b0c0c"/><circle cx="40" cy="22" r="7" fill="#d4351c"/><circle cx="40" cy="40" r="7" fill="#ffdd00"/><circle cx="40" cy="58" r="7" fill="#00703c"/></svg>
+<span><input id="ail-captcha-4" name="picture" type="checkbox" value="4"> Picture 4</span></label></li>
+<li><label for="ail-captcha-5"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><polygon points="40,10 70,36 10,36" fill="#d4351c"/><rect x="18" y="36" width="44" height="34" fill="#505a5f"/><rect x="34" y="50" width="12" height="20" fill="#ffffff"/></svg>
+<span><input id="ail-captcha-5" name="picture" type="checkbox" value="5"> Picture 5</span></label></li>
+<li><label for="ail-captcha-6"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><rect x="10" y="34" width="60" height="18" rx="4" fill="#1d70b8"/><rect x="22" y="22" width="34" height="16" rx="4" fill="#1d70b8"/><circle cx="24" cy="54" r="7" fill="#0b0c0c"/><circle cx="56" cy="54" r="7" fill="#0b0c0c"/></svg>
+<span><input id="ail-captcha-6" name="picture" type="checkbox" value="6"> Picture 6</span></label></li>
+</ul>
+</fieldset>
+<p>Cannot see the pictures? Answer this question instead.</p>
+<p><label for="ail-captcha-question">What is the fourth word of this sentence?</label><br>
+<input id="ail-captcha-question" name="captcha-answer" type="text" spellcheck="false"></p>
+<p><button type="submit">Continue</button></p>
+</form>

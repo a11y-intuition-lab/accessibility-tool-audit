@@ -1,0 +1,13 @@
+---
+title: "Locally flashing animation above the general flash threshold"
+category: "Multimedia"
+origin: ail-2026
+candidate: multimedia-locally-flashing-animation-above-the-general-flash-threshold
+categoryOrder: 11
+order: 4
+combinedNote: "This example flashes after a button is selected. To protect people with photosensitive epilepsy it is never shown on this page (D-014)."
+---
+<p><strong>Photosensitivity warning:</strong> the animation below flashes red five times a second. Flashing can trigger seizures in people with photosensitive epilepsy. Do not start it if you may be affected.</p>
+<p><button type="button" data-ail-flash-start="ail-flash-area">Start the flashing animation</button> <button type="button" data-ail-flash-stop="ail-flash-area">Stop the animation</button></p>
+<div class="ail-flash-area" id="ail-flash-area" aria-hidden="true" data-ail-flash></div>
+<p>The animation stops by itself after five seconds.</p>

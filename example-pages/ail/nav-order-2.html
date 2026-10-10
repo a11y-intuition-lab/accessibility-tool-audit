@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- A11y Intuition Lab (ail-2026) example page for the test case navigation-navigation-order-differs-between-pages-ail.
+     Barrier (3.2.3): the main menu repeats the same links on each page, but on page 2 they are in a different order. -->
+<title>Council Tax - Example Council</title>
+<style>
+body { font-family: sans-serif; line-height: 1.5; margin: 1em; color: #0b0c0c; background: #ffffff; }
+header, footer { border-color: #0b0c0c; border-style: solid; border-width: 0; }
+header { border-bottom-width: 2px; margin: 0 0 1em 0; }
+footer { border-top-width: 2px; margin: 2em 0 0 0; }
+nav ul, footer ul { padding-left: 1.25em; }
+li { margin: 0 0 0.5em 0; }
+a[aria-current="page"] { color: #0b0c0c; font-weight: bold; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+<p>Example Council</p>
+</header>
+<nav aria-label="Main">
+<ul>
+<li><a href="nav-order-3.html">Parking permits</a></li>
+<li><a href="nav-order-1.html">Bins and recycling</a></li>
+<li><a href="nav-order-2.html" aria-current="page">Council Tax</a></li>
+</ul>
+</nav>
+<main>
+<h1>Council Tax</h1>
+<p>You can pay your Council Tax in 10 or 12 monthly instalments.</p>
+<h2>Related pages</h2>
+<ul>
+<li><a href="nav-order-1.html">Bins and recycling</a></li>
+<li><a href="nav-order-3.html">Parking permits</a></li>
+</ul>
+</main>
+<footer>
+<p>Example Council is a fictional council used in accessibility test pages.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+---
+title: "Content updates interrupt the user"
+category: "Timing"
+origin: ail-2026
+candidate: timing-content-updates-interrupt-the-user
+categoryOrder: 21
+order: 4
+combinedNote: "The interruption starts 10 seconds after the page loads, and only on the test case's own page."
+---
+<form>
+<p>Apply for a resident parking permit.</p>
+<p><label for="ail-interrupt-name">Full name</label><br>
+<input id="ail-interrupt-name" name="name" type="text" autocomplete="name"></p>
+<p><label for="ail-interrupt-registration">Vehicle registration number</label><br>
+<input id="ail-interrupt-registration" name="registration" type="text" spellcheck="false"></p>
+<p><button type="submit">Continue</button></p>
+</form>
+<div role="alert" data-ail-delayed-alert="10000" data-ail-alert-text="New: you can now pay for your permit by Direct Debit."></div>

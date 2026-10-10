@@ -108,12 +108,17 @@ the barrier on a page in `example-pages/` that the test case only links to. Thei
 as one unit: hits of listed rules on either page count, and the evidence records which page each hit came from
 (`page: "test"` or the linked path).
 
+AIL test cases whose barrier only shows across several pages (consistent navigation, identification and help, multiple
+ways, location, and multi-step forms) link to pages in `example-pages/ail/`. A mapping can name several pages in
+`linkedPages` (a list); the harness tests each one and stores it as `linked-<page>/<slug>.json`, and the classifier counts
+hits of listed rules on the test-case page or any of the linked pages. `linkedPage` (one page) keeps working.
+
 Runs made before the harness tested linked pages (the first run, `20261010T073126Z`) have no linked-page output; for
 those, the ten cases have no result (below).
 
 ## 7. No result
 
-The result is `null`, shown as "Not tested", not `notfound`, when the test-case page or, for a `linkedPage` case, the
+The result is `null`, shown as "Not tested", not `notfound`, when the test-case page or, for a `linkedPage` or `linkedPages` case, a
 linked page failed to load, the tool reported an error (an `error` field in the raw output), or the output file is
 missing. A page the tool never saw cannot count as a miss.
 

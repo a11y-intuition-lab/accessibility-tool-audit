@@ -1,0 +1,23 @@
+---
+title: "Session timeout loses entered data"
+category: "Timing"
+origin: ail-2026
+candidate: timing-session-timeout-loses-entered-data
+categoryOrder: 21
+order: 5
+combinedNote: "The session timer (40 seconds of inactivity) only runs on the test case's own page."
+---
+<form data-ail-session-timeout="40000" data-ail-session-warning="20000" data-ail-session-warning-id="ail-session-warning" data-ail-session-expired-id="ail-session-expired">
+<p>Tell us about your complaint.</p>
+<p><label for="ail-session-name">Full name</label><br>
+<input id="ail-session-name" name="name" type="text" autocomplete="name"></p>
+<p><label for="ail-session-details">What happened?</label><br>
+<textarea id="ail-session-details" name="details" rows="5" cols="30"></textarea></p>
+<p><button type="submit">Send complaint</button></p>
+</form>
+<div id="ail-session-warning" role="alert" hidden>
+<p>You will be signed out soon because you have not done anything for a while. <button type="button" data-ail-session-extend>Stay signed in</button></p>
+</div>
+<div id="ail-session-expired" role="alert" hidden>
+<p>You have been signed out because you were inactive. Your answers have been deleted. <button type="button" data-ail-session-restart>Sign in again</button></p>
+</div>

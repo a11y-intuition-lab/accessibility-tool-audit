@@ -26,6 +26,12 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter('processExample', processExample);
 
+  // AIL test cases (fixture-ail.njk) rewrite every relative example-pages/ link, not only the first, because AIL
+  // examples may link to several example pages. Used only by the AIL layout; GOV.UK output is unaffected.
+  eleventyConfig.addFilter('processExampleAil', (example) =>
+    example.split('images/').join('../assets/test_images/').split('example-pages/').join('../example-pages/'),
+  );
+
   // Combined page (test-cases.html) uses a global replace, as upstream's Nunjucks `replace` did.
   eleventyConfig.addFilter('combinedExample', (example) =>
     example.split('images/').join('assets/test_images/'),

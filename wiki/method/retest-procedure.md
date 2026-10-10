@@ -8,8 +8,8 @@ How the AIL retest runs axe-core and pa11y. The step-by-step instructions are in
 - **Test the built site** (`_site/tests/*.html`) over local HTTP, not source files (D-009).
 - **One page per test case, one tool run per page** (D-004). Both the GOV.UK-origin and the AIL-origin pages are run.
 - **Linked example pages are tested too** (D-022). When a test case's barrier is on a page in `example-pages/` that it
-  links to, the mapping names that page (`linkedPage` in `data/mappings/test-case-rules.json`) and the harness runs both
-  tools on it as well. The list comes from the mapping, not from the harness.
+  links to, the mapping names that page (`linkedPage` in `data/mappings/test-case-rules.json`, or `linkedPages` for a
+  barrier spread over several pages, such as inconsistent navigation) and the harness runs both tools on each of them. The list comes from the mapping, not from the harness.
 - **Store raw output, classify later** (D-005). Classification is a pure function of the stored run plus the rule mapping.
 - **One recorded browser.** axe-core runs in Playwright's Chromium; pa11y is pointed at the same binary with
   `chromeLaunchConfig.executablePath`. No second Chrome is downloaded.

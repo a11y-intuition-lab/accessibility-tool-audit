@@ -159,3 +159,215 @@
 .ail-link-list li {
   margin: 0 0 0.5em 0;
 }
+
+/* multimedia-locally-flashing-animation-above-the-general-flash-threshold-ail (D-014):
+   400 x 300 px area (more than the 341 x 256 px "small safe area" at a 1024 x 768 reference) that tests-ail.js
+   switches between black and saturated red every 100 ms, only after the start button is selected. */
+.ail-flash-area {
+  width: 400px;
+  height: 300px;
+  max-width: 100%;
+  background: #0b0c0c;
+}
+
+.ail-flash-area.ail-flash-on {
+  background: #ff0000;
+}
+
+/* images-icon-font-conveys-meaning-without-text-alternative-ail:
+   icon glyphs drawn by CSS on an empty element, as an icon font does. The element has no text alternative. */
+.ail-icon {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: -0.2em;
+  background: no-repeat center / contain;
+}
+
+.ail-icon-phone {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z' fill='%230b0c0c'/%3E%3C/svg%3E");
+}
+
+.ail-icon-fax {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 3h10v5H7zM4 9h16a1 1 0 011 1v7h-4v4H7v-4H3v-7a1 1 0 011-1zm5 7v3h6v-3z' fill='%230b0c0c'/%3E%3C/svg%3E");
+}
+
+/* colour-and-contrast-text-over-background-image-with-insufficient-contrast-ail:
+   white text on a light sky picture (a background image) with no overlay. The lightest area is #e8f1f8 (1.13:1). */
+.ail-sky-banner {
+  max-width: 36em;
+  padding: 2em 1em;
+  color: #ffffff;
+  font-size: 1.25em;
+  background: #dceaf5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200' preserveAspectRatio='none'%3E%3Crect width='600' height='200' fill='%23d4e5f2'/%3E%3Cellipse cx='150' cy='80' rx='120' ry='40' fill='%23e8f1f8'/%3E%3Cellipse cx='420' cy='120' rx='160' ry='50' fill='%23e8f1f8'/%3E%3Cellipse cx='300' cy='60' rx='90' ry='30' fill='%23f4f8fb'/%3E%3C/svg%3E") no-repeat center / cover;
+}
+
+.ail-sky-banner p {
+  margin: 0;
+}
+
+/* colour-and-contrast-focus-indicator-has-insufficient-contrast-ail:
+   the focus indicator is a light grey outline, #cccccc on white (1.61:1; 1.4.11 needs 3:1). Only on this class. */
+.ail-low-contrast-focus:focus,
+.ail-low-contrast-focus:focus-visible {
+  outline: 3px solid #cccccc;
+  outline-offset: 2px;
+}
+
+/* colour-and-contrast-informative-icon-has-insufficient-contrast-ail:
+   status icons in #c0c0c0 on white (1.81:1; 1.4.11 needs 3:1 for graphics needed to understand the content). */
+.ail-low-contrast-icon {
+  fill: #c0c0c0;
+}
+
+/* css-text-sized-only-in-viewport-units-ail: text sized only in vw, so text zoom does not enlarge it (F94). */
+.ail-viewport-text {
+  font-size: 1.5vw;
+}
+
+/* css-form-controls-do-not-resize-with-text-ail:
+   the surrounding text is sized in em, the text inputs in px, so input text stays the same size when the text size
+   is increased (F80). */
+.ail-em-text {
+  font-size: 1.125em;
+}
+
+.ail-px-input {
+  font-size: 14px;
+}
+
+/* keyboard-access-sticky-header-partly-hides-focused-element-ail:
+   a scrolling panel with a sticky header. Links are tall blocks; when focus moves back up (Shift+Tab), the focused
+   link scrolls to the top edge and the header covers its upper part (2.4.12). */
+.ail-sticky-header {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  padding: 0.25em 1em;
+  background: #0b0c0c;
+  color: #ffffff;
+}
+
+.ail-tall-links a {
+  display: block;
+  padding: 1.25em 0;
+}
+
+/* page-layout-content-lost-when-reflowed-ail:
+   at widths up to 30em (including 320 CSS px) a column of the table is hidden, with no other way to reach it (F102). */
+@media (max-width: 30em) {
+  .ail-reflow-hide {
+    display: none;
+  }
+}
+
+/* keyboard-access-tooltip-cannot-be-dismissed-with-escape-ail: the tooltip covers the paragraph below the button. */
+.ail-tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.ail-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  width: 18em;
+  margin: 0.25em 0 0 0;
+  padding: 0.75em;
+  background: #0b0c0c;
+  color: #ffffff;
+}
+
+/* keyboard-access-drawing-canvas-with-no-keyboard-alternative-ail: signature pad. */
+.ail-signature {
+  display: block;
+  max-width: 100%;
+  border: 2px solid #0b0c0c;
+  background: #ffffff;
+  touch-action: none;
+}
+
+/* timing-animation-triggered-by-scrolling-ignores-reduced-motion-ail:
+   a scrolling panel with a decorative band that tests-ail.js moves and rotates while the panel scrolls. */
+.ail-motion-scroller {
+  position: relative;
+  height: 14em;
+  max-width: 34em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 2px solid #0b0c0c;
+  padding: 0 1em;
+}
+
+.ail-motion-band {
+  position: sticky;
+  top: 0;
+  height: 4em;
+  background: #ffffff;
+}
+
+.ail-motion-layer {
+  width: 3.5em;
+  height: 3.5em;
+  margin-top: 0.25em;
+  background: #1d70b8;
+  border-radius: 0.5em;
+}
+
+/* content-instructions-rely-on-shape-ail: a round and a square button. */
+.ail-round-button,
+.ail-square-button {
+  min-width: 3em;
+  min-height: 3em;
+  border: 2px solid #0b0c0c;
+  background: #ffffff;
+  color: #0b0c0c;
+  font-size: 1.25em;
+}
+
+.ail-round-button {
+  border-radius: 50%;
+}
+
+.ail-square-button {
+  border-radius: 0;
+}
+
+/* authentication-object-recognition-captcha-as-only-option-ail: picture grid. */
+.ail-captcha-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+  max-width: 30em;
+  margin: 0 0 1em 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ail-captcha-grid label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+  padding: 0.25em;
+  border: 2px solid #0b0c0c;
+}
+
+/* authentication-login-requires-transcribing-a-code-without-paste-ail: six one-character inputs. */
+.ail-code-digit {
+  width: 1.5em;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.ail-code-digits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+
+.ail-code-digits label {
+  display: flex;
+  flex-direction: column;
+}

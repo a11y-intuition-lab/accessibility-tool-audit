@@ -1,0 +1,22 @@
+---
+title: "Financial submission without review or undo"
+category: "Forms"
+origin: ail-2026
+candidate: forms-financial-submission-without-review-or-undo
+categoryOrder: 14
+order: 28
+---
+<form action="example-pages/ail/payment-sent.html" method="get">
+<p>Pay a parking fine.</p>
+<p><label for="ail-pay-pcn">Penalty charge notice number</label><br>
+<input id="ail-pay-pcn" name="pcn" type="text" spellcheck="false"></p>
+<p><label for="ail-pay-amount">Amount in pounds</label><br>
+<input id="ail-pay-amount" name="amount" type="text" inputmode="decimal" autocomplete="transaction-amount"></p>
+<p><label for="ail-pay-card-name">Name on card</label><br>
+<input id="ail-pay-card-name" name="card-name" type="text" autocomplete="cc-name"></p>
+<p><label for="ail-pay-card-number">Card number</label><br>
+<input id="ail-pay-card-number" name="card-number" type="text" inputmode="numeric" autocomplete="cc-number"></p>
+<p><label for="ail-pay-card-expiry">Expiry date (MM/YY)</label><br>
+<input id="ail-pay-card-expiry" name="card-expiry" type="text" autocomplete="cc-exp"></p>
+<p><button type="submit">Pay now</button></p>
+</form>

@@ -8,11 +8,14 @@
   <link rel="stylesheet" href="../assets/stylesheets/tests.css" />
   <link rel="stylesheet" href="../assets/ail/tests-ail.css" />
   <script src="../assets/ail/tests-ail.js" defer></script>
+{%- if head %}
+  {{ head | trim | safe }}
+{%- endif %}
 </head>
 <body>
   <h1>{{ title }}</h1>
   <main>
-    {{ content | processExample | safe }}
+    {{ content | processExampleAil | safe }}
   </main>
 </body>
 </html>

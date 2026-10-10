@@ -8,8 +8,9 @@
 //                                             (partial check of some pages, written to <dir>; marked partial: true,
 //                                              not a publishable run)
 //
-// A test case whose barrier is on a linked example page (field `linkedPage` in data/mappings/test-case-rules.json)
-// also has that linked page tested by both tools, stored as axe/linked-<page>/<slug>.json and pa11y/linked-<page>/<slug>.json.
+// A test case whose barrier is on a linked example page (field `linkedPage`, or `linkedPages` for several pages, in
+// data/mappings/test-case-rules.json) also has each linked page tested by both tools, stored as
+// axe/linked-<page>/<slug>.json and pa11y/linked-<page>/<slug>.json (<page> = file name without .html).
 
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -109,19 +110,27 @@ if (only) {
 }
 const slugs = only ? allSlugs.filter((s) => only.includes(s)) : allSlugs;
 
-// Linked example pages, from the rule mapping (not hard-coded here).
+// Linked example pages, from the rule mapping (not hard-coded here). `linkedPage` (one page) and `linkedPages` (a list)
+// are both supported; each test case gets a list.
 const ruleMapping = readJson(join(root, RULE_MAPPING)).mappings;
+const linkedList = (m) => [...(m.linkedPage ? [m.linkedPage] : []), ...(m.linkedPages ?? [])];
 const linkedPages = Object.fromEntries(
-  Object.entries(ruleMapping).filter(([, m]) => m.linkedPage).map(([slug, m]) => [slug, m.linkedPage]).sort(),
+  Object.entries(ruleMapping).filter(([, m]) => linkedList(m).length).map(([slug, m]) => [slug, linkedList(m)]).sort(),
 );
-for (const [slug, page] of Object.entries(linkedPages)) {
-  if (!/^example-pages\/[\w.-]+\.html$/.test(page) || !existsSync(join(site, page))) {
-    console.error(`linkedPage for ${slug} is not a built example page: ${page}`);
+for (const [slug, list] of Object.entries(linkedPages)) {
+  for (const page of list) {
+    if (!/^example-pages\/(ail\/)?[\w.-]+\.html$/.test(page) || !existsSync(join(site, page))) {
+      console.error(`linked page for ${slug} is not a built example page: ${page}`);
+      process.exit(1);
+    }
+  }
+  if (new Set(list.map((p) => basename(p))).size !== list.length) {
+    console.error(`linked pages for ${slug} must have different file names: ${list.join(', ')}`);
     process.exit(1);
   }
 }
 // Stored in a subfolder per linked page: linked-<page>/<slug>.json exceeded file-name length limits on some file systems.
-const linkedFile = (slug) => `linked-${basename(linkedPages[slug], ".html")}/${slug}.json`;
+const linkedFile = (slug, page) => `linked-${basename(page, '.html')}/${slug}.json`;
 const siteFingerprint = sha256(
   slugs.map((s) => s + ':' + sha256(readFileSync(join(site, 'tests', s + '.html')))).join('\n'),
 );
@@ -210,7 +219,7 @@ const environment = {
   git: { commit, dirty, dirtyFiles, checkedPaths: FIXTURE_PATHS },
   site: { servedFrom: '_site', testPages: slugs.length, testPagesSha256: siteFingerprint, pathPrefix: PREFIX, localPort: port },
   linkedPages: {
-    source: `${RULE_MAPPING} (field linkedPage)`,
+    source: `${RULE_MAPPING} (fields linkedPage and linkedPages)`,
     sha256: sha256(readFileSync(join(root, RULE_MAPPING))),
     pages: Object.fromEntries(Object.entries(linkedPages).filter(([s]) => slugs.includes(s))),
     output: 'axe/linked-<page>/<slug>.json and pa11y/linked-<page>/<slug>.json',
@@ -342,16 +351,20 @@ for (const slug of slugs) {
   writeJson(join(runDir, 'pa11y', `${slug}.json`), p);
   summary.pages[slug] = { origin, ...pageSummary(a, p) };
   console.log(`[${i}/${slugs.length}] ${slug} (${origin}) ${pageLine(a, p)}`);
-  if (linkedPages[slug]) {
-    const linkedUrl = `${base}${linkedPages[slug]}`;
+  const linkedSummaries = [];
+  for (const linkedPage of linkedPages[slug] ?? []) {
+    const linkedUrl = `${base}${linkedPage}`;
     const la = await runAxe(slug, origin, linkedUrl);
     const lp = await runPa11y(slug, origin, linkedUrl);
-    la.linkedPage = lp.linkedPage = linkedPages[slug];
-    writeJson(join(runDir, 'axe', linkedFile(slug)), la);
-    writeJson(join(runDir, 'pa11y', linkedFile(slug)), lp);
-    summary.pages[slug].linked = { page: linkedPages[slug], ...pageSummary(la, lp) };
-    console.log(`        linked ${linkedPages[slug]} ${pageLine(la, lp)}`);
+    la.linkedPage = lp.linkedPage = linkedPage;
+    writeJson(join(runDir, 'axe', linkedFile(slug, linkedPage)), la);
+    writeJson(join(runDir, 'pa11y', linkedFile(slug, linkedPage)), lp);
+    linkedSummaries.push({ page: linkedPage, ...pageSummary(la, lp) });
+    console.log(`        linked ${linkedPage} ${pageLine(la, lp)}`);
   }
+  // One linked page: an object, as before; several: a list.
+  if (linkedSummaries.length === 1) summary.pages[slug].linked = linkedSummaries[0];
+  else if (linkedSummaries.length > 1) summary.pages[slug].linked = linkedSummaries;
 }
 await browser.close();
 server.close();
@@ -369,8 +382,8 @@ summary.totals = {
   pa11yNotices: pages.reduce((n, x) => n + (x.pa11y.notices || 0), 0),
   pagesWithFailedRequests: pages.filter((x) => x.failedRequests > 0).length,
   pagesWithLocalNon200: pages.filter((x) => x.localNon200 > 0).length,
-  linkedPagesTested: pages.filter((x) => x.linked).length,
-  linkedPageLoadFailures: pages.filter((x) => x.linked && (x.linked.axe.error || x.linked.pa11y.error)).length,
+  linkedPagesTested: pages.flatMap((x) => (x.linked ? [].concat(x.linked) : [])).length,
+  linkedPageLoadFailures: pages.flatMap((x) => (x.linked ? [].concat(x.linked) : [])).filter((l) => l.axe.error || l.pa11y.error).length,
 };
 writeJson(join(runDir, 'summary.json'), summary);
 environment.finishedAt = iso();

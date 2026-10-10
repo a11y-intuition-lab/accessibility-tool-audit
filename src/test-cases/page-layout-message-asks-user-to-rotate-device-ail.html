@@ -1,0 +1,21 @@
+---
+title: "Message asks user to rotate device"
+category: "Page Layout"
+origin: ail-2026
+candidate: page-layout-message-asks-user-to-rotate-device
+categoryOrder: 2
+order: 3
+---
+<style>
+/* In a landscape viewport the content is hidden and replaced by a message asking the user to rotate the device (F100). */
+.ail-rotate-message { display: none; }
+@media (orientation: landscape) {
+  .ail-rotate-content { display: none; }
+  .ail-rotate-message { display: block; }
+}
+</style>
+<div class="ail-rotate-content">
+<p>Your appointment is on Tuesday 14 April at 10:30am.</p>
+<p>Bring your passport and a recent utility bill to the appointment.</p>
+</div>
+<p class="ail-rotate-message">Please rotate your device to portrait to see this content.</p>

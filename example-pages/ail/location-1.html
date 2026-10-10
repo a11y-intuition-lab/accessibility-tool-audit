@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- A11y Intuition Lab (ail-2026) example page for the test case navigation-no-indication-of-location-within-a-set-of-pages-ail.
+     Barrier (2.4.8): no breadcrumb, the menu does not mark the current page, and the titles do not say which set of pages this is. -->
+<title>Who needs a fishing licence</title>
+<style>
+body { font-family: sans-serif; line-height: 1.5; margin: 1em; color: #0b0c0c; background: #ffffff; }
+header, footer { border-color: #0b0c0c; border-style: solid; border-width: 0; }
+header { border-bottom-width: 2px; margin: 0 0 1em 0; }
+footer { border-top-width: 2px; margin: 2em 0 0 0; }
+nav ul, footer ul { padding-left: 1.25em; }
+li { margin: 0 0 0.5em 0; }
+a[aria-current="page"] { color: #0b0c0c; font-weight: bold; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+<p>Example Council</p>
+</header>
+<nav aria-label="Main">
+<ul>
+<li><a href="location-1.html">Who needs a fishing licence</a></li>
+<li><a href="location-2.html">Buy a fishing licence</a></li>
+<li><a href="location-3.html">Fishing rules</a></li>
+</ul>
+</nav>
+<main>
+<h1>Who needs a fishing licence</h1>
+<p>You need a rod fishing licence to fish for salmon, trout, freshwater fish, smelt or eel with a rod and line in England.</p>
+<p>Children under 13 do not need a licence.</p>
+<h2>Related pages</h2>
+<ul>
+<li><a href="location-2.html">Buy a fishing licence</a></li>
+<li><a href="location-3.html">Fishing rules</a></li>
+</ul>
+</main>
+<footer>
+<p>Example Council is a fictional council used in accessibility test pages.</p>
+</footer>
+</body>
+</html>

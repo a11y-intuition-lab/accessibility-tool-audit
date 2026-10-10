@@ -15,6 +15,12 @@
     return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable;
   }
 
+  /* Timers, flashing and other behaviour that must never run on the combined test-cases page (D-014) start only on a
+     test case's own page. The combined page's body has the class site-fixtures-page; fixture pages do not. */
+  function onOwnPage() {
+    return !document.body.classList.contains('site-fixtures-page');
+  }
+
   function init() {
     /* keyboard-access-focus-removed-by-script-when-received-ail:
        the element loses focus as soon as it receives it (F55). */
@@ -205,10 +211,210 @@
       });
     });
 
-    /* authentication-paste-blocked-in-password-field-ail:
-       paste is cancelled, so a password manager or copied password cannot be used (F109). */
+    /* authentication-paste-blocked-in-password-field-ail, authentication-login-requires-transcribing-a-code-without-paste-ail:
+       paste is cancelled, so a password manager or copied password or code cannot be used (F109). */
     each('[data-ail-block-paste]', function (el) {
       el.addEventListener('paste', function (event) { event.preventDefault(); });
+    });
+
+    /* forms-selecting-a-radio-button-opens-a-new-window-ail:
+       choosing an option opens a new window straight away, a change of context on change of setting (F37). */
+    each('[data-ail-open-window-on-change]', function (el) {
+      el.addEventListener('change', function () {
+        if (!el.checked) return;
+        var win = window.open('', 'ail-delivery', 'width=420,height=360');
+        if (!win) return;
+        try {
+          win.document.title = el.getAttribute('data-ail-open-window-on-change');
+          win.document.body.innerHTML = '';
+          var heading = win.document.createElement('h1');
+          heading.textContent = el.getAttribute('data-ail-open-window-on-change');
+          win.document.body.appendChild(heading);
+        } catch (e) { /* window not scriptable: leave it as it is */ }
+      });
+    });
+
+    /* forms-form-submits-automatically-when-last-field-is-filled-ail:
+       the form is submitted as soon as the field holds the required number of digits (F36). */
+    each('[data-ail-autosubmit]', function (el) {
+      var length = parseInt(el.getAttribute('data-ail-autosubmit'), 10) || 4;
+      el.addEventListener('input', function () {
+        if (new RegExp('^[0-9]{' + length + '}$').test(el.value) && el.form) el.form.submit();
+      });
+    });
+
+    /* keyboard-access-disclosure-button-without-expanded-state-ail:
+       the button shows and hides a section but never sets aria-expanded. */
+    each('[data-ail-disclosure]', function (button) {
+      button.addEventListener('click', function () {
+        var target = document.getElementById(button.getAttribute('data-ail-disclosure'));
+        if (target) target.hidden = !target.hidden;
+      });
+    });
+
+    /* keyboard-access-tooltip-cannot-be-dismissed-with-escape-ail:
+       the tooltip shows on hover or focus and stays while the pointer is over it, but only hides when the pointer or
+       focus leaves. Escape does nothing, so it cannot be dismissed without moving away. */
+    each('[data-ail-tooltip]', function (wrapper) {
+      var tip = document.getElementById(wrapper.getAttribute('data-ail-tooltip'));
+      var trigger = wrapper.querySelector('[aria-describedby]');
+      if (!tip || !trigger) return;
+      var hovered = false;
+      var focused = false;
+      function update() { tip.hidden = !(hovered || focused); }
+      wrapper.addEventListener('mouseenter', function () { hovered = true; update(); });
+      wrapper.addEventListener('mouseleave', function () { hovered = false; update(); });
+      trigger.addEventListener('focus', function () { focused = true; update(); });
+      trigger.addEventListener('blur', function () { focused = false; update(); });
+    });
+
+    /* keyboard-access-drawing-canvas-with-no-keyboard-alternative-ail:
+       a freehand signature pad that only responds to pointer input. */
+    each('[data-ail-signature]', function (canvas) {
+      var ctx = canvas.getContext('2d');
+      var drawing = false;
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#0b0c0c';
+      function point(event) {
+        var box = canvas.getBoundingClientRect();
+        return { x: (event.clientX - box.left) * canvas.width / box.width, y: (event.clientY - box.top) * canvas.height / box.height };
+      }
+      canvas.addEventListener('pointerdown', function (event) {
+        drawing = true;
+        canvas.setPointerCapture(event.pointerId);
+        var p = point(event);
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+      });
+      canvas.addEventListener('pointermove', function (event) {
+        if (!drawing) return;
+        var p = point(event);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+      });
+      canvas.addEventListener('pointerup', function () { drawing = false; });
+      canvas.addEventListener('pointercancel', function () { drawing = false; });
+      var clear = document.querySelector('[data-ail-signature-clear="' + canvas.id + '"]');
+      if (clear) clear.addEventListener('click', function () { ctx.clearRect(0, 0, canvas.width, canvas.height); });
+    });
+
+    /* timing-animation-triggered-by-scrolling-ignores-reduced-motion-ail:
+       scrolling the panel moves a decorative band sideways (parallax). prefers-reduced-motion is not checked and there
+       is no control to turn the motion off. */
+    each('[data-ail-scroll-motion]', function (scroller) {
+      var layer = scroller.querySelector('[data-ail-motion-layer]');
+      if (!layer) return;
+      scroller.addEventListener('scroll', function () {
+        var max = Math.max(1, scroller.scrollHeight - scroller.clientHeight);
+        var progress = scroller.scrollTop / max;
+        layer.style.transform = 'translateX(' + Math.round(progress * 300) + 'px) rotate(' + Math.round(progress * 360) + 'deg)';
+      });
+    });
+
+    /* pointer-and-motion-shake-to-undo-without-alternative-ail:
+       shaking the device clears the message. There is no button that does the same and no way to turn it off (F106). */
+    each('[data-ail-shake-undo]', function (field) {
+      var status = document.getElementById(field.getAttribute('data-ail-shake-undo'));
+      var last = 0;
+      window.addEventListener('devicemotion', function (event) {
+        var a = event.acceleration || event.accelerationIncludingGravity;
+        if (!a || a.x === null) return;
+        var g = event.acceleration ? 0 : 9.81;
+        var force = Math.abs(Math.sqrt(a.x * a.x + a.y * a.y + a.z * a.z) - g);
+        var now = Date.now();
+        if (force > 15 && now - last > 1000) {
+          last = now;
+          field.value = '';
+          if (status) status.textContent = 'Your message was cleared.';
+        }
+      });
+    });
+
+    /* pointer-and-motion-touch-only-interaction-ail:
+       the button responds to touch and to the keyboard, but ignores mouse clicks (F98). */
+    each('[data-ail-touch-only]', function (button) {
+      var status = document.getElementById(button.getAttribute('data-ail-touch-only'));
+      function toggle() {
+        var pressed = button.getAttribute('aria-pressed') === 'true';
+        button.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+        if (status) status.textContent = pressed ? 'Removed from your saved services.' : 'Added to your saved services.';
+      }
+      button.addEventListener('touchend', function (event) {
+        event.preventDefault();
+        toggle();
+      });
+      /* Keyboard activation fires a click with detail 0; a mouse click has detail 1 or more and is ignored. */
+      button.addEventListener('click', function (event) {
+        if (event.detail === 0) toggle();
+      });
+    });
+
+    /* timing-content-updates-interrupt-the-user-ail:
+       some seconds after the page loads, an alert interrupts the user with a non-urgent message. There is no setting
+       to postpone or turn off such interruptions. Own page only. */
+    each('[data-ail-delayed-alert]', function (el) {
+      if (!onOwnPage()) return;
+      var delay = parseInt(el.getAttribute('data-ail-delayed-alert'), 10) || 10000;
+      window.setTimeout(function () { el.textContent = el.getAttribute('data-ail-alert-text'); }, delay);
+    });
+
+    /* timing-session-timeout-loses-entered-data-ail:
+       after a period of inactivity the session ends and the answers are deleted. A warning before the end lets the
+       user extend the session (2.2.1), but nothing says up front how long the inactivity limit is, and the answers are
+       lost when the session does end. Times are shortened to seconds. Own page only. */
+    each('[data-ail-session-timeout]', function (form) {
+      if (!onOwnPage()) return;
+      var limit = parseInt(form.getAttribute('data-ail-session-timeout'), 10) || 40000;
+      var warnAt = parseInt(form.getAttribute('data-ail-session-warning'), 10) || 20000;
+      var warning = document.getElementById(form.getAttribute('data-ail-session-warning-id'));
+      var expired = document.getElementById(form.getAttribute('data-ail-session-expired-id'));
+      var warnTimer, endTimer;
+      function start() {
+        window.clearTimeout(warnTimer);
+        window.clearTimeout(endTimer);
+        if (warning) warning.hidden = true;
+        warnTimer = window.setTimeout(function () { if (warning) warning.hidden = false; }, limit - warnAt);
+        endTimer = window.setTimeout(function () {
+          if (warning) warning.hidden = true;
+          form.reset();
+          if (expired) expired.hidden = false;
+        }, limit);
+      }
+      ['input', 'keydown', 'pointerdown'].forEach(function (type) {
+        form.addEventListener(type, function () { if (!expired || expired.hidden) start(); });
+      });
+      each('[data-ail-session-extend]', function (button) { button.addEventListener('click', start); });
+      each('[data-ail-session-restart]', function (button) {
+        button.addEventListener('click', function () {
+          if (expired) expired.hidden = true;
+          start();
+        });
+      });
+      start();
+    });
+
+    /* multimedia-locally-flashing-animation-above-the-general-flash-threshold-ail (D-014):
+       a large area flashes between saturated red and black five times a second (above the three-flash threshold),
+       but only after the user selects the start button, which follows a photosensitivity warning. A stop button ends it,
+       and it stops by itself after five seconds. Own page only: on the combined page it never starts. */
+    each('[data-ail-flash]', function (area) {
+      var startButton = document.querySelector('[data-ail-flash-start="' + area.id + '"]');
+      var stopButton = document.querySelector('[data-ail-flash-stop="' + area.id + '"]');
+      var timer = null;
+      var endTimer = null;
+      function stop() {
+        window.clearInterval(timer);
+        window.clearTimeout(endTimer);
+        timer = null;
+        area.classList.remove('ail-flash-on');
+      }
+      if (startButton) startButton.addEventListener('click', function () {
+        if (!onOwnPage() || timer) return;
+        timer = window.setInterval(function () { area.classList.toggle('ail-flash-on'); }, 100);
+        endTimer = window.setTimeout(stop, 5000);
+      });
+      if (stopButton) stopButton.addEventListener('click', stop);
     });
   }
 

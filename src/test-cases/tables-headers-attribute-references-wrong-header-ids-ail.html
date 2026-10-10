@@ -1,0 +1,41 @@
+---
+title: "Headers attribute references wrong header ids"
+category: "Tables"
+origin: ail-2026
+candidate: tables-headers-attribute-references-wrong-header-ids
+categoryOrder: 9
+order: 14
+---
+<table>
+<caption>Train fares from Leeds to York</caption>
+<thead>
+<tr>
+<td></td>
+<th id="ail-fare-single" colspan="2">Single</th>
+<th id="ail-fare-return" colspan="2">Return</th>
+</tr>
+<tr>
+<td></td>
+<th id="ail-fare-single-off" headers="ail-fare-single">Off-peak</th>
+<th id="ail-fare-single-any" headers="ail-fare-single">Anytime</th>
+<th id="ail-fare-return-off" headers="ail-fare-return">Off-peak</th>
+<th id="ail-fare-return-any" headers="ail-fare-return">Anytime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th id="ail-fare-adult">Adult</th>
+<td headers="ail-fare-adult ail-fare-single ail-fare-single-off">£9.20</td>
+<td headers="ail-fare-adult ail-fare-single ail-fare-single-any">£12.40</td>
+<td headers="ail-fare-adult ail-fare-return ail-fare-return-off">£10.10</td>
+<td headers="ail-fare-adult ail-fare-return ail-fare-return-any">£18.60</td>
+</tr>
+<tr>
+<th id="ail-fare-child">Child</th>
+<td headers="ail-fare-adult ail-fare-return ail-fare-return-any">£4.60</td>
+<td headers="ail-fare-adult ail-fare-return ail-fare-return-off">£6.20</td>
+<td headers="ail-fare-adult ail-fare-single ail-fare-single-any">£5.05</td>
+<td headers="ail-fare-adult ail-fare-single ail-fare-single-off">£9.30</td>
+</tr>
+</tbody>
+</table>

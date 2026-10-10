@@ -2,8 +2,8 @@
 //
 //   node scripts/classify.mjs [runDir]
 //
-// Reads <runDir>/summary.json, axe/<slug>.json and pa11y/<slug>.json (and axe|pa11y/linked-<page>/<slug>.json for a test case
-// whose barrier is on a linked example page) plus data/mappings/test-case-rules.json,
+// Reads <runDir>/summary.json, axe/<slug>.json and pa11y/<slug>.json (and axe|pa11y/linked-<page>/<slug>.json for each
+// linked example page of a test case whose barrier is there: linkedPage or linkedPages) plus data/mappings/test-case-rules.json,
 // and writes <runDir>/classification.json. The protocol is wiki/method/classification-protocol.md.
 // The output is a pure function of the run and the mapping: sorted keys, no timestamps except the run's own.
 import { createHash } from 'node:crypto';
@@ -42,11 +42,16 @@ function sortKeys(value) {
   return value;
 }
 
-// The pages a test case is judged on: its own page, plus the linked example page when the barrier is there.
-// Each entry: { page: 'test' or the linkedPage path, file: the output file name in axe/ and pa11y/, linked }.
+// The linked example pages of a test case: `linkedPage` (one page) and/or `linkedPages` (a list).
+const linkedList = (map) => [...(map.linkedPage ? [map.linkedPage] : []), ...(map.linkedPages ?? [])];
+
+// The pages a test case is judged on: its own page, plus the linked example pages when the barrier is there.
+// Each entry: { page: 'test' or the linked page path, file: the output file name in axe/ and pa11y/, linked }.
 function pagesFor(slug, map) {
   const pages = [{ page: 'test', file: `${slug}.json` }];
-  if (map.linkedPage) pages.push({ page: map.linkedPage, file: `linked-${path.basename(map.linkedPage, '.html')}/${slug}.json`, linked: true });
+  for (const linked of linkedList(map)) {
+    pages.push({ page: linked, file: `linked-${path.basename(linked, '.html')}/${slug}.json`, linked: true });
+  }
   return pages;
 }
 
@@ -113,6 +118,7 @@ function main() {
     const pa11y = classifyPa11y(path.join(runDir, 'pa11y'), pages, map.htmlcs);
     const result = { axe: axe.value, pa11y: pa11y.value, evidence: { axe: axe.evidence, pa11y: pa11y.evidence } };
     if (map.linkedPage) result.linkedPage = map.linkedPage;
+    if (map.linkedPages) result.linkedPages = map.linkedPages;
     if (axe.notRun?.length) result.evidence.axeRulesNotRun = axe.notRun;
     const reasons = [axe.reason, pa11y.reason].filter(Boolean);
     if (reasons.length) result.reason = reasons.join('; ');
