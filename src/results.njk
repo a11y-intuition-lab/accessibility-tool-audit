@@ -9,7 +9,12 @@ permalink: results.html
 
 <p class="site-lead">How well automated checkers find each test case, then and now. Each 2026 retest column sits next to its 2017 counterpart.</p>
 
+{%- set run = results.latest %}
+{%- if run %}
+<p>2026 columns: run <code>{{ run.id }}</code> of {{ run.date }}, commit <a href="{{ site.repo }}/commit/{{ run.commit }}"><code>{{ run.commitShort }}</code></a>, axe-core {{ run.tools['axe-core'] }}, pa11y {{ run.tools.pa11y }} (HTML_CodeSniffer {{ run.tools.html_codesniffer }}), Chromium {{ run.browser }}. Classified by script with an AI-proposed rule mapping that is not yet human-reviewed; see the <a href="{{ '/methodology.html' | url }}#classification">methodology</a>.</p>
+{%- else %}
 <p><strong>The 2026 retest has not been published yet.</strong> Until it has, the AIL columns are empty.</p>
+{%- endif %}
 
 {% include "wcag-filter.njk" %}
 
@@ -44,7 +49,7 @@ permalink: results.html
   <dl>
     <dt><span class="site-result site-result-notfound">Not found</span></dt><dd>The tool didn't find the issue.</dd>
   </dl>
-  <p>In 2026 the category is assigned by a script, not by hand. See the <a href="{{ '/methodology.html' | url }}#classification">methodology</a>.</p>
+  <p>In 2026 the category is assigned by a script, not by hand. "Not tested" in a 2026 column means the tool did not see the barrier: the page failed to load, or the barrier is on a linked example page that the retest did not load. See the <a href="{{ '/methodology.html' | url }}#classification">methodology</a>.</p>
 </details>
 
 {%- set groups = collections.testCases | groupByCategory %}
@@ -82,7 +87,16 @@ permalink: results.html
 </div>
 
 <h2 id="changelog">Changelog</h2>
+{%- if results.runs.length %}
+<p>AIL retests, newest first:</p>
+<ul>
+  {%- for r in results.runs %}
+  <li>{{ r.date }}: run <a href="{{ tree }}data/results/ail-2026/runs/{{ r.id }}"><code>{{ r.id }}</code></a>, {{ r.pages }} test cases, commit <a href="{{ site.repo }}/commit/{{ r.commit }}"><code>{{ r.commitShort }}</code></a>{% if r.dirty %} (uncommitted changes){% endif %}. axe-core {{ r.tools['axe-core'] }}, pa11y {{ r.tools.pa11y }} with HTML_CodeSniffer {{ r.tools.html_codesniffer }}, Playwright {{ r.tools['playwright-core'] }}, Chromium {{ r.browser }}, Node.js {{ r.node }}.</li>
+  {%- endfor %}
+</ul>
+{%- else %}
 <p>AIL retests will be listed here, newest first, with the commit and tool versions used.</p>
+{%- endif %}
 <p>GOV.UK's changelog for 2016 to 2018, including when aXe and HTML_CodeSniffer were last retested, is on the <a href="{{ site.originalResults }}#changelog">original results page</a>.</p>
 
 <h2>Want more detail?</h2>

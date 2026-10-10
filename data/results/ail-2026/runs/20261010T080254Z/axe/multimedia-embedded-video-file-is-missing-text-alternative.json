@@ -1,0 +1,210 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "multimedia-embedded-video-file-is-missing-text-alternative",
+  "origin": "govuk-2017",
+  "url": "http://127.0.0.1:33431/accessibility-tool-audit/tests/multimedia-embedded-video-file-is-missing-text-alternative.html",
+  "startedAt": "2026-10-10T08:08:25.722Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T08:08:26.952Z",
+    "violations": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1>Embedded video file is missing text alternative</h1>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "video-caption",
+        "impact": "critical",
+        "tags": [
+          "cat.text-alternatives",
+          "wcag2a",
+          "wcag122",
+          "section508",
+          "section508.22.a",
+          "TTv5",
+          "TT17.a",
+          "EN-301-549",
+          "EN-9.1.2.2",
+          "RGAAv4",
+          "RGAA-4.3.1"
+        ],
+        "description": "Ensure <video> elements have captions",
+        "help": "<video> elements must have captions",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/video-caption?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "video"
+            ],
+            "html": "<video controls=\"\">\n<source src=\"http://introducinghtml5.com/examples/ch04/leverage-a-synergy.ogv\" type=\"video/ogg; codecs=&quot;theora, vorbis&quot;\">\n<source src=\"http://introducinghtml5.com/examples/ch04/leverage-a-synergy.mp4\" type=\"video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;\">\n</video>",
+            "impact": "critical",
+            "failureSummary": "Fix all of the following:\n  Check that captions are available for the element",
+            "checks": {
+              "any": [],
+              "all": [],
+              "none": [
+                "caption"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "passesCount": 16,
+    "passesRuleIds": [
+      "aria-hidden-body",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "empty-heading",
+      "heading-order",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-main",
+      "landmark-one-main",
+      "landmark-unique",
+      "page-has-heading-one",
+      "region"
+    ],
+    "inapplicableCount": 88,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-roles",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "autocomplete-valid",
+      "avoid-inline-spacing",
+      "blink",
+      "button-name",
+      "bypass",
+      "definition-list",
+      "dlitem",
+      "duplicate-id",
+      "duplicate-id-active",
+      "duplicate-id-aria",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "html-xml-lang-mismatch",
+      "identical-links-same-purpose",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-content-name-mismatch",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "link-in-text-block",
+      "link-name",
+      "list",
+      "listitem",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "p-as-heading",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "target-size",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang"
+    ]
+  },
+  "failedRequests": [
+    {
+      "url": "https://github.com/remy/introducinghtml5/blob/master/examples/ch04/leverage-a-synergy.mp4",
+      "resourceType": "media",
+      "failure": "net::ERR_BLOCKED_BY_ORB"
+    }
+  ],
+  "localNon200": [],
+  "durationMs": 1261
+}

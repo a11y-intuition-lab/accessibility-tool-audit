@@ -1,0 +1,211 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "links-image-link-with-no-alternative-text",
+  "origin": "govuk-2017",
+  "url": "http://127.0.0.1:33431/accessibility-tool-audit/tests/links-image-link-with-no-alternative-text.html",
+  "startedAt": "2026-10-10T08:07:36.711Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T08:07:37.227Z",
+    "violations": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "tags": [
+          "cat.name-role-value",
+          "wcag2a",
+          "wcag244",
+          "wcag412",
+          "section508",
+          "section508.22.a",
+          "TTv5",
+          "TT6.a",
+          "EN-301-549",
+          "EN-9.2.4.4",
+          "EN-9.4.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-6.2.1"
+        ],
+        "description": "Ensure links have discernible text",
+        "help": "Links must have discernible text",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-name?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "a"
+            ],
+            "html": "<a href=\"http://www.bbc.co.uk\"><img alt=\"\" src=\"../assets/test_images/bbc-blocks-dark.png\"></a>",
+            "impact": "serious",
+            "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+            "checks": {
+              "any": [
+                "has-visible-text",
+                "aria-label",
+                "aria-labelledby",
+                "non-empty-title"
+              ],
+              "all": [],
+              "none": [
+                "focusable-no-name"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1>Image link with no alternative text</h1>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [],
+    "passesCount": 21,
+    "passesRuleIds": [
+      "aria-hidden-body",
+      "bypass",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "empty-heading",
+      "heading-order",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "image-alt",
+      "image-redundant-alt",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-main",
+      "landmark-one-main",
+      "landmark-unique",
+      "page-has-heading-one",
+      "presentation-role-conflict",
+      "region",
+      "target-size"
+    ],
+    "inapplicableCount": 83,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-roles",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "autocomplete-valid",
+      "avoid-inline-spacing",
+      "blink",
+      "button-name",
+      "definition-list",
+      "dlitem",
+      "duplicate-id",
+      "duplicate-id-active",
+      "duplicate-id-aria",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "html-xml-lang-mismatch",
+      "identical-links-same-purpose",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-content-name-mismatch",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "link-in-text-block",
+      "list",
+      "listitem",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "p-as-heading",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [],
+  "localNon200": [],
+  "durationMs": 548
+}

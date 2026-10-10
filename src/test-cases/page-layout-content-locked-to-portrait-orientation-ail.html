@@ -6,6 +6,15 @@ candidate: page-layout-content-locked-to-portrait-orientation
 categoryOrder: 2
 order: 2
 ---
+<style>
+/* In a landscape viewport the content is rotated 90 degrees, so it can only be read upright in portrait (F97). */
+@media (orientation: landscape) {
+  .ail-portrait-only {
+    transform: rotate(90deg);
+    margin: 7em 0;
+  }
+}
+</style>
 <div class="ail-portrait-only">
 <p>Your appointment is on Tuesday 14 April at 10:30am.</p>
 <p>Bring your passport and a recent utility bill to the appointment.</p>

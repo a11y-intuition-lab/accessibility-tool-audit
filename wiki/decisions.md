@@ -135,3 +135,44 @@ Chromium through `executablePath`, so both tools run on one recorded browser. Ve
 **Consequences:** `npm audit` reports no new advisories beyond those already assessed in
 [supply-chain security](method/supply-chain-security.md). The browser download is a separate step, `npm run retest:browsers`.
 
+## D-020 — Classification protocol, with HTML_CodeSniffer warnings as "user to check" (2026-10-10)
+
+**Decision:** Retest results are classified by `scripts/classify.mjs` (`npm run classify`) following the
+[classification protocol](method/classification-protocol.md). A tool finds a test case only through a rule listed for it
+in `data/mappings/test-case-rules.json`. axe-core: violation → issue found, needs review → user to check.
+HTML_CodeSniffer: error → issue found, **warning → user to check**, notice → noticed but not a fail; notices emitted on
+every page are never listed. The strongest hit wins. A page that failed to load, or a barrier on a linked example page the
+run did not load, gives no result ("Not tested").
+**Reason:** Implements D-005. GOV.UK reclassified HTML_CodeSniffer warnings as manual checks on 2018-04-13, so the 2017
+data has no "warning only" results for it; coding 2026 warnings the same way keeps the comparison fair. The alternative
+(warning → warning only) would raise the 2026 detection rate through a coding choice alone. Linked-page cases are not
+"not found" because the tool never saw the page.
+**Consequences:** The rule mapping is AI-proposed (claude-opus-5-5), stored with a rationale per rule, and not yet reviewed;
+borderline entries are marked `review: pending`. Rules disabled by default in axe-core (`color-contrast-enhanced`,
+`target-size`, `identical-links-same-purpose`, deprecated `duplicate-id` and `audio-caption`) are listed but did not run in
+the first run, so the classification records them separately. Testing linked example pages needs a harness change.
+
+## D-021 — Enable all axe-core rules (2026-10-10)
+
+**Decision:** The retest harness enables every rule axe-core ships, including the rules it disables by default:
+experimental, AAA (`color-contrast-enhanced`, `target-size`, `identical-links-same-purpose`,
+`meta-refresh-no-exceptions`) and deprecated ones still shipped in 4.13 (`duplicate-id`, `duplicate-id-active`,
+`audio-caption`, `aria-roledescription`, `landmark-complementary-is-top-level`). The full list is recorded in each run's
+`environment.json` (`enabledRuleIds`, `defaultDisabledRuleIds`).
+**Reason:** GOV.UK's instruction for the 2017 audit (`tools-info.md` at `govuk-final`) was to use each tool's most
+inquisitive options. With defaults only, the first run could not find barriers for which axe-core has a rule.
+**Supersedes:** the part of D-016 and D-018 that ran axe-core with default plus experimental rules only.
+**Consequences:** Comparability: GOV.UK's 2017 aXe settings listed the tags wcag2a, wcag2aa, section508, best-practice
+and experimental, not AAA. Results from AAA rules (for example the AAA contrast test cases) can therefore be found in 2026
+for a reason that is partly configuration, not tool improvement; the results page and analysis must say so when
+comparing those cases. Deprecated rules (4.1.1 Parsing) are included for comparability with 2017, when they were current.
+
+## D-022 — Test linked example pages (2026-10-10)
+
+**Decision:** When a test case's barrier is on a linked page in `example-pages/`, the mapping names it (`linkedPage` in
+`data/mappings/test-case-rules.json`), the harness runs both tools on that page too, and the classifier counts listed-rule
+hits on either page. "No result" remains only for a page that failed to load or a tool error.
+**Supersedes:** the part of D-020 that gave these cases no result because the run did not load the linked page.
+**Reason:** Ten GOV.UK test cases (page titles, html `lang`, missing `h1`, keyboard trap, unorganised content) were
+otherwise untestable; GOV.UK tested the linked pages in 2017.
+

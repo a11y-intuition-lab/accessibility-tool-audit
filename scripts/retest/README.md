@@ -14,7 +14,7 @@ npm ci                      # exact versions from package-lock.json; no install 
 npm run retest:browsers     # installs the pinned Chromium revision (playwright-core install chromium)
 npm run build               # builds _site/
 npm run verify              # GOV.UK fixtures must be byte-identical to govuk-final
-npm run retest              # takes about 7 minutes for 147 pages
+npm run retest              # takes about 7 minutes for 167 pages
 ```
 
 The Chromium revision comes from the pinned `playwright-core` version, so the same lockfile gives the same browser.
@@ -30,7 +30,9 @@ A dirty run is not publishable evidence.
    and under `/accessibility-tool-audit/`, so the pages' relative `../assets/...` links resolve. Before testing it
    fetches the first page's assets and aborts unless they return 200.
 2. For each `_site/tests/<slug>.html` in alphabetical order (one page at a time): runs axe-core in Playwright's Chromium,
-   then pa11y in the same Chromium binary. Each tool gets a fresh browser context or process per page.
+   then pa11y in the same Chromium binary. Each tool gets a fresh browser context or process per page. If the test case
+   has a `linkedPage` in `data/mappings/test-case-rules.json` (the barrier is on a linked `example-pages/` page), both
+   tools also run on that page.
 3. Reads each page's origin (`govuk-2017` or `ail-2026`) from `src/test-cases/<slug>.html` front matter.
 4. Writes everything to `data/results/ail-2026/runs/<runId>/`, where `runId` is the UTC start time, `YYYYMMDDTHHMMSSZ`.
    A page that fails to load or time out is recorded with an `error` field and does not stop the run.
@@ -38,14 +40,22 @@ A dirty run is not publishable evidence.
 ## Configuration
 
 - Viewport 1280x1024 for both tools; page load waits for the `load` event (30 s timeout for axe; pa11y timeout 60 s).
-- **axe-core**: injected as `axe.min.js` with `page.addScriptTag`. `runOnly` is not set, so all rules that are enabled by
-  default run; experimental rules (disabled by default) are enabled explicitly, and their ids are listed in
-  `environment.json`. `resultTypes`: violations, incomplete, passes, inapplicable. Deprecated rules stay off, as in axe-core's defaults.
+- **axe-core**: injected as `axe.min.js` with `page.addScriptTag`. Every rule axe-core ships is enabled explicitly (D-021),
+  including those it disables by default: experimental, AAA (`color-contrast-enhanced`, `target-size`,
+  `identical-links-same-purpose`, `meta-refresh-no-exceptions`) and deprecated (`duplicate-id`, `audio-caption` …).
+  `environment.json` lists `enabledRuleIds`, `defaultDisabledRuleIds` and `experimentalRuleIds`. `runOnly` is not set.
+  `resultTypes`: violations, incomplete, passes, inapplicable.
 - **pa11y**: runner `htmlcs`, standard `WCAG2AAA`, `includeWarnings` and `includeNotices` true, no ignored rules.
   pa11y is pointed at Playwright's Chromium with `chromeLaunchConfig.executablePath`; puppeteer's own Chrome download
   is never triggered (install scripts are off), so both tools run on the one recorded browser.
 - Chromium is started with `--no-sandbox`, which is also Playwright's default on Linux.
 - Network is not blocked. Requests that fail (remote YouTube, media) are recorded per page.
+
+## Partial checks
+
+`npm run retest -- --allow-dirty --only=<slug>,<slug> --out=<dir>` runs only the named test cases (plus their linked
+pages) and writes the run to `<dir>/<runId>/`. `environment.json` marks it `partial`; it is for checking fixture or
+harness changes, not publishable evidence.
 
 ## Output
 
@@ -56,6 +66,8 @@ data/results/ail-2026/runs/<runId>/
   axe/<slug>.json    violations and incomplete in full (rule id, impact, tags, nodes with target, html, failureSummary,
                      check ids); passes and inapplicable as counts and rule ids; failed requests; local non-200 responses
   pa11y/<slug>.json  all issues: code, type, typeCode, message, selector, context
+  axe/linked-<page>/<slug>.json, pa11y/linked-<page>/<slug>.json
+                     the same for the linked example page of a test case with linkedPage (field linkedPage in the file)
 ```
 
 Absolute paths and user names are not written to the output (the repository is public).

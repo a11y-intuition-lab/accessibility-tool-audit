@@ -1,0 +1,257 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "html-invalid-aria-role-names",
+  "origin": "govuk-2017",
+  "url": "http://127.0.0.1:33431/accessibility-tool-audit/tests/html-invalid-aria-role-names.html",
+  "startedAt": "2026-10-10T08:05:30.420Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T08:05:31.117Z",
+    "violations": [
+      {
+        "id": "aria-roles",
+        "impact": "critical",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-7.1.1"
+        ],
+        "description": "Ensure all elements with a role attribute use a valid value",
+        "help": "ARIA roles used must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-roles?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "ol"
+            ],
+            "html": "<ol class=\"group\" role=\"breadcrumbs\">\n<li><a href=\"/\">Home</a></li>\n<li><a href=\"/browse/housing-local-services\">Housing and local services</a></li>\n<li><strong><a href=\"/browse/housing-local-services/local-councils\">Local councils and services</a></strong></li>\n</ol>",
+            "impact": "critical",
+            "failureSummary": "Fix all of the following:\n  Role must be one of the valid ARIA roles: breadcrumbs",
+            "checks": {
+              "any": [],
+              "all": [],
+              "none": [
+                "invalidrole"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1>Invalid ARIA role names</h1>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "a[href=\"/\"]"
+            ],
+            "html": "<a href=\"/\">Home</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+            "checks": {
+              "any": [
+                "color-contrast"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href$=\"housing-local-services\"]"
+            ],
+            "html": "<a href=\"/browse/housing-local-services\">Housing and local services</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+            "checks": {
+              "any": [
+                "color-contrast"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "passesCount": 24,
+    "passesRuleIds": [
+      "aria-deprecated-role",
+      "aria-hidden-body",
+      "aria-required-attr",
+      "bypass",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "duplicate-id",
+      "empty-heading",
+      "heading-order",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "identical-links-same-purpose",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-main",
+      "landmark-one-main",
+      "landmark-unique",
+      "link-name",
+      "listitem",
+      "page-has-heading-one",
+      "region",
+      "target-size"
+    ],
+    "inapplicableCount": 80,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "autocomplete-valid",
+      "avoid-inline-spacing",
+      "blink",
+      "button-name",
+      "definition-list",
+      "dlitem",
+      "duplicate-id-active",
+      "duplicate-id-aria",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "html-xml-lang-mismatch",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-content-name-mismatch",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "link-in-text-block",
+      "list",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "p-as-heading",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [
+    {
+      "url": "https://assets.publishing.service.gov.uk/static/separator-871ef28abf1920b1b8050934ebec4366c18e3cba6ddb704392935e076a7e744d.png",
+      "resourceType": "image",
+      "failure": "net::ERR_BLOCKED_BY_ORB"
+    }
+  ],
+  "localNon200": [],
+  "durationMs": 734
+}

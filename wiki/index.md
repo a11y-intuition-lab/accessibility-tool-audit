@@ -16,8 +16,7 @@ Knowledge base for A11y Intuition Lab's extension of the GOV.UK accessibility to
 - [Supply-chain security](method/supply-chain-security.md) — npm and GitHub Actions hardening rules.
 - [WCAG mapping protocol](method/wcag-mapping.md) — rules for mapping a test case to success criteria (`fails` / `related` / `none`).
 - [Retest procedure](method/retest-procedure.md) — how axe-core and pa11y are run against the built site, and what is stored.
-
-Planned: coding protocol for tool results.
+- [Classification protocol](method/classification-protocol.md) — how raw tool output becomes a result per test case, using the rule mapping `data/mappings/test-case-rules.json` (HTML_CodeSniffer warning → user to check). AI-drafted.
 
 ## Analysis
 - [WCAG gap analysis](analysis/wcag-gap-analysis.md) — coverage of all 2.x success criteria by the 142 GOV.UK test cases, and 80 candidate test cases. AI-drafted.

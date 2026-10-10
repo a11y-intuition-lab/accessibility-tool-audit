@@ -49,3 +49,29 @@ Append-only, newest last.
   pages; their examples are unchanged.
 - Test cases and results pages get a WCAG filter (version, level, fails/related) with the EU requirement — WCAG 2.1 AA,
   via EN 301 549 V3.2.1 — as the default and as a reset button. State is kept in the URL.
+
+## 2026-10-10 — Scripted classification of the first retest run
+- Added the [classification protocol](method/classification-protocol.md), the rule mapping
+  `data/mappings/test-case-rules.json` (167 test cases, AI-proposed, 23 marked for review) and `scripts/classify.mjs`
+  (`npm run classify`), decision D-020. HTML_CodeSniffer warnings are coded as "user to check", as GOV.UK did from 2018.
+- Classified run `20261010T073126Z` (`classification.json` in the run directory; deterministic, checked by running twice).
+- Results page now fills the 2026 axe-core and pa11y columns from the newest classified run and lists the run in the
+  changelog; methodology sections 6 and 10 updated.
+- Ten GOV.UK test cases have their barrier on a linked example page that the harness does not load; they show
+  "Not tested" until the harness tests linked pages.
+
+## 2026-10-10 — Complete the retest: orientation fixture, linked pages, all axe-core rules
+- AIL fixture change: the orientation lock moved from the shared `assets/ail/tests-ail.css` into the example of
+  `page-layout-content-locked-to-portrait-orientation-ail`, so `css-orientation-lock` no longer fires on every AIL page
+  (checked with axe-core on all 25 AIL pages). Recorded in [provenance](provenance.md).
+- The harness tests linked example pages named by `linkedPage` in the rule mapping and the classifier merges their
+  evidence (D-022). The harness enables every axe-core rule, including AAA and deprecated ones, and records the list (D-021).
+  New `--only` and `--out` options for partial checks.
+- Updated the [classification protocol](method/classification-protocol.md), [retest procedure](method/retest-procedure.md)
+  (including the outdated "first run" paragraph), the harness README and methodology section 4. Run
+  `20261010T073126Z` was reclassified with the new mapping; it predates these changes and will be replaced by a new full run.
+
+## 2026-10-10 — Retest run 20261010T080254Z
+- Full run from clean commit `d17e577` with all axe rules enabled and linked example pages tested (D-021, D-022).
+- GOV.UK cases, 2017 → 2026: axe found 41 → 40, manual 2 → 7; HTML_CodeSniffer/pa11y found 29 → 29, manual 19 → 6,
+  identified 1 → 23. Classification is AI-proposed (rule mapping) and scripted.

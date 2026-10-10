@@ -32,18 +32,12 @@
 }
 
 /* page-layout-content-locked-to-portrait-orientation-ail:
-   in a landscape viewport the content is rotated 90 degrees, so it can only be read upright in portrait (F97). */
+   box styles only. The orientation lock itself (rotate 90 degrees in landscape, F97) is in a <style> element in that
+   test case's own example, so it is not a second barrier on every AIL page that loads this stylesheet. */
 .ail-portrait-only {
   width: 20em;
   padding: 1em;
   border: 2px solid #0b0c0c;
-}
-
-@media (orientation: landscape) {
-  .ail-portrait-only {
-    transform: rotate(90deg);
-    margin: 7em 0;
-  }
 }
 
 /* colour-and-contrast-form-field-border-has-insufficient-contrast-ail:

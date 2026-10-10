@@ -4,6 +4,12 @@
 //
 // Usage:  npm run build && npm run verify && npm run retest
 //         npm run retest -- --allow-dirty     (marks the run dirty: true instead of refusing)
+//         npm run retest -- --only=<slug>,<slug> --out=<dir>
+//                                             (partial check of some pages, written to <dir>; marked partial: true,
+//                                              not a publishable run)
+//
+// A test case whose barrier is on a linked example page (field `linkedPage` in data/mappings/test-case-rules.json)
+// also has that linked page tested by both tools, stored as axe/linked-<page>/<slug>.json and pa11y/linked-<page>/<slug>.json.
 
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -20,6 +26,10 @@ const site = join(root, '_site');
 const PREFIX = '/accessibility-tool-audit/';
 const FIXTURE_PATHS = ['src', 'assets', 'example-pages'];
 const allowDirty = process.argv.includes('--allow-dirty');
+const argValue = (name) => process.argv.find((a) => a.startsWith(`--${name}=`))?.slice(name.length + 3);
+const only = argValue('only')?.split(',').filter(Boolean) ?? null;
+const outDir = argValue('out') ?? null;
+const RULE_MAPPING = 'data/mappings/test-case-rules.json';
 
 // ---- configuration (stored verbatim in environment.json) -------------------------------------------------------
 const VIEWPORT = { width: 1280, height: 1024 };
@@ -31,10 +41,11 @@ const CHROMIUM_ARGS = ['--no-sandbox'];
 const MAX_HTML_CHARS = 0;
 
 const axeConfig = {
-  // runOnly is deliberately not set: every rule that is enabled by default runs, and experimental rules are enabled
-  // explicitly below (the list of rule ids is filled in at run time and stored in environment.json).
+  // Every rule axe-core ships is enabled (D-021, GOV.UK's "most inquisitive options"): the default rules plus the
+  // experimental, AAA and deprecated rules that axe-core disables by default. runOnly is not set. The ids are filled in
+  // at run time and stored in environment.json (enabledRuleIds, defaultDisabledRuleIds, experimentalRuleIds).
   resultTypes: ['violations', 'incomplete', 'passes', 'inapplicable'],
-  enableExperimentalRules: true,
+  enableAllRules: true,
   storedDetail: 'violations and incomplete in full; passes and inapplicable as counts plus rule ids',
 };
 const pa11yConfig = {
@@ -56,7 +67,8 @@ const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
 const iso = (d = new Date()) => d.toISOString();
 const writeJson = (p, data) => {
   mkdirSync(dirname(p), { recursive: true });
-  writeFileSync(p, JSON.stringify(data, null, 2) + '\n');
+  // The repository is public: never store the local home directory (it reveals the user name).
+  writeFileSync(p, JSON.stringify(data, null, 2).split(os.homedir()).join('~') + '\n');
 };
 const errMsg = (e) => String((e && e.message) || e).split('\n')[0].slice(0, 500);
 
@@ -90,7 +102,26 @@ if (!existsSync(join(site, 'tests'))) {
   console.error('_site/tests not found. Run `npm run build` first.');
   process.exit(1);
 }
-const slugs = readdirSync(join(site, 'tests')).filter((f) => f.endsWith('.html')).map((f) => f.slice(0, -5)).sort();
+const allSlugs = readdirSync(join(site, 'tests')).filter((f) => f.endsWith('.html')).map((f) => f.slice(0, -5)).sort();
+if (only) {
+  const unknown = only.filter((s) => !allSlugs.includes(s));
+  if (unknown.length) { console.error(`Unknown test case(s): ${unknown.join(', ')}`); process.exit(1); }
+}
+const slugs = only ? allSlugs.filter((s) => only.includes(s)) : allSlugs;
+
+// Linked example pages, from the rule mapping (not hard-coded here).
+const ruleMapping = readJson(join(root, RULE_MAPPING)).mappings;
+const linkedPages = Object.fromEntries(
+  Object.entries(ruleMapping).filter(([, m]) => m.linkedPage).map(([slug, m]) => [slug, m.linkedPage]).sort(),
+);
+for (const [slug, page] of Object.entries(linkedPages)) {
+  if (!/^example-pages\/[\w.-]+\.html$/.test(page) || !existsSync(join(site, page))) {
+    console.error(`linkedPage for ${slug} is not a built example page: ${page}`);
+    process.exit(1);
+  }
+}
+// Stored in a subfolder per linked page: linked-<page>/<slug>.json exceeded file-name length limits on some file systems.
+const linkedFile = (slug) => `linked-${basename(linkedPages[slug], ".html")}/${slug}.json`;
 const siteFingerprint = sha256(
   slugs.map((s) => s + ':' + sha256(readFileSync(join(site, 'tests', s + '.html')))).join('\n'),
 );
@@ -135,7 +166,7 @@ const base = `http://127.0.0.1:${port}${PREFIX}`;
 // ---- environment --------------------------------------------------------------------------------------------------
 const started = new Date();
 const runId = iso(started).replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
-const runDir = join(root, 'data', 'results', 'ail-2026', 'runs', runId);
+const runDir = outDir ? join(outDir, runId) : join(root, 'data', 'results', 'ail-2026', 'runs', runId);
 mkdirSync(join(runDir, 'axe'), { recursive: true });
 mkdirSync(join(runDir, 'pa11y'), { recursive: true });
 
@@ -153,18 +184,21 @@ const chromiumVersion = browser.version();
 const browsersJson = readJson(join(root, 'node_modules', 'playwright-core', 'browsers.json'));
 const chromiumEntry = browsersJson.browsers.find((b) => b.name === 'chromium');
 
-// Experimental rules are disabled by default in axe-core; enable them explicitly.
-let experimentalRuleIds;
+// Enable every rule axe-core ships, including those it disables by default (experimental, AAA, deprecated).
+let enabledRuleIds, defaultDisabledRuleIds, experimentalRuleIds;
 {
   const ctx = await browser.newContext();
   const page = await ctx.newPage();
   await page.setContent('<!doctype html><title>x</title>');
   await page.addScriptTag({ content: axeSource });
-  experimentalRuleIds = await page.evaluate(() =>
-    axe.getRules(['experimental']).map((r) => r.ruleId).sort());
+  ({ enabledRuleIds, defaultDisabledRuleIds, experimentalRuleIds } = await page.evaluate(() => ({
+    enabledRuleIds: axe.getRules().map((r) => r.ruleId).sort(),
+    defaultDisabledRuleIds: axe._audit.rules.filter((r) => r.enabled === false).map((r) => r.id).sort(),
+    experimentalRuleIds: axe.getRules(['experimental']).map((r) => r.ruleId).sort(),
+  })));
   await ctx.close();
 }
-axeConfig.rules = Object.fromEntries(experimentalRuleIds.map((id) => [id, { enabled: true }]));
+axeConfig.rules = Object.fromEntries(enabledRuleIds.map((id) => [id, { enabled: true }]));
 const axeRunOptions = { resultTypes: axeConfig.resultTypes, rules: axeConfig.rules };
 
 let commit = git('rev-parse', 'HEAD').trim();
@@ -172,8 +206,15 @@ const environment = {
   runId,
   startedAt: iso(started),
   finishedAt: null,
+  partial: only ? { only: slugs, note: 'Partial check with --only; not a publishable run.' } : false,
   git: { commit, dirty, dirtyFiles, checkedPaths: FIXTURE_PATHS },
   site: { servedFrom: '_site', testPages: slugs.length, testPagesSha256: siteFingerprint, pathPrefix: PREFIX, localPort: port },
+  linkedPages: {
+    source: `${RULE_MAPPING} (field linkedPage)`,
+    sha256: sha256(readFileSync(join(root, RULE_MAPPING))),
+    pages: Object.fromEntries(Object.entries(linkedPages).filter(([s]) => slugs.includes(s))),
+    output: 'axe/linked-<page>/<slug>.json and pa11y/linked-<page>/<slug>.json',
+  },
   node: process.version,
   npm: execFileSync('npm', ['--version'], { encoding: 'utf8' }).trim(),
   os: { pretty: osRelease(), platform: os.platform(), release: os.release(), arch: os.arch() },
@@ -195,7 +236,7 @@ const environment = {
   config: {
     viewport: VIEWPORT,
     pageLoad: { waitUntil: 'load', timeoutMs: PAGE_TIMEOUT_MS },
-    axe: { ...axeConfig, experimentalRuleIds, runOptions: axeRunOptions },
+    axe: { ...axeConfig, enabledRuleIds, defaultDisabledRuleIds, experimentalRuleIds, runOptions: axeRunOptions },
     pa11y: pa11yConfig,
     maxHtmlChars: MAX_HTML_CHARS,
     concurrency: 1,
@@ -279,6 +320,16 @@ async function runPa11y(slug, origin, url) {
   return out;
 }
 
+const count = (p, t) => (p.issues ? p.issues.filter((x) => x.type === t).length : null);
+const pageSummary = (a, p) => ({
+  axe: a.error ? { error: a.error } : { violations: a.axe.violations.length, incomplete: a.axe.incomplete.length, passes: a.axe.passesCount, inapplicable: a.axe.inapplicableCount },
+  pa11y: p.error ? { error: p.error } : { errors: count(p, 'error'), warnings: count(p, 'warning'), notices: count(p, 'notice') },
+  failedRequests: a.failedRequests.length,
+  localNon200: a.localNon200.length,
+});
+const pageLine = (a, p) =>
+  `axe ${a.error ? 'ERROR ' + a.error : a.axe.violations.length + 'v/' + a.axe.incomplete.length + 'i'} | pa11y ${p.error ? 'ERROR ' + p.error : count(p, 'error') + 'e/' + count(p, 'warning') + 'w/' + count(p, 'notice') + 'n'}`;
+
 const summary = { runId, pages: {}, totals: {} };
 let i = 0;
 for (const slug of slugs) {
@@ -289,15 +340,18 @@ for (const slug of slugs) {
   const p = await runPa11y(slug, origin, url);
   writeJson(join(runDir, 'axe', `${slug}.json`), a);
   writeJson(join(runDir, 'pa11y', `${slug}.json`), p);
-  const count = (t) => (p.issues ? p.issues.filter((x) => x.type === t).length : null);
-  summary.pages[slug] = {
-    origin,
-    axe: a.error ? { error: a.error } : { violations: a.axe.violations.length, incomplete: a.axe.incomplete.length, passes: a.axe.passesCount, inapplicable: a.axe.inapplicableCount },
-    pa11y: p.error ? { error: p.error } : { errors: count('error'), warnings: count('warning'), notices: count('notice') },
-    failedRequests: a.failedRequests.length,
-    localNon200: a.localNon200.length,
-  };
-  console.log(`[${i}/${slugs.length}] ${slug} (${origin}) axe ${a.error ? 'ERROR ' + a.error : a.axe.violations.length + 'v/' + a.axe.incomplete.length + 'i'} | pa11y ${p.error ? 'ERROR ' + p.error : count('error') + 'e/' + count('warning') + 'w/' + count('notice') + 'n'}`);
+  summary.pages[slug] = { origin, ...pageSummary(a, p) };
+  console.log(`[${i}/${slugs.length}] ${slug} (${origin}) ${pageLine(a, p)}`);
+  if (linkedPages[slug]) {
+    const linkedUrl = `${base}${linkedPages[slug]}`;
+    const la = await runAxe(slug, origin, linkedUrl);
+    const lp = await runPa11y(slug, origin, linkedUrl);
+    la.linkedPage = lp.linkedPage = linkedPages[slug];
+    writeJson(join(runDir, 'axe', linkedFile(slug)), la);
+    writeJson(join(runDir, 'pa11y', linkedFile(slug)), lp);
+    summary.pages[slug].linked = { page: linkedPages[slug], ...pageSummary(la, lp) };
+    console.log(`        linked ${linkedPages[slug]} ${pageLine(la, lp)}`);
+  }
 }
 await browser.close();
 server.close();
@@ -315,6 +369,8 @@ summary.totals = {
   pa11yNotices: pages.reduce((n, x) => n + (x.pa11y.notices || 0), 0),
   pagesWithFailedRequests: pages.filter((x) => x.failedRequests > 0).length,
   pagesWithLocalNon200: pages.filter((x) => x.localNon200 > 0).length,
+  linkedPagesTested: pages.filter((x) => x.linked).length,
+  linkedPageLoadFailures: pages.filter((x) => x.linked && (x.linked.axe.error || x.linked.pa11y.error)).length,
 };
 writeJson(join(runDir, 'summary.json'), summary);
 environment.finishedAt = iso();

@@ -1,0 +1,161 @@
+{
+  "runId": "20261010T073126Z",
+  "startedAt": "2026-10-10T07:31:26.712Z",
+  "finishedAt": "2026-10-10T07:38:30.934Z",
+  "git": {
+    "commit": "17f1f4a4ae042dba4ac12f67178c15cb5ab1b0ed",
+    "dirty": false,
+    "dirtyFiles": [],
+    "checkedPaths": [
+      "src",
+      "assets",
+      "example-pages"
+    ]
+  },
+  "site": {
+    "servedFrom": "_site",
+    "testPages": 167,
+    "testPagesSha256": "0f2122ac3ef5c529b524f89a49ddf495cf5aeb9b2428d51c2c6a8fcc5aa0c042",
+    "pathPrefix": "/accessibility-tool-audit/",
+    "localPort": 43015
+  },
+  "node": "v24.21.0",
+  "npm": "11.19.0",
+  "os": {
+    "pretty": "Linux Mint 21.2",
+    "platform": "linux",
+    "release": "5.15.0-151-generic",
+    "arch": "x64"
+  },
+  "browser": {
+    "name": "Chromium (installed by `playwright-core install chromium`)",
+    "version": "153.0.8010.12",
+    "playwrightRevision": "1243",
+    "executable": "chrome-linux64/chrome",
+    "sharedBy": [
+      "axe-core (via Playwright)",
+      "pa11y (via puppeteer, executablePath)"
+    ],
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "tools": {
+    "axe-core": "4.13.0",
+    "pa11y": "10.0.0",
+    "html_codesniffer": "2.6.0",
+    "playwright-core": "1.63.0",
+    "puppeteer": "25.12.0"
+  },
+  "config": {
+    "viewport": {
+      "width": 1280,
+      "height": 1024
+    },
+    "pageLoad": {
+      "waitUntil": "load",
+      "timeoutMs": 30000
+    },
+    "axe": {
+      "resultTypes": [
+        "violations",
+        "incomplete",
+        "passes",
+        "inapplicable"
+      ],
+      "enableExperimentalRules": true,
+      "storedDetail": "violations and incomplete in full; passes and inapplicable as counts plus rule ids",
+      "rules": {
+        "css-orientation-lock": {
+          "enabled": true
+        },
+        "focus-order-semantics": {
+          "enabled": true
+        },
+        "hidden-content": {
+          "enabled": true
+        },
+        "label-content-name-mismatch": {
+          "enabled": true
+        },
+        "p-as-heading": {
+          "enabled": true
+        },
+        "table-fake-caption": {
+          "enabled": true
+        },
+        "td-has-header": {
+          "enabled": true
+        }
+      },
+      "experimentalRuleIds": [
+        "css-orientation-lock",
+        "focus-order-semantics",
+        "hidden-content",
+        "label-content-name-mismatch",
+        "p-as-heading",
+        "table-fake-caption",
+        "td-has-header"
+      ],
+      "runOptions": {
+        "resultTypes": [
+          "violations",
+          "incomplete",
+          "passes",
+          "inapplicable"
+        ],
+        "rules": {
+          "css-orientation-lock": {
+            "enabled": true
+          },
+          "focus-order-semantics": {
+            "enabled": true
+          },
+          "hidden-content": {
+            "enabled": true
+          },
+          "label-content-name-mismatch": {
+            "enabled": true
+          },
+          "p-as-heading": {
+            "enabled": true
+          },
+          "table-fake-caption": {
+            "enabled": true
+          },
+          "td-has-header": {
+            "enabled": true
+          }
+        }
+      }
+    },
+    "pa11y": {
+      "runners": [
+        "htmlcs"
+      ],
+      "standard": "WCAG2AAA",
+      "includeWarnings": true,
+      "includeNotices": true,
+      "viewport": {
+        "width": 1280,
+        "height": 1024
+      },
+      "timeout": 60000,
+      "wait": 0,
+      "chromeLaunchConfig": {
+        "executablePath": "~/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome",
+        "headless": true,
+        "args": [
+          "--no-sandbox"
+        ]
+      }
+    },
+    "maxHtmlChars": 0,
+    "concurrency": 1,
+    "ordering": "alphabetical by slug"
+  },
+  "network": {
+    "access": true,
+    "note": "The run had internet access. Fixture pages embed some remote resources (e.g. YouTube, remote media); they were not blocked. Failed requests are recorded per page in axe/<slug>.json."
+  }
+}

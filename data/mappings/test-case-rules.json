@@ -1,0 +1,1791 @@
+{
+  "mappings": {
+    "authentication-paste-blocked-in-password-field-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule in either tool checks for blocked paste on password fields (3.3.8). The script that blocks paste is not inspected."
+    },
+    "buttons-empty-alt-attribute-on-image-button": {
+      "axe": [
+        {
+          "rationale": "Image button has no text alternative (empty alt).",
+          "rule": "input-image-alt"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H36",
+          "rationale": "Image submit button has no alt text."
+        },
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputImage.Name",
+          "rationale": "Form control has no accessible name."
+        }
+      ]
+    },
+    "buttons-empty-button": {
+      "axe": [
+        {
+          "rationale": "Button has no discernible text.",
+          "rule": "button-name"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.Button.Name",
+          "rationale": "Form control has no accessible name."
+        }
+      ]
+    },
+    "buttons-image-button-has-no-alt-attribute": {
+      "axe": [
+        {
+          "rationale": "Image button has no alt attribute.",
+          "rule": "input-image-alt"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H36",
+          "rationale": "Image submit button has no alt attribute."
+        },
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputImage.Name",
+          "rationale": "Form control has no accessible name."
+        }
+      ]
+    },
+    "buttons-uninformative-alt-attribute-value-on-image-button": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Button",
+          "rationale": "Asks the tester to check that the image button's alt text identifies its purpose; the alt text \"click\" does not."
+        }
+      ],
+      "notes": "axe-core has no rule that judges the quality of alt text; it only checks presence."
+    },
+    "colour-and-contrast-colour-alone-is-used-to-convey-content": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule in either tool detects meaning conveyed by colour in list items. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_1.G14,G182)"
+    },
+    "colour-and-contrast-focus-not-visible": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+          "rationale": "Asks the tester to check that the keyboard focus indicator is visible; emitted once per page that has focusable elements, not on the button that lacks the indicator."
+        }
+      ],
+      "notes": "axe-core has no focus-visible rule. The HTML_CodeSniffer notice is page-level but conditional on focusable content (87 of 167 pages in the first run), so it is listed as borderline.",
+      "review": "pending"
+    },
+    "colour-and-contrast-form-field-border-has-insufficient-contrast-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Non-text contrast (1.4.11) is not checked by either tool: axe-core color-contrast covers text only. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_11)"
+    },
+    "colour-and-contrast-large-text-below-31-ail": {
+      "axe": [
+        {
+          "rationale": "Text contrast below the WCAG AA minimum.",
+          "rule": "color-contrast"
+        },
+        {
+          "rationale": "Text contrast below the WCAG AAA enhanced ratio (also true for text that fails AA). Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "rationale": "Text contrast below the 4.5:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "rationale": "Text contrast below the 7:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ]
+    },
+    "colour-and-contrast-large-text-below-451-aaa-ail": {
+      "axe": [
+        {
+          "rationale": "Large text below the 4.5:1 AAA enhanced ratio. Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "rationale": "Text contrast below the 4.5:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ],
+      "notes": "axe-core color-contrast (AA) is not listed: the example meets AA by design, so a hit would be a false positive. HTML_CodeSniffer applies 4.5:1 (G18) to large text at AAA."
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa": {
+      "axe": [
+        {
+          "rationale": "Text contrast below the WCAG AA minimum.",
+          "rule": "color-contrast"
+        },
+        {
+          "rationale": "Text contrast below the WCAG AAA enhanced ratio (also true for text that fails AA). Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "rationale": "Text contrast below the 4.5:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "rationale": "Text contrast below the 7:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ],
+      "notes": "GOV.UK fixture; its text is not large in practice (corrected AIL version: colour-and-contrast-large-text-below-31-ail). The contrast failure itself is present."
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa": {
+      "axe": [
+        {
+          "rationale": "Text contrast below the WCAG AA minimum.",
+          "rule": "color-contrast"
+        },
+        {
+          "rationale": "Text contrast below the WCAG AAA enhanced ratio (also true for text that fails AA). Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "rationale": "Text contrast below the 4.5:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "rationale": "Text contrast below the 7:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ],
+      "notes": "GOV.UK fixture uses the same colours as the AA case, so the text also fails AA; an AA contrast violation on it reports the intended element. color-contrast is listed to keep comparability with the 2017 result (GOV.UK counted it as found).",
+      "review": "pending"
+    },
+    "colour-and-contrast-small-text-below-71-aaa-ail": {
+      "axe": [
+        {
+          "rationale": "Small text below the 7:1 AAA enhanced ratio. Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "rationale": "Text contrast below the 7:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ],
+      "notes": "axe-core color-contrast (AA) is not listed: the example meets AA by design."
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa": {
+      "axe": [
+        {
+          "rationale": "Text contrast below the WCAG AA minimum.",
+          "rule": "color-contrast"
+        },
+        {
+          "rationale": "Text contrast below the WCAG AAA enhanced ratio (also true for text that fails AA). Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "rationale": "Text contrast below the 4.5:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "rationale": "Text contrast below the 7:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ]
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa": {
+      "axe": [
+        {
+          "rationale": "Text contrast below the WCAG AA minimum.",
+          "rule": "color-contrast"
+        },
+        {
+          "rationale": "Text contrast below the WCAG AAA enhanced ratio (also true for text that fails AA). Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "rationale": "Text contrast below the 4.5:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "rationale": "Text contrast below the 7:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ],
+      "notes": "GOV.UK fixture: the text also fails AA (see the corrected AIL version), so color-contrast reports the intended element; listed for comparability with 2017.",
+      "review": "pending"
+    },
+    "content-content-identified-by-location": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects instructions that rely on position. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_3.G96)"
+    },
+    "content-content-is-not-in-correct-reading-order-in-source-code": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule compares visual and DOM order. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_2.G57) axe heading-order and HTML_CodeSniffer G141 fire on the h4, but that is the heading level relative to the page template h1, not the reading order."
+    },
+    "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPage": "example-pages/unorganised_content.html",
+      "notes": "No rule judges how content is chunked. The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "content-first-instance-of-abbreviation-not-expanded": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No axe-core rule; the HTML_CodeSniffer 3.1.4 sniff emits only a page-level reminder (not listed)."
+    },
+    "content-plain-language-is-not-used": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule measures reading level. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (3_1_5)"
+    },
+    "css-content-is-not-readable-and-functional-when-text-is-increased": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule tests text-only zoom. axe-core meta-viewport is about blocking zoom in the viewport meta element, a different problem."
+    },
+    "css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "axe": [
+        {
+          "rationale": "Experimental rule that asks the tester to review content hidden with CSS; it flags the hidden span that should be available to screen readers.",
+          "rule": "hidden-content"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+          "rationale": "The link text heard by screen reader users is incomplete; H30 asks the tester to check that the link text describes its purpose."
+        }
+      ],
+      "notes": "Both listed checks are generic review prompts rather than a test of the barrier.",
+      "review": "pending"
+    },
+    "css-non-decorative-content-inserted-using-css": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule inspects CSS generated content."
+    },
+    "css-page-zoom-boxes-that-dont-expand-with-the-text": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule tests zoom or fixed-size containers. HTML_CodeSniffer G17.Abs warnings on this page come from absolute positioning and are about contrast, a different problem."
+    },
+    "css-text-clipped-when-text-spacing-is-increased-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "axe-core avoid-inline-spacing checks inline !important spacing, not fixed heights that clip text; not listed. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_12)"
+    },
+    "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "axe": [
+        {
+          "rationale": "Experimental rule that asks the tester to review content hidden with CSS; it flags the hidden span that should be available to screen readers.",
+          "rule": "hidden-content"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+          "rationale": "The link text heard by screen reader users is incomplete; H30 asks the tester to check that the link text describes its purpose."
+        }
+      ],
+      "notes": "Both listed checks are generic review prompts rather than a test of the barrier.",
+      "review": "pending"
+    },
+    "forms-custom-checkbox-without-checked-state-ail": {
+      "axe": [
+        {
+          "rationale": "role=\"checkbox\" requires aria-checked, which is missing.",
+          "rule": "aria-required-attr"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer does not check required ARIA states."
+    },
+    "forms-empty-label-found": {
+      "axe": [
+        {
+          "rationale": "Form element has no accessible label.",
+          "rule": "label"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+          "rationale": "Form control has no accessible name."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+          "rationale": "Form control has no label (failure F68)."
+        }
+      ],
+      "notes": "The label element exists but is empty, so the input has no accessible name."
+    },
+    "forms-empty-legend": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.Fieldset.Name",
+          "rationale": "Fieldset has no accessible name because its legend is empty."
+        }
+      ],
+      "notes": "axe-core has no rule for empty legends."
+    },
+    "forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_3.G177",
+          "rationale": "Asks the tester to check that suggested corrections are given for input errors; emitted once per form."
+        }
+      ],
+      "notes": "Generic per-form reminder.",
+      "review": "pending"
+    },
+    "forms-errors-are-not-identified": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+          "rationale": "Asks the tester to check that fields in error are identified and described in text; emitted once per form."
+        }
+      ],
+      "notes": "Generic per-form reminder.",
+      "review": "pending"
+    },
+    "forms-errors-identified-by-colour-only": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+          "rationale": "Asks the tester to check that fields in error are identified and described in text; emitted once per form."
+        }
+      ],
+      "notes": "Generic per-form reminder. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_1.G14,G182)",
+      "review": "pending"
+    },
+    "forms-errors-identified-with-a-poor-colour-contrast": {
+      "axe": [
+        {
+          "rationale": "Text contrast below the WCAG AA minimum.",
+          "rule": "color-contrast"
+        },
+        {
+          "rationale": "Text contrast below the WCAG AAA enhanced ratio (also true for text that fails AA). Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "rationale": "Text contrast below the 4.5:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "rationale": "Text contrast below the 7:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ],
+      "notes": "Both tools report the low-contrast error summary text."
+    },
+    "forms-field-hint-not-associated-with-input": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks that hint text is programmatically associated (aria-describedby). HTML_CodeSniffer 3_3_2 asks whether instructions exist, a different problem."
+    },
+    "forms-fieldset-without-a-legend": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H71.NoLegend",
+          "rationale": "Fieldset has no legend."
+        },
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.Fieldset.Name",
+          "rationale": "Fieldset has no accessible name."
+        }
+      ],
+      "notes": "axe-core has no rule for a fieldset without a legend."
+    },
+    "forms-focus-on-field-opens-new-window-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_1.G107",
+          "rationale": "Asks the tester to check that focusing the field does not change context; emitted for every input."
+        }
+      ],
+      "notes": "Generic per-input reminder; the script that opens the window is not inspected.",
+      "review": "pending"
+    },
+    "forms-form-control-that-changes-context-without-warning": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_2.H32.2",
+          "rationale": "Form has no submit button, the HTML_CodeSniffer check for technique H32 that avoids change of context on input (failure F37)."
+        }
+      ],
+      "notes": "H32.2 fires for any form without a submit button, and the change of context itself is in script. Borderline.",
+      "review": "pending"
+    },
+    "forms-form-element-has-no-label": {
+      "axe": [
+        {
+          "rationale": "Form element has no accessible label.",
+          "rule": "label"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+          "rationale": "Form control has no accessible name."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+          "rationale": "Form control has no label (failure F68)."
+        }
+      ]
+    },
+    "forms-group-of-check-boxes-not-enclosed-in-a-fieldset": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H71.SameName",
+          "rationale": "Checkboxes share a name and are not grouped in a fieldset; HTML_CodeSniffer asks for a fieldset with a legend."
+        }
+      ],
+      "notes": "axe-core removed the checkboxgroup rule that GOV.UK found this with in 2017; no current rule checks grouping."
+    },
+    "forms-group-of-radio-buttons-not-enclosed-in-a-fieldset": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H71.SameName",
+          "rationale": "Radio buttons share a name and are not grouped in a fieldset; HTML_CodeSniffer asks for a fieldset with a legend."
+        }
+      ],
+      "notes": "axe-core removed the radiogroup rule that GOV.UK found this with in 2017; no current rule checks grouping."
+    },
+    "forms-invalid-autocomplete-value-on-personal-data-field-ail": {
+      "axe": [
+        {
+          "rationale": "autocomplete=\"mail\" is not a valid token.",
+          "rule": "autocomplete-valid"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_5.H98",
+          "rationale": "Reports a faulty or invalid autocomplete value (warning or error); the notice variant asks to check input purpose."
+        }
+      ]
+    },
+    "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control": {
+      "axe": [
+        {
+          "rationale": "Form element has no accessible label.",
+          "rule": "label"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputCheckbox.Name",
+          "rationale": "Form control has no accessible name."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+          "rationale": "Form control has no label (failure F68)."
+        }
+      ]
+    },
+    "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls": {
+      "axe": [
+        {
+          "rationale": "Form element has no accessible label.",
+          "rule": "label"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+          "rationale": "Form control has no accessible name."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+          "rationale": "Form control has no label (failure F68)."
+        }
+      ]
+    },
+    "forms-left-aligned-form-labels-with-too-much-white-space": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule measures the distance between a label and its field."
+    },
+    "forms-missing-autocomplete-on-personal-data-fields-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_5.H98",
+          "rationale": "Notice that the field has no autocomplete attribute and should have one if it collects information about the user."
+        }
+      ],
+      "notes": "axe-core autocomplete-valid only checks values that are present; a missing attribute is not reported."
+    },
+    "forms-missing-labels-in-checkboxes": {
+      "axe": [
+        {
+          "rationale": "Form element has no accessible label.",
+          "rule": "label"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputCheckbox.Name",
+          "rationale": "Form control has no accessible name."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+          "rationale": "Form control has no label (failure F68)."
+        }
+      ]
+    },
+    "forms-non-unique-field-label-found": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks that labels are unique within a form. axe-core form-field-multiple-labels is about one field with several labels, a different problem."
+    },
+    "forms-placeholder-no-label": {
+      "axe": [
+        {
+          "rationale": "Form element has no accessible label.",
+          "rule": "label"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputSearch.Name",
+          "rationale": "Form control has no accessible name."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+          "rationale": "Form control has no label (failure F68)."
+        }
+      ],
+      "notes": "axe-core now accepts a placeholder as an accessible name, so label passes; GOV.UK counted it as found in 2017."
+    },
+    "forms-status-message-not-announced-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects status messages without a live region. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (4_1_3)"
+    },
+    "forms-two-unique-labels-but-identical-for=-attributes": {
+      "axe": [
+        {
+          "rationale": "The day field has two label elements pointing at it.",
+          "rule": "form-field-multiple-labels"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer has no check for several labels on one field."
+    },
+    "frames-iframe-is-missing-a-title-attribute": {
+      "axe": [
+        {
+          "rationale": "iframe has no accessible name.",
+          "rule": "frame-title"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_1.H64.1",
+          "rationale": "iframe has no title attribute."
+        }
+      ]
+    },
+    "frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_1.H64.2",
+          "rationale": "Asks the tester to check that the iframe title identifies the frame."
+        }
+      ],
+      "notes": "axe-core only checks that a title exists (and is unique), not that it describes the content."
+    },
+    "headings-empty-heading": {
+      "axe": [
+        {
+          "rationale": "Heading has no text.",
+          "rule": "empty-heading"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H42.2",
+          "rationale": "Heading tag has no content."
+        }
+      ],
+      "notes": "heading-order and G141 also fire on this h4 (level relative to the template h1); they are not about an empty heading and are not listed."
+    },
+    "headings-headings-not-structured-in-a-hierarchical-manner": {
+      "axe": [
+        {
+          "rationale": "Heading levels are skipped.",
+          "rule": "heading-order"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1_AAA.G141",
+          "rationale": "Heading structure is not logically nested."
+        }
+      ],
+      "notes": "Both rules also report the first heading relative to the template h1; the h3 to h5 skip in the example is reported as well."
+    },
+    "headings-missing-h1": {
+      "axe": [
+        {
+          "rationale": "Page has no level-one heading.",
+          "rule": "page-has-heading-one"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1_AAA.G141",
+          "rationale": "Heading structure check, which also reports when the first heading is not an h1."
+        }
+      ],
+      "linkedPage": "example-pages/missing.html",
+      "notes": "The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6). The test-case page itself has the template h1. G141 is listed because HTML_CodeSniffer reports a first heading that is not h1 through it.",
+      "review": "pending"
+    },
+    "headings-text-formatting-used-instead-of-an-actual-heading": {
+      "axe": [
+        {
+          "rationale": "Experimental rule for styled text used as a heading; it only checks p elements, and the example uses a div.",
+          "rule": "p-as-heading"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H42",
+          "rationale": "Asks for heading markup if content is intended as a heading."
+        }
+      ]
+    },
+    "html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule judges whether article is used for self-contained content."
+    },
+    "html-deprecated-center-element": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H49.Center",
+          "rationale": "Presentational center element used."
+        }
+      ],
+      "notes": "axe-core has no rule for presentational elements."
+    },
+    "html-deprecated-font-element": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H49.Font",
+          "rationale": "Presentational font element used."
+        }
+      ],
+      "notes": "axe-core has no rule for presentational elements."
+    },
+    "html-duplicate-id": {
+      "axe": [
+        {
+          "rationale": "Two elements share an id. Deprecated and disabled by default in axe-core 4.13 (4.1.1 was removed in WCAG 2.2).",
+          "rule": "duplicate-id"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_1.F77",
+          "rationale": "Duplicate id attribute value."
+        }
+      ],
+      "notes": "duplicate-id-aria only covers ids referenced by ARIA or labels, a different problem; not listed."
+    },
+    "html-empty-paragraph": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule reports empty paragraphs."
+    },
+    "html-focusable-element-inside-aria-hidden-ail": {
+      "axe": [
+        {
+          "rationale": "aria-hidden content contains a focusable link.",
+          "rule": "aria-hidden-focus"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer does not check focusable content inside aria-hidden."
+    },
+    "html-inline-style-adds-colour": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+          "rationale": "Inline foreground colour without a matching background colour (failure F24)."
+        }
+      ],
+      "notes": "axe-core has no rule for inline colour without background."
+    },
+    "html-invalid-aria-role-names": {
+      "axe": [
+        {
+          "rationale": "role=\"breadcrumbs\" is not a valid ARIA role.",
+          "rule": "aria-roles"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer does not validate ARIA role names."
+    },
+    "html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks the wmode parameter. HTML_CodeSniffer 2_1_2.F10 (plugin keyboard trap) and the media notices on this object are different problems."
+    },
+    "html-pre-element-without-code-element-inside-it": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects ASCII art without a text alternative. The HTML_CodeSniffer 1.4.10 warning on this page is about preformatted text needing two-dimensional scrolling, a different problem."
+    },
+    "html-spacer-image-found": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule flags spacer images. HTML_CodeSniffer H67.2 asks to check that an image with empty alt is decorative, which a spacer correctly is; not listed."
+    },
+    "html-start-and-close-tags-dont-match": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The browser repairs the markup before either tool sees the DOM, so no rule can detect it."
+    },
+    "images-a-distraction-is-present-an-animated-gif": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects animated images. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_2_2)"
+    },
+    "images-background-image-that-conveys-information-does-not-have-a-text-alternative": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks CSS background images for meaning. HTML_CodeSniffer G17.BgImage on this element is a contrast check, a different problem."
+    },
+    "images-image-alt-attribute-contains-image-file-name": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Image",
+          "rationale": "Asks the tester to check that the alt text serves the same purpose as the image, which is what is wrong here."
+        }
+      ],
+      "notes": "axe-core has no rule that judges the alt text value."
+    },
+    "images-image-has-alt-and-title-that-are-different": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only; no rule compares alt and title."
+    },
+    "images-image-has-empty-alt-and-non-empty-title": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H67.1",
+          "rationale": "Image with empty alt has a non-empty title."
+        }
+      ],
+      "notes": "axe-core treats the image as decorative and has no rule for this conflict."
+    },
+    "images-image-that-conveys-information-has-an-empty-alt-attribute": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H67.2",
+          "rationale": "Image is marked as ignored by assistive technology; HTML_CodeSniffer asks to check that it is purely decorative."
+        }
+      ],
+      "notes": "axe-core accepts alt=\"\" as decorative."
+    },
+    "images-image-that-conveys-information-has-inappropriate-alt-text": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Image",
+          "rationale": "Asks the tester to check that the alt text serves the same purpose as the image, which is what is wrong here."
+        }
+      ],
+      "notes": "axe-core has no rule that judges the alt text value."
+    },
+    "images-image-with-no-alt-attribute": {
+      "axe": [
+        {
+          "rationale": "Image has no alt attribute.",
+          "rule": "image-alt"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H37",
+          "rationale": "Image has no alt attribute."
+        }
+      ]
+    },
+    "images-image-with-partial-text-alternative": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Image",
+          "rationale": "Asks the tester to check that the alt text serves the same purpose as the image, which is what is wrong here."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G73,G74",
+          "rationale": "Asks for a long text alternative if the image cannot be described in short alt text."
+        }
+      ],
+      "notes": "Generic per-image reminders.",
+      "review": "pending"
+    },
+    "images-image-with-presentation-role-has-non-empty-alt": {
+      "axe": [
+        {
+          "rationale": "role=\"presentation\" is not allowed on an img with a non-empty alt.",
+          "rule": "aria-allowed-role"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer does not check role conflicts on images.",
+      "review": "pending"
+    },
+    "images-svg-image-without-accessible-name-ail": {
+      "axe": [
+        {
+          "rationale": "Checks svg elements with an image role for an accessible name; the example has no role, so the rule does not apply.",
+          "rule": "svg-img-alt"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "Neither tool checks an svg without a role. HTML_CodeSniffer has no svg check."
+    },
+    "keyboard-access-accesskey-attribute-used": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only. axe-core accesskeys checks that accesskey values are unique, a different problem."
+    },
+    "keyboard-access-alert-shows-for-a-short-time": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. axe hidden-content on the hidden alert is not about the time limit."
+    },
+    "keyboard-access-concertina-items-dont-get-keyboard-focus": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. axe hidden-content on the collapsed panels is not about focusability."
+    },
+    "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page."
+    },
+    "keyboard-access-fake-button-is-not-keyboard-accessible": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects a div styled as a button without a role (no click handler is visible to the tools). HTML_CodeSniffer G17.Fail on it is a contrast issue."
+    },
+    "keyboard-access-focus-order-in-wrong-order": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule compares focus order with visual order (the order is changed by CSS)."
+    },
+    "keyboard-access-focus-removed-by-script-when-received-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page."
+    },
+    "keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0": {
+      "axe": [
+        {
+          "rationale": "Experimental rule: an element in the focus order has no interactive role.",
+          "rule": "focus-order-semantics"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_3.H4.2",
+          "rationale": "Emitted only when tabindex is used; asks to check the resulting tab order."
+        }
+      ],
+      "review": "pending"
+    },
+    "keyboard-access-keyboard-focus-is-not-indicated-visually": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+          "rationale": "Asks the tester to check that the keyboard focus indicator is visible; page-level, conditional on focusable content."
+        }
+      ],
+      "notes": "axe-core has no focus-visible rule.",
+      "review": "pending"
+    },
+    "keyboard-access-keyboard-trap": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPage": "example-pages/keyboardtrap.html",
+      "notes": "No rule detects keyboard traps. The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "keyboard-access-lightbox-close-button-doesnt-receive-focus": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page."
+    },
+    "keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page."
+    },
+    "keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page."
+    },
+    "keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page."
+    },
+    "keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page."
+    },
+    "keyboard-access-positive-tabindex-scrambles-form-focus-order-ail": {
+      "axe": [
+        {
+          "rationale": "tabindex greater than 0.",
+          "rule": "tabindex"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_3.H4.2",
+          "rationale": "Emitted only when tabindex is used; asks to check that the tab order follows the content."
+        }
+      ]
+    },
+    "keyboard-access-single-character-key-shortcut-cannot-be-turned-off-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule inspects key event handlers. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_1_4)"
+    },
+    "keyboard-access-sticky-footer-hides-focused-element-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. No rule checks focus obscured by sticky content."
+    },
+    "keyboard-access-tabindex-greater-than-0": {
+      "axe": [
+        {
+          "rationale": "tabindex greater than 0.",
+          "rule": "tabindex"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_3.H4.2",
+          "rationale": "Emitted only when tabindex is used; asks to check that the tab order follows the content."
+        }
+      ]
+    },
+    "keyboard-access-tooltips-dont-receive-keyboard-focus": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. axe hidden-content on the tooltip text is not about focusability."
+    },
+    "language-of-content-html-element-has-an-empty-lang-attribute": {
+      "axe": [
+        {
+          "rationale": "html element has no (non-empty) lang attribute.",
+          "rule": "html-has-lang"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_1.3_1_1.H57.2",
+          "rationale": "html element has no lang attribute value."
+        }
+      ],
+      "linkedPage": "example-pages/empty.html",
+      "notes": "The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute": {
+      "axe": [
+        {
+          "rationale": "lang on html is not a valid language tag.",
+          "rule": "html-lang-valid"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_1.3_1_1.H57.3.Lang",
+          "rationale": "lang on html is not well-formed."
+        }
+      ],
+      "linkedPage": "example-pages/invalid.html",
+      "notes": "The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "language-of-content-html-element-has-lang-attribute-set-to-wrong-language": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPage": "example-pages/inappropriate.html",
+      "notes": "No rule checks that the declared language matches the text. The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "language-of-content-html-element-is-missing-a-lang-attribute": {
+      "axe": [
+        {
+          "rationale": "html element has no lang attribute.",
+          "rule": "html-has-lang"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_1.3_1_1.H57.2",
+          "rationale": "html element has no lang attribute."
+        }
+      ],
+      "linkedPage": "example-pages/missing.html",
+      "notes": "The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "language-of-content-lang-attribute-not-used-to-identify-change-of-language": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects untagged foreign-language text. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (3_1_2.H58)"
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value": {
+      "axe": [
+        {
+          "rationale": "lang=\"frrr\" is not a valid language tag.",
+          "rule": "valid-lang"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_1.3_1_2.H58.1.Lang",
+          "rationale": "lang attribute on an element is not well-formed."
+        }
+      ]
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks that the declared language matches the text."
+    },
+    "language-of-content-text-language-changed-without-required-change-in-direction": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks text direction."
+    },
+    "language-of-content-text-language-is-in-the-wrong-direction": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks text direction."
+    },
+    "links-adjacent-links-going-to-the-same-destination": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H2.EG3",
+          "rationale": "Image link alt text duplicates an adjacent text link to the same place (technique H2)."
+        }
+      ],
+      "notes": "axe-core identical-links-same-purpose is about links with the same name and different purposes, a different problem."
+    },
+    "links-blank-link-text": {
+      "axe": [
+        {
+          "rationale": "Link has no discernible text.",
+          "rule": "link-name"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+          "rationale": "Link has a href but no link text."
+        }
+      ]
+    },
+    "links-identifying-links-by-colour-alone": {
+      "axe": [
+        {
+          "rationale": "Link inside a block of text is distinguished by colour alone.",
+          "rule": "link-in-text-block"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "The links in this example are on their own lines, so link-in-text-block may not apply. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_1)"
+    },
+    "links-image-link-alt-text-repeats-text-in-the-link": {
+      "axe": [
+        {
+          "rationale": "Image alt repeats the link text.",
+          "rule": "image-redundant-alt"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H2.EG5",
+          "rationale": "Image alt duplicates the text content of the link."
+        }
+      ]
+    },
+    "links-image-link-with-no-alternative-text": {
+      "axe": [
+        {
+          "rationale": "Image link has no discernible text.",
+          "rule": "link-name"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H30.2",
+          "rationale": "Image link has no alt text and no other link text."
+        },
+        {
+          "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+          "rationale": "Link has no link text."
+        }
+      ]
+    },
+    "links-link-contains-only-a-full-stop": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+          "rationale": "The link text is the barrier; H30 asks the tester to check that the link text describes its purpose."
+        }
+      ],
+      "notes": "Generic per-link reminder. axe-core target-size (small target) is a related 2.5.8 problem, not listed.",
+      "review": "pending"
+    },
+    "links-link-launches-new-window-with-no-warning": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_5.H83.3",
+          "rationale": "Link opens a new window; asks to check that the link text warns about it."
+        }
+      ]
+    },
+    "links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text": {
+      "axe": [
+        {
+          "rationale": "Link inside text is not distinguishable from the surrounding text without colour.",
+          "rule": "link-in-text-block"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer has no check for link styling. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_1)"
+    },
+    "links-link-text-does-not-make-sense-out-of-context": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+          "rationale": "The link text is the barrier; H30 asks the tester to check that the link text describes its purpose."
+        }
+      ],
+      "notes": "Generic per-link reminder.",
+      "review": "pending"
+    },
+    "links-link-text-with-identical-title": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only; no rule compares link text and title."
+    },
+    "links-link-to-,-invalid-hypertext-reference": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only. axe-core removed the href-no-hash rule that GOV.UK found this with in 2017; no current rule in either tool."
+    },
+    "links-link-to-a-multimedia-file-no-transcript": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule follows links to media files."
+    },
+    "links-link-to-an-image-no-text-alternative": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule follows links to image files."
+    },
+    "links-link-to-javascript-invalid-hypertext-reference": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule flags javascript: URLs."
+    },
+    "links-link-to-pdf-does-not-include-information-on-file-format-and-file-size": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only; no rule checks file information in link text."
+    },
+    "links-links-not-separated-by-printable-characters": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only (old WCAG 1.0 checkpoint); no rule."
+    },
+    "links-links-to-a-sound-file-no-transcript": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule follows links to media files."
+    },
+    "links-links-with-the-same-text-go-to-different-pages": {
+      "axe": [
+        {
+          "rationale": "Links with the same accessible name; asks to check that they serve the same purpose. AAA rule, disabled by default in axe-core.",
+          "rule": "identical-links-same-purpose"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+          "rationale": "The link text is the barrier; H30 asks the tester to check that the link text describes its purpose."
+        }
+      ],
+      "notes": "The HTML_CodeSniffer notice is a generic per-link reminder.",
+      "review": "pending"
+    },
+    "links-non-specific-link-text": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+          "rationale": "The link text is the barrier; H30 asks the tester to check that the link text describes its purpose."
+        }
+      ],
+      "notes": "Generic per-link reminder.",
+      "review": "pending"
+    },
+    "links-uninformative-link-text": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+          "rationale": "The link text is the barrier; H30 asks the tester to check that the link text describes its purpose."
+        }
+      ],
+      "notes": "Generic per-link reminder.",
+      "review": "pending"
+    },
+    "lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element": {
+      "axe": [
+        {
+          "rationale": "dt and dd are not inside a dl.",
+          "rule": "dlitem"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer does not validate list structure."
+    },
+    "lists-improperly-nested-lists": {
+      "axe": [
+        {
+          "rationale": "ul contains a ul directly instead of li.",
+          "rule": "list"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer does not validate list structure."
+    },
+    "lists-li-element-with-no-parent": {
+      "axe": [
+        {
+          "rationale": "li is not inside ul or ol.",
+          "rule": "listitem"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer does not validate list structure."
+    },
+    "lists-list-not-marked-up-as-a-list": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H48.1",
+          "rationale": "Content looks like an unordered list simulated in plain text."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H48.2",
+          "rationale": "Content looks like an ordered list simulated in plain text."
+        }
+      ],
+      "notes": "axe-core has no rule for text that looks like a list."
+    },
+    "multimedia-embedded-audio-file-is-missing-text-alternative": {
+      "axe": [
+        {
+          "rationale": "Audio element without a text alternative. Deprecated and disabled by default in axe-core 4.13.",
+          "rule": "audio-caption"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_1.G158",
+          "rationale": "Asks to check that pre-recorded audio has a text alternative."
+        }
+      ]
+    },
+    "multimedia-embedded-video-file-is-missing-text-alternative": {
+      "axe": [
+        {
+          "rationale": "Video element without captions.",
+          "rule": "video-caption"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_2.G87,G93",
+          "rationale": "Asks to check that captions are provided."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_8.G69,G159",
+          "rationale": "Asks to check for a full text alternative."
+        }
+      ]
+    },
+    "multimedia-flashing-content-doesnt-have-warning": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule analyses flashing in embedded video. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_3_x)"
+    },
+    "navigation-inadequately-sized-clickable-targets-found": {
+      "axe": [
+        {
+          "rationale": "Touch targets smaller than 24 by 24 CSS pixels without enough spacing. Disabled by default in axe-core 4.13.",
+          "rule": "target-size"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_5_5)"
+    },
+    "navigation-repeated-navigation-block-cannot-be-bypassed-ail": {
+      "axe": [
+        {
+          "rationale": "Page has no way to bypass repeated blocks; passes whenever the page has a heading or landmark, as the template does.",
+          "rule": "bypass"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_4_1.G1,G123,G124,H69) The barrier is only meaningful across pages (2.4.1 is mapped as related)."
+    },
+    "page-layout-content-locked-to-portrait-orientation-ail": {
+      "axe": [
+        {
+          "rationale": "Experimental rule: CSS locks content to one orientation.",
+          "rule": "css-orientation-lock"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "In the first run (20261010T073126Z) the lock was in the shared AIL stylesheet, so css-orientation-lock fired on every AIL page; the lock now sits in this example only. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_4)"
+    },
+    "page-layout-wide-page-forces-users-to-scroll-horizontally": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_10.C32,C31,C33,C38,SCR34,G206",
+          "rationale": "Warning that an element may need scrolling in two dimensions. Only the warning counts: the notice with the same code is an unconditional page-level reminder.",
+          "types": [
+            "warning"
+          ]
+        }
+      ],
+      "notes": "axe-core scrollable-region-focusable fires on the scrolling box, but it is about keyboard access to a scrollable region, a different problem; not listed."
+    },
+    "page-title-empty-page-title": {
+      "axe": [
+        {
+          "rationale": "Document has no non-empty title.",
+          "rule": "document-title"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_2.H25.1.EmptyTitle",
+          "rationale": "title element is empty."
+        }
+      ],
+      "linkedPage": "example-pages/empty.html",
+      "notes": "The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "page-title-inappropriate-page-title": {
+      "axe": [],
+      "htmlcs": [],
+      "linkedPage": "example-pages/inappropriate.html",
+      "notes": "Only HTML_CodeSniffer H25.2 asks to check that the title describes the page, and it is an unconditional page-level reminder (not listed). The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "page-title-missing-page-title": {
+      "axe": [
+        {
+          "rationale": "Document has no title.",
+          "rule": "document-title"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl",
+          "rationale": "No title element."
+        }
+      ],
+      "linkedPage": "example-pages/missing.html",
+      "notes": "The barrier is on a linked example page (linkedPage); the harness tests that page too, and the classifier merges its evidence (protocol, section 6)."
+    },
+    "pointer-and-motion-action-triggered-on-pointer-down-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule inspects pointer event handlers. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_5_2)"
+    },
+    "pointer-and-motion-drag-and-drop-without-single-pointer-alternative-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks dragging movements. axe label-content-name-mismatch fires on the drag handles, a different problem."
+    },
+    "pointer-and-motion-path-gesture-required-without-single-pointer-alternative-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule inspects gesture handlers. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_5_1)"
+    },
+    "tables-table-has-an-empty-table-header": {
+      "axe": [
+        {
+          "rationale": "Table header cell has no text.",
+          "rule": "empty-table-header"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer H63.1 on this table is about missing scope attributes, a different problem; not listed."
+    },
+    "tables-table-has-no-scope-attributes": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H43,H63",
+          "rationale": "Relationship between td and th cells is not defined with scope or headers."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H63.1",
+          "rationale": "Not all th elements have a scope attribute."
+        }
+      ],
+      "notes": "axe-core infers simple header relationships and has no rule requiring scope."
+    },
+    "tables-table-has-no-table-headings": {
+      "axe": [
+        {
+          "rationale": "Experimental rule: data cells in a table larger than 3 by 3 have no header.",
+          "rule": "td-has-header"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.LayoutTable",
+          "rationale": "Notice that the table looks like a layout table; asks to use th if it is a data table."
+        }
+      ],
+      "notes": "HTML_CodeSniffer H39.3.LayoutTable (a layout table must not have a caption) also fires; it is a consequence, not the barrier, and is not listed.",
+      "review": "pending"
+    },
+    "tables-table-is-missing-a-caption": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H39.3.NoCaption",
+          "rationale": "Data table has no caption; asks to check whether one is needed."
+        }
+      ],
+      "notes": "axe-core has no rule requiring a caption (table-fake-caption is about a fake caption row)."
+    },
+    "tables-table-nested-within-table": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects nested tables. HTML_CodeSniffer NoCaption warnings here are about captions."
+    },
+    "tables-table-nested-within-table-header": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects nested tables. HTML_CodeSniffer H43,H63 and NoCaption on this page are about header association and captions."
+    },
+    "tables-table-rows-have-different-numbers-of-cells-ail": {
+      "axe": [
+        {
+          "rationale": "Header cells without data cells, which happens when rows have fewer cells than the header row.",
+          "rule": "th-has-data-cells"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "th-has-data-cells reports a consequence of the uneven rows. HTML_CodeSniffer does not count cells per row.",
+      "review": "pending"
+    },
+    "tables-table-that-only-has-th-elements-in-it": {
+      "axe": [
+        {
+          "rationale": "Header cells have no data cells.",
+          "rule": "th-has-data-cells"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer NoCaption warning on this table is about the caption, a different problem."
+    },
+    "tables-table-used-for-layout": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.LayoutTable",
+          "rationale": "Notice that the table appears to be a layout table."
+        }
+      ],
+      "notes": "axe-core removed its layout-table rule."
+    },
+    "tables-table-with-column-headers-and-double-row-headers": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H43.HeadersRequired",
+          "rationale": "Table has multiple levels of headers and needs headers/id associations."
+        }
+      ],
+      "notes": "axe-core has no rule for complex header association."
+    },
+    "tables-table-with-inconsistent-numbers-of-columns-in-rows": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks column consistency. HTML_CodeSniffer H43.MissingHeaderIds and axe table-fake-caption fire on this table but are about header ids and a fake caption, different problems."
+    },
+    "tables-table-with-some-empty-cells": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only; no rule reports empty data cells."
+    },
+    "timing-auto-rotating-carousel-without-pause-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects script-driven rotation. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_2_2)"
+    },
+    "typography-all-caps-text-found": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only; no rule."
+    },
+    "typography-blink-element-found": {
+      "axe": [
+        {
+          "rationale": "blink element used.",
+          "rule": "blink"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_2.F47",
+          "rationale": "blink element used."
+        }
+      ]
+    },
+    "typography-blinking-text-cannot-be-paused-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_2.F4",
+          "rationale": "text-decoration: blink without a way to stop it."
+        }
+      ],
+      "notes": "The example blinks with a CSS animation; axe blink only covers the blink element and F4 only text-decoration: blink, so neither can fire."
+    },
+    "typography-inadequate-line-height-used": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks line height in stylesheets (avoid-inline-spacing covers inline !important styles only). HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_8, 1_4_12)"
+    },
+    "typography-italics-used-on-long-sections-of-text": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Best practice only; no rule."
+    },
+    "typography-justified-text-found": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks text alignment. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_8)"
+    },
+    "typography-long-lines-of-text": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks line length. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_8)"
+    },
+    "typography-marquee-element-found": {
+      "axe": [
+        {
+          "rationale": "marquee element used.",
+          "rule": "marquee"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer has no check for marquee."
+    },
+    "typography-very-small-text-found": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks font size."
+    }
+  },
+  "meta": {
+    "annotations": {
+      "axe": "axe-core rule ids that correspond to the intended barrier",
+      "htmlcs": "HTML_CodeSniffer codes (full pa11y code, exact match); optional types restricts which issue types count",
+      "linkedPage": "the barrier is on this linked example page; the retest harness tests it as well (scripts/retest/run.mjs) and the classifier merges its evidence",
+      "review": "\"pending\" = borderline choice awaiting human review (D-011 style)"
+    },
+    "date": "2026-10-10",
+    "method": "wiki/method/classification-protocol.md",
+    "model": "claude-opus-5-5",
+    "origin": "ail-2026",
+    "reviewed": false,
+    "status": "ai-proposed",
+    "statusNote": "AI-drafted, not human-reviewed",
+    "testCount": 167,
+    "tool_versions": {
+      "axe-core": "4.13.0",
+      "htmlcs": "2.6.0"
+    }
+  }
+}

@@ -1,0 +1,2321 @@
+{
+  "meta": {
+    "browser": "153.0.8010.12",
+    "commit": "17f1f4a4ae042dba4ac12f67178c15cb5ab1b0ed",
+    "dirty": false,
+    "generatedBy": "scripts/classify.mjs",
+    "mapping": {
+      "file": "data/mappings/test-case-rules.json",
+      "sha256": "162905298064bd5aac4b5bb6a9522ee0f1a8a580d25822d388f46eddd562cc2e"
+    },
+    "protocol": "wiki/method/classification-protocol.md",
+    "run": "20261010T073126Z",
+    "runFinishedAt": "2026-10-10T07:38:30.934Z",
+    "runStartedAt": "2026-10-10T07:31:26.712Z",
+    "tools": {
+      "axe-core": "4.13.0",
+      "html_codesniffer": "2.6.0",
+      "pa11y": "10.0.0",
+      "playwright-core": "1.63.0",
+      "puppeteer": "25.12.0"
+    },
+    "values": {
+      "axe": {
+        "incomplete": "manual",
+        "violations": "error"
+      },
+      "order": [
+        "error",
+        "warning",
+        "manual",
+        "identified",
+        "notfound"
+      ],
+      "pa11y": {
+        "error": "error",
+        "notice": "identified",
+        "warning": "manual"
+      }
+    }
+  },
+  "results": {
+    "authentication-paste-blocked-in-password-field-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "buttons-empty-alt-attribute-on-image-button": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "input-image-alt",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H36",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          },
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputImage.Name",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "buttons-empty-button": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "button-name",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.Button.Name",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "buttons-image-button-has-no-alt-attribute": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "input-image-alt",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H36",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          },
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputImage.Name",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "buttons-uninformative-alt-attribute-value-on-image-button": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Button",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "colour-and-contrast-colour-alone-is-used-to-convey-content": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "colour-and-contrast-focus-not-visible": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "colour-and-contrast-form-field-border-has-insufficient-contrast-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "colour-and-contrast-large-text-below-31-ail": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "color-contrast",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "axeRulesNotRun": [
+          "color-contrast-enhanced"
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "colour-and-contrast-large-text-below-451-aaa-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "axeRulesNotRun": [
+          "color-contrast-enhanced"
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "color-contrast",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "axeRulesNotRun": [
+          "color-contrast-enhanced"
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "color-contrast",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "axeRulesNotRun": [
+          "color-contrast-enhanced"
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "colour-and-contrast-small-text-below-71-aaa-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "axeRulesNotRun": [
+          "color-contrast-enhanced"
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "color-contrast",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "axeRulesNotRun": [
+          "color-contrast-enhanced"
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "color-contrast",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "axeRulesNotRun": [
+          "color-contrast-enhanced"
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "content-content-identified-by-location": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "content-content-is-not-in-correct-reading-order-in-source-code": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/unorganised_content.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/unorganised_content.html; no pa11y output for the linked page example-pages/unorganised_content.html"
+    },
+    "content-first-instance-of-abbreviation-not-expanded": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "content-plain-language-is-not-used": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "css-content-is-not-readable-and-functional-when-text-is-increased": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "axe": "manual",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "hidden-content",
+            "value": "manual",
+            "where": "incomplete"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "css-non-decorative-content-inserted-using-css": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "css-page-zoom-boxes-that-dont-expand-with-the-text": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "css-text-clipped-when-text-spacing-is-increased-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "axe": "manual",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "hidden-content",
+            "value": "manual",
+            "where": "incomplete"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "forms-custom-checkbox-without-checked-state-ail": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "aria-required-attr",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "forms-empty-label-found": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "label",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "forms-empty-legend": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.Fieldset.Name",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_3.G177",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "forms-errors-are-not-identified": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "forms-errors-identified-by-colour-only": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "forms-errors-identified-with-a-poor-colour-contrast": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "color-contrast",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "axeRulesNotRun": [
+          "color-contrast-enhanced"
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-field-hint-not-associated-with-input": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "forms-fieldset-without-a-legend": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H71.NoLegend",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          },
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.Fieldset.Name",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-focus-on-field-opens-new-window-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_1.G107",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "forms-form-control-that-changes-context-without-warning": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_2.H32.2",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-form-element-has-no-label": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "label",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          },
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-group-of-check-boxes-not-enclosed-in-a-fieldset": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H71.SameName",
+            "count": 1,
+            "page": "test",
+            "type": "warning",
+            "value": "manual"
+          }
+        ]
+      },
+      "pa11y": "manual"
+    },
+    "forms-group-of-radio-buttons-not-enclosed-in-a-fieldset": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H71.SameName",
+            "count": 1,
+            "page": "test",
+            "type": "warning",
+            "value": "manual"
+          }
+        ]
+      },
+      "pa11y": "manual"
+    },
+    "forms-invalid-autocomplete-value-on-personal-data-field-ail": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "autocomplete-valid",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_5.H98",
+            "count": 2,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          },
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_5.H98",
+            "count": 1,
+            "page": "test",
+            "type": "warning",
+            "value": "manual"
+          }
+        ]
+      },
+      "pa11y": "manual"
+    },
+    "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "label",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          },
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputCheckbox.Name",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 2,
+            "page": "test",
+            "rule": "label",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+            "count": 2,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          },
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+            "count": 2,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-left-aligned-form-labels-with-too-much-white-space": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "forms-missing-autocomplete-on-personal-data-fields-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_5.H98",
+            "count": 6,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "forms-missing-labels-in-checkboxes": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 3,
+            "page": "test",
+            "rule": "label",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F68",
+            "count": 3,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          },
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputCheckbox.Name",
+            "count": 3,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-non-unique-field-label-found": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "forms-placeholder-no-label": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.InputSearch.Name",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "forms-status-message-not-announced-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "forms-two-unique-labels-but-identical-for=-attributes": {
+      "axe": "manual",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "form-field-multiple-labels",
+            "value": "manual",
+            "where": "incomplete"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "frames-iframe-is-missing-a-title-attribute": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "frame-title",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_1.H64.1",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_1.H64.2",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "headings-empty-heading": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "empty-heading",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H42.2",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "headings-headings-not-structured-in-a-hierarchical-manner": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 2,
+            "page": "test",
+            "rule": "heading-order",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1_AAA.G141",
+            "count": 2,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "headings-missing-h1": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/missing.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/missing.html; no pa11y output for the linked page example-pages/missing.html"
+    },
+    "headings-text-formatting-used-instead-of-an-actual-heading": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "html-deprecated-center-element": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H49.Center",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "html-deprecated-font-element": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H49.Font",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "html-duplicate-id": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "axeRulesNotRun": [
+          "duplicate-id"
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_1.F77",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "html-empty-paragraph": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "html-focusable-element-inside-aria-hidden-ail": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "aria-hidden-focus",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "html-inline-style-adds-colour": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+            "count": 1,
+            "page": "test",
+            "type": "warning",
+            "value": "manual"
+          }
+        ]
+      },
+      "pa11y": "manual"
+    },
+    "html-invalid-aria-role-names": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "aria-roles",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "html-pre-element-without-code-element-inside-it": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "html-spacer-image-found": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "html-start-and-close-tags-dont-match": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "images-a-distraction-is-present-an-animated-gif": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "images-background-image-that-conveys-information-does-not-have-a-text-alternative": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "images-image-alt-attribute-contains-image-file-name": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Image",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "images-image-has-alt-and-title-that-are-different": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "images-image-has-empty-alt-and-non-empty-title": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H67.1",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "images-image-that-conveys-information-has-an-empty-alt-attribute": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H67.2",
+            "count": 1,
+            "page": "test",
+            "type": "warning",
+            "value": "manual"
+          }
+        ]
+      },
+      "pa11y": "manual"
+    },
+    "images-image-that-conveys-information-has-inappropriate-alt-text": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Image",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "images-image-with-no-alt-attribute": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "image-alt",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H37",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "images-image-with-partial-text-alternative": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G73,G74",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          },
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Image",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "images-image-with-presentation-role-has-non-empty-alt": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "aria-allowed-role",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "images-svg-image-without-accessible-name-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-accesskey-attribute-used": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-alert-shows-for-a-short-time": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-concertina-items-dont-get-keyboard-focus": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-fake-button-is-not-keyboard-accessible": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-focus-order-in-wrong-order": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-focus-removed-by-script-when-received-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "focus-order-semantics",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_3.H4.2",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "keyboard-access-keyboard-focus-is-not-indicated-visually": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "keyboard-access-keyboard-trap": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/keyboardtrap.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/keyboardtrap.html; no pa11y output for the linked page example-pages/keyboardtrap.html"
+    },
+    "keyboard-access-lightbox-close-button-doesnt-receive-focus": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-positive-tabindex-scrambles-form-focus-order-ail": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 4,
+            "page": "test",
+            "rule": "tabindex",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_3.H4.2",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "keyboard-access-single-character-key-shortcut-cannot-be-turned-off-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-sticky-footer-hides-focused-element-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "keyboard-access-tabindex-greater-than-0": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "tabindex",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_3.H4.2",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "keyboard-access-tooltips-dont-receive-keyboard-focus": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "language-of-content-html-element-has-an-empty-lang-attribute": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/empty.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/empty.html; no pa11y output for the linked page example-pages/empty.html"
+    },
+    "language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/invalid.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/invalid.html; no pa11y output for the linked page example-pages/invalid.html"
+    },
+    "language-of-content-html-element-has-lang-attribute-set-to-wrong-language": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/inappropriate.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/inappropriate.html; no pa11y output for the linked page example-pages/inappropriate.html"
+    },
+    "language-of-content-html-element-is-missing-a-lang-attribute": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/missing.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/missing.html; no pa11y output for the linked page example-pages/missing.html"
+    },
+    "language-of-content-lang-attribute-not-used-to-identify-change-of-language": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "valid-lang",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "language-of-content-text-language-changed-without-required-change-in-direction": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "language-of-content-text-language-is-in-the-wrong-direction": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-adjacent-links-going-to-the-same-destination": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-blank-link-text": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "link-name",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "links-identifying-links-by-colour-alone": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-image-link-alt-text-repeats-text-in-the-link": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "image-redundant-alt",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-image-link-with-no-alternative-text": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "link-name",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.H30.2",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "links-link-contains-only-a-full-stop": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "links-link-launches-new-window-with-no-warning": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_5.H83.3",
+            "count": 1,
+            "page": "test",
+            "type": "warning",
+            "value": "manual"
+          }
+        ]
+      },
+      "pa11y": "manual"
+    },
+    "links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-link-text-does-not-make-sense-out-of-context": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "links-link-text-with-identical-title": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-link-to-,-invalid-hypertext-reference": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-link-to-a-multimedia-file-no-transcript": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-link-to-an-image-no-text-alternative": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-link-to-javascript-invalid-hypertext-reference": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-link-to-pdf-does-not-include-information-on-file-format-and-file-size": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-links-not-separated-by-printable-characters": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-links-to-a-sound-file-no-transcript": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "links-links-with-the-same-text-go-to-different-pages": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "axeRulesNotRun": [
+          "identical-links-same-purpose"
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+            "count": 2,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "links-non-specific-link-text": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "links-uninformative-link-text": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 2,
+            "page": "test",
+            "rule": "dlitem",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "lists-improperly-nested-lists": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "list",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "lists-li-element-with-no-parent": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "listitem",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "lists-list-not-marked-up-as-a-list": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "multimedia-embedded-audio-file-is-missing-text-alternative": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "axeRulesNotRun": [
+          "audio-caption"
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_1.G158",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "multimedia-embedded-video-file-is-missing-text-alternative": {
+      "axe": "manual",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "video-caption",
+            "value": "manual",
+            "where": "incomplete"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_2.G87,G93",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          },
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_2.1_2_8.G69,G159",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "multimedia-flashing-content-doesnt-have-warning": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "navigation-inadequately-sized-clickable-targets-found": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "axeRulesNotRun": [
+          "target-size"
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "navigation-repeated-navigation-block-cannot-be-bypassed-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "page-layout-content-locked-to-portrait-orientation-ail": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "css-orientation-lock",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "page-layout-wide-page-forces-users-to-scroll-horizontally": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "page-title-empty-page-title": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/empty.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/empty.html; no pa11y output for the linked page example-pages/empty.html"
+    },
+    "page-title-inappropriate-page-title": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/inappropriate.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/inappropriate.html; no pa11y output for the linked page example-pages/inappropriate.html"
+    },
+    "page-title-missing-page-title": {
+      "axe": null,
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "linkedPage": "example-pages/missing.html",
+      "pa11y": null,
+      "reason": "no axe output for the linked page example-pages/missing.html; no pa11y output for the linked page example-pages/missing.html"
+    },
+    "pointer-and-motion-action-triggered-on-pointer-down-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "pointer-and-motion-drag-and-drop-without-single-pointer-alternative-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "pointer-and-motion-path-gesture-required-without-single-pointer-alternative-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "tables-table-has-an-empty-table-header": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "empty-table-header",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "tables-table-has-no-scope-attributes": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H43,H63",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "tables-table-has-no-table-headings": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "td-has-header",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.LayoutTable",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "tables-table-is-missing-a-caption": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H39.3.NoCaption",
+            "count": 1,
+            "page": "test",
+            "type": "warning",
+            "value": "manual"
+          }
+        ]
+      },
+      "pa11y": "manual"
+    },
+    "tables-table-nested-within-table": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "tables-table-nested-within-table-header": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "tables-table-rows-have-different-numbers-of-cells-ail": {
+      "axe": "manual",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "th-has-data-cells",
+            "value": "manual",
+            "where": "incomplete"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "tables-table-that-only-has-th-elements-in-it": {
+      "axe": "manual",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "th-has-data-cells",
+            "value": "manual",
+            "where": "incomplete"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "tables-table-used-for-layout": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.LayoutTable",
+            "count": 1,
+            "page": "test",
+            "type": "notice",
+            "value": "identified"
+          }
+        ]
+      },
+      "pa11y": "identified"
+    },
+    "tables-table-with-column-headers-and-double-row-headers": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H43.HeadersRequired",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "tables-table-with-inconsistent-numbers-of-columns-in-rows": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "tables-table-with-some-empty-cells": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "timing-auto-rotating-carousel-without-pause-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "typography-all-caps-text-found": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "typography-blink-element-found": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "blink",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": [
+          {
+            "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_2.F47",
+            "count": 1,
+            "page": "test",
+            "type": "error",
+            "value": "error"
+          }
+        ]
+      },
+      "pa11y": "error"
+    },
+    "typography-blinking-text-cannot-be-paused-ail": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "typography-inadequate-line-height-used": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "typography-italics-used-on-long-sections-of-text": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "typography-justified-text-found": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "typography-long-lines-of-text": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "typography-marquee-element-found": {
+      "axe": "error",
+      "evidence": {
+        "axe": [
+          {
+            "nodes": 1,
+            "page": "test",
+            "rule": "marquee",
+            "value": "error",
+            "where": "violations"
+          }
+        ],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    },
+    "typography-very-small-text-found": {
+      "axe": "notfound",
+      "evidence": {
+        "axe": [],
+        "pa11y": []
+      },
+      "pa11y": "notfound"
+    }
+  }
+}

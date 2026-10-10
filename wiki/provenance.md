@@ -43,6 +43,14 @@ AIL test cases have `origin: ail-2026` in their front matter, use the `fixture-a
 GOV.UK test cases carry `corrects: <govuk id>` (D-010). Their WCAG mappings are in
 `data/mappings/test-case-wcag-ail.json`.
 
+### AIL fixture changes
+
+AIL fixtures are not frozen like GOV.UK's, but every change that can affect results is listed here.
+
+| Date | What | Why |
+|---|---|---|
+| 2026-10-10 | AIL fixture change: moved the orientation lock (`@media (orientation: landscape)` rotating `.ail-portrait-only`) from the shared `assets/ail/tests-ail.css` into a `<style>` element in the example of `page-layout-content-locked-to-portrait-orientation-ail`. Box styles stay in the shared stylesheet. | In the first run axe-core `css-orientation-lock` fired on all 25 AIL pages, a second barrier on 24 of them. The lock now only applies on that test case's page and its block on the combined page. Checked with axe-core 4.13.0 on all 25 AIL pages: it fires only on the portrait case. |
+
 ## Changes to upstream material
 
 Every change to something that came from GOV.UK is listed here, newest last.

@@ -1,0 +1,495 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "page-title-empty-page-title",
+  "origin": "govuk-2017",
+  "url": "http://127.0.0.1:33431/accessibility-tool-audit/example-pages/empty.html",
+  "startedAt": "2026-10-10T08:08:44.147Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T08:08:44.610Z",
+    "violations": [
+      {
+        "id": "document-title",
+        "impact": "serious",
+        "tags": [
+          "cat.text-alternatives",
+          "wcag2a",
+          "wcag242",
+          "TTv5",
+          "TT12.a",
+          "EN-301-549",
+          "EN-9.2.4.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-8.5.1"
+        ],
+        "description": "Ensure each HTML document contains a non-empty <title> element",
+        "help": "Documents must have <title> element to aid in navigation",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/document-title?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "html": "<html lang=\"\">",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Document does not have a non-empty <title> element",
+            "checks": {
+              "any": [
+                "doc-has-title"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "empty-heading",
+        "impact": "minor",
+        "tags": [
+          "cat.name-role-value",
+          "best-practice"
+        ],
+        "description": "Ensure headings have discernible text",
+        "help": "Headings should not be empty",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/empty-heading?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1></h1>",
+            "impact": "minor",
+            "failureSummary": "Fix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+            "checks": {
+              "any": [
+                "has-visible-text",
+                "aria-label",
+                "aria-labelledby",
+                "non-empty-title"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "html-has-lang",
+        "impact": "serious",
+        "tags": [
+          "cat.language",
+          "wcag2a",
+          "wcag311",
+          "TTv5",
+          "TT11.a",
+          "EN-301-549",
+          "EN-9.3.1.1",
+          "ACT",
+          "RGAAv4",
+          "RGAA-8.3.1"
+        ],
+        "description": "Ensure every HTML document has a lang attribute",
+        "help": "<html> element must have a lang attribute",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "html": "<html lang=\"\">",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute",
+            "checks": {
+              "any": [
+                "has-lang"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the document has a main landmark",
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "html": "<html lang=\"\">",
+            "impact": "moderate",
+            "failureSummary": "Fix all of the following:\n  Document does not have a main landmark",
+            "checks": {
+              "any": [],
+              "all": [
+                "page-has-main"
+              ],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              ".h1"
+            ],
+            "html": "<div class=\"h1\" style=\"font-size: 2em; font-weight: bold; margin: 0.67em 0;\">Accessibility Fails: Empty elements and attributes</div>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "h2:nth-child(3)"
+            ],
+            "html": "<h2>Language of content</h2>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "h3:nth-child(4)"
+            ],
+            "html": "<h3>html element has an empty lang attribute</h3>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              ".example:nth-child(5)"
+            ],
+            "html": "<div class=\"example\">\n    <p>This page has an empty lang attribute on the html element</p>\n  </div>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "h2:nth-child(6)"
+            ],
+            "html": "<h2>Page Title</h2>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "h3:nth-child(7)"
+            ],
+            "html": "<h3>Empty page title</h3>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              ".example:nth-child(8)"
+            ],
+            "html": "<div class=\"example\">\n    This page has an empty page title\n  </div>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "h2:nth-child(9)"
+            ],
+            "html": "<h2>Headings</h2>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "h3:nth-child(10)"
+            ],
+            "html": "<h3>Empty H1</h3>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              ".example:nth-child(11)"
+            ],
+            "html": "<div class=\"example\">\n    <p>This page has an empty h1</p>\n  </div>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "h3:nth-child(12)"
+            ],
+            "html": "<h3>Implicit heading</h3>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              ".example:nth-child(13)"
+            ],
+            "html": "<div class=\"example\">\n    <p>This page has a div which is being styled to look like an H1</p>\n  </div>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "css-orientation-lock",
+        "impact": "serious",
+        "tags": [
+          "cat.structure",
+          "wcag134",
+          "wcag21aa",
+          "EN-301-549",
+          "EN-9.1.3.4",
+          "RGAAv4",
+          "RGAA-13.9.1",
+          "experimental"
+        ],
+        "description": "Ensure content is not locked to any specific display orientation, and the content is operable in all display orientations",
+        "help": "CSS Media queries must not lock display orientation",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/css-orientation-lock?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "html": "<html lang=\"\">",
+            "impact": "serious",
+            "failureSummary": "Fix all of the following:\n  CSS Orientation lock cannot be determined",
+            "checks": {
+              "any": [],
+              "all": [
+                "css-orientation-lock"
+              ],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "passesCount": 9,
+    "passesRuleIds": [
+      "aria-hidden-body",
+      "avoid-inline-spacing",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "empty-heading",
+      "heading-order",
+      "hidden-content",
+      "page-has-heading-one",
+      "region"
+    ],
+    "inapplicableCount": 92,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-roles",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "autocomplete-valid",
+      "blink",
+      "button-name",
+      "bypass",
+      "definition-list",
+      "dlitem",
+      "duplicate-id",
+      "duplicate-id-active",
+      "duplicate-id-aria",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "html-lang-valid",
+      "html-xml-lang-mismatch",
+      "identical-links-same-purpose",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-content-name-mismatch",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "landmark-no-duplicate-main",
+      "landmark-unique",
+      "link-in-text-block",
+      "link-name",
+      "list",
+      "listitem",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "p-as-heading",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "target-size",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [],
+  "localNon200": [],
+  "durationMs": 504,
+  "linkedPage": "example-pages/empty.html"
+}

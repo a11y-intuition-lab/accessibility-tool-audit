@@ -57,11 +57,11 @@ permalink: methodology.html
 <h2 id="tools">4. Tools and configuration</h2>
 <p>The retest uses two free, open-source, scriptable checkers with independent rule engines (D-003):</p>
 <ul>
-  <li><strong>axe-core</strong>, with all rule tags enabled, including best practices and experimental rules, to match the 2017 aXe settings.</li>
+  <li><strong>axe-core</strong>, with every rule it ships enabled, including best practices, experimental rules, AAA rules and deprecated rules that axe-core turns off by default (D-021). This follows GOV.UK's instruction to use each tool's most inquisitive options.</li>
   <li><strong>pa11y</strong> with its HTML_CodeSniffer runner, using the WCAG2AAA standard and including warnings and notices, to match the 2017 HTML_CodeSniffer settings (D-016).</li>
 </ul>
 <p>Exact versions of the tools, the browser, Node.js and the operating system are recorded with every run. Dependencies are installed under strict <a href="{{ wiki }}method/supply-chain-security.md">supply-chain rules</a>, such as a seven-day minimum release age and no install scripts (D-008).</p>
-<p>Pinned versions: axe-core 4.13.0, pa11y 10.0.0 with HTML_CodeSniffer 2.6.0, Playwright 1.63.0 driving Chromium 153.0.8010.12 (the same browser runs both tools), Node.js 24. Both tools use a 1280&times;1024 viewport and wait for the page to load. axe-core runs every rule enabled by default plus the experimental rules, and reports violations and "needs review" results in full. Remote resources are not blocked, so the runs need internet access. The exact configuration is stored in <code>environment.json</code> in each run; see the <a href="{{ wiki }}method/retest-procedure.md">retest procedure</a>.</p>
+<p>Pinned versions: axe-core 4.13.0, pa11y 10.0.0 with HTML_CodeSniffer 2.6.0, Playwright 1.63.0 driving Chromium 153.0.8010.12 (the same browser runs both tools), Node.js 24. Both tools use a 1280&times;1024 viewport and wait for the page to load. axe-core runs all of its rules, including those it disables by default (such as <code>color-contrast-enhanced</code>, <code>target-size</code> and the deprecated <code>duplicate-id</code>), and reports violations and "needs review" results in full; the list of enabled rules is stored with each run. GOV.UK's 2017 aXe settings listed the tags wcag2a, wcag2aa, section508, best-practice and experimental, without AAA, so axe-core can find some AAA barriers in 2026 that aXe was not asked to look for in 2017. When a test case's barrier is on a linked example page, both tools test that page too (D-022). Remote resources are not blocked, so the runs need internet access. The exact configuration is stored in <code>environment.json</code> in each run; see the <a href="{{ wiki }}method/retest-procedure.md">retest procedure</a>.</p>
 
 <h2 id="procedure">5. Test procedure</h2>
 <ol>
@@ -73,11 +73,13 @@ permalink: methodology.html
 </ol>
 
 <h2 id="classification">6. Classifying results</h2>
-<p>The 2017 results were recorded by hand into six categories: issue found, issue found (paid), warning only, user to check, noticed but not a fail, and not found. AIL uses the same categories, but the decision is made by a script (D-005):</p>
+<p>The 2017 results were recorded by hand into six categories: issue found, issue found (paid), warning only, user to check, noticed but not a fail, and not found. AIL uses the same categories, but the decision is made by a script (D-005, D-020) following a written <a href="{{ wiki }}method/classification-protocol.md">classification protocol</a>:</p>
 <ul>
-  <li>Each test case has a stored list of the tool rule IDs that correspond to its barrier.</li>
-  <li>A tool <em>finds</em> a test case only if one of those rules reports on the relevant element. A violation elsewhere on the page does not count.</li>
-  <li>The category depends on how the tool reports it: violation (issue found), warning (warning only), or "needs review" (user to check).</li>
+  <li>Each test case has a stored list of the axe-core rule IDs and HTML_CodeSniffer codes that correspond to its barrier, with a rationale for each (<a href="{{ tree }}data/mappings/test-case-rules.json">rule mapping</a>). The list is AI-proposed and not yet human-reviewed; borderline choices are marked for review.</li>
+  <li>A tool <em>finds</em> a test case only through one of those rules. Hits from other rules, such as template noise every test page triggers or incidental issues in the example, do not count.</li>
+  <li>axe-core: a violation is "issue found"; "needs review" only is "user to check".</li>
+  <li>HTML_CodeSniffer: an error is "issue found", a warning is "user to check" and a notice is "noticed but not a fail". Warnings become "user to check" because GOV.UK reclassified HTML_CodeSniffer warnings that way in April 2018, so the 2017 data has no "warning only" results for it; this keeps 2026 comparable. Notices that HTML_CodeSniffer shows on every page, whatever it contains, are never counted.</li>
+  <li>If several listed rules hit, the strongest result counts. A page that failed to load, or a barrier on a linked example page that the retest did not load, gives no result ("Not tested"), not "not found".</li>
 </ul>
 <p>The rule mapping is data in the repository, so the classification can be rerun and checked without repeating any human or AI judgement.</p>
 
@@ -94,7 +96,7 @@ permalink: methodology.html
   <tbody>
     <tr><th scope="row">Tools</th><td>13 tools, free and commercial</td><td>axe-core and pa11y (HTML_CodeSniffer)</td><td>D-003</td></tr>
     <tr><th scope="row">Pages tested</th><td>Not documented in detail (see the <a href="{{ site.blog }}">GDS blog post</a>)</td><td>Each test case on its own page</td><td>D-004</td></tr>
-    <tr><th scope="row">Classification</th><td>Manual</td><td>Scripted, using a stored rule mapping</td><td>D-005</td></tr>
+    <tr><th scope="row">Classification</th><td>Manual</td><td>Scripted, using a stored rule mapping</td><td>D-005, D-020</td></tr>
     <tr><th scope="row">Tool versions</th><td>Not recorded</td><td>Pinned and recorded with each run</td><td>D-008</td></tr>
     <tr><th scope="row">Raw output</th><td>Not published</td><td>Published with each run</td><td>D-005</td></tr>
     <tr><th scope="row">WCAG link</th><td>None</td><td>Mapped to WCAG 2.0, 2.1 and 2.2</td><td>D-001</td></tr>
@@ -123,7 +125,7 @@ permalink: methodology.html
   <li>Build and verify: <code>npm run build</code>, then <code>npm run verify</code>.</li>
   <li>Recompute WCAG coverage: <code>npm run wcag:coverage</code>.</li>
   <li>Install the browser and run the retest: <code>npm run retest:browsers</code>, then <code>npm run retest</code>. Raw output and the environment record are written to <code>data/results/ail-2026/runs/&lt;runId&gt;/</code>. Details are in the <a href="{{ wiki }}method/retest-procedure.md">retest procedure</a>.</li>
-  <li>Classify the raw output. <em>The classification command will be documented here when it is published.</em></li>
+  <li>Classify the raw output: <code>npm run classify</code> (or <code>node scripts/classify.mjs data/results/ail-2026/runs/&lt;runId&gt;</code>). It writes <code>classification.json</code> next to the raw output and gives byte-identical output when run again. See the <a href="{{ wiki }}method/classification-protocol.md">classification protocol</a>.</li>
 </ol>
 <p>Data lives in <a href="{{ tree }}data">data/</a>: WCAG source data, the mappings, the gap analysis, and results by origin (<code>govuk-2017</code>, <code>ail-2026</code>).</p>
 
