@@ -174,6 +174,16 @@ main > ul, main > ol { margin: 0 0 var(--ail-space-4); padding-left: var(--ail-s
 .site-result-notfound { background: var(--ail-color-coral); color: var(--ail-color-coral-ink); }
 .site-results-table .site-result-cell { font-weight: var(--ail-weight-bold); }
 .site-results-group th { background: var(--ail-color-code-bg); font-family: var(--ail-font-heading); text-align: left; }
+/* Sticky column headers. A scrolling wrapper would trap position: sticky, so the wrapper only scrolls on narrow screens
+   where the table does not fit; there the headers stay in place. */
+@media (min-width: 48rem) {
+  .site-table-wrap:has(.site-results-table) { overflow-x: visible; }
+  .site-results-table thead th {
+    position: sticky; top: 0; z-index: 1;
+    background: var(--ail-color-bg);
+    box-shadow: inset 0 calc(-1 * var(--ail-border-width)) 0 var(--ail-color-border-strong);
+  }
+}
 
 /* WCAG filter */
 .site-filter { border: var(--ail-border-width) solid var(--ail-color-border); border-radius: var(--ail-radius-md); background: var(--ail-color-panel); padding: var(--ail-space-4); margin-block: var(--ail-space-6); }
