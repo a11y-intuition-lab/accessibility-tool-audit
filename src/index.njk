@@ -10,18 +10,37 @@ permalink: index.html
 <p>Automated accessibility checkers are good at finding simple and obvious problems, but they cannot detect many accessibility issues. This project measures what they find and what they miss, using test cases that each contain one specific failure.</p>
 
 <h2>Where this comes from</h2>
-<p>This is the continuation, by <a href="{{ site.repo }}">A11y Intuition Lab</a> (AIL), of the 2017 audit by the GDS accessibility team. The test cases, and the pages that carry them, are the GDS team's work and are kept unchanged so that results stay comparable. Full credit goes to the original authors.</p>
+<p>This is the continuation, by <a href="{{ site.repo }}">A11y Intuition Lab</a> (AIL), of the 2017 audit by the GDS accessibility team. The original test cases, and the pages that carry them, are the GDS team's work and are kept unchanged so that results stay comparable. AIL's additions are marked as such. Full credit goes to the original authors.</p>
 <ul>
   <li><a href="{{ site.originalSite }}">The original site</a> (GOV.UK, archived)</li>
   <li><a href="{{ site.blog }}">Blog post: What we found when we tested tools on the world's least accessible webpage</a></li>
   <li><a href="{{ '/about.html' | url }}">About this fork and its provenance</a></li>
 </ul>
 
-<h2>Retest in progress</h2>
-<p>AIL is retesting every test case with <a href="https://github.com/dequelabs/axe-core">axe-core</a> and <a href="https://pa11y.org/">pa11y</a>, with pinned tool versions and stored raw output. New test cases will be added for gaps in the coverage of WCAG 2.0, 2.1 and 2.2. The <a href="{{ '/results.html' | url }}">results page</a> will be filled in as the retest completes.</p>
+{%- set govukCases = collections.testCases | byOrigin('govuk-2017') %}
+{%- set ailCases = collections.testCases | byOrigin('ail-2026') %}
+<h2>Findings so far</h2>
+{%- if results.latest %}
+<p>AIL retested every test case with <a href="https://github.com/dequelabs/axe-core">axe-core</a> and <a href="https://pa11y.org/">pa11y</a> on {{ results.latest.date }}. On the {{ govukCases.length }} GOV.UK test cases, the share each tool found or warned about:</p>
+<div class="site-table-wrap" role="region" aria-labelledby="findings-caption" tabindex="0">
+<table>
+  <caption id="findings-caption">Detection rate on the GOV.UK test cases, 2017 and 2026</caption>
+  <thead><tr><th scope="col">Engine</th><th scope="col">2017 (GOV.UK)</th><th scope="col">2026 (AIL)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">axe</th><td>{{ govukCases | detectionRate(results.byTest, 'govuk:axe') }}%</td><td>{{ govukCases | detectionRate(results.byTest, 'ail:axe') }}%</td></tr>
+    <tr><th scope="row">HTML_CodeSniffer (pa11y in 2026)</th><td>{{ govukCases | detectionRate(results.byTest, 'govuk:codesniffer') }}%</td><td>{{ govukCases | detectionRate(results.byTest, 'ail:pa11y') }}%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>On the {{ ailCases.length }} test cases AIL added, mostly for WCAG 2.1 and 2.2 criteria, axe found or warned about {{ ailCases | detectionRate(results.byTest, 'ail:axe') }}% and pa11y {{ ailCases | detectionRate(results.byTest, 'ail:pa11y') }}%.</p>
+<p>Automated checkers still find only a minority of the barriers. In 2026 the results are classified by a script from an AI-proposed rule mapping that is not yet fully reviewed, and the 2017 results were classified by hand, so small differences should not be over-read. See the <a href="{{ '/results.html' | url }}">results</a> and the <a href="{{ '/methodology.html' | url }}">methodology</a>.</p>
+{%- else %}
+<p>AIL is retesting every test case with axe-core and pa11y. The <a href="{{ '/results.html' | url }}">results page</a> will be filled in when the retest is published.</p>
+{%- endif %}
 
 <h2>Explore</h2>
 <ul>
   <li><a href="{{ '/test-cases.html' | url }}">Test cases</a>: all {{ collections.testCases.length }} examples on one page, with the origin of each.</li>
-  <li><a href="{{ '/results.html' | url }}">Results</a>: status of the retest.</li>
+  <li><a href="{{ '/results.html' | url }}">Results</a>: every test case, 2017 and 2026 side by side, with a WCAG filter.</li>
+  <li><a href="{{ '/methodology.html' | url }}">Methodology</a>: aims, procedure, changes from the original study, and how to reproduce.</li>
 </ul>

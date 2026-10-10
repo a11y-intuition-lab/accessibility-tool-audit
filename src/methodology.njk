@@ -39,7 +39,7 @@ permalink: methodology.html
 <h2 id="materials">2. Test material</h2>
 <p>A <em>test case</em> is a small HTML example that contains one deliberate accessibility barrier, published on its own page under <code>tests/</code>.</p>
 <ul>
-  <li><strong>GOV.UK test cases</strong> (origin <code>govuk-2017</code>): the {{ collections.testCases | selectattr('data.origin', 'equalto', 'govuk-2017') | length }} cases written by the GDS accessibility team. They are <strong>frozen</strong>: every build checks that these pages and the files they load are byte-identical to the last upstream commit (tag <code>govuk-final</code>). If they were edited, results could no longer be compared with 2017 (D-006).</li>
+  <li><strong>GOV.UK test cases</strong> (origin <code>govuk-2017</code>): the {{ collections.testCases | byOrigin('govuk-2017') | length }} cases written by the GDS accessibility team. They are <strong>frozen</strong>: every build checks that these pages and the files they load are byte-identical to the last upstream commit (tag <code>govuk-final</code>). If they were edited, results could no longer be compared with 2017 (D-006).</li>
   <li><strong>AIL test cases</strong> (origin <code>ail-2026</code>): new cases for gaps in WCAG coverage, and <em>corrected versions</em> of GOV.UK cases that do not show what their title says (D-010). A corrected case names the case it corrects; both stay in the test set. AIL cases use their own stylesheet and never change GOV.UK files.</li>
 </ul>
 <p>Every test case records its origin, which is shown on the <a href="{{ '/test-cases.html' | url }}">test cases page</a> and in the <a href="{{ '/results.html' | url }}">results</a>.</p>

@@ -56,6 +56,9 @@ export default function (eleventyConfig) {
     items.filter((item) => (byTest[item.fileSlug]?.[key] ?? null) === value).length,
   );
 
+  // Test cases with the given origin (govuk-2017 or ail-2026).
+  eleventyConfig.addFilter('byOrigin', (items, origin) => items.filter((item) => item.data.origin === origin));
+
   // Percentage of tested cases in column `key` that the tool found or warned about; null if none tested.
   eleventyConfig.addFilter('detectionRate', (items, byTest, key) => {
     const values = items.map((item) => byTest[item.fileSlug]?.[key]).filter(Boolean);
