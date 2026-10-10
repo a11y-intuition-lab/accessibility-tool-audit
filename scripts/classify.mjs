@@ -5,6 +5,10 @@
 // Reads <runDir>/summary.json, axe/<slug>.json and pa11y/<slug>.json (and axe|pa11y/linked-<page>/<slug>.json for each
 // linked example page of a test case whose barrier is there: linkedPage or linkedPages) plus data/mappings/test-case-rules.json,
 // and writes <runDir>/classification.json. The protocol is wiki/method/classification-protocol.md.
+// When the run has a pa11y-aa/ folder (supplementary HTML_CodeSniffer WCAG2AA pass, D-024), each test case also gets
+// `pa11yAA`: the strongest of the main pa11y result and the WCAG2AA pass, matched on the listed codes with the
+// standard prefix WCAG2AA instead of WCAG2AAA, plus the WCAG2AA-only codes in the mapping field `htmlcsAA`.
+// The main `pa11y` value never uses the supplement, so it stays comparable with GOV.UK's WCAG2AAA results of 2017.
 // The output is a pure function of the run and the mapping: sorted keys, no timestamps except the run's own.
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -102,12 +106,19 @@ function classifyPa11y(dir, pages, codes) {
   return { value: strongest(evidence.map((e) => e.value)), evidence };
 }
 
+// Codes the supplementary WCAG2AA pass is matched on: the main codes with the WCAG2AA prefix, plus `htmlcsAA`.
+const supplementCodes = (map) => [
+  ...map.htmlcs.map((c) => ({ ...c, code: c.code.replace(/^WCAG2AAA\./, 'WCAG2AA.') })),
+  ...(map.htmlcsAA ?? []),
+];
+
 function main() {
   const runDir = path.resolve(process.argv[2] ?? newestRun());
   const summary = readJson(path.join(runDir, 'summary.json'));
   const environment = readJson(path.join(runDir, 'environment.json'));
   const mappingBytes = readFileSync(path.join(root, mappingRel));
   const mapping = JSON.parse(mappingBytes).mappings;
+  const hasSupplement = existsSync(path.join(runDir, 'pa11y-aa'));
 
   const results = {};
   for (const slug of Object.keys(summary.pages).sort()) {
@@ -117,10 +128,17 @@ function main() {
     const axe = classifyAxe(path.join(runDir, 'axe'), pages, map.axe);
     const pa11y = classifyPa11y(path.join(runDir, 'pa11y'), pages, map.htmlcs);
     const result = { axe: axe.value, pa11y: pa11y.value, evidence: { axe: axe.evidence, pa11y: pa11y.evidence } };
+    let supplementReason;
+    if (hasSupplement) {
+      const aa = classifyPa11y(path.join(runDir, 'pa11y-aa'), pages, supplementCodes(map));
+      result.evidence.pa11yAA = aa.evidence;
+      result.pa11yAA = aa.value === null || pa11y.value === null ? null : strongest([pa11y.value, aa.value]);
+      if (aa.reason) supplementReason = `supplement: ${aa.reason}`;
+    }
     if (map.linkedPage) result.linkedPage = map.linkedPage;
     if (map.linkedPages) result.linkedPages = map.linkedPages;
     if (axe.notRun?.length) result.evidence.axeRulesNotRun = axe.notRun;
-    const reasons = [axe.reason, pa11y.reason].filter(Boolean);
+    const reasons = [axe.reason, pa11y.reason, supplementReason].filter(Boolean);
     if (reasons.length) result.reason = reasons.join('; ');
     results[slug] = result;
   }
@@ -138,6 +156,11 @@ function main() {
       protocol: protocolRel,
       generatedBy: 'scripts/classify.mjs',
       values: { axe: AXE_VALUE, pa11y: HTMLCS_VALUE, order: Object.keys(RANK) },
+      ...(hasSupplement && {
+        supplement: {
+          pa11yAA: 'Strongest of the main pa11y result and the supplementary HTML_CodeSniffer WCAG2AA pass (D-024). Not comparable with 2017.',
+        },
+      }),
     },
     results,
   };
@@ -146,7 +169,7 @@ function main() {
 
   const tally = {};
   for (const r of Object.values(results)) {
-    for (const tool of ['axe', 'pa11y']) {
+    for (const tool of ['axe', 'pa11y', ...(hasSupplement ? ['pa11yAA'] : [])]) {
       const v = r[tool] ?? 'null';
       tally[tool] ??= {};
       tally[tool][v] = (tally[tool][v] ?? 0) + 1;

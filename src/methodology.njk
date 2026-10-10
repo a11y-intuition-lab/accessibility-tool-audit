@@ -58,7 +58,7 @@ permalink: methodology.html
 <p>The retest uses two free, open-source, scriptable checkers with independent rule engines (D-003):</p>
 <ul>
   <li><strong>axe-core</strong>, with every rule it ships enabled, including best practices, experimental rules, AAA rules and deprecated rules that axe-core turns off by default (D-021). This follows GOV.UK's instruction to use each tool's most inquisitive options.</li>
-  <li><strong>pa11y</strong> with its HTML_CodeSniffer runner, using the WCAG2AAA standard and including warnings and notices, to match the 2017 HTML_CodeSniffer settings (D-016).</li>
+  <li><strong>pa11y</strong> with its HTML_CodeSniffer runner, using the WCAG2AAA standard and including warnings and notices, to match the 2017 HTML_CodeSniffer settings (D-016). A second, supplementary pass uses the WCAG2AA standard (D-024): in HTML_CodeSniffer 2.6.0 the WCAG2AAA standard leaves out some checks that WCAG2AA has, such as the meta refresh errors for 2.2.1. The supplement is reported in its own column and is not compared with 2017.</li>
 </ul>
 <p>Exact versions of the tools, the browser, Node.js and the operating system are recorded with every run. Dependencies are installed under strict <a href="{{ wiki }}method/supply-chain-security.md">supply-chain rules</a>, such as a seven-day minimum release age and no install scripts (D-008).</p>
 <p>Pinned versions: axe-core 4.13.0, pa11y 10.0.0 with HTML_CodeSniffer 2.6.0, Playwright 1.63.0 driving Chromium 153.0.8010.12 (the same browser runs both tools), Node.js 24. Both tools use a 1280&times;1024 viewport and wait for the page to load. axe-core runs all of its rules, including those it disables by default (such as <code>color-contrast-enhanced</code>, <code>target-size</code> and the deprecated <code>duplicate-id</code>), and reports violations and "needs review" results in full; the list of enabled rules is stored with each run. GOV.UK's 2017 aXe settings listed the tags wcag2a, wcag2aa, section508, best-practice and experimental, without AAA, so axe-core can find some AAA barriers in 2026 that aXe was not asked to look for in 2017. When a test case's barrier is on a linked example page, both tools test that page too (D-022). Remote resources are not blocked, so the runs need internet access. The exact configuration is stored in <code>environment.json</code> in each run; see the <a href="{{ wiki }}method/retest-procedure.md">retest procedure</a>.</p>
@@ -98,6 +98,7 @@ permalink: methodology.html
     <tr><th scope="row">Pages tested</th><td>Not documented in detail (see the <a href="{{ site.blog }}">GDS blog post</a>)</td><td>Each test case on its own page</td><td>D-004</td></tr>
     <tr><th scope="row">Classification</th><td>Manual</td><td>Scripted, using a stored rule mapping</td><td>D-005, D-020</td></tr>
     <tr><th scope="row">Tool versions</th><td>Not recorded</td><td>Pinned and recorded with each run</td><td>D-008</td></tr>
+    <tr><th scope="row">HTML_CodeSniffer standard</th><td>WCAG2AAA</td><td>WCAG2AAA, plus a supplementary WCAG2AA pass shown separately</td><td>D-024</td></tr>
     <tr><th scope="row">Raw output</th><td>Not published</td><td>Published with each run</td><td>D-005</td></tr>
     <tr><th scope="row">WCAG link</th><td>None</td><td>Mapped to WCAG 2.0, 2.1 and 2.2</td><td>D-001</td></tr>
     <tr><th scope="row">Test cases</th><td>142</td><td>142 unchanged, plus AIL additions and corrected versions</td><td>D-006, D-010</td></tr>
@@ -136,4 +137,5 @@ permalink: methodology.html
   <li>Some GOV.UK examples depend on remote media or old browser behaviour (such as <code>&lt;blink&gt;</code>) and may no longer show their barrier. Corrected AIL versions address some of these.</li>
   <li>Several WCAG criteria cannot be represented by a single static page, such as consistency across pages, timing and authentication. These need multi-page or scripted test cases.</li>
   <li>The WCAG mapping is AI-drafted and only partly reviewed.</li>
+  <li>GOV.UK's WCAG2AAA setting for HTML_CodeSniffer skips some of its own A and AA checks (D-024). The comparable 2026 column keeps that setting, so it shares the blind spot; the supplement column shows what the WCAG2AA checks add.</li>
 </ul>

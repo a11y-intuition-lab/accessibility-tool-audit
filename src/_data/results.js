@@ -29,6 +29,7 @@ const runs = (existsSync(new URL(runsDir, root)) ? readdirSync(new URL(runsDir, 
       node: env.node,
       pages: Object.keys(classification.results).length,
       mappingSha256: classification.meta.mapping.sha256,
+      hasSupplement: Boolean(classification.meta.supplement),
       results: classification.results,
     };
   });
@@ -40,6 +41,7 @@ const byTest = Object.fromEntries(
 if (latest) {
   for (const [id, r] of Object.entries(latest.results)) {
     byTest[id] = { ...byTest[id], 'ail:axe': r.axe, 'ail:pa11y': r.pa11y };
+    if (latest.hasSupplement) byTest[id]['ail:pa11yAA'] = r.pa11yAA;
   }
 }
 
@@ -52,10 +54,14 @@ export default {
     { key: 'ail:axe', label: 'axe-core', who: 'AIL', when: '2026', era: 'now', engine: 'axe', version: latest?.tools['axe-core'] },
     { key: 'govuk:codesniffer', label: 'HTML_CodeSniffer', who: 'GOV.UK', when: '2017', era: 'then', engine: 'HTML_CodeSniffer' },
     { key: 'ail:pa11y', label: 'pa11y (HTML_CodeSniffer)', who: 'AIL', when: '2026', era: 'now', engine: 'HTML_CodeSniffer', version: latest?.tools.html_codesniffer },
+    // Supplementary WCAG2AA pass (D-024): not comparable with 2017, shown after the comparable columns.
+    ...(latest?.hasSupplement
+      ? [{ key: 'ail:pa11yAA', label: 'pa11y, WCAG2AA added', who: 'AIL', when: '2026', era: 'supplement', engine: 'HTML_CodeSniffer', version: latest.tools.html_codesniffer }]
+      : []),
   ],
   engines: [
-    { name: 'axe', note: 'Deque axe rules' },
-    { name: 'HTML_CodeSniffer', note: 'Squiz rules; run through pa11y in 2026' },
+    { name: 'axe', span: 2 },
+    { name: 'HTML_CodeSniffer', span: latest?.hasSupplement ? 3 : 2 },
   ],
   byTest,
   govukMeta: govuk.meta,

@@ -147,3 +147,12 @@ Append-only, newest last.
   `scripts/classify.mjs`. The 218 earlier test cases give the same result as run `20261010T085044Z` for both tools.
 - The three media cases: autoplay audio — axe-core "user to check" (`no-autoplay-audio` incomplete), HTML_CodeSniffer
   identified (F23 notice); the two video cases — axe-core not found, HTML_CodeSniffer identified (generic media notices).
+
+## 2026-10-10 — Supplementary WCAG2AA pass (D-024)
+
+- The harness runs pa11y a second time with HTML_CodeSniffer `WCAG2AA` and stores it in `pa11y-aa/`; the classifier adds
+  `pa11yAA` and the results page a "Supplement" column under HTML_CodeSniffer. The main pa11y column is unchanged and
+  stays comparable with 2017.
+- Mapping: the two meta refresh cases list their WCAG2AA-only codes (`2_2_1.F41.2`, `2_2_1.F40.2`) in `htmlcsAA`. A
+  partial check confirmed both fire in the WCAG2AA pass.
+- Older classified runs are unchanged (reclassifying them with the new script gives the same results).

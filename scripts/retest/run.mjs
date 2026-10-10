@@ -11,6 +11,10 @@
 // A test case whose barrier is on a linked example page (field `linkedPage`, or `linkedPages` for several pages, in
 // data/mappings/test-case-rules.json) also has each linked page tested by both tools, stored as
 // axe/linked-<page>/<slug>.json and pa11y/linked-<page>/<slug>.json (<page> = file name without .html).
+//
+// pa11y runs twice on every page: the main pass with HTML_CodeSniffer's WCAG2AAA standard (as GOV.UK in 2017), stored
+// in pa11y/, and a supplementary pass with WCAG2AA, stored in pa11y-aa/ (D-024). HTML_CodeSniffer 2.6.0's WCAG2AAA
+// ruleset leaves out some sniffs that WCAG2AA has (such as 2.2.1, meta refresh); the supplement catches those.
 
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -52,6 +56,8 @@ const axeConfig = {
 const pa11yConfig = {
   runners: ['htmlcs'],
   standard: 'WCAG2AAA',
+  supplementStandard: 'WCAG2AA',
+  supplementOutput: 'pa11y-aa/<slug>.json and pa11y-aa/linked-<page>/<slug>.json (D-024)',
   includeWarnings: true,
   includeNotices: true,
   viewport: VIEWPORT,
@@ -178,6 +184,7 @@ const runId = iso(started).replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
 const runDir = outDir ? join(outDir, runId) : join(root, 'data', 'results', 'ail-2026', 'runs', runId);
 mkdirSync(join(runDir, 'axe'), { recursive: true });
 mkdirSync(join(runDir, 'pa11y'), { recursive: true });
+mkdirSync(join(runDir, 'pa11y-aa'), { recursive: true });
 
 const chromiumPath = chromium.executablePath();
 if (!existsSync(chromiumPath)) {
@@ -309,12 +316,12 @@ async function runAxe(slug, origin, url) {
   return out;
 }
 
-async function runPa11y(slug, origin, url) {
+async function runPa11y(slug, origin, url, standard = pa11yConfig.standard) {
   const t0 = Date.now();
-  const out = { tool: 'pa11y', version: environment.tools.pa11y, htmlcsVersion: environment.tools.html_codesniffer, slug, origin, url, startedAt: iso(), error: null };
+  const out = { tool: 'pa11y', version: environment.tools.pa11y, htmlcsVersion: environment.tools.html_codesniffer, standard, slug, origin, url, startedAt: iso(), error: null };
   try {
     const r = await pa11y(url, {
-      runners: pa11yConfig.runners, standard: pa11yConfig.standard, includeWarnings: true, includeNotices: true,
+      runners: pa11yConfig.runners, standard, includeWarnings: true, includeNotices: true,
       viewport: VIEWPORT, timeout: PA11Y_TIMEOUT_MS, wait: 0,
       chromeLaunchConfig: { executablePath: chromiumPath, headless: true, args: CHROMIUM_ARGS },
     });
@@ -330,9 +337,11 @@ async function runPa11y(slug, origin, url) {
 }
 
 const count = (p, t) => (p.issues ? p.issues.filter((x) => x.type === t).length : null);
-const pageSummary = (a, p) => ({
+const pa11ySummary = (p) => (p.error ? { error: p.error } : { errors: count(p, 'error'), warnings: count(p, 'warning'), notices: count(p, 'notice') });
+const pageSummary = (a, p, pAA) => ({
   axe: a.error ? { error: a.error } : { violations: a.axe.violations.length, incomplete: a.axe.incomplete.length, passes: a.axe.passesCount, inapplicable: a.axe.inapplicableCount },
-  pa11y: p.error ? { error: p.error } : { errors: count(p, 'error'), warnings: count(p, 'warning'), notices: count(p, 'notice') },
+  pa11y: pa11ySummary(p),
+  pa11yAA: pa11ySummary(pAA),
   failedRequests: a.failedRequests.length,
   localNon200: a.localNon200.length,
 });
@@ -347,19 +356,23 @@ for (const slug of slugs) {
   const url = `${base}tests/${slug}.html`;
   const a = await runAxe(slug, origin, url);
   const p = await runPa11y(slug, origin, url);
+  const pAA = await runPa11y(slug, origin, url, pa11yConfig.supplementStandard);
   writeJson(join(runDir, 'axe', `${slug}.json`), a);
   writeJson(join(runDir, 'pa11y', `${slug}.json`), p);
-  summary.pages[slug] = { origin, ...pageSummary(a, p) };
+  writeJson(join(runDir, 'pa11y-aa', `${slug}.json`), pAA);
+  summary.pages[slug] = { origin, ...pageSummary(a, p, pAA) };
   console.log(`[${i}/${slugs.length}] ${slug} (${origin}) ${pageLine(a, p)}`);
   const linkedSummaries = [];
   for (const linkedPage of linkedPages[slug] ?? []) {
     const linkedUrl = `${base}${linkedPage}`;
     const la = await runAxe(slug, origin, linkedUrl);
     const lp = await runPa11y(slug, origin, linkedUrl);
-    la.linkedPage = lp.linkedPage = linkedPage;
+    const lpAA = await runPa11y(slug, origin, linkedUrl, pa11yConfig.supplementStandard);
+    la.linkedPage = lp.linkedPage = lpAA.linkedPage = linkedPage;
     writeJson(join(runDir, 'axe', linkedFile(slug, linkedPage)), la);
     writeJson(join(runDir, 'pa11y', linkedFile(slug, linkedPage)), lp);
-    linkedSummaries.push({ page: linkedPage, ...pageSummary(la, lp) });
+    writeJson(join(runDir, 'pa11y-aa', linkedFile(slug, linkedPage)), lpAA);
+    linkedSummaries.push({ page: linkedPage, ...pageSummary(la, lp, lpAA) });
     console.log(`        linked ${linkedPage} ${pageLine(la, lp)}`);
   }
   // One linked page: an object, as before; several: a list.
@@ -380,6 +393,10 @@ summary.totals = {
   pa11yErrors: pages.reduce((n, x) => n + (x.pa11y.errors || 0), 0),
   pa11yWarnings: pages.reduce((n, x) => n + (x.pa11y.warnings || 0), 0),
   pa11yNotices: pages.reduce((n, x) => n + (x.pa11y.notices || 0), 0),
+  pa11yAALoadFailures: pages.filter((x) => x.pa11yAA.error).length,
+  pa11yAAErrors: pages.reduce((n, x) => n + (x.pa11yAA.errors || 0), 0),
+  pa11yAAWarnings: pages.reduce((n, x) => n + (x.pa11yAA.warnings || 0), 0),
+  pa11yAANotices: pages.reduce((n, x) => n + (x.pa11yAA.notices || 0), 0),
   pagesWithFailedRequests: pages.filter((x) => x.failedRequests > 0).length,
   pagesWithLocalNon200: pages.filter((x) => x.localNon200 > 0).length,
   linkedPagesTested: pages.flatMap((x) => (x.linked ? [].concat(x.linked) : [])).length,

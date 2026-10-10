@@ -20,7 +20,7 @@ How the AIL retest runs axe-core and pa11y. The step-by-step instructions are in
 
 | | axe-core | pa11y |
 |---|---|---|
-| Rules | every rule axe-core ships, including those off by default (experimental, AAA, deprecated) (D-021); `runOnly` unset | HTML_CodeSniffer, `WCAG2AAA` |
+| Rules | every rule axe-core ships, including those off by default (experimental, AAA, deprecated) (D-021); `runOnly` unset | HTML_CodeSniffer, `WCAG2AAA`; plus a supplementary `WCAG2AA` pass (D-024) |
 | Reported | violations and incomplete in full; passes and inapplicable as counts and rule ids | errors, warnings and notices |
 | Viewport | 1280x1024 | 1280x1024 |
 
@@ -34,7 +34,7 @@ failed requests are recorded per page. A remote embed can change over time; this
 Each run is stored in `data/results/ail-2026/runs/<runId>/` with `environment.json` (commit, dirty flag, Node, npm, OS,
 Chromium, tool versions, all configuration including the full list of enabled axe-core rules), `summary.json`,
 `axe/<slug>.json` and `pa11y/<slug>.json`, plus `axe/linked-<page>/<slug>.json` and `pa11y/linked-<page>/<slug>.json` for linked
-example pages. `npm run classify` adds `classification.json` ([classification protocol](classification-protocol.md)).
+example pages. From D-024 the supplementary WCAG2AA pass is stored the same way in `pa11y-aa/`. `npm run classify` adds `classification.json` ([classification protocol](classification-protocol.md)).
 
 ## Runs
 

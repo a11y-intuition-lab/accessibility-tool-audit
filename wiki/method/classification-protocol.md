@@ -143,7 +143,8 @@ missing. A page the tool never saw cannot count as a miss.
   between "user to check" and "noticed" is not strictly comparable.
 - **HTML_CodeSniffer standard.** The retest uses `WCAG2AAA`, as GOV.UK did. In HTML_CodeSniffer 2.6.0 that ruleset
   leaves out the 2.2.1 sniff (meta refresh errors F40.2 and F41.2), which `WCAG2A` and `WCAG2AA` include, so these
-  checks never run. See the [log](../log.md) entry of 2026-10-10.
+  checks never run in the main pass. Since D-024 a supplementary WCAG2AA pass is classified separately as `pa11yAA`
+  (the strongest of the main result and the WCAG2AA pass; extra WCAG2AA-only codes in the mapping field `htmlcsAA`).
 - **Mapping quality.** The mapping is AI-proposed and not yet reviewed. 35 of 218 test cases are marked
   `review: pending`.
 

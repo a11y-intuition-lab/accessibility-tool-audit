@@ -4,6 +4,7 @@ title: Results
 permalink: results.html
 ---
 {%- set cols = results.columns %}
+{%- set eraLabel = { then: 'Then', now: 'Now', supplement: 'Supplement' } %}
 {%- set tree = site.repo + '/tree/gh-pages/' %}
 <h1>Results</h1>
 
@@ -26,13 +27,13 @@ permalink: results.html
     <span class="site-stat-pair">
     {%- for c in cols %}{% if c.engine == e.name %}
     {%- set rate = collections.testCases | detectionRate(results.byTest, c.key) %}
-      <span class="site-stat-era site-era-{{ c.era }}"><span class="site-stat-value" data-stat-col="{{ c.key }}">{{ (rate + '%') if rate !== null else '–' }}</span> <span class="site-era-label">{{ 'Then' if c.era == 'then' else 'Now' }}: {{ c.when }}, {{ c.who }}</span><span class="site-muted">{{ c.label }}{{ (' ' + c.version) if c.version }}</span></span>
+      <span class="site-stat-era site-era-{{ c.era }}"><span class="site-stat-value" data-stat-col="{{ c.key }}">{{ (rate + '%') if rate !== null else '–' }}</span> <span class="site-era-label">{{ eraLabel[c.era] }}: {{ c.when }}, {{ c.who }}</span><span class="site-muted">{{ c.label }}{{ (' ' + c.version) if c.version }}</span></span>
     {%- endif %}{% endfor %}
     </span>
   </li>
   {%- endfor %}
 </ul>
-<p class="site-muted">Numbers follow the WCAG filter. Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on. The 2017 columns cover only the GOV.UK test cases; the 2026 columns also cover the test cases added by AIL, which target criteria the tools rarely check. To compare like with like, choose "Original 2017 test cases".</p>
+<p class="site-muted">Numbers follow the WCAG filter. Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on. The 2017 columns cover only the GOV.UK test cases; the 2026 columns also cover the test cases added by AIL, which target criteria the tools rarely check. To compare like with like, choose "Original 2017 test cases". "Supplement" adds a second HTML_CodeSniffer pass with the WCAG2AA standard, because the WCAG2AAA standard GOV.UK used leaves out some checks (such as meta refresh); it is not comparable with 2017 (<a href="{{ '/methodology.html' | url }}#tools">methodology</a>).</p>
 
 <details class="site-details">
   <summary>What each result means</summary>
@@ -64,18 +65,18 @@ permalink: results.html
   <caption id="results-caption">Table of results</caption>
   <colgroup><col></colgroup>
   {%- for e in results.engines %}
-  <colgroup span="2"></colgroup>
+  <colgroup span="{{ e.span }}"></colgroup>
   {%- endfor %}
   <thead>
     <tr>
       <th scope="col" rowspan="2">Test case</th>
       {%- for e in results.engines %}
-      <th scope="colgroup" colspan="2" class="site-engine-start">{{ e.name }}</th>
+      <th scope="colgroup" colspan="{{ e.span }}" class="site-engine-start">{{ e.name }}</th>
       {%- endfor %}
     </tr>
     <tr>
       {%- for c in cols %}
-      <th scope="col" class="site-era-{{ c.era }}{{ ' site-engine-start' if c.era == 'then' }}"><span class="site-era-label">{{ 'Then' if c.era == 'then' else 'Now' }}: {{ c.when }}</span><br>{{ c.who }}<br><span class="site-muted">{{ c.label }}{{ (' ' + c.version) if c.version }}</span></th>
+      <th scope="col" class="site-era-{{ c.era }}{{ ' site-engine-start' if c.era == 'then' }}"><span class="site-era-label">{{ eraLabel[c.era] }}: {{ c.when }}</span><br>{{ c.who }}<br><span class="site-muted">{{ c.label }}{{ (' ' + c.version) if c.version }}</span></th>
       {%- endfor %}
     </tr>
   </thead>

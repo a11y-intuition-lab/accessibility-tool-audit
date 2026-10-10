@@ -187,3 +187,16 @@ in this repository (`scripts/media/`), from arithmetic only, and releases it und
 not what the media says, so synthetic content is enough for many media barriers. The script makes the file reproducible.
 **Consequences:** Candidates that need real speech or a human (sign language, audio description, speech over music)
 stay deferred until speech can be generated reproducibly or openly licensed recordings are found.
+
+## D-024 — Supplementary HTML_CodeSniffer WCAG2AA pass (2026-10-10)
+
+**Decision:** Every retest runs pa11y twice per page: the main pass with HTML_CodeSniffer's `WCAG2AAA` standard (stored
+in `pa11y/`, unchanged) and a supplementary pass with `WCAG2AA` (stored in `pa11y-aa/`). The classifier reports the
+supplement as `pa11yAA`: the strongest of the main result and the WCAG2AA pass, matched on the mapped codes with the
+`WCAG2AA` prefix plus WCAG2AA-only codes listed in the mapping field `htmlcsAA`. The results page shows it in its own
+column, marked "Supplement".
+**Reason:** In HTML_CodeSniffer 2.6.0 the `WCAG2AAA` ruleset leaves out some sniffs that `WCAG2AA` includes, notably
+2.2.1 (meta refresh errors F40.2 and F41.2), and pa11y cannot add them to `WCAG2AAA`. GOV.UK used `WCAG2AAA` in 2017, so
+the main pass keeps it for comparability (D-016).
+**Consequences:** The main pa11y column remains comparable with 2017; the supplement is not. Runs before
+`20261010T110125Z` (inclusive) have no supplement.

@@ -2170,6 +2170,12 @@
           "rationale": "Meta refresh reloads the current page with a time limit users cannot control."
         }
       ],
+      "htmlcsAA": [
+        {
+          "code": "WCAG2AA.Principle2.Guideline2_2.2_2_1.F41.2",
+          "rationale": "Error for a meta refresh that reloads the page after a time limit. Only in the WCAG2AA standard (D-024)."
+        }
+      ],
       "notes": "The meta element is in the page head (front-matter head field). F41.2 did not fire in run 20261010T085044Z; the cause was not investigated."
     },
     "timing-session-timeout-loses-entered-data-ail": {
@@ -2192,6 +2198,12 @@
         {
           "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_1.F40.2",
           "rationale": "Meta refresh redirects to another page with a time limit users cannot control."
+        }
+      ],
+      "htmlcsAA": [
+        {
+          "code": "WCAG2AA.Principle2.Guideline2_2.2_2_1.F40.2",
+          "rationale": "Error for a timed meta redirect. Only in the WCAG2AA standard (D-024)."
         }
       ],
       "notes": "The meta element is in the page head (front-matter head field). F40.2 did not fire in run 20261010T085044Z; the cause was not investigated."
