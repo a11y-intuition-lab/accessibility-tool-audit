@@ -164,3 +164,10 @@ Append-only, newest last.
 - Supplement (`pa11yAA`): differs from the main pa11y result on 2 test cases, the two meta refresh cases (not found →
   issue found). Other WCAG2AA-only warnings either duplicate a WCAG2AAA check (contrast under 1.4.3 instead of 1.4.6) or
   are incidental (heading-nesting warning G141 on fixtures that use `h4`), so no other `htmlcsAA` codes were added.
+
+## 2026-10-10 — Results page: WCAG2AA supplement as a note, not a column
+
+- The supplementary WCAG2AA pass (D-024) differs from the main pa11y result on only 2 of 221 test cases, so its own
+  column mostly repeated the main column. The results page now shows it as a note in the 2026 HTML_CodeSniffer cell
+  ("WCAG2AA pass: issue found") where it gives a stronger result. Data and classification are unchanged; the
+  percentages never included it.

@@ -54,15 +54,15 @@ export default {
     { key: 'ail:axe', label: 'axe-core', who: 'AIL', when: '2026', era: 'now', engine: 'axe', version: latest?.tools['axe-core'] },
     { key: 'govuk:codesniffer', label: 'HTML_CodeSniffer', who: 'GOV.UK', when: '2017', era: 'then', engine: 'HTML_CodeSniffer' },
     { key: 'ail:pa11y', label: 'pa11y (HTML_CodeSniffer)', who: 'AIL', when: '2026', era: 'now', engine: 'HTML_CodeSniffer', version: latest?.tools.html_codesniffer },
-    // Supplementary WCAG2AA pass (D-024): not comparable with 2017, shown after the comparable columns.
-    ...(latest?.hasSupplement
-      ? [{ key: 'ail:pa11yAA', label: 'pa11y, WCAG2AA standard', who: 'AIL', when: '2026', era: 'supplement', engine: 'HTML_CodeSniffer' }]
-      : []),
   ],
   engines: [
     { name: 'axe', span: 2 },
-    { name: 'HTML_CodeSniffer', span: latest?.hasSupplement ? 3 : 2 },
+    { name: 'HTML_CodeSniffer', span: 2 },
   ],
+  // The supplementary WCAG2AA pass (D-024) has no column of its own: it differs from the main pa11y result on few test
+  // cases, so the results page notes it in the pa11y cell where it differs (`ail:pa11yAA` in byTest).
+  supplementKey: 'ail:pa11yAA',
+  supplementFor: 'ail:pa11y',
   byTest,
   govukMeta: govuk.meta,
   // Run metadata for the page, without the per-test results.

@@ -4,7 +4,7 @@ title: Results
 permalink: results.html
 ---
 {%- set cols = results.columns %}
-{%- set eraLabel = { then: 'Then', now: 'Now', supplement: 'Supplement' } %}
+{%- set eraLabel = { then: 'Then', now: 'Now' } %}
 {%- set tree = site.repo + '/tree/gh-pages/' %}
 <h1>Results</h1>
 
@@ -33,7 +33,7 @@ permalink: results.html
   </li>
   {%- endfor %}
 </ul>
-<p class="site-muted">Numbers follow the WCAG filter. Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on. The 2017 columns cover only the GOV.UK test cases; the 2026 columns also cover the test cases added by AIL, which target criteria the tools rarely check. To compare like with like, choose "Original 2017 test cases". "Supplement" adds a second HTML_CodeSniffer pass with the WCAG2AA standard, because the WCAG2AAA standard GOV.UK used leaves out some checks (such as meta refresh); it is not comparable with 2017 (<a href="{{ '/methodology.html' | url }}#tools">methodology</a>).</p>
+<p class="site-muted">Numbers follow the WCAG filter. Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on. The 2017 columns cover only the GOV.UK test cases; the 2026 columns also cover the test cases added by AIL, which target criteria the tools rarely check. To compare like with like, choose "Original 2017 test cases". The 2026 HTML_CodeSniffer column uses the WCAG2AAA standard, as GOV.UK did. That standard leaves out some of HTML_CodeSniffer's own checks (such as meta refresh), so AIL also runs a WCAG2AA pass. Where that pass gives a stronger result, the cell says so; the percentages do not include it (<a href="{{ '/methodology.html' | url }}#tools">methodology</a>).</p>
 
 <details class="site-details">
   <summary>What each result means</summary>
@@ -90,7 +90,9 @@ permalink: results.html
       {%- for c in cols %}
       {%- set v = r[c.key] if r else null %}
       {%- if v %}
-      <td class="site-result-cell site-result-{{ v }}{{ ' site-engine-start' if c.era == 'then' }}" data-col="{{ c.key }}" data-value="{{ v }}">{{ results.values[v] | capitalize }}</td>
+      <td class="site-result-cell site-result-{{ v }}{{ ' site-engine-start' if c.era == 'then' }}" data-col="{{ c.key }}" data-value="{{ v }}">{{ results.values[v] | capitalize }}
+        {%- set sv = r[results.supplementKey] if c.key == results.supplementFor else null %}
+        {%- if sv and sv != v %}<br><span class="site-muted site-result-supplement">WCAG2AA pass: {{ results.values[sv] | lower }}</span>{% endif %}</td>
       {%- else %}
       <td class="site-result-cell{{ ' site-engine-start' if c.era == 'then' }}"><span class="site-muted">Not tested</span></td>
       {%- endif %}
