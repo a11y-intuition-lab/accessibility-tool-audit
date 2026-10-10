@@ -1,0 +1,246 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "pointer-and-motion-drag-and-drop-without-single-pointer-alternative-ail",
+  "origin": "ail-2026",
+  "url": "http://127.0.0.1:45679/accessibility-tool-audit/tests/pointer-and-motion-drag-and-drop-without-single-pointer-alternative-ail.html",
+  "startedAt": "2026-10-10T08:59:04.712Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T08:59:05.241Z",
+    "violations": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1>Drag and drop without single pointer alternative</h1>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "cat.semantics",
+          "wcag21a",
+          "wcag253",
+          "EN-301-549",
+          "EN-9.2.5.3",
+          "RGAAv4",
+          "RGAA-6.1.5",
+          "experimental"
+        ],
+        "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+        "help": "Elements must have their visible text as part of their accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/label-content-name-mismatch?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "button[aria-label=\"Move Email, position 1 of 4\"]"
+            ],
+            "html": "<button type=\"button\" class=\"ail-drag-handle\" aria-label=\"Move Email, position 1 of 4\" aria-describedby=\"ail-sortable-hint\" data-ail-drag-handle=\"\">↕</button>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  ",
+            "checks": {
+              "any": [
+                "label-content-name-mismatch"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "li[data-ail-item-name=\"Text message\"] > button"
+            ],
+            "html": "<button type=\"button\" class=\"ail-drag-handle\" aria-label=\"Move Text message, position 2 of 4\" aria-describedby=\"ail-sortable-hint\" data-ail-drag-handle=\"\">↕</button>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  ",
+            "checks": {
+              "any": [
+                "label-content-name-mismatch"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "li[data-ail-item-name=\"Phone call\"] > button"
+            ],
+            "html": "<button type=\"button\" class=\"ail-drag-handle\" aria-label=\"Move Phone call, position 3 of 4\" aria-describedby=\"ail-sortable-hint\" data-ail-drag-handle=\"\">↕</button>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  ",
+            "checks": {
+              "any": [
+                "label-content-name-mismatch"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "button[aria-label=\"Move Letter, position 4 of 4\"]"
+            ],
+            "html": "<button type=\"button\" class=\"ail-drag-handle\" aria-label=\"Move Letter, position 4 of 4\" aria-describedby=\"ail-sortable-hint\" data-ail-drag-handle=\"\">↕</button>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  ",
+            "checks": {
+              "any": [
+                "label-content-name-mismatch"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "passesCount": 33,
+    "passesRuleIds": [
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-hidden-body",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-roles",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "button-name",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "duplicate-id",
+      "duplicate-id-aria",
+      "empty-heading",
+      "heading-order",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-main",
+      "landmark-one-main",
+      "landmark-unique",
+      "list",
+      "listitem",
+      "nested-interactive",
+      "p-as-heading",
+      "page-has-heading-one",
+      "region",
+      "target-size"
+    ],
+    "inapplicableCount": 71,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "audio-caption",
+      "autocomplete-valid",
+      "avoid-inline-spacing",
+      "blink",
+      "bypass",
+      "definition-list",
+      "dlitem",
+      "duplicate-id-active",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "html-xml-lang-mismatch",
+      "identical-links-same-purpose",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "link-in-text-block",
+      "link-name",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "no-autoplay-audio",
+      "object-alt",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [],
+  "localNon200": [],
+  "durationMs": 583
+}

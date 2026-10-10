@@ -1,0 +1,940 @@
+{
+  "runId": "20261010T085044Z",
+  "startedAt": "2026-10-10T08:50:44.360Z",
+  "finishedAt": "2026-10-10T09:00:23.717Z",
+  "partial": false,
+  "git": {
+    "commit": "99575feaa95ec8342043682847a21604bcfe7246",
+    "dirty": false,
+    "dirtyFiles": [],
+    "checkedPaths": [
+      "src",
+      "assets",
+      "example-pages"
+    ]
+  },
+  "site": {
+    "servedFrom": "_site",
+    "testPages": 218,
+    "testPagesSha256": "558d2c529b678b3fc5e976d80e730de141abb9955ceb1a0325448808a1a49138",
+    "pathPrefix": "/accessibility-tool-audit/",
+    "localPort": 45679
+  },
+  "linkedPages": {
+    "source": "data/mappings/test-case-rules.json (fields linkedPage and linkedPages)",
+    "sha256": "88c84ef9d7a608fb7b1aa526cdc7371adc219873c12c7c4ee8bef202d63bba8c",
+    "pages": {
+      "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms": [
+        "example-pages/unorganised_content.html"
+      ],
+      "forms-data-submission-without-confirmation-ail": [
+        "example-pages/ail/message-sent.html"
+      ],
+      "forms-financial-submission-without-review-or-undo-ail": [
+        "example-pages/ail/payment-sent.html"
+      ],
+      "forms-previously-entered-information-requested-again-ail": [
+        "example-pages/ail/billing-address.html"
+      ],
+      "headings-missing-h1": [
+        "example-pages/missing.html"
+      ],
+      "html-page-regions-not-identified-with-landmarks-ail": [
+        "example-pages/ail/no-landmarks.html"
+      ],
+      "keyboard-access-keyboard-trap": [
+        "example-pages/keyboardtrap.html"
+      ],
+      "language-of-content-html-element-has-an-empty-lang-attribute": [
+        "example-pages/empty.html"
+      ],
+      "language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute": [
+        "example-pages/invalid.html"
+      ],
+      "language-of-content-html-element-has-lang-attribute-set-to-wrong-language": [
+        "example-pages/inappropriate.html"
+      ],
+      "language-of-content-html-element-is-missing-a-lang-attribute": [
+        "example-pages/missing.html"
+      ],
+      "navigation-help-link-in-inconsistent-place-across-pages-ail": [
+        "example-pages/ail/help-1.html",
+        "example-pages/ail/help-2.html"
+      ],
+      "navigation-navigation-order-differs-between-pages-ail": [
+        "example-pages/ail/nav-order-1.html",
+        "example-pages/ail/nav-order-2.html",
+        "example-pages/ail/nav-order-3.html"
+      ],
+      "navigation-no-indication-of-location-within-a-set-of-pages-ail": [
+        "example-pages/ail/location-1.html",
+        "example-pages/ail/location-2.html",
+        "example-pages/ail/location-3.html"
+      ],
+      "navigation-only-one-way-to-find-pages-in-a-set-ail": [
+        "example-pages/ail/ways-1.html",
+        "example-pages/ail/ways-2.html",
+        "example-pages/ail/ways-3.html"
+      ],
+      "navigation-same-function-labelled-differently-on-different-pages-ail": [
+        "example-pages/ail/search-1.html",
+        "example-pages/ail/search-2.html"
+      ],
+      "page-title-empty-page-title": [
+        "example-pages/empty.html"
+      ],
+      "page-title-inappropriate-page-title": [
+        "example-pages/inappropriate.html"
+      ],
+      "page-title-missing-page-title": [
+        "example-pages/missing.html"
+      ]
+    },
+    "output": "axe/linked-<page>/<slug>.json and pa11y/linked-<page>/<slug>.json"
+  },
+  "node": "v24.21.0",
+  "npm": "11.19.0",
+  "os": {
+    "pretty": "Linux Mint 21.2",
+    "platform": "linux",
+    "release": "5.15.0-151-generic",
+    "arch": "x64"
+  },
+  "browser": {
+    "name": "Chromium (installed by `playwright-core install chromium`)",
+    "version": "153.0.8010.12",
+    "playwrightRevision": "1243",
+    "executable": "chrome-linux64/chrome",
+    "sharedBy": [
+      "axe-core (via Playwright)",
+      "pa11y (via puppeteer, executablePath)"
+    ],
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "tools": {
+    "axe-core": "4.13.0",
+    "pa11y": "10.0.0",
+    "html_codesniffer": "2.6.0",
+    "playwright-core": "1.63.0",
+    "puppeteer": "25.12.0"
+  },
+  "config": {
+    "viewport": {
+      "width": 1280,
+      "height": 1024
+    },
+    "pageLoad": {
+      "waitUntil": "load",
+      "timeoutMs": 30000
+    },
+    "axe": {
+      "resultTypes": [
+        "violations",
+        "incomplete",
+        "passes",
+        "inapplicable"
+      ],
+      "enableAllRules": true,
+      "storedDetail": "violations and incomplete in full; passes and inapplicable as counts plus rule ids",
+      "rules": {
+        "accesskeys": {
+          "enabled": true
+        },
+        "area-alt": {
+          "enabled": true
+        },
+        "aria-allowed-attr": {
+          "enabled": true
+        },
+        "aria-allowed-role": {
+          "enabled": true
+        },
+        "aria-braille-equivalent": {
+          "enabled": true
+        },
+        "aria-command-name": {
+          "enabled": true
+        },
+        "aria-conditional-attr": {
+          "enabled": true
+        },
+        "aria-deprecated-role": {
+          "enabled": true
+        },
+        "aria-dialog-name": {
+          "enabled": true
+        },
+        "aria-hidden-body": {
+          "enabled": true
+        },
+        "aria-hidden-focus": {
+          "enabled": true
+        },
+        "aria-input-field-name": {
+          "enabled": true
+        },
+        "aria-meter-name": {
+          "enabled": true
+        },
+        "aria-progressbar-name": {
+          "enabled": true
+        },
+        "aria-prohibited-attr": {
+          "enabled": true
+        },
+        "aria-required-attr": {
+          "enabled": true
+        },
+        "aria-required-children": {
+          "enabled": true
+        },
+        "aria-required-parent": {
+          "enabled": true
+        },
+        "aria-roledescription": {
+          "enabled": true
+        },
+        "aria-roles": {
+          "enabled": true
+        },
+        "aria-tab-name": {
+          "enabled": true
+        },
+        "aria-text": {
+          "enabled": true
+        },
+        "aria-toggle-field-name": {
+          "enabled": true
+        },
+        "aria-tooltip-name": {
+          "enabled": true
+        },
+        "aria-treeitem-name": {
+          "enabled": true
+        },
+        "aria-valid-attr": {
+          "enabled": true
+        },
+        "aria-valid-attr-value": {
+          "enabled": true
+        },
+        "audio-caption": {
+          "enabled": true
+        },
+        "autocomplete-valid": {
+          "enabled": true
+        },
+        "avoid-inline-spacing": {
+          "enabled": true
+        },
+        "blink": {
+          "enabled": true
+        },
+        "button-name": {
+          "enabled": true
+        },
+        "bypass": {
+          "enabled": true
+        },
+        "color-contrast": {
+          "enabled": true
+        },
+        "color-contrast-enhanced": {
+          "enabled": true
+        },
+        "css-orientation-lock": {
+          "enabled": true
+        },
+        "definition-list": {
+          "enabled": true
+        },
+        "dlitem": {
+          "enabled": true
+        },
+        "document-title": {
+          "enabled": true
+        },
+        "duplicate-id": {
+          "enabled": true
+        },
+        "duplicate-id-active": {
+          "enabled": true
+        },
+        "duplicate-id-aria": {
+          "enabled": true
+        },
+        "empty-heading": {
+          "enabled": true
+        },
+        "empty-table-header": {
+          "enabled": true
+        },
+        "focus-order-semantics": {
+          "enabled": true
+        },
+        "form-field-multiple-labels": {
+          "enabled": true
+        },
+        "frame-focusable-content": {
+          "enabled": true
+        },
+        "frame-tested": {
+          "enabled": true
+        },
+        "frame-title": {
+          "enabled": true
+        },
+        "frame-title-unique": {
+          "enabled": true
+        },
+        "heading-order": {
+          "enabled": true
+        },
+        "hidden-content": {
+          "enabled": true
+        },
+        "html-has-lang": {
+          "enabled": true
+        },
+        "html-lang-valid": {
+          "enabled": true
+        },
+        "html-xml-lang-mismatch": {
+          "enabled": true
+        },
+        "identical-links-same-purpose": {
+          "enabled": true
+        },
+        "image-alt": {
+          "enabled": true
+        },
+        "image-redundant-alt": {
+          "enabled": true
+        },
+        "input-button-name": {
+          "enabled": true
+        },
+        "input-image-alt": {
+          "enabled": true
+        },
+        "label": {
+          "enabled": true
+        },
+        "label-content-name-mismatch": {
+          "enabled": true
+        },
+        "label-title-only": {
+          "enabled": true
+        },
+        "landmark-banner-is-top-level": {
+          "enabled": true
+        },
+        "landmark-complementary-is-top-level": {
+          "enabled": true
+        },
+        "landmark-contentinfo-is-top-level": {
+          "enabled": true
+        },
+        "landmark-main-is-top-level": {
+          "enabled": true
+        },
+        "landmark-no-duplicate-banner": {
+          "enabled": true
+        },
+        "landmark-no-duplicate-contentinfo": {
+          "enabled": true
+        },
+        "landmark-no-duplicate-main": {
+          "enabled": true
+        },
+        "landmark-one-main": {
+          "enabled": true
+        },
+        "landmark-unique": {
+          "enabled": true
+        },
+        "link-in-text-block": {
+          "enabled": true
+        },
+        "link-name": {
+          "enabled": true
+        },
+        "list": {
+          "enabled": true
+        },
+        "listitem": {
+          "enabled": true
+        },
+        "marquee": {
+          "enabled": true
+        },
+        "meta-refresh": {
+          "enabled": true
+        },
+        "meta-refresh-no-exceptions": {
+          "enabled": true
+        },
+        "meta-viewport": {
+          "enabled": true
+        },
+        "meta-viewport-large": {
+          "enabled": true
+        },
+        "nested-interactive": {
+          "enabled": true
+        },
+        "no-autoplay-audio": {
+          "enabled": true
+        },
+        "object-alt": {
+          "enabled": true
+        },
+        "p-as-heading": {
+          "enabled": true
+        },
+        "page-has-heading-one": {
+          "enabled": true
+        },
+        "presentation-role-conflict": {
+          "enabled": true
+        },
+        "region": {
+          "enabled": true
+        },
+        "role-img-alt": {
+          "enabled": true
+        },
+        "scope-attr-valid": {
+          "enabled": true
+        },
+        "scrollable-region-focusable": {
+          "enabled": true
+        },
+        "select-name": {
+          "enabled": true
+        },
+        "server-side-image-map": {
+          "enabled": true
+        },
+        "skip-link": {
+          "enabled": true
+        },
+        "summary-name": {
+          "enabled": true
+        },
+        "svg-img-alt": {
+          "enabled": true
+        },
+        "tabindex": {
+          "enabled": true
+        },
+        "table-duplicate-name": {
+          "enabled": true
+        },
+        "table-fake-caption": {
+          "enabled": true
+        },
+        "target-size": {
+          "enabled": true
+        },
+        "td-has-header": {
+          "enabled": true
+        },
+        "td-headers-attr": {
+          "enabled": true
+        },
+        "th-has-data-cells": {
+          "enabled": true
+        },
+        "valid-lang": {
+          "enabled": true
+        },
+        "video-caption": {
+          "enabled": true
+        }
+      },
+      "enabledRuleIds": [
+        "accesskeys",
+        "area-alt",
+        "aria-allowed-attr",
+        "aria-allowed-role",
+        "aria-braille-equivalent",
+        "aria-command-name",
+        "aria-conditional-attr",
+        "aria-deprecated-role",
+        "aria-dialog-name",
+        "aria-hidden-body",
+        "aria-hidden-focus",
+        "aria-input-field-name",
+        "aria-meter-name",
+        "aria-progressbar-name",
+        "aria-prohibited-attr",
+        "aria-required-attr",
+        "aria-required-children",
+        "aria-required-parent",
+        "aria-roledescription",
+        "aria-roles",
+        "aria-tab-name",
+        "aria-text",
+        "aria-toggle-field-name",
+        "aria-tooltip-name",
+        "aria-treeitem-name",
+        "aria-valid-attr",
+        "aria-valid-attr-value",
+        "audio-caption",
+        "autocomplete-valid",
+        "avoid-inline-spacing",
+        "blink",
+        "button-name",
+        "bypass",
+        "color-contrast",
+        "color-contrast-enhanced",
+        "css-orientation-lock",
+        "definition-list",
+        "dlitem",
+        "document-title",
+        "duplicate-id",
+        "duplicate-id-active",
+        "duplicate-id-aria",
+        "empty-heading",
+        "empty-table-header",
+        "focus-order-semantics",
+        "form-field-multiple-labels",
+        "frame-focusable-content",
+        "frame-tested",
+        "frame-title",
+        "frame-title-unique",
+        "heading-order",
+        "hidden-content",
+        "html-has-lang",
+        "html-lang-valid",
+        "html-xml-lang-mismatch",
+        "identical-links-same-purpose",
+        "image-alt",
+        "image-redundant-alt",
+        "input-button-name",
+        "input-image-alt",
+        "label",
+        "label-content-name-mismatch",
+        "label-title-only",
+        "landmark-banner-is-top-level",
+        "landmark-complementary-is-top-level",
+        "landmark-contentinfo-is-top-level",
+        "landmark-main-is-top-level",
+        "landmark-no-duplicate-banner",
+        "landmark-no-duplicate-contentinfo",
+        "landmark-no-duplicate-main",
+        "landmark-one-main",
+        "landmark-unique",
+        "link-in-text-block",
+        "link-name",
+        "list",
+        "listitem",
+        "marquee",
+        "meta-refresh",
+        "meta-refresh-no-exceptions",
+        "meta-viewport",
+        "meta-viewport-large",
+        "nested-interactive",
+        "no-autoplay-audio",
+        "object-alt",
+        "p-as-heading",
+        "page-has-heading-one",
+        "presentation-role-conflict",
+        "region",
+        "role-img-alt",
+        "scope-attr-valid",
+        "scrollable-region-focusable",
+        "select-name",
+        "server-side-image-map",
+        "skip-link",
+        "summary-name",
+        "svg-img-alt",
+        "tabindex",
+        "table-duplicate-name",
+        "table-fake-caption",
+        "target-size",
+        "td-has-header",
+        "td-headers-attr",
+        "th-has-data-cells",
+        "valid-lang",
+        "video-caption"
+      ],
+      "defaultDisabledRuleIds": [
+        "aria-roledescription",
+        "audio-caption",
+        "color-contrast-enhanced",
+        "duplicate-id",
+        "duplicate-id-active",
+        "identical-links-same-purpose",
+        "landmark-complementary-is-top-level",
+        "meta-refresh-no-exceptions",
+        "target-size"
+      ],
+      "experimentalRuleIds": [
+        "css-orientation-lock",
+        "focus-order-semantics",
+        "hidden-content",
+        "label-content-name-mismatch",
+        "p-as-heading",
+        "table-fake-caption",
+        "td-has-header"
+      ],
+      "runOptions": {
+        "resultTypes": [
+          "violations",
+          "incomplete",
+          "passes",
+          "inapplicable"
+        ],
+        "rules": {
+          "accesskeys": {
+            "enabled": true
+          },
+          "area-alt": {
+            "enabled": true
+          },
+          "aria-allowed-attr": {
+            "enabled": true
+          },
+          "aria-allowed-role": {
+            "enabled": true
+          },
+          "aria-braille-equivalent": {
+            "enabled": true
+          },
+          "aria-command-name": {
+            "enabled": true
+          },
+          "aria-conditional-attr": {
+            "enabled": true
+          },
+          "aria-deprecated-role": {
+            "enabled": true
+          },
+          "aria-dialog-name": {
+            "enabled": true
+          },
+          "aria-hidden-body": {
+            "enabled": true
+          },
+          "aria-hidden-focus": {
+            "enabled": true
+          },
+          "aria-input-field-name": {
+            "enabled": true
+          },
+          "aria-meter-name": {
+            "enabled": true
+          },
+          "aria-progressbar-name": {
+            "enabled": true
+          },
+          "aria-prohibited-attr": {
+            "enabled": true
+          },
+          "aria-required-attr": {
+            "enabled": true
+          },
+          "aria-required-children": {
+            "enabled": true
+          },
+          "aria-required-parent": {
+            "enabled": true
+          },
+          "aria-roledescription": {
+            "enabled": true
+          },
+          "aria-roles": {
+            "enabled": true
+          },
+          "aria-tab-name": {
+            "enabled": true
+          },
+          "aria-text": {
+            "enabled": true
+          },
+          "aria-toggle-field-name": {
+            "enabled": true
+          },
+          "aria-tooltip-name": {
+            "enabled": true
+          },
+          "aria-treeitem-name": {
+            "enabled": true
+          },
+          "aria-valid-attr": {
+            "enabled": true
+          },
+          "aria-valid-attr-value": {
+            "enabled": true
+          },
+          "audio-caption": {
+            "enabled": true
+          },
+          "autocomplete-valid": {
+            "enabled": true
+          },
+          "avoid-inline-spacing": {
+            "enabled": true
+          },
+          "blink": {
+            "enabled": true
+          },
+          "button-name": {
+            "enabled": true
+          },
+          "bypass": {
+            "enabled": true
+          },
+          "color-contrast": {
+            "enabled": true
+          },
+          "color-contrast-enhanced": {
+            "enabled": true
+          },
+          "css-orientation-lock": {
+            "enabled": true
+          },
+          "definition-list": {
+            "enabled": true
+          },
+          "dlitem": {
+            "enabled": true
+          },
+          "document-title": {
+            "enabled": true
+          },
+          "duplicate-id": {
+            "enabled": true
+          },
+          "duplicate-id-active": {
+            "enabled": true
+          },
+          "duplicate-id-aria": {
+            "enabled": true
+          },
+          "empty-heading": {
+            "enabled": true
+          },
+          "empty-table-header": {
+            "enabled": true
+          },
+          "focus-order-semantics": {
+            "enabled": true
+          },
+          "form-field-multiple-labels": {
+            "enabled": true
+          },
+          "frame-focusable-content": {
+            "enabled": true
+          },
+          "frame-tested": {
+            "enabled": true
+          },
+          "frame-title": {
+            "enabled": true
+          },
+          "frame-title-unique": {
+            "enabled": true
+          },
+          "heading-order": {
+            "enabled": true
+          },
+          "hidden-content": {
+            "enabled": true
+          },
+          "html-has-lang": {
+            "enabled": true
+          },
+          "html-lang-valid": {
+            "enabled": true
+          },
+          "html-xml-lang-mismatch": {
+            "enabled": true
+          },
+          "identical-links-same-purpose": {
+            "enabled": true
+          },
+          "image-alt": {
+            "enabled": true
+          },
+          "image-redundant-alt": {
+            "enabled": true
+          },
+          "input-button-name": {
+            "enabled": true
+          },
+          "input-image-alt": {
+            "enabled": true
+          },
+          "label": {
+            "enabled": true
+          },
+          "label-content-name-mismatch": {
+            "enabled": true
+          },
+          "label-title-only": {
+            "enabled": true
+          },
+          "landmark-banner-is-top-level": {
+            "enabled": true
+          },
+          "landmark-complementary-is-top-level": {
+            "enabled": true
+          },
+          "landmark-contentinfo-is-top-level": {
+            "enabled": true
+          },
+          "landmark-main-is-top-level": {
+            "enabled": true
+          },
+          "landmark-no-duplicate-banner": {
+            "enabled": true
+          },
+          "landmark-no-duplicate-contentinfo": {
+            "enabled": true
+          },
+          "landmark-no-duplicate-main": {
+            "enabled": true
+          },
+          "landmark-one-main": {
+            "enabled": true
+          },
+          "landmark-unique": {
+            "enabled": true
+          },
+          "link-in-text-block": {
+            "enabled": true
+          },
+          "link-name": {
+            "enabled": true
+          },
+          "list": {
+            "enabled": true
+          },
+          "listitem": {
+            "enabled": true
+          },
+          "marquee": {
+            "enabled": true
+          },
+          "meta-refresh": {
+            "enabled": true
+          },
+          "meta-refresh-no-exceptions": {
+            "enabled": true
+          },
+          "meta-viewport": {
+            "enabled": true
+          },
+          "meta-viewport-large": {
+            "enabled": true
+          },
+          "nested-interactive": {
+            "enabled": true
+          },
+          "no-autoplay-audio": {
+            "enabled": true
+          },
+          "object-alt": {
+            "enabled": true
+          },
+          "p-as-heading": {
+            "enabled": true
+          },
+          "page-has-heading-one": {
+            "enabled": true
+          },
+          "presentation-role-conflict": {
+            "enabled": true
+          },
+          "region": {
+            "enabled": true
+          },
+          "role-img-alt": {
+            "enabled": true
+          },
+          "scope-attr-valid": {
+            "enabled": true
+          },
+          "scrollable-region-focusable": {
+            "enabled": true
+          },
+          "select-name": {
+            "enabled": true
+          },
+          "server-side-image-map": {
+            "enabled": true
+          },
+          "skip-link": {
+            "enabled": true
+          },
+          "summary-name": {
+            "enabled": true
+          },
+          "svg-img-alt": {
+            "enabled": true
+          },
+          "tabindex": {
+            "enabled": true
+          },
+          "table-duplicate-name": {
+            "enabled": true
+          },
+          "table-fake-caption": {
+            "enabled": true
+          },
+          "target-size": {
+            "enabled": true
+          },
+          "td-has-header": {
+            "enabled": true
+          },
+          "td-headers-attr": {
+            "enabled": true
+          },
+          "th-has-data-cells": {
+            "enabled": true
+          },
+          "valid-lang": {
+            "enabled": true
+          },
+          "video-caption": {
+            "enabled": true
+          }
+        }
+      }
+    },
+    "pa11y": {
+      "runners": [
+        "htmlcs"
+      ],
+      "standard": "WCAG2AAA",
+      "includeWarnings": true,
+      "includeNotices": true,
+      "viewport": {
+        "width": 1280,
+        "height": 1024
+      },
+      "timeout": 60000,
+      "wait": 0,
+      "chromeLaunchConfig": {
+        "executablePath": "~/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome",
+        "headless": true,
+        "args": [
+          "--no-sandbox"
+        ]
+      }
+    },
+    "maxHtmlChars": 0,
+    "concurrency": 1,
+    "ordering": "alphabetical by slug"
+  },
+  "network": {
+    "access": true,
+    "note": "The run had internet access. Fixture pages embed some remote resources (e.g. YouTube, remote media); they were not blocked. Failed requests are recorded per page in axe/<slug>.json."
+  }
+}

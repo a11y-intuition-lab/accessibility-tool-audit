@@ -1,5 +1,15 @@
 {
   "mappings": {
+    "authentication-login-requires-transcribing-a-code-without-paste-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule in either tool checks for a cognitive function test, such as transcribing a code with paste blocked (3.3.8). The script that blocks paste is not inspected. The per-form HTML_CodeSniffer notices on this page are about labels, errors and help, not about the authentication method."
+    },
+    "authentication-object-recognition-captcha-as-only-option-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule in either tool detects an object-recognition CAPTCHA or checks that an alternative authentication method exists (3.3.8, 3.3.9). The images are hidden from assistive technology and the checkboxes are labelled, so the alt text and name rules pass."
+    },
     "authentication-paste-blocked-in-password-field-ail": {
       "axe": [],
       "htmlcs": [],
@@ -70,6 +80,17 @@
       "htmlcs": [],
       "notes": "No rule in either tool detects meaning conveyed by colour in list items. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_1.G14,G182)"
     },
+    "colour-and-contrast-focus-indicator-has-insufficient-contrast-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+          "rationale": "Asks the tester to check that the keyboard focus indicator can be visually located; a low-contrast indicator is hard to locate. Page-level, conditional on focusable content."
+        }
+      ],
+      "notes": "axe-core has no rule for the focus indicator (its color-contrast rule covers text only). The HTML_CodeSniffer notice is about a visible indicator rather than its contrast (2.4.13, 1.4.11), so it is borderline. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_11)",
+      "review": "pending"
+    },
     "colour-and-contrast-focus-not-visible": {
       "axe": [],
       "htmlcs": [
@@ -85,6 +106,11 @@
       "axe": [],
       "htmlcs": [],
       "notes": "Non-text contrast (1.4.11) is not checked by either tool: axe-core color-contrast covers text only. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_11)"
+    },
+    "colour-and-contrast-informative-icon-has-insufficient-contrast-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "Non-text contrast (1.4.11) is not checked by either tool: axe-core color-contrast covers text only, and svg-img-alt passes because the icons have a name. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_11)"
     },
     "colour-and-contrast-large-text-below-31-ail": {
       "axe": [
@@ -327,6 +353,50 @@
       "notes": "GOV.UK fixture: the text also fails AA (see the corrected AIL version), so color-contrast reports the intended element; listed for comparability with 2017.",
       "review": "pending"
     },
+    "colour-and-contrast-text-over-background-image-with-insufficient-contrast-ail": {
+      "axe": [
+        {
+          "rationale": "Text contrast below the WCAG AA minimum.",
+          "rule": "color-contrast"
+        },
+        {
+          "rationale": "Text contrast below the WCAG AAA enhanced ratio (also true for text that fails AA). Disabled by default in axe-core.",
+          "rule": "color-contrast-enhanced"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Fail",
+          "rationale": "Text contrast below the 4.5:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail",
+          "rationale": "Text contrast below the 7:1 threshold that HTML_CodeSniffer applies to this text size (1.4.6 sniff, which also covers 1.4.3 at the WCAG2AAA standard)."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+          "rationale": "Contrast of this absolutely positioned text cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.BgImage",
+          "rationale": "Contrast of this text over a background image cannot be computed; HTML_CodeSniffer asks for a manual contrast check."
+        }
+      ],
+      "notes": "Text over a background image: both tools can only ask for a manual check (axe-core reports color-contrast as incomplete, HTML_CodeSniffer as a BgImage warning)."
+    },
+    "content-ambiguous-word-without-pronunciation-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule in either tool detects words whose meaning depends on pronunciation (3.1.6). HTML_CodeSniffer checks for pronunciation only inside ruby markup (H62), which the example does not use."
+    },
     "content-content-identified-by-location": {
       "axe": [],
       "htmlcs": [],
@@ -348,10 +418,35 @@
       "htmlcs": [],
       "notes": "No axe-core rule; the HTML_CodeSniffer 3.1.4 sniff emits only a page-level reminder (not listed)."
     },
+    "content-graphical-symbol-alone-conveys-meaning-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects meaning conveyed only by a symbol. The tick icons are hidden with aria-hidden, so svg-img-alt does not apply. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_3.G96)"
+    },
+    "content-instructions-rely-on-shape-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects instructions that rely on shape. The buttons have accessible names, so button-name passes. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_3.G96)"
+    },
+    "content-jargon-used-without-definition-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule in either tool detects unusual words or jargon. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (3_1_3.H40,H54,H60,G62,G70)"
+    },
     "content-plain-language-is-not-used": {
       "axe": [],
       "htmlcs": [],
       "notes": "No rule measures reading level. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (3_1_5)"
+    },
+    "content-spaces-used-to-spread-out-letters-of-a-word-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects letters spread out with spaces (failure F32). HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_2.G57)"
+    },
+    "content-table-formatted-with-spaces-in-preformatted-text-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects tabular content laid out with spaces in a pre element (failures F33, F34). The table rules only apply to table markup."
     },
     "css-content-is-not-readable-and-functional-when-text-is-increased": {
       "axe": [],
@@ -374,6 +469,21 @@
       "notes": "Both listed checks are generic review prompts rather than a test of the barrier.",
       "review": "pending"
     },
+    "css-form-controls-do-not-resize-with-text-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks that form controls scale with text size (1.4.4). HTML_CodeSniffer has no sniff for 1.4.4 in the WCAG2AAA standard; the 1.4.8 resize reminder is emitted on every page and not listed."
+    },
+    "css-inline-text-spacing-set-with-important-ail": {
+      "axe": [
+        {
+          "rationale": "Inline style sets text spacing with !important, so users cannot override it.",
+          "rule": "avoid-inline-spacing"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_12.C36,C35)"
+    },
     "css-non-decorative-content-inserted-using-css": {
       "axe": [],
       "htmlcs": [],
@@ -388,6 +498,11 @@
       "axe": [],
       "htmlcs": [],
       "notes": "axe-core avoid-inline-spacing checks inline !important spacing, not fixed heights that clip text; not listed. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_12)"
+    },
+    "css-text-sized-only-in-viewport-units-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks font sizes in viewport units. axe-core meta-viewport is about a viewport meta tag that blocks zoom, a different problem. HTML_CodeSniffer has no sniff for 1.4.4 in the WCAG2AAA standard."
     },
     "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
       "axe": [
@@ -417,9 +532,15 @@
     },
     "forms-data-submission-without-confirmation-ail": {
       "axe": [],
-      "htmlcs": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_6.G98,G99,G155,G164,G168.AllForms",
+          "rationale": "Asks the tester to check that submissions to this form are reversible, checked or confirmed; emitted once per form."
+        }
+      ],
       "linkedPage": "example-pages/ail/message-sent.html",
-      "notes": "rules not yet mapped"
+      "notes": "Generic per-form reminder. axe-core has no rule for submission review. The per-form HTML_CodeSniffer notices for 3.3.1, 3.3.2, 3.3.3 and 3.3.5 are about other form problems and are not listed.",
+      "review": "pending"
     },
     "forms-empty-label-found": {
       "axe": [
@@ -543,9 +664,15 @@
     },
     "forms-financial-submission-without-review-or-undo-ail": {
       "axe": [],
-      "htmlcs": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_6.G98,G99,G155,G164,G168.AllForms",
+          "rationale": "Asks the tester to check that submissions to this form are reversible, checked or confirmed; emitted once per form."
+        }
+      ],
       "linkedPage": "example-pages/ail/payment-sent.html",
-      "notes": "rules not yet mapped"
+      "notes": "Generic per-form reminder. The 3.3.4 variant (LegalForms) is not in the WCAG2AAA ruleset, which uses the 3.3.6 check for all forms. axe-core has no rule for submission review. The per-form HTML_CodeSniffer notices for 3.3.1, 3.3.2, 3.3.3 and 3.3.5 are about other form problems and are not listed.",
+      "review": "pending"
     },
     "forms-focus-on-field-opens-new-window-ail": {
       "axe": [],
@@ -586,6 +713,17 @@
           "rationale": "Form control has no label (failure F68)."
         }
       ]
+    },
+    "forms-form-submits-automatically-when-last-field-is-filled-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_2.3_2_2.H32.2",
+          "rationale": "Form has no submit button, the HTML_CodeSniffer check for technique H32 that avoids change of context on input (failure F37). This form has a submit button; the automatic submission is in script."
+        }
+      ],
+      "notes": "As for the GOV.UK change-of-context case, H32.2 is the only check for 3.2.2 but cannot see a script that submits on input. G107 (3.2.1) is about a change of context on focus, a different problem; not listed.",
+      "review": "pending"
     },
     "forms-group-of-check-boxes-not-enclosed-in-a-fieldset": {
       "axe": [],
@@ -639,6 +777,17 @@
         }
       ]
     },
+    "forms-labels-do-not-describe-the-field-purpose-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+          "rationale": "Asks the tester to check that descriptive labels or instructions are provided for user input; emitted once per form element."
+        }
+      ],
+      "notes": "Generic per-form reminder; the example fields are not inside a form element, so it does not fire here. axe-core only checks that a label exists. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_4_6.G130,G131)",
+      "review": "pending"
+    },
     "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls": {
       "axe": [
         {
@@ -690,6 +839,17 @@
         }
       ]
     },
+    "forms-no-context-sensitive-help-for-complex-field-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle3.Guideline3_3.3_3_5.G71,G184,G193",
+          "rationale": "Asks the tester to check that context-sensitive help is available for this form; emitted once per form."
+        }
+      ],
+      "notes": "Generic per-form reminder. axe-core has no rule for help. The per-form HTML_CodeSniffer notices for 3.3.1, 3.3.2, 3.3.3 and 3.3.6 are about other form problems and are not listed.",
+      "review": "pending"
+    },
     "forms-non-unique-field-label-found": {
       "axe": [],
       "htmlcs": [],
@@ -718,7 +878,12 @@
       "axe": [],
       "htmlcs": [],
       "linkedPage": "example-pages/ail/billing-address.html",
-      "notes": "rules not yet mapped"
+      "notes": "The barrier shows across the form page and the linked example page (linkedPage). No rule compares the steps of a process (3.3.7). HTML_CodeSniffer H98 (1.3.5) asks about autocomplete purposes, a different problem; not listed."
+    },
+    "forms-selecting-a-radio-button-opens-a-new-window-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. No rule inspects the script that opens a window when a radio button changes (3.2.2). HTML_CodeSniffer G107 asks about a change of context on focus (3.2.1), a different problem, and H32.2 only applies to form elements; neither is listed."
     },
     "forms-status-message-not-announced-ail": {
       "axe": [],
@@ -774,6 +939,11 @@
       ],
       "notes": "heading-order and G141 also fire on this h4 (level relative to the template h1); they are not about an empty heading and are not listed."
     },
+    "headings-headings-do-not-describe-their-section-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule judges whether heading text describes its section; empty-heading only checks for empty headings. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_4_6.G130,G131)"
+    },
     "headings-headings-not-structured-in-a-hierarchical-manner": {
       "axe": [
         {
@@ -788,6 +958,11 @@
         }
       ],
       "notes": "Both rules also report the first heading relative to the template h1; the h3 to h5 skip in the example is reported as well."
+    },
+    "headings-long-document-without-section-headings-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule asks for section headings in long text (2.4.10): page-has-heading-one and G141 check the heading structure that exists, not missing section headings. HTML_CodeSniffer has no 2.4.10 sniff in the WCAG2AAA ruleset."
     },
     "headings-missing-h1": {
       "axe": [
@@ -819,6 +994,16 @@
           "rationale": "Asks for heading markup if content is intended as a heading."
         }
       ]
+    },
+    "html-aria-list-role-without-listitem-children-ail": {
+      "axe": [
+        {
+          "rationale": "Element with role list has no children with role listitem.",
+          "rule": "aria-required-children"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "HTML_CodeSniffer does not check required ARIA child roles."
     },
     "html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.": {
       "axe": [],
@@ -901,10 +1086,24 @@
       "notes": "No rule checks the wmode parameter. HTML_CodeSniffer 2_1_2.F10 (plugin keyboard trap) and the media notices on this object are different problems."
     },
     "html-page-regions-not-identified-with-landmarks-ail": {
-      "axe": [],
+      "axe": [
+        {
+          "rationale": "Page content is not contained by landmarks; on the linked page no region is identified.",
+          "rule": "region"
+        },
+        {
+          "rationale": "Page has no main landmark.",
+          "rule": "landmark-one-main"
+        },
+        {
+          "rationale": "Page has no landmark, heading or skip link to bypass repeated blocks (2.4.1 is mapped).",
+          "rule": "bypass"
+        }
+      ],
       "htmlcs": [],
       "linkedPage": "example-pages/ail/no-landmarks.html",
-      "notes": "rules not yet mapped"
+      "notes": "The barrier is on the linked example page (linkedPage). region also fires on every test-case page because the template h1 is outside main, so a hit can come from the test-case page (protocol, \"Rule, not element\"); the evidence records the page. bypass targets 2.4.1 rather than landmarks as such. HTML_CodeSniffer has no landmark check: H48 on the linked page is about navigation links not marked up as a list, a different problem. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_6.ARIA11)",
+      "review": "pending"
     },
     "html-pre-element-without-code-element-inside-it": {
       "axe": [],
@@ -931,6 +1130,22 @@
       "htmlcs": [],
       "notes": "No rule checks CSS background images for meaning. HTML_CodeSniffer G17.BgImage on this element is a contrast check, a different problem."
     },
+    "images-decorative-image-with-non-empty-alt-text-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_1.1_1_1.G94.Image",
+          "rationale": "Asks the tester to check that the alt text serves the same purpose as the image; for a decorative image the answer is that the alt text should be empty."
+        }
+      ],
+      "notes": "Generic per-image reminder. axe-core has no rule that judges alt text on decorative images (image-redundant-alt compares alt text with surrounding text, a different problem).",
+      "review": "pending"
+    },
+    "images-icon-font-conveys-meaning-without-text-alternative-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule checks icons drawn with CSS generated content: the i elements are empty and have no role, so image-alt, role-img-alt and the HTML_CodeSniffer alt checks do not apply."
+    },
     "images-image-alt-attribute-contains-image-file-name": {
       "axe": [],
       "htmlcs": [
@@ -955,6 +1170,17 @@
         }
       ],
       "notes": "axe-core treats the image as decorative and has no rule for this conflict."
+    },
+    "images-image-of-text-used-for-a-heading-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_4.1_4_9.G140,C22,C30.NoException",
+          "rationale": "Asks the tester to check that images of text are only used for decoration or where essential; emitted once per page that contains an img element."
+        }
+      ],
+      "notes": "Generic reminder, conditional on images. The 1.4.5 variant (AALevel) is not in the WCAG2AAA ruleset. axe-core has no rule for images of text.",
+      "review": "pending"
     },
     "images-image-that-conveys-information-has-an-empty-alt-attribute": {
       "axe": [],
@@ -1040,6 +1266,16 @@
       "axe": [],
       "htmlcs": [],
       "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. axe hidden-content on the collapsed panels is not about focusability."
+    },
+    "keyboard-access-disclosure-button-without-expanded-state-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule requires aria-expanded on a button that shows and hides content; the button has a name, so button-name passes. axe hidden-content on the collapsed panel is a generic prompt about hidden content, not about the missing state."
+    },
+    "keyboard-access-drawing-canvas-with-no-keyboard-alternative-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. The canvas has a role and a name, so the name rules pass. HTML_CodeSniffer SCR20 only checks mouse event handler attributes; the example adds its handlers in script."
     },
     "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus": {
       "axe": [],
@@ -1142,6 +1378,11 @@
       "htmlcs": [],
       "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. No rule checks focus obscured by sticky content."
     },
+    "keyboard-access-sticky-header-partly-hides-focused-element-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. No rule checks whether a focused element is hidden by other content (2.4.11, 2.4.12). HTML_CodeSniffer 2_4_7 asks about a visible focus indicator, a different problem; not listed."
+    },
     "keyboard-access-tabindex-greater-than-0": {
       "axe": [
         {
@@ -1155,6 +1396,11 @@
           "rationale": "Emitted only when tabindex is used; asks to check that the tab order follows the content."
         }
       ]
+    },
+    "keyboard-access-tooltip-cannot-be-dismissed-with-escape-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. axe hidden-content on the hidden tooltip is not about dismissal. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_4_13.F95)"
     },
     "keyboard-access-tooltips-dont-receive-keyboard-focus": {
       "axe": [],
@@ -1324,6 +1570,17 @@
         }
       ],
       "notes": "Generic per-link reminder. axe-core target-size (small target) is a related 2.5.8 problem, not listed.",
+      "review": "pending"
+    },
+    "links-link-context-only-in-unrelated-content-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+          "rationale": "The link text is the barrier; H30 asks the tester to check that the link text describes its purpose."
+        }
+      ],
+      "notes": "Generic per-link reminder. axe-core link-name only checks that a link has text.",
       "review": "pending"
     },
     "links-link-launches-new-window-with-no-warning": {
@@ -1515,6 +1772,11 @@
       "htmlcs": [],
       "notes": "No rule analyses flashing in embedded video. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_3_x)"
     },
+    "multimedia-locally-flashing-animation-above-the-general-flash-threshold-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. The flashing only starts after a button is selected; neither tool measures flashing. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_3_2.G19)"
+    },
     "navigation-help-link-in-inconsistent-place-across-pages-ail": {
       "axe": [],
       "htmlcs": [],
@@ -1522,7 +1784,7 @@
         "example-pages/ail/help-1.html",
         "example-pages/ail/help-2.html"
       ],
-      "notes": "rules not yet mapped"
+      "notes": "The barrier only shows across the linked example pages (linkedPages). No rule compares pages (3.2.6); HTML_CodeSniffer 2.6.0 has no check for this criterion."
     },
     "navigation-inadequately-sized-clickable-targets-found": {
       "axe": [
@@ -1542,7 +1804,7 @@
         "example-pages/ail/nav-order-2.html",
         "example-pages/ail/nav-order-3.html"
       ],
-      "notes": "rules not yet mapped"
+      "notes": "The barrier only shows across the linked example pages (linkedPages). No rule compares the navigation of several pages (3.2.3). HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (3_2_3.G61)"
     },
     "navigation-no-indication-of-location-within-a-set-of-pages-ail": {
       "axe": [],
@@ -1552,7 +1814,7 @@
         "example-pages/ail/location-2.html",
         "example-pages/ail/location-3.html"
       ],
-      "notes": "rules not yet mapped"
+      "notes": "The barrier only shows across the linked example pages (linkedPages). No rule checks for breadcrumbs or other location cues (2.4.8). HTML_CodeSniffer 2.4.8 only checks link elements in the head (H59), a different problem."
     },
     "navigation-only-one-way-to-find-pages-in-a-set-ail": {
       "axe": [],
@@ -1562,7 +1824,7 @@
         "example-pages/ail/ways-2.html",
         "example-pages/ail/ways-3.html"
       ],
-      "notes": "rules not yet mapped"
+      "notes": "The barrier only shows across the linked example pages (linkedPages). No rule checks how many ways lead to a page (2.4.5). HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_4_5.G125,G64,G63,G161,G126,G185)"
     },
     "navigation-repeated-navigation-block-cannot-be-bypassed-ail": {
       "axe": [
@@ -1581,7 +1843,7 @@
         "example-pages/ail/search-1.html",
         "example-pages/ail/search-2.html"
       ],
-      "notes": "rules not yet mapped"
+      "notes": "The barrier only shows across the linked example pages (linkedPages). No rule compares labels across pages (3.2.4). HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (3_2_4.G197)"
     },
     "page-layout-content-locked-to-portrait-orientation-ail": {
       "axe": [
@@ -1592,6 +1854,22 @@
       ],
       "htmlcs": [],
       "notes": "In the first run (20261010T073126Z) the lock was in the shared AIL stylesheet, so css-orientation-lock fired on every AIL page; the lock now sits in this example only. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_4)"
+    },
+    "page-layout-content-lost-when-reflowed-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "No rule detects content hidden at narrow widths (1.4.10). The HTML_CodeSniffer 1_4_10 element warning is about content that may need scrolling in two dimensions, a different problem; the notice with the same code is an unconditional page-level reminder."
+    },
+    "page-layout-message-asks-user-to-rotate-device-ail": {
+      "axe": [
+        {
+          "rationale": "Experimental rule: CSS locks content to one orientation. It looks for orientation media queries that rotate content, not ones that hide it, as here.",
+          "rule": "css-orientation-lock"
+        }
+      ],
+      "htmlcs": [],
+      "notes": "Borderline: the rule tests 1.3.4 but not the technique used in the example (failure F100). axe hidden-content on the hidden message is a generic prompt. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (1_3_4)",
+      "review": "pending"
     },
     "page-layout-wide-page-forces-users-to-scroll-horizontally": {
       "axe": [],
@@ -1658,6 +1936,57 @@
       "axe": [],
       "htmlcs": [],
       "notes": "No rule inspects gesture handlers. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_5_1)"
+    },
+    "pointer-and-motion-shake-to-undo-without-alternative-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. No rule inspects device motion handlers (2.5.4). HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_5_4)"
+    },
+    "pointer-and-motion-touch-only-interaction-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. No rule inspects which input mechanisms a script listens to (2.5.6). HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_5_6)"
+    },
+    "tables-data-table-with-role-presentation-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.F92,ARIA4",
+          "rationale": "Element with role presentation contains elements with semantic meaning (failure F92)."
+        }
+      ],
+      "notes": "axe-core has no rule for a data table hidden with role presentation: presentation-role-conflict only checks focusable elements and global ARIA attributes, and the table rules skip presentational tables."
+    },
+    "tables-headers-attribute-references-wrong-header-ids-ail": {
+      "axe": [
+        {
+          "rationale": "Checks that headers attributes refer to header cells in the same table; it cannot tell that a valid id names the wrong header.",
+          "rule": "td-headers-attr"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+          "rationale": "Incorrect headers attribute on a td element (error); for tables with several header levels, as here, HTML_CodeSniffer emits a notice asking to check the headers attributes instead."
+        }
+      ],
+      "notes": "Borderline: both checks test headers attributes, but neither can judge which header a cell belongs to. axe th-has-data-cells on this table is about header cells without data cells; not listed.",
+      "review": "pending"
+    },
+    "tables-layout-table-uses-th-and-caption-ail": {
+      "axe": [],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.DataTable",
+          "rationale": "Notice that the table appears to be a data table and, if it is a layout table, that it must have no th, summary or caption."
+        },
+        {
+          "code": "WCAG2AAA.Principle1.Guideline1_3.1_3_1.H39.3.LayoutTable",
+          "rationale": "Layout table has a caption. HTML_CodeSniffer only reports it for tables it judges to be layout tables, and a table with th is judged a data table."
+        }
+      ],
+      "notes": "DataTable is a generic per-table notice. axe-core removed its layout-table rule.",
+      "review": "pending"
     },
     "tables-table-has-an-empty-table-header": {
       "axe": [
@@ -1770,10 +2099,63 @@
       "htmlcs": [],
       "notes": "Best practice only; no rule reports empty data cells."
     },
+    "timing-animation-triggered-by-scrolling-ignores-reduced-motion-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. No rule checks whether animation respects prefers-reduced-motion (2.3.3). HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_3_3.C39) H4.2 fires because the scroll region has tabindex; it is about tab order."
+    },
     "timing-auto-rotating-carousel-without-pause-ail": {
       "axe": [],
       "htmlcs": [],
       "notes": "No rule detects script-driven rotation. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_2_2)"
+    },
+    "timing-content-updates-interrupt-the-user-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. The alert is inserted 10 seconds after load. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_2_4.SCR14)"
+    },
+    "timing-page-refreshes-automatically-with-meta-refresh-ail": {
+      "axe": [
+        {
+          "rationale": "Page refreshes or redirects with a meta refresh delay below 20 hours (2.2.1).",
+          "rule": "meta-refresh"
+        },
+        {
+          "rationale": "AAA rule for any delayed meta refresh (2.2.4, 3.2.5); it only reports delays that meta-refresh exempts, so it passes when meta-refresh fails.",
+          "rule": "meta-refresh-no-exceptions"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_1.F41.2",
+          "rationale": "Meta refresh reloads the current page with a time limit users cannot control."
+        }
+      ],
+      "notes": "The meta element is in the page head (front-matter head field). F41.2 did not fire in run 20261010T085044Z; the cause was not investigated."
+    },
+    "timing-session-timeout-loses-entered-data-ail": {
+      "axe": [],
+      "htmlcs": [],
+      "notes": "The barrier only shows on interaction (keyboard, pointer, timing or script); neither tool interacts with the page. The session timer runs in script. axe hidden-content on the hidden warnings is a generic prompt. HTML_CodeSniffer only emits a page-level reminder for this criterion on every page, whatever the content; such reminders are not listed (protocol, \"Unconditional reminders\"). (2_2_5.G105,G181; 2_2_6)"
+    },
+    "timing-timed-meta-redirect-ail": {
+      "axe": [
+        {
+          "rationale": "Page refreshes or redirects with a meta refresh delay below 20 hours (2.2.1).",
+          "rule": "meta-refresh"
+        },
+        {
+          "rationale": "AAA rule for any delayed meta refresh (2.2.4, 3.2.5); it only reports delays that meta-refresh exempts, so it passes when meta-refresh fails.",
+          "rule": "meta-refresh-no-exceptions"
+        }
+      ],
+      "htmlcs": [
+        {
+          "code": "WCAG2AAA.Principle2.Guideline2_2.2_2_1.F40.2",
+          "rationale": "Meta refresh redirects to another page with a time limit users cannot control."
+        }
+      ],
+      "notes": "The meta element is in the page head (front-matter head field). F40.2 did not fire in run 20261010T085044Z; the cause was not investigated."
     },
     "typography-all-caps-text-found": {
       "axe": [],
@@ -1845,6 +2227,7 @@
       "axe": "axe-core rule ids that correspond to the intended barrier",
       "htmlcs": "HTML_CodeSniffer codes (full pa11y code, exact match); optional types restricts which issue types count",
       "linkedPage": "the barrier is on this linked example page; the retest harness tests it as well (scripts/retest/run.mjs) and the classifier merges its evidence",
+      "linkedPages": "the barrier is on these linked example pages; the harness tests each and the classifier merges their evidence",
       "review": "\"pending\" = borderline choice awaiting human review (D-011 style)"
     },
     "date": "2026-10-10",
@@ -1854,7 +2237,7 @@
     "reviewed": false,
     "status": "ai-proposed",
     "statusNote": "AI-drafted, not human-reviewed",
-    "testCount": 167,
+    "testCount": 218,
     "tool_versions": {
       "axe-core": "4.13.0",
       "htmlcs": "2.6.0"

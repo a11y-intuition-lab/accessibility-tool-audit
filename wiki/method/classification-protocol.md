@@ -141,7 +141,7 @@ missing. A page the tool never saw cannot count as a miss.
   check" results for HTML_CodeSniffer appear to come from notices (for example link-text cases), which this protocol
   codes as `identified`. The detection rate on the results page (issue found and warning only) is not affected; the split
   between "user to check" and "noticed" is not strictly comparable.
-- **Mapping quality.** The mapping is AI-proposed and not yet reviewed. 22 of 167 test cases are marked
+- **Mapping quality.** The mapping is AI-proposed and not yet reviewed. 35 of 218 test cases are marked
   `review: pending`.
 
 ## Sources

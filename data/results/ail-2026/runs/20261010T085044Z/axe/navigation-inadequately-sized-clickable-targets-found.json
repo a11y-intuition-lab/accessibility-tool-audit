@@ -1,0 +1,596 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "navigation-inadequately-sized-clickable-targets-found",
+  "origin": "govuk-2017",
+  "url": "http://127.0.0.1:45679/accessibility-tool-audit/tests/navigation-inadequately-sized-clickable-targets-found.html",
+  "startedAt": "2026-10-10T08:57:58.808Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T08:57:59.402Z",
+    "violations": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1>Inadequately-sized clickable targets found</h1>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "target-size",
+        "impact": "serious",
+        "tags": [
+          "cat.sensory-and-visual-cues",
+          "wcag22aa",
+          "wcag258"
+        ],
+        "description": "Ensure touch targets have sufficient size and space",
+        "help": "All touch targets must be 24px large, or leave sufficient space",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/target-size?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "a[href=\"a.html\"]"
+            ],
+            "html": "<a href=\"a.html\">a</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (7.1px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"b.html\"]"
+            ],
+            "html": "<a href=\"b.html\">b</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"c.html\"]"
+            ],
+            "html": "<a href=\"c.html\">c</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (7.1px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"d.html\"]"
+            ],
+            "html": "<a href=\"d.html\">d</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"e.html\"]"
+            ],
+            "html": "<a href=\"e.html\">e</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (7.1px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"f.html\"]"
+            ],
+            "html": "<a href=\"f.html\">f</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (5.3px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"g.html\"]"
+            ],
+            "html": "<a href=\"g.html\">g</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"h.html\"]"
+            ],
+            "html": "<a href=\"h.html\">h</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"i.html\"]"
+            ],
+            "html": "<a href=\"i.html\">i</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (4.5px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"j.html\"]"
+            ],
+            "html": "<a href=\"j.html\">j</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (4.5px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"k.html\"]"
+            ],
+            "html": "<a href=\"k.html\">k</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"l.html\"]"
+            ],
+            "html": "<a href=\"l.html\">l</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (4.5px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"m.html\"]"
+            ],
+            "html": "<a href=\"m.html\">m</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (12.5px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 1px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"n.html\"]"
+            ],
+            "html": "<a href=\"n.html\">n</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"o.html\"]"
+            ],
+            "html": "<a href=\"o.html\">o</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"p.html\"]"
+            ],
+            "html": "<a href=\"p.html\">p</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"q.html\"]"
+            ],
+            "html": "<a href=\"q.html\">q</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"r.html\"]"
+            ],
+            "html": "<a href=\"r.html\">r</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (5.3px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"s.html\"]"
+            ],
+            "html": "<a href=\"s.html\">s</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (6.2px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"t.html\"]"
+            ],
+            "html": "<a href=\"t.html\">t</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (4.5px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"u.html\"]"
+            ],
+            "html": "<a href=\"u.html\">u</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"v.html\"]"
+            ],
+            "html": "<a href=\"v.html\">v</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"w.html\"]"
+            ],
+            "html": "<a href=\"w.html\">w</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (11.6px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 3.6px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"x.html\"]"
+            ],
+            "html": "<a href=\"x.html\">x</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"y.html\"]"
+            ],
+            "html": "<a href=\"y.html\">y</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (8px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "a[href=\"z.html\"]"
+            ],
+            "html": "<a href=\"z.html\">z</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Target has insufficient size (7.1px by 17px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px.",
+            "checks": {
+              "any": [
+                "target-size",
+                "target-offset"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [],
+    "passesCount": 19,
+    "passesRuleIds": [
+      "aria-hidden-body",
+      "bypass",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "empty-heading",
+      "heading-order",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "identical-links-same-purpose",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-main",
+      "landmark-one-main",
+      "landmark-unique",
+      "link-name",
+      "page-has-heading-one",
+      "region"
+    ],
+    "inapplicableCount": 85,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-roles",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "autocomplete-valid",
+      "avoid-inline-spacing",
+      "blink",
+      "button-name",
+      "definition-list",
+      "dlitem",
+      "duplicate-id",
+      "duplicate-id-active",
+      "duplicate-id-aria",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "html-xml-lang-mismatch",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-content-name-mismatch",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "link-in-text-block",
+      "list",
+      "listitem",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "p-as-heading",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [],
+  "localNon200": [],
+  "durationMs": 690
+}

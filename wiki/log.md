@@ -90,3 +90,18 @@ Append-only, newest last.
   entries only for the 9 linked-page cases (`axe: []`, `htmlcs: []`, "rules not yet mapped"); the other new cases need
   rule mappings before `npm run classify` can run on a full run.
 
+
+## 2026-10-10 — Rule mappings for the 51 new AIL test cases; retest run 20261010T085044Z
+- Added rule mappings for the 51 new `ail-2026` test cases to `data/mappings/test-case-rules.json` (now 218 test cases,
+  AI-proposed, not reviewed), including the 9 linked-page cases that said "rules not yet mapped". 13 of the 51 are marked
+  `review: pending`; 32 have no rule in either tool (mostly cognitive, cross-page and interaction barriers). 35 of 218
+  mappings are now pending review.
+- Classified run `20261010T085044Z` (full run from clean commit `99575fe`, 218 test pages; deterministic, checked by
+  running twice).
+- GOV.UK cases (142): axe found 40, manual 7; HTML_CodeSniffer/pa11y found 29, manual 6, identified 23 (unchanged from
+  run `20261010T080254Z`).
+- AIL cases (76): axe found 13, manual 2, not found 61; HTML_CodeSniffer/pa11y found 1, manual 2, identified 12,
+  not found 61. Of the 51 new cases axe found 5 (inline text spacing, ARIA list children, landmarks, two meta refresh
+  cases) and flagged 1 for review (text over a background image); pa11y found 1 (data table with role presentation),
+  flagged 1 for review and noticed 9 through generic reminders.
+- HTML_CodeSniffer `F40.2`/`F41.2` (meta refresh) did not fire on the two meta refresh cases; cause not investigated.

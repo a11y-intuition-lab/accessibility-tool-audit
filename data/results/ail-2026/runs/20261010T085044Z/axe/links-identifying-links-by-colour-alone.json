@@ -1,0 +1,212 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "links-identifying-links-by-colour-alone",
+  "origin": "govuk-2017",
+  "url": "http://127.0.0.1:45679/accessibility-tool-audit/tests/links-identifying-links-by-colour-alone.html",
+  "startedAt": "2026-10-10T08:56:46.304Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T08:56:46.837Z",
+    "violations": [
+      {
+        "id": "color-contrast-enhanced",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aaa",
+          "wcag146",
+          "ACT"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
+        "help": "Elements must meet enhanced color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast-enhanced?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "a:nth-child(1)"
+            ],
+            "html": "<a href=\"#\">A normal link</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 6.67 (foreground color: #005ea5, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 7:1",
+            "checks": {
+              "any": [
+                "color-contrast-enhanced"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              ".colour-alone-link"
+            ],
+            "html": "<a class=\"colour-alone-link\" href=\"#\">Link only identifiable by colour alone</a>",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 6.67 (foreground color: #005ea5, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 7:1",
+            "checks": {
+              "any": [
+                "color-contrast-enhanced"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1>Identifying links by colour alone</h1>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [],
+    "passesCount": 20,
+    "passesRuleIds": [
+      "aria-hidden-body",
+      "bypass",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "empty-heading",
+      "heading-order",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "identical-links-same-purpose",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-main",
+      "landmark-one-main",
+      "landmark-unique",
+      "link-name",
+      "page-has-heading-one",
+      "region",
+      "target-size"
+    ],
+    "inapplicableCount": 85,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-roles",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "autocomplete-valid",
+      "avoid-inline-spacing",
+      "blink",
+      "button-name",
+      "definition-list",
+      "dlitem",
+      "duplicate-id",
+      "duplicate-id-active",
+      "duplicate-id-aria",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "html-xml-lang-mismatch",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-content-name-mismatch",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "link-in-text-block",
+      "list",
+      "listitem",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "p-as-heading",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [],
+  "localNon200": [],
+  "durationMs": 564
+}
