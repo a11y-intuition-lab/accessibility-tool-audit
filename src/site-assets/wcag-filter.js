@@ -1,17 +1,20 @@
 // WCAG filter for the test cases and results pages (progressive enhancement).
-// Items carry data-wcag='[{"sc","level","versions","relation"}]'. State is kept in the URL query string.
+// Items carry data-wcag='[{"sc","level","versions","relation"}]' and data-origin (govuk-2017 or ail-2026). State is kept in the URL query string.
 (() => {
   const form = document.getElementById('wcag-filter');
   if (!form) return;
-  const els = { wcag: form.elements.wcag, level: form.elements.level, relation: form.elements.relation };
+  const els = { origin: form.elements.origin, wcag: form.elements.wcag, level: form.elements.level, relation: form.elements.relation };
   const status = form.querySelector('.site-filter-status');
-  const items = [...document.querySelectorAll('[data-wcag-item]')].map((el) => ({ el, map: JSON.parse(el.dataset.wcag || '[]') }));
+  const items = [...document.querySelectorAll('[data-wcag-item]')].map((el) => ({ el, map: JSON.parse(el.dataset.wcag || '[]'), origin: el.dataset.origin }));
   const groups = [...document.querySelectorAll('[data-wcag-group]')];
   const rank = { A: 1, AA: 2, AAA: 3 };
-  const eu = { wcag: form.dataset.euVersion, level: form.dataset.euLevel, relation: 'fails' };
-  const all = { wcag: 'all', level: 'all', relation: 'related' };
+  const eu = { origin: 'all', wcag: form.dataset.euVersion, level: form.dataset.euLevel, relation: 'fails' };
+  const all = { origin: 'all', wcag: 'all', level: 'all', relation: 'related' };
+  const original = { ...all, origin: 'govuk-2017' };
+  const originLabel = { 'govuk-2017': 'original GOV.UK test cases', 'ail-2026': 'test cases added by AIL' };
 
-  const matches = (map, s) => {
+  const matches = ({ map, origin }, s) => {
+    if (s.origin !== 'all' && origin !== s.origin) return false;
     if (s.wcag === 'all' && s.level === 'all') return true;
     return map.some((m) =>
       (s.relation === 'related' || m.relation === 'fails') &&
@@ -21,17 +24,18 @@
   };
 
   const describe = (s) => {
-    if (s.wcag === 'all' && s.level === 'all') return 'all test cases';
+    const who = originLabel[s.origin];
+    if (s.wcag === 'all' && s.level === 'all') return who ? `all ${who}` : 'all test cases';
     const v = s.wcag === 'all' ? 'any WCAG version' : `WCAG ${s.wcag}`;
     const l = s.level === 'all' ? 'any level' : `level ${s.level}`;
-    return `${v}, ${l}${s.relation === 'fails' ? '' : ', including related'}`;
+    return `${who ? `${who}, ` : ''}${v}, ${l}${s.relation === 'fails' ? '' : ', including related'}`;
   };
 
   function apply(s, { updateUrl = true } = {}) {
     for (const [k, el] of Object.entries(els)) el.value = s[k];
     let shown = 0;
     for (const item of items) {
-      const ok = matches(item.map, s);
+      const ok = matches(item, s);
       item.el.hidden = !ok;
       if (ok) shown += 1;
     }
@@ -45,10 +49,11 @@
     }
   }
 
-  const read = () => ({ wcag: els.wcag.value, level: els.level.value, relation: els.relation.value });
+  const read = () => Object.fromEntries(Object.entries(els).map(([k, el]) => [k, el.value]));
   form.addEventListener('change', () => apply(read()));
   form.addEventListener('submit', (e) => e.preventDefault());
   form.querySelector('[data-filter-preset="eu"]').addEventListener('click', () => apply(eu));
+  form.querySelector('[data-filter-preset="original"]').addEventListener('click', () => apply(original));
   form.querySelector('[data-filter-preset="all"]').addEventListener('click', () => apply(all));
 
   const params = new URLSearchParams(location.search);

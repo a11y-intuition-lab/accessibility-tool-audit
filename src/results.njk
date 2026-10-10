@@ -26,7 +26,7 @@ permalink: results.html
   <li><span class="site-stat-value" data-stat-col="{{ c.key }}">{{ (rate + '%') if rate !== null else '–' }}</span> <span class="site-stat-label">found or warned by {{ c.label }} ({{ c.who }} {{ c.when }})</span></li>
   {%- endfor %}
 </ul>
-<p class="site-muted">Numbers follow the WCAG filter. Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on.</p>
+<p class="site-muted">Numbers follow the WCAG filter. Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on. The 2017 columns cover only the GOV.UK test cases; the 2026 columns also cover the test cases added by AIL, which target criteria the tools rarely check. To compare like with like, choose "Original 2017 test cases".</p>
 
 <details class="site-details">
   <summary>What each result means</summary>
@@ -69,7 +69,7 @@ permalink: results.html
     <tr class="site-results-group"><th scope="rowgroup" colspan="{{ cols.length + 1 }}">{{ group.name }}</th></tr>
     {%- for item in group.items %}
     {%- set r = results.byTest[item.fileSlug] %}
-    <tr data-wcag-item data-wcag="{{ (wcag.byTest[item.fileSlug] or []) | dump | escape }}">
+    <tr data-wcag-item data-origin="{{ item.data.origin }}" data-wcag="{{ (wcag.byTest[item.fileSlug] or []) | dump | escape }}">
       <th scope="row"><a href="{{ ('/test-cases.html#' + item.fileSlug) | url }}">{{ item.data.title }}</a>{% if item.data.origin == 'ail-2026' %} <span class="site-muted">(AIL)</span>{% endif %}</th>
       {%- for c in cols %}
       {%- set v = r[c.key] if r else null %}

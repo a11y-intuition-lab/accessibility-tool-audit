@@ -116,3 +116,11 @@ Append-only, newest last.
   `no-autoplay-audio` and the HTML_CodeSniffer `1_4_2.F23` notice. A partial check (not a publishable run) gave axe-core
   "incomplete" (user to check) and the F23 notice (identified). It enters the published results with the next full run.
 - 8 candidates remain deferred.
+
+## 2026-10-10 — Origin filter on the test cases and results pages
+
+- The WCAG filter gets a "Test cases" field (all / original GOV.UK 2017 / added by AIL 2026) and a preset button
+  "Original 2017 test cases". Reason: the 2017 columns cover only the 142 GOV.UK test cases, while the 2026 columns also
+  cover the AIL test cases, which mostly target criteria the tools do not check. Under the default EU filter that made
+  2026 look worse (axe 41% → 32%, HTML_CodeSniffer 24% → 15%); on the same 70 GOV.UK test cases both are unchanged
+  (41% and 24%).

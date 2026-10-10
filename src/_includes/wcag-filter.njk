@@ -4,6 +4,14 @@
     <legend>Filter by WCAG</legend>
     <div class="site-filter-fields">
       <p>
+        <label for="wcag-origin">Test cases</label>
+        <select id="wcag-origin" name="origin">
+          <option value="all">All</option>
+          <option value="govuk-2017">Original (GOV.UK 2017)</option>
+          <option value="ail-2026">Added by AIL (2026)</option>
+        </select>
+      </p>
+      <p>
         <label for="wcag-version">Version</label>
         <select id="wcag-version" name="wcag">
           {%- for v in wcag.versions %}<option value="{{ v }}">WCAG {{ v }}</option>{% endfor %}
@@ -29,9 +37,10 @@
     </div>
     <p class="site-filter-buttons">
       <button type="button" data-filter-preset="eu">{{ wcag.eu.label }}</button>
+      <button type="button" data-filter-preset="original">Original 2017 test cases</button>
       <button type="button" data-filter-preset="all">Show all test cases</button>
     </p>
   </fieldset>
   <p class="site-filter-status" role="status" aria-live="polite"></p>
-  <p class="site-muted">A test case is shown if it is mapped to at least one success criterion in the selected version and level. Levels are cumulative, as in WCAG conformance. The mapping is AI-drafted; see the <a href="{{ '/methodology.html' | url }}#wcag">methodology</a>. "Show all" also includes test cases that map to no criterion.</p>
+  <p class="site-muted">A test case is shown if it is mapped to at least one success criterion in the selected version and level. Levels are cumulative, as in WCAG conformance. The mapping is AI-drafted; see the <a href="{{ '/methodology.html' | url }}#wcag">methodology</a>. "Original 2017 test cases" shows the 142 GOV.UK test cases at any version and level, so the 2017 and 2026 columns compare the same test cases. "Show all" also includes test cases that map to no criterion.</p>
 </form>

@@ -24,7 +24,7 @@ fixtures: true
   <h2 id="{{ group.name | replace(' ', '') | lower }}">{{ group.name }}</h2>
   {%- for item in group.items %}
   {%- set map = wcag.byTest[item.fileSlug] or [] %}
-  <article class="site-case" data-wcag-item data-wcag="{{ map | dump | escape }}">
+  <article class="site-case" data-wcag-item data-origin="{{ item.data.origin }}" data-wcag="{{ map | dump | escape }}">
   <h3 id="{{ item.fileSlug }}"><a href="{{ ('/tests/' + item.fileSlug + '.html') | url }}">{{ item.data.title }}</a></h3>
   <p class="site-origin">Origin: {{ site.origins[item.data.origin] }}
     {%- if item.data.corrects %}. Corrected version of <a href="#{{ item.data.corrects }}">a GOV.UK test case</a>{% endif %}</p>
