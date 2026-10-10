@@ -21,9 +21,15 @@ permalink: results.html
 <h2>Numbers</h2>
 <ul class="site-stats">
   <li><span class="site-stat-value" data-stat-count>{{ collections.testCases.length }}</span> <span class="site-stat-label">test cases</span></li>
-  {%- for c in cols %}
-  {%- set rate = collections.testCases | detectionRate(results.byTest, c.key) %}
-  <li><span class="site-stat-value" data-stat-col="{{ c.key }}">{{ (rate + '%') if rate !== null else '–' }}</span> <span class="site-stat-label">found or warned by {{ c.label }} ({{ c.who }} {{ c.when }})</span></li>
+  {%- for e in results.engines %}
+  <li><span class="site-stat-label site-stat-engine">{{ e.name }}: found or warned</span>
+    <span class="site-stat-pair">
+    {%- for c in cols %}{% if c.engine == e.name %}
+    {%- set rate = collections.testCases | detectionRate(results.byTest, c.key) %}
+      <span class="site-stat-era site-era-{{ c.era }}"><span class="site-stat-value" data-stat-col="{{ c.key }}">{{ (rate + '%') if rate !== null else '–' }}</span> <span class="site-era-label">{{ 'Then' if c.era == 'then' else 'Now' }}: {{ c.when }}, {{ c.who }}</span><span class="site-muted">{{ c.label }}{{ (' ' + c.version) if c.version }}</span></span>
+    {%- endif %}{% endfor %}
+    </span>
+  </li>
   {%- endfor %}
 </ul>
 <p class="site-muted">Numbers follow the WCAG filter. Percentages count "issue found", "issue found (paid)" and "warning only" among the test cases the tool was run on. The 2017 columns cover only the GOV.UK test cases; the 2026 columns also cover the test cases added by AIL, which target criteria the tools rarely check. To compare like with like, choose "Original 2017 test cases".</p>
@@ -56,11 +62,20 @@ permalink: results.html
 <div class="site-table-wrap" role="region" aria-labelledby="results-caption" tabindex="0">
 <table class="site-results-table">
   <caption id="results-caption">Table of results</caption>
+  <colgroup><col></colgroup>
+  {%- for e in results.engines %}
+  <colgroup span="2"></colgroup>
+  {%- endfor %}
   <thead>
     <tr>
-      <th scope="col">Test case</th>
+      <th scope="col" rowspan="2">Test case</th>
+      {%- for e in results.engines %}
+      <th scope="colgroup" colspan="2" class="site-engine-start">{{ e.name }}</th>
+      {%- endfor %}
+    </tr>
+    <tr>
       {%- for c in cols %}
-      <th scope="col">{{ c.label }}<br><span class="site-muted">{{ c.who }} {{ c.when }}</span></th>
+      <th scope="col" class="site-era-{{ c.era }}{{ ' site-engine-start' if c.era == 'then' }}"><span class="site-era-label">{{ 'Then' if c.era == 'then' else 'Now' }}: {{ c.when }}</span><br>{{ c.who }}<br><span class="site-muted">{{ c.label }}{{ (' ' + c.version) if c.version }}</span></th>
       {%- endfor %}
     </tr>
   </thead>
@@ -74,9 +89,9 @@ permalink: results.html
       {%- for c in cols %}
       {%- set v = r[c.key] if r else null %}
       {%- if v %}
-      <td class="site-result-cell site-result-{{ v }}" data-col="{{ c.key }}" data-value="{{ v }}">{{ results.values[v] | capitalize }}</td>
+      <td class="site-result-cell site-result-{{ v }}{{ ' site-engine-start' if c.era == 'then' }}" data-col="{{ c.key }}" data-value="{{ v }}">{{ results.values[v] | capitalize }}</td>
       {%- else %}
-      <td class="site-result-cell"><span class="site-muted">Not tested</span></td>
+      <td class="site-result-cell{{ ' site-engine-start' if c.era == 'then' }}"><span class="site-muted">Not tested</span></td>
       {%- endif %}
       {%- endfor %}
     </tr>

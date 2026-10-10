@@ -178,12 +178,23 @@ main > ul, main > ol { margin: 0 0 var(--ail-space-4); padding-left: var(--ail-s
    where the table does not fit; there the headers stay in place. */
 @media (min-width: 48rem) {
   .site-table-wrap:has(.site-results-table) { overflow-x: visible; }
-  .site-results-table thead th {
-    position: sticky; top: 0; z-index: 1;
-    background: var(--ail-color-bg);
-    box-shadow: inset 0 calc(-1 * var(--ail-border-width)) 0 var(--ail-color-border-strong);
-  }
+  .site-results-table thead { position: sticky; top: 0; z-index: 1; }
+  .site-results-table thead th { background: var(--ail-color-bg); }
+  .site-results-table thead tr:last-child th { box-shadow: inset 0 calc(-1 * var(--ail-border-width)) 0 var(--ail-color-border-strong); }
 }
+/* Then (GOV.UK 2017) vs now (AIL 2026): engine groups are separated by a rule; "now" headers carry the accent colour. */
+.site-results-table .site-engine-start { border-left: 3px solid var(--ail-color-border-strong); }
+.site-results-table thead tr:first-child th { border-bottom: 0; }
+.site-results-table thead tr:last-child th, .site-results-table .site-result-cell { width: 9rem; }
+.site-results-table thead th[scope="colgroup"] { text-align: center; font-family: var(--ail-font-heading); }
+.site-era-label { font-weight: var(--ail-weight-bold); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.85em; }
+.site-era-then .site-era-label { color: var(--ail-color-muted); }
+.site-era-now .site-era-label { color: var(--ail-color-accent); }
+.site-stat-engine { font-family: var(--ail-font-heading); font-weight: var(--ail-weight-bold); margin-bottom: var(--ail-space-2); }
+.site-stat-pair { display: flex; gap: var(--ail-space-4); flex-wrap: wrap; }
+.site-stat-era { display: flex; flex-direction: column; flex: 1 1 8rem; padding-top: var(--ail-space-2); }
+.site-stat-era.site-era-now { border-top: 4px solid var(--ail-color-accent); }
+.site-stat-era.site-era-then { border-top: 4px dashed var(--ail-color-border-strong); }
 
 /* WCAG filter */
 .site-filter { border: var(--ail-border-width) solid var(--ail-color-border); border-radius: var(--ail-radius-md); background: var(--ail-color-panel); padding: var(--ail-space-4); margin-block: var(--ail-space-6); }

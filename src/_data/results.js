@@ -46,11 +46,16 @@ if (latest) {
 export default {
   values: govuk.meta.values,
   // Columns in display order; each AIL column sits next to its historical counterpart.
+  // `era` is 'then' (GOV.UK 2017) or 'now' (AIL 2026 retest); `engine` groups the two columns of one rule engine.
   columns: [
-    { key: 'govuk:axe', label: 'aXe', who: 'GOV.UK', when: '2017' },
-    { key: 'ail:axe', label: 'axe-core', who: 'AIL', when: '2026' },
-    { key: 'govuk:codesniffer', label: 'HTML_CodeSniffer', who: 'GOV.UK', when: '2017' },
-    { key: 'ail:pa11y', label: 'pa11y (HTML_CodeSniffer)', who: 'AIL', when: '2026' },
+    { key: 'govuk:axe', label: 'aXe', who: 'GOV.UK', when: '2017', era: 'then', engine: 'axe' },
+    { key: 'ail:axe', label: 'axe-core', who: 'AIL', when: '2026', era: 'now', engine: 'axe', version: latest?.tools['axe-core'] },
+    { key: 'govuk:codesniffer', label: 'HTML_CodeSniffer', who: 'GOV.UK', when: '2017', era: 'then', engine: 'HTML_CodeSniffer' },
+    { key: 'ail:pa11y', label: 'pa11y (HTML_CodeSniffer)', who: 'AIL', when: '2026', era: 'now', engine: 'HTML_CodeSniffer', version: latest?.tools.html_codesniffer },
+  ],
+  engines: [
+    { name: 'axe', note: 'Deque axe rules' },
+    { name: 'HTML_CodeSniffer', note: 'Squiz rules; run through pa11y in 2026' },
   ],
   byTest,
   govukMeta: govuk.meta,
