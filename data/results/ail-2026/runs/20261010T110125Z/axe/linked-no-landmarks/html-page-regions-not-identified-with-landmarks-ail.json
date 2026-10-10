@@ -1,0 +1,306 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "html-page-regions-not-identified-with-landmarks-ail",
+  "origin": "ail-2026",
+  "url": "http://127.0.0.1:38547/accessibility-tool-audit/example-pages/ail/no-landmarks.html",
+  "startedAt": "2026-10-10T11:05:19.257Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T11:05:19.786Z",
+    "violations": [
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the document has a main landmark",
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "html": "<html lang=\"en\">",
+            "impact": "moderate",
+            "failureSummary": "Fix all of the following:\n  Document does not have a main landmark",
+            "checks": {
+              "any": [],
+              "all": [
+                "page-has-main"
+              ],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "html": "<html lang=\"en\">",
+            "impact": "moderate",
+            "failureSummary": "Fix all of the following:\n  Page must have a level-one heading",
+            "checks": {
+              "any": [],
+              "all": [
+                "page-has-heading-one"
+              ],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              ".header"
+            ],
+            "html": "<div class=\"header\">\n<p>Example Council</p>\n</div>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              ".nav"
+            ],
+            "html": "<div class=\"nav\">",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              ".content"
+            ],
+            "html": "<div class=\"content\">\n<p>General waste is collected every two weeks. Recycling is collected on the other weeks.</p>\n<p>Put your bins out by 7am on your collection day and take them back in the same day.</p>\n<p>Collections may be a day later in the week after a bank holiday.</p>\n</div>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              ".footer"
+            ],
+            "html": "<div class=\"footer\">\n<p>Example Council is a fictional council used in accessibility test pages.</p>\n</div>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "bypass",
+        "impact": "serious",
+        "tags": [
+          "cat.keyboard",
+          "wcag2a",
+          "wcag241",
+          "section508",
+          "section508.22.o",
+          "TTv5",
+          "TT9.a",
+          "EN-301-549",
+          "EN-9.2.4.1",
+          "RGAAv4",
+          "RGAA-12.7.1"
+        ],
+        "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+        "help": "Page must have means to bypass repeated blocks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/bypass?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "html": "<html lang=\"en\">",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  No valid skip link found\n  Page does not have a heading\n  Page does not have a landmark region",
+            "checks": {
+              "any": [
+                "internal-link-present",
+                "header-present",
+                "landmark"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "passesCount": 14,
+    "passesRuleIds": [
+      "aria-hidden-body",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "identical-links-same-purpose",
+      "link-name",
+      "meta-viewport",
+      "meta-viewport-large",
+      "p-as-heading",
+      "region"
+    ],
+    "inapplicableCount": 88,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-roles",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "autocomplete-valid",
+      "avoid-inline-spacing",
+      "blink",
+      "button-name",
+      "definition-list",
+      "dlitem",
+      "duplicate-id",
+      "duplicate-id-active",
+      "duplicate-id-aria",
+      "empty-heading",
+      "empty-table-header",
+      "focus-order-semantics",
+      "form-field-multiple-labels",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "heading-order",
+      "html-xml-lang-mismatch",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label",
+      "label-content-name-mismatch",
+      "label-title-only",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "landmark-no-duplicate-main",
+      "landmark-unique",
+      "link-in-text-block",
+      "list",
+      "listitem",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "tabindex",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "target-size",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [],
+  "localNon200": [],
+  "durationMs": 572,
+  "linkedPage": "example-pages/ail/no-landmarks.html"
+}

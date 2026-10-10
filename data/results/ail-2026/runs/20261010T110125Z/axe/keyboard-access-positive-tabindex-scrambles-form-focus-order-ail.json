@@ -1,0 +1,239 @@
+{
+  "tool": "axe-core",
+  "version": "4.13.0",
+  "slug": "keyboard-access-positive-tabindex-scrambles-form-focus-order-ail",
+  "origin": "ail-2026",
+  "url": "http://127.0.0.1:38547/accessibility-tool-audit/tests/keyboard-access-positive-tabindex-scrambles-form-focus-order-ail.html",
+  "startedAt": "2026-10-10T11:06:45.831Z",
+  "error": null,
+  "httpStatus": 200,
+  "axe": {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.13.0"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "timestamp": "2026-10-10T11:06:46.460Z",
+    "violations": [
+      {
+        "id": "region",
+        "impact": "moderate",
+        "tags": [
+          "cat.keyboard",
+          "best-practice",
+          "RGAAv4",
+          "RGAA-9.2.1"
+        ],
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "h1"
+            ],
+            "html": "<h1>Positive tabindex scrambles form focus order</h1>",
+            "impact": "moderate",
+            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+            "checks": {
+              "any": [
+                "region"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "tabindex",
+        "impact": "serious",
+        "tags": [
+          "cat.keyboard",
+          "best-practice"
+        ],
+        "description": "Ensure tabindex attribute values are not greater than 0",
+        "help": "Elements should not have tabindex greater than zero",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/tabindex?application=axeAPI",
+        "nodes": [
+          {
+            "target": [
+              "#ail-tabindex-name"
+            ],
+            "html": "<input id=\"ail-tabindex-name\" name=\"name\" type=\"text\" autocomplete=\"name\" tabindex=\"4\">",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0",
+            "checks": {
+              "any": [
+                "tabindex"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "#ail-tabindex-address"
+            ],
+            "html": "<input id=\"ail-tabindex-address\" name=\"address-line-1\" type=\"text\" autocomplete=\"address-line1\" tabindex=\"2\">",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0",
+            "checks": {
+              "any": [
+                "tabindex"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "#ail-tabindex-town"
+            ],
+            "html": "<input id=\"ail-tabindex-town\" name=\"town\" type=\"text\" autocomplete=\"address-level2\" tabindex=\"3\">",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0",
+            "checks": {
+              "any": [
+                "tabindex"
+              ],
+              "all": [],
+              "none": []
+            }
+          },
+          {
+            "target": [
+              "#ail-tabindex-postcode"
+            ],
+            "html": "<input id=\"ail-tabindex-postcode\" name=\"postcode\" type=\"text\" autocomplete=\"postal-code\" tabindex=\"1\">",
+            "impact": "serious",
+            "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0",
+            "checks": {
+              "any": [
+                "tabindex"
+              ],
+              "all": [],
+              "none": []
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete": [],
+    "passesCount": 23,
+    "passesRuleIds": [
+      "aria-hidden-body",
+      "autocomplete-valid",
+      "color-contrast",
+      "color-contrast-enhanced",
+      "css-orientation-lock",
+      "document-title",
+      "duplicate-id-aria",
+      "empty-heading",
+      "form-field-multiple-labels",
+      "heading-order",
+      "hidden-content",
+      "html-has-lang",
+      "html-lang-valid",
+      "label",
+      "label-title-only",
+      "landmark-main-is-top-level",
+      "landmark-no-duplicate-main",
+      "landmark-one-main",
+      "landmark-unique",
+      "p-as-heading",
+      "page-has-heading-one",
+      "region",
+      "target-size"
+    ],
+    "inapplicableCount": 81,
+    "inapplicableRuleIds": [
+      "accesskeys",
+      "area-alt",
+      "aria-allowed-attr",
+      "aria-allowed-role",
+      "aria-braille-equivalent",
+      "aria-command-name",
+      "aria-conditional-attr",
+      "aria-deprecated-role",
+      "aria-dialog-name",
+      "aria-hidden-focus",
+      "aria-input-field-name",
+      "aria-meter-name",
+      "aria-progressbar-name",
+      "aria-prohibited-attr",
+      "aria-required-attr",
+      "aria-required-children",
+      "aria-required-parent",
+      "aria-roledescription",
+      "aria-roles",
+      "aria-tab-name",
+      "aria-text",
+      "aria-toggle-field-name",
+      "aria-tooltip-name",
+      "aria-treeitem-name",
+      "aria-valid-attr",
+      "aria-valid-attr-value",
+      "audio-caption",
+      "avoid-inline-spacing",
+      "blink",
+      "button-name",
+      "bypass",
+      "definition-list",
+      "dlitem",
+      "duplicate-id",
+      "duplicate-id-active",
+      "empty-table-header",
+      "focus-order-semantics",
+      "frame-focusable-content",
+      "frame-tested",
+      "frame-title",
+      "frame-title-unique",
+      "html-xml-lang-mismatch",
+      "identical-links-same-purpose",
+      "image-alt",
+      "image-redundant-alt",
+      "input-button-name",
+      "input-image-alt",
+      "label-content-name-mismatch",
+      "landmark-banner-is-top-level",
+      "landmark-complementary-is-top-level",
+      "landmark-contentinfo-is-top-level",
+      "landmark-no-duplicate-banner",
+      "landmark-no-duplicate-contentinfo",
+      "link-in-text-block",
+      "link-name",
+      "list",
+      "listitem",
+      "marquee",
+      "meta-refresh",
+      "meta-refresh-no-exceptions",
+      "meta-viewport",
+      "meta-viewport-large",
+      "nested-interactive",
+      "no-autoplay-audio",
+      "object-alt",
+      "presentation-role-conflict",
+      "role-img-alt",
+      "scope-attr-valid",
+      "scrollable-region-focusable",
+      "select-name",
+      "server-side-image-map",
+      "skip-link",
+      "summary-name",
+      "svg-img-alt",
+      "table-duplicate-name",
+      "table-fake-caption",
+      "td-has-header",
+      "td-headers-attr",
+      "th-has-data-cells",
+      "valid-lang",
+      "video-caption"
+    ]
+  },
+  "failedRequests": [],
+  "localNon200": [],
+  "durationMs": 683
+}

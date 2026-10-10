@@ -140,3 +140,10 @@ Append-only, newest last.
   from `WCAG2AAA` (1.3.1_A, 1.4.3, 1.4.4, 1.4.5, 2.3.1, 2.4.4, 3.3.4) appear to be replaced by their AAA counterparts.
   GOV.UK also ran HTML_CodeSniffer with WCAG2AAA in 2017 (upstream `tools-info.md`), so the retest keeps WCAG2AAA for
   comparability. A supplementary `WCAG2AA` pass is possible but not decided.
+
+## 2026-10-10 — Retest run 20261010T110125Z
+
+- Full run from a clean commit, 221 test pages (the 218 earlier ones plus the three media cases), classified with
+  `scripts/classify.mjs`. The 218 earlier test cases give the same result as run `20261010T085044Z` for both tools.
+- The three media cases: autoplay audio — axe-core "user to check" (`no-autoplay-audio` incomplete), HTML_CodeSniffer
+  identified (F23 notice); the two video cases — axe-core not found, HTML_CodeSniffer identified (generic media notices).

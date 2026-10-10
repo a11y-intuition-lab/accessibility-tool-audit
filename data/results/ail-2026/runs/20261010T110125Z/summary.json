@@ -1,0 +1,4001 @@
+{
+  "runId": "20261010T110125Z",
+  "pages": {
+    "authentication-login-requires-transcribing-a-code-without-paste-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 24,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 58
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "authentication-object-recognition-captcha-as-only-option-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 27,
+        "inapplicable": 78
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 61
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "authentication-paste-blocked-in-password-field-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 25,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 50
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "buttons-empty-alt-attribute-on-image-button": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 18,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 2,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "buttons-empty-button": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 18,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "buttons-image-button-has-no-alt-attribute": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 18,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 2,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "buttons-uninformative-alt-attribute-value-on-image-button": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-colour-alone-is-used-to-convey-content": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 18,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-focus-indicator-has-insufficient-contrast-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-focus-not-visible": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-form-field-border-has-insufficient-contrast-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 49
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-informative-icon-has-insufficient-contrast-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 29,
+        "inapplicable": 76
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-large-text-below-31-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-large-text-below-451-aaa-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-31-so-does-not-meet-aa": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-large-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aaa": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-small-text-below-71-aaa-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-45-1-so-does-not-meet-aa": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-small-text-does-not-have-a-contrast-ratio-of-at-least-71-so-does-not-meet-aaa": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "colour-and-contrast-text-over-background-image-with-insufficient-contrast-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-ambiguous-word-without-pronunciation-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-content-identified-by-location": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-content-is-not-in-correct-reading-order-in-source-code": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-content-is-not-organised-into-well-defined-groups-or-chunks-using-headings,-lists,-and-other-visual-mechanisms": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/unorganised_content.html",
+        "axe": {
+          "violations": 2,
+          "incomplete": 1,
+          "passes": 11,
+          "inapplicable": 91
+        },
+        "pa11y": {
+          "errors": 0,
+          "warnings": 0,
+          "notices": 39
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "content-first-instance-of-abbreviation-not-expanded": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-graphical-symbol-alone-conveys-meaning-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-instructions-rely-on-shape-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 25,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-jargon-used-without-definition-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-plain-language-is-not-used": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-spaces-used-to-spread-out-letters-of-a-word-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "content-table-formatted-with-spaces-in-preformatted-text-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-content-is-not-readable-and-functional-when-text-is-increased": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-displaynone-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-form-controls-do-not-resize-with-text-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-inline-text-spacing-set-with-important-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-non-decorative-content-inserted-using-css": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-page-zoom-boxes-that-dont-expand-with-the-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 4,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-text-clipped-when-text-spacing-is-increased-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-text-sized-only-in-viewport-units-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "css-visibilityhidden-used-to-visually-hide-content-when-it-should-be-available-to-screenreader": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-custom-checkbox-without-checked-state-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 31,
+        "inapplicable": 73
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-data-submission-without-confirmation-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 25,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 51
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/ail/message-sent.html",
+        "axe": {
+          "violations": 0,
+          "incomplete": 0,
+          "passes": 23,
+          "inapplicable": 82
+        },
+        "pa11y": {
+          "errors": 0,
+          "warnings": 0,
+          "notices": 39
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "forms-empty-label-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-empty-legend": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 2,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-error-messages-no-suggestion-for-corrections-given-e.g.-required-format": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-errors-are-not-identified": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 24,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 54
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-errors-identified-by-colour-only": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 24,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 54
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-errors-identified-with-a-poor-colour-contrast": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 24,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 2,
+        "warnings": 0,
+        "notices": 54
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-field-hint-not-associated-with-input": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-fieldset-without-a-legend": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 3,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-financial-submission-without-review-or-undo-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 25,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 57
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/ail/payment-sent.html",
+        "axe": {
+          "violations": 0,
+          "incomplete": 0,
+          "passes": 23,
+          "inapplicable": 82
+        },
+        "pa11y": {
+          "errors": 0,
+          "warnings": 0,
+          "notices": 39
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "forms-focus-on-field-opens-new-window-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 26,
+        "inapplicable": 79
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-form-control-that-changes-context-without-warning": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 2,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-form-element-has-no-label": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 3,
+        "warnings": 0,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-form-submits-automatically-when-last-field-is-filled-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 25,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-group-of-check-boxes-not-enclosed-in-a-fieldset": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 2,
+        "warnings": 1,
+        "notices": 51
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-group-of-radio-buttons-not-enclosed-in-a-fieldset": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 2,
+        "warnings": 1,
+        "notices": 49
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-invalid-autocomplete-value-on-personal-data-field-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 1,
+        "notices": 49
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-label-element-with-for-attribute-but-not-matching-id=-attribute-of-form-control": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 3,
+        "warnings": 0,
+        "notices": 47
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-labels-do-not-describe-the-field-purpose-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-labels-missing-when-they-would-look-clumsy-for-some-form-controls": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 5,
+        "warnings": 0,
+        "notices": 54
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-left-aligned-form-labels-with-too-much-white-space": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-missing-autocomplete-on-personal-data-fields-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 54
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-missing-labels-in-checkboxes": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 7,
+        "warnings": 0,
+        "notices": 51
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-no-context-sensitive-help-for-complex-field-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 24,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 49
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-non-unique-field-label-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 51
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-placeholder-no-label": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 50
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-previously-entered-information-requested-again-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 25,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 52
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/ail/billing-address.html",
+        "axe": {
+          "violations": 0,
+          "incomplete": 0,
+          "passes": 31,
+          "inapplicable": 74
+        },
+        "pa11y": {
+          "errors": 0,
+          "warnings": 0,
+          "notices": 52
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "forms-selecting-a-radio-button-opens-a-new-window-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-status-message-not-announced-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "forms-two-unique-labels-but-identical-for=-attributes": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 54
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "frames-iframe-is-missing-a-title-attribute": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "frames-iframe-title-attribute-does-not-describe-the-content-or-purpose-of-the-iframe": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 18,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "headings-empty-heading": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 3,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 2,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "headings-headings-do-not-describe-their-section-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "headings-headings-not-structured-in-a-hierarchical-manner": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 2,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "headings-long-document-without-section-headings-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "headings-missing-h1": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/missing.html",
+        "axe": {
+          "violations": 5,
+          "incomplete": 1,
+          "passes": 8,
+          "inapplicable": 92
+        },
+        "pa11y": {
+          "errors": 4,
+          "warnings": 0,
+          "notices": 38
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "headings-text-formatting-used-instead-of-an-actual-heading": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-aria-list-role-without-listitem-children-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-article-element-used-to-mark-up-an-element-thats-not-an-article-blog-post-etc.": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 31,
+        "inapplicable": 73
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-deprecated-center-element": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-deprecated-font-element": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-duplicate-id": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-empty-paragraph": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-focusable-element-inside-aria-hidden-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-inline-style-adds-colour": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-invalid-aria-role-names": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 1,
+        "passes": 24,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 2,
+        "notices": 43
+      },
+      "failedRequests": 1,
+      "localNon200": 0
+    },
+    "html-object-not-embedded-accessibly-wmode-parameter-not-set-to-window": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 51
+      },
+      "failedRequests": 1,
+      "localNon200": 1
+    },
+    "html-page-regions-not-identified-with-landmarks-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/ail/no-landmarks.html",
+        "axe": {
+          "violations": 3,
+          "incomplete": 1,
+          "passes": 14,
+          "inapplicable": 88
+        },
+        "pa11y": {
+          "errors": 0,
+          "warnings": 1,
+          "notices": 45
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "html-pre-element-without-code-element-inside-it": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-spacer-image-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "html-start-and-close-tags-dont-match": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-a-distraction-is-present-an-animated-gif": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-background-image-that-conveys-information-does-not-have-a-text-alternative": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-decorative-image-with-non-empty-alt-text-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-icon-font-conveys-meaning-without-text-alternative-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 18,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-alt-attribute-contains-image-file-name": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-has-alt-and-title-that-are-different": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-has-empty-alt-and-non-empty-title": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-of-text-used-for-a-heading-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-that-conveys-information-has-an-empty-alt-attribute": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-that-conveys-information-has-inappropriate-alt-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-with-no-alt-attribute": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 18,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-with-partial-text-alternative": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-image-with-presentation-role-has-non-empty-alt": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "images-svg-image-without-accessible-name-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-accesskey-attribute-used": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-alert-shows-for-a-short-time": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 19,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-concertina-items-dont-get-keyboard-focus": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 18,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-disclosure-button-without-expanded-state-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-drawing-canvas-with-no-keyboard-alternative-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 32,
+        "inapplicable": 73
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-dropdown-navigation-only-the-top-level-items-receive-focus": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 26,
+        "inapplicable": 79
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-fake-button-is-not-keyboard-accessible": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-focus-order-in-wrong-order": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-focus-removed-by-script-when-received-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-keyboard-focus-assigned-to-a-non-focusable-element-using-tabindex0": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-keyboard-focus-is-not-indicated-visually": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-keyboard-trap": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/keyboardtrap.html",
+        "axe": {
+          "violations": 3,
+          "incomplete": 1,
+          "passes": 16,
+          "inapplicable": 86
+        },
+        "pa11y": {
+          "errors": 0,
+          "warnings": 0,
+          "notices": 42
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "keyboard-access-lightbox-close-button-doesnt-receive-focus": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 2,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-lightbox-esc-key-doesnt-close-the-lightbox": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 2,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-lightbox-focus-is-not-moved-immediately-to-lightbox": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 2,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-lightbox-focus-is-not-retained-within-the-lightbox": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 2,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-link-with-a-rolebutton-does-not-work-with-space-bar": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 24,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-positive-tabindex-scrambles-form-focus-order-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 54
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-single-character-key-shortcut-cannot-be-turned-off-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-sticky-footer-hides-focused-element-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 50
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-sticky-header-partly-hides-focused-element-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 48
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-tabindex-greater-than-0": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-tooltip-cannot-be-dismissed-with-escape-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 25,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "keyboard-access-tooltips-dont-receive-keyboard-focus": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "language-of-content-html-element-has-an-empty-lang-attribute": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/empty.html",
+        "axe": {
+          "violations": 5,
+          "incomplete": 1,
+          "passes": 9,
+          "inapplicable": 92
+        },
+        "pa11y": {
+          "errors": 3,
+          "warnings": 0,
+          "notices": 38
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "language-of-content-html-element-has-an-invalid-value-in-the-lang-attribute": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/invalid.html",
+        "axe": {
+          "violations": 3,
+          "incomplete": 1,
+          "passes": 10,
+          "inapplicable": 92
+        },
+        "pa11y": {
+          "errors": 0,
+          "warnings": 0,
+          "notices": 39
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "language-of-content-html-element-has-lang-attribute-set-to-wrong-language": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/inappropriate.html",
+        "axe": {
+          "violations": 3,
+          "incomplete": 1,
+          "passes": 10,
+          "inapplicable": 92
+        },
+        "pa11y": {
+          "errors": 2,
+          "warnings": 0,
+          "notices": 39
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "language-of-content-html-element-is-missing-a-lang-attribute": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/missing.html",
+        "axe": {
+          "violations": 5,
+          "incomplete": 1,
+          "passes": 8,
+          "inapplicable": 92
+        },
+        "pa11y": {
+          "errors": 4,
+          "warnings": 0,
+          "notices": 38
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "language-of-content-lang-attribute-not-used-to-identify-change-of-language": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-invalid-value": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "language-of-content-lang-attribute-used-to-identify-change-of-language-but-with-wrong-language": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "language-of-content-text-language-changed-without-required-change-in-direction": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "language-of-content-text-language-is-in-the-wrong-direction": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 17,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-adjacent-links-going-to-the-same-destination": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 45
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-blank-link-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 18,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-identifying-links-by-colour-alone": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-image-link-alt-text-repeats-text-in-the-link": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-image-link-with-no-alternative-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-contains-only-a-full-stop": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 19,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-context-only-in-unrelated-content-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-launches-new-window-with-no-warning": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-not-clearly-identifiable-and-distinguishable-from-surrounding-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-text-does-not-make-sense-out-of-context": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-text-with-identical-title": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-to-,-invalid-hypertext-reference": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-to-a-multimedia-file-no-transcript": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-to-an-image-no-text-alternative": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-to-javascript-invalid-hypertext-reference": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-link-to-pdf-does-not-include-information-on-file-format-and-file-size": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-links-not-separated-by-printable-characters": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-links-to-a-sound-file-no-transcript": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-links-with-the-same-text-go-to-different-pages": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 19,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-non-specific-link-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "links-uninformative-link-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "lists-dt-or-dd-elements-that-are-not-contained-within-a-dl-element": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "lists-improperly-nested-lists": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 18,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "lists-li-element-with-no-parent": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "lists-list-not-marked-up-as-a-list": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "multimedia-audio-plays-automatically-with-no-way-to-stop-it-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 3,
+        "passes": 16,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "multimedia-embedded-audio-file-is-missing-text-alternative": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 1,
+      "localNon200": 0
+    },
+    "multimedia-embedded-video-file-is-missing-text-alternative": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 47
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "multimedia-flashing-content-doesnt-have-warning": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 18,
+        "inapplicable": 86
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 1,
+      "localNon200": 0
+    },
+    "multimedia-locally-flashing-animation-above-the-general-flash-threshold-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "multimedia-prerecorded-video-without-audio-description-or-media-alternative-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 47
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "multimedia-video-only-content-without-alternative-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 47
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "navigation-help-link-in-inconsistent-place-across-pages-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": [
+        {
+          "page": "example-pages/ail/help-1.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 34,
+            "inapplicable": 71
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 43
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        },
+        {
+          "page": "example-pages/ail/help-2.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 33,
+            "inapplicable": 72
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 43
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        }
+      ]
+    },
+    "navigation-inadequately-sized-clickable-targets-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 19,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 66
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "navigation-navigation-order-differs-between-pages-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": [
+        {
+          "page": "example-pages/ail/nav-order-1.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 33,
+            "inapplicable": 72
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 45
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        },
+        {
+          "page": "example-pages/ail/nav-order-2.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 33,
+            "inapplicable": 72
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 45
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        },
+        {
+          "page": "example-pages/ail/nav-order-3.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 33,
+            "inapplicable": 72
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 45
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        }
+      ]
+    },
+    "navigation-no-indication-of-location-within-a-set-of-pages-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": [
+        {
+          "page": "example-pages/ail/location-1.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 34,
+            "inapplicable": 71
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 45
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        },
+        {
+          "page": "example-pages/ail/location-2.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 33,
+            "inapplicable": 72
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 45
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        },
+        {
+          "page": "example-pages/ail/location-3.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 33,
+            "inapplicable": 72
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 45
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        }
+      ]
+    },
+    "navigation-only-one-way-to-find-pages-in-a-set-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": [
+        {
+          "page": "example-pages/ail/ways-1.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 27,
+            "inapplicable": 78
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 41
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        },
+        {
+          "page": "example-pages/ail/ways-2.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 27,
+            "inapplicable": 78
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 42
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        },
+        {
+          "page": "example-pages/ail/ways-3.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 27,
+            "inapplicable": 78
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 41
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        }
+      ]
+    },
+    "navigation-repeated-navigation-block-cannot-be-bypassed-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 80
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "navigation-same-function-labelled-differently-on-different-pages-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": [
+        {
+          "page": "example-pages/ail/search-1.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 43,
+            "inapplicable": 62
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 52
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        },
+        {
+          "page": "example-pages/ail/search-2.html",
+          "axe": {
+            "violations": 0,
+            "incomplete": 0,
+            "passes": 43,
+            "inapplicable": 62
+          },
+          "pa11y": {
+            "errors": 0,
+            "warnings": 0,
+            "notices": 52
+          },
+          "failedRequests": 0,
+          "localNon200": 0
+        }
+      ]
+    },
+    "page-layout-content-locked-to-portrait-orientation-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 1,
+        "passes": 15,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "page-layout-content-lost-when-reflowed-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "page-layout-message-asks-user-to-rotate-device-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "page-layout-wide-page-forces-users-to-scroll-horizontally": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 1,
+        "passes": 17,
+        "inapplicable": 87
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "page-title-empty-page-title": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/empty.html",
+        "axe": {
+          "violations": 5,
+          "incomplete": 1,
+          "passes": 9,
+          "inapplicable": 92
+        },
+        "pa11y": {
+          "errors": 3,
+          "warnings": 0,
+          "notices": 38
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "page-title-inappropriate-page-title": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/inappropriate.html",
+        "axe": {
+          "violations": 3,
+          "incomplete": 1,
+          "passes": 10,
+          "inapplicable": 92
+        },
+        "pa11y": {
+          "errors": 2,
+          "warnings": 0,
+          "notices": 39
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "page-title-missing-page-title": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 85
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0,
+      "linked": {
+        "page": "example-pages/missing.html",
+        "axe": {
+          "violations": 5,
+          "incomplete": 1,
+          "passes": 8,
+          "inapplicable": 92
+        },
+        "pa11y": {
+          "errors": 4,
+          "warnings": 0,
+          "notices": 38
+        },
+        "failedRequests": 0,
+        "localNon200": 0
+      }
+    },
+    "pointer-and-motion-action-triggered-on-pointer-down-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 31,
+        "inapplicable": 74
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "pointer-and-motion-drag-and-drop-without-single-pointer-alternative-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 33,
+        "inapplicable": 71
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "pointer-and-motion-path-gesture-required-without-single-pointer-alternative-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 2,
+        "passes": 28,
+        "inapplicable": 76
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "pointer-and-motion-shake-to-undo-without-alternative-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 32,
+        "inapplicable": 73
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "pointer-and-motion-touch-only-interaction-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 29,
+        "inapplicable": 76
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-data-table-with-role-presentation-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 24,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-headers-attribute-references-wrong-header-ids-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 22,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-layout-table-uses-th-and-caption-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 25,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 43
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-has-an-empty-table-header": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-has-no-scope-attributes": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-has-no-table-headings": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 20,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-is-missing-a-caption": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-nested-within-table": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 2,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-nested-within-table-header": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 2,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-rows-have-different-numbers-of-cells-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 21,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-that-only-has-th-elements-in-it": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 20,
+        "inapplicable": 84
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 1,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-used-for-layout": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 23,
+        "inapplicable": 81
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 44
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-with-column-headers-and-double-row-headers": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-with-inconsistent-numbers-of-columns-in-rows": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 82
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 42
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "tables-table-with-some-empty-cells": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 22,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "timing-animation-triggered-by-scrolling-ignores-reduced-motion-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 30,
+        "inapplicable": 75
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 40
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "timing-auto-rotating-carousel-without-pause-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "timing-content-updates-interrupt-the-user-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 29,
+        "inapplicable": 76
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 51
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "timing-page-refreshes-automatically-with-meta-refresh-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 24,
+        "inapplicable": 80
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "timing-session-timeout-loses-entered-data-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 27,
+        "inapplicable": 78
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 53
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "timing-timed-meta-redirect-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 21,
+        "inapplicable": 83
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 41
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-all-caps-text-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-blink-element-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 1,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-blinking-text-cannot-be-paused-ail": {
+      "origin": "ail-2026",
+      "axe": {
+        "violations": 1,
+        "incomplete": 1,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-inadequate-line-height-used": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-italics-used-on-long-sections-of-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-justified-text-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-long-lines-of-text": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-marquee-element-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 2,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 88
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    },
+    "typography-very-small-text-found": {
+      "origin": "govuk-2017",
+      "axe": {
+        "violations": 1,
+        "incomplete": 0,
+        "passes": 16,
+        "inapplicable": 89
+      },
+      "pa11y": {
+        "errors": 0,
+        "warnings": 0,
+        "notices": 39
+      },
+      "failedRequests": 0,
+      "localNon200": 0
+    }
+  },
+  "totals": {
+    "pages": 221,
+    "byOrigin": {
+      "ail-2026": 79,
+      "govuk-2017": 142
+    },
+    "axeLoadFailures": 0,
+    "pa11yLoadFailures": 0,
+    "axeViolations": 281,
+    "axeIncomplete": 41,
+    "pa11yErrors": 75,
+    "pa11yWarnings": 36,
+    "pa11yNotices": 9451,
+    "pagesWithFailedRequests": 4,
+    "pagesWithLocalNon200": 1,
+    "linkedPagesTested": 27,
+    "linkedPageLoadFailures": 0
+  }
+}
