@@ -113,7 +113,7 @@ State the audience you assumed in every finding. A finding with no stated audien
 
 ### 1.2.8 Media Alternative (Prerecorded) (AAA)
 
-Also checked in `time-media`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/media-alternative-prerecorded.html>
+Also checked in `media`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/media-alternative-prerecorded.html>
 
 ### 1.3.3 Sensory Characteristics (A)
 

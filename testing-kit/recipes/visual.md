@@ -137,11 +137,11 @@ Also checked in `code-and-tree` ([recipe](./code-and-tree.md)). In this pass, su
 
 ### 1.2.3 Audio Description or Media Alternative (Prerecorded) (A)
 
-Also checked in `time-media`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/audio-description-or-media-alternative-prerecorded.html>
+Also checked in `media`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/audio-description-or-media-alternative-prerecorded.html>
 
 ### 1.2.5 Audio Description (Prerecorded) (AA)
 
-Also checked in `time-media` ([recipe](./time-media.md)). In this pass, supply the collected data to that judgement; give an outcome here only for a clear failure. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/audio-description-prerecorded.html>
+Also checked in `media` ([recipe](./media.md)). In this pass, supply the collected data to that judgement; give an outcome here only for a clear failure. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/audio-description-prerecorded.html>
 
 ### 1.3.1 Info and Relationships (A)
 
@@ -165,15 +165,15 @@ Also checked in `zoom-reflow`. Understanding: <https://www.w3.org/WAI/WCAG22/Und
 
 ### 2.2.2 Pause, Stop, Hide (A)
 
-Also checked in `time-media`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html>
+Also checked in `time-motion`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html>
 
 ### 2.3.1 Three Flashes or Below Threshold (A)
 
-Also checked in `time-media`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html>
+Also checked in `time-motion`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html>
 
 ### 2.3.2 Three Flashes (AAA)
 
-Also checked in `time-media`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/three-flashes.html>
+Also checked in `time-motion`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/three-flashes.html>
 
 ### 2.4.7 Focus Visible (AA)
 

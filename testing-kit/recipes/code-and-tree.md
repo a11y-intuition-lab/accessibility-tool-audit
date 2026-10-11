@@ -191,7 +191,7 @@ Compare three views of each item: what it looks like (screenshot), what the mark
 
 ### 1.2.1 Audio-only and Video-only (Prerecorded) (A)
 
-Also checked in `time-media`. Here only record whether `audio`/`video` elements exist and whether a transcript link or text alternative is programmatically associated (adjacent link, `aria-describedby`, `figcaption`). Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded.html>
+Also checked in `media`. Here only record whether `audio`/`video` elements exist and whether a transcript link or text alternative is programmatically associated (adjacent link, `aria-describedby`, `figcaption`). Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded.html>
 
 ### 1.3.2 Meaningful Sequence (A)
 

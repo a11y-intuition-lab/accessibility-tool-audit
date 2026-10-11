@@ -182,3 +182,11 @@ Append-only, newest last.
   marked for review. Validated by `npm run wcag:methods`; pending entries in `npm run wcag:review`.
 - [Test-method grouping](analysis/test-method-grouping.md): reasoning, comparison and assessment.
 - Testing recipes per group in `testing-kit/`.
+
+## 2026-10-11 — Grouping revised after owner review (D-028)
+
+- Automated checks became a pre-step instead of a group; "time and media" split into "time and motion" and "media".
+- The 11 borderline triage entries were decided by the project owner (`review: "decided"` with notes); `otherTools`
+  added for an HTML validator (4.1.1) and a flash analyser (2.3.1, 2.3.2). Automation still counts only axe-core and
+  HTML_CodeSniffer.
+- No Nav "test pyramid" is cited; Nav's test protocols remain the reference.

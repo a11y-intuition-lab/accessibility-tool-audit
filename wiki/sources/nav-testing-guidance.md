@@ -46,13 +46,13 @@ Automation is treated as one tool inside the protocols (contrast and content che
 |---|---|
 | Tastaturnavigasjon | `keyboard` |
 | Kodesjekk og skjermlesertest | `code-and-tree` plus `screen-reader` (Nav merges them) |
-| Interaksjonsmønstre og justerbarhet | `zoom-reflow` (1.3.4, 1.4.4, 1.4.10, 1.4.12) plus `pointer-motion` (2.5.x, 2.1.4) plus 2.2.1 in `time-media` |
+| Interaksjonsmønstre og justerbarhet | `zoom-reflow` (1.3.4, 1.4.4, 1.4.10, 1.4.12) plus `pointer-motion` (2.5.x, 2.1.4) plus 2.2.1 in `time-motion` |
 | Innhold og fargebruk | `visual` (1.4.x contrast, colour, text images) plus `language-cognition` (2.4.x titles, headings) plus `multi-step-flow` (3.2.3, 3.2.4, 2.4.5, "in context of the site") |
 | Skjemaer | `multi-step-flow` / `language-cognition` (3.3.x) |
-| Multimedia | `time-media` |
+| Multimedia | `media` (and `time-motion` for 2.2.2, 2.3.1) |
 
 - Strong confirmation: grouping by method with a shared procedure, and conditional "test only if relevant" gating, matches our design.
-- We have, and Nav lacks: an explicit `automated` pass and a triage that tries tool, then AI, then human.
+- We have, and Nav lacks: an explicit automated pre-step and a triage that tries tool, then AI, then human.
 - Nav has, and we lack: the site-level view ("page in the context of the whole site") and the "not applicable" gating by content type; the Insight/Design phases and user testing with disabled people.
 - Nav splits 1.4.13 across keyboard and interaction protocols, so some SCs need more than one group; our assignment should allow a primary and secondary group.
 

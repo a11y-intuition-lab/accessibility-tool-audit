@@ -77,7 +77,7 @@ Also checked in `code-and-tree`. Here: confirm in the speech log that informativ
 
 ### 1.2.2 Captions (Prerecorded) (A)
 
-Also checked in `time-media`. Here: a screen-reader user must be able to switch captions on; check the player's caption control has a name and role. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html>
+Also checked in `media`. Here: a screen-reader user must be able to switch captions on; check the player's caption control has a name and role. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html>
 
 ### 1.3.1 Info and Relationships (A)
 

@@ -111,7 +111,7 @@ Also checked in `zoom-reflow`. Here: whether hover content can be reached with t
 
 ### 2.3.3 Animation from Interactions (AAA)
 
-Also checked in `time-media`. Here: motion animation triggered by interaction; repeat with `prefers-reduced-motion: reduce` emulated. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html>
+Also checked in `time-motion`. Here: motion animation triggered by interaction; repeat with `prefers-reduced-motion: reduce` emulated. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html>
 
 ### 2.5.3 Label in Name (A)
 

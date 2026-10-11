@@ -242,3 +242,24 @@ single run is reported as such, not as a stable result. Prompt, model and findin
 run (D-017).
 **Consequences:** Smaller models (such as Claude Sonnet or Haiku) may be used for groups where they are good enough;
 the choice per group is recorded with the run.
+
+## D-028 — Automated pre-step instead of an automated group; time and media split; borderline triage decided (2026-10-11)
+
+**Decision:** (1) Automated rule checks (axe-core, HTML_CodeSniffer) are an **automated pre-step** run on every page
+before the groups, and no longer a test-method group. Their output is passed to the groups as context. (2) The group
+"time and media" is split into **time and motion** (`time-motion`: 1.4.2, 2.2.1–2.2.4, 2.2.6, 2.3.1–2.3.3) and **media**
+(`media`: 1.2.1–1.2.9, 1.4.7). This gives a pre-step plus ten groups. (3) "Automation" in the triage counts only the
+tools tested in phase 1 (axe-core and HTML_CodeSniffer). Specialised tools that could do more, such as an HTML validator
+(4.1.1) or a flash analyser (2.3.1, 2.3.2), are listed per criterion as `otherTools` for later extension. (4) The project
+owner decided the 11 borderline entries in `data/mappings/sc-test-methods.json` (`review: "decided"` with a
+`reviewNote`): the proposals were kept, 2.3.1 and 2.3.2 moved to time and motion, and 1.2.3 and 1.2.5 separate a
+checkable step (does an alternative exist) from a human one (is it adequate).
+**Supersedes:** the group list in D-025 (ten groups including "automated" and "time and media"). The rest of D-025 stands.
+**Reason:** No criterion is fully decided by the two engines, so an "automated" group was primary for none; it is a tier
+of the triage, not a test method. Time and media mixed two activities with different tools: observing behaviour over
+time, and judging the content of audio and video. All seven criteria that a person must test are media criteria, so
+the split also shows where the limit of AI testing lies. Flashing should be measured by an analyser, not watched by a
+person, for safety.
+**Consequences:** `testing-kit/pre-step-automated.md` replaces the automated recipe; `testing-kit/recipes/time-motion.md`
+and `media.md` replace `time-media.md`. For 3.2.4 the project owner expects that, with the right setup, AI plus a person
+will do better than a person alone; phase 2 should test this.

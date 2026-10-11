@@ -30,7 +30,7 @@ Not verified: the in-depth supervision procedure and any sampling rules. We foun
 
 ## What we use it for
 
-- Shows a regulator treating *automated* as a separate, cheap screening layer with a deliberately tiny SC set, and everything else as manual: supports our `automated` first pass and the point that "automatable" is a small subset.
+- Shows a regulator treating *automated* as a separate, cheap screening layer with a deliberately tiny SC set, and everything else as manual: supports our automated pre-step and the point that "automatable" is a small subset.
 - Rule granularity (several rules per SC) argues for triage below the SC level.
 - Not a method grouping, so no mapping to our other 9 groups.
 

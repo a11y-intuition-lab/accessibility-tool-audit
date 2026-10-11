@@ -32,7 +32,7 @@ Per-rule metadata lists WCAG mapping, input rules and "complete implementations"
 - Principled vocabulary for our triage: `cantTell` is exactly our "tool cannot decide, escalate to AI or human" outcome; store it as a result state.
 - The "applicability automated, expectation manual" split suggests triage per rule, not only per SC (an SC can be partly automated).
 - The mapping from ACT rule to SC lets us estimate which SCs have any automated rule. Not computed yet.
-- Our `automated` group corresponds to fully automated ACT rules; `code-and-tree` roughly to semi-automated; the other groups to manual methodologies. ACT has no group like `keyboard` or `screen-reader`.
+- Our automated pre-step corresponds to fully automated ACT rules; `code-and-tree` roughly to semi-automated; the other groups to manual methodologies. ACT has no group like `keyboard` or `screen-reader`.
 
 ## Sources
 

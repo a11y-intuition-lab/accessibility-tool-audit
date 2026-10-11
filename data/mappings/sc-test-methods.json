@@ -39,16 +39,23 @@
         "multi-page": "Several pages or steps of a process"
       },
       "review": {
-        "pending": "Borderline call; needs a human decision."
+        "pending": "Borderline call; needs a human decision.",
+        "decided": "Borderline call decided by the project owner; see reviewNote."
       },
-      "primary": "The pass where a tester verifies the criterion most efficiently in full; 'automated' is primary only when automation is 'full'."
-    }
+      "primary": "The group where a tester verifies the criterion most efficiently in full.",
+      "otherTools": "Specialised non-AI tools outside the project's toolset (axe-core, HTML_CodeSniffer) that could raise automation for this criterion. Not tested in phase 1; the automation level does not count them (D-028)."
+    },
+    "preStep": {
+      "name": "Automated pre-step",
+      "summary": "axe-core and HTML_CodeSniffer run over every page before any group. Their results are passed to the groups as context. No criterion is decided by them alone (automation is never full), so the pre-step is a tier of the triage, not a group (D-028).",
+      "tools": [
+        "axe-core",
+        "HTML_CodeSniffer (via pa11y)"
+      ]
+    },
+    "reviewNote": "The 11 borderline entries were decided by the project owner on 2026-10-11 (D-028). All other entries remain AI-proposed and not individually reviewed."
   },
   "groups": {
-    "automated": {
-      "name": "Automated rule checks",
-      "summary": "axe-core and HTML_CodeSniffer run over the page; the tools decide."
-    },
     "code-and-tree": {
       "name": "Code and accessibility tree",
       "summary": "Reading markup, the DOM and the accessibility tree for names, roles, states, relationships, language and structure."
@@ -73,9 +80,13 @@
       "name": "Pointer and motion",
       "summary": "Pointer gestures, cancellation, target size, dragging, motion actuation and label in name for speech input."
     },
-    "time-media": {
-      "name": "Time and media",
-      "summary": "Time limits, moving and flashing content, autoplaying audio, captions, audio description, sign language and media alternatives."
+    "time-motion": {
+      "name": "Time and motion",
+      "summary": "Observing the page over time: time limits, moving, blinking and flashing content, autoplaying audio, interruptions and animation."
+    },
+    "media": {
+      "name": "Media",
+      "summary": "Judging audio and video content and its alternatives: captions, audio description, sign language, transcripts and background audio."
     },
     "language-cognition": {
       "name": "Language and cognition",
@@ -133,7 +144,7 @@
       "handle": "Audio-only and Video-only (Prerecorded)",
       "level": "A",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": [
           "code-and-tree"
         ]
@@ -165,7 +176,7 @@
       "handle": "Captions (Prerecorded)",
       "level": "A",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": [
           "screen-reader"
         ]
@@ -197,7 +208,7 @@
       "handle": "Audio Description or Media Alternative (Prerecorded)",
       "level": "A",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": [
           "visual"
         ]
@@ -219,16 +230,17 @@
       },
       "human": {
         "level": "must",
-        "why": "A person must watch the video and judge whether the important visual information is available."
+        "why": "A person must watch the video and judge whether the important visual information is available. Existence of the alternative is checkable by AI or script; adequacy is not."
       },
       "rationale": "Requires watching the video against its audio or text alternative.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept: AI unlikely, human must. AI and scripts can check that an audio description or media alternative exists (failed if absent); judging whether it is adequate needs a person."
     },
     "1.2.4": {
       "handle": "Captions (Live)",
       "level": "AA",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": []
       },
       "automation": {
@@ -256,7 +268,7 @@
       "handle": "Audio Description (Prerecorded)",
       "level": "AA",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": [
           "visual"
         ]
@@ -278,16 +290,17 @@
       },
       "human": {
         "level": "must",
-        "why": "A person must watch with audio description and judge adequacy."
+        "why": "A person must watch with audio description and judge adequacy. Existence of the alternative is checkable by AI or script; adequacy is not."
       },
       "rationale": "Requires watching the video with its audio description.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept: AI unlikely, human must. AI and scripts can check that an audio description track exists (failed if absent); judging whether it is adequate needs a person."
     },
     "1.2.6": {
       "handle": "Sign Language (Prerecorded)",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": []
       },
       "automation": {
@@ -314,7 +327,7 @@
       "handle": "Extended Audio Description (Prerecorded)",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": []
       },
       "automation": {
@@ -342,7 +355,7 @@
       "handle": "Media Alternative (Prerecorded)",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": [
           "language-cognition"
         ]
@@ -372,7 +385,7 @@
       "handle": "Audio-only (Live)",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": []
       },
       "automation": {
@@ -596,7 +609,8 @@
         "why": "Scope of 'purpose' is interpretive."
       },
       "rationale": "Programmatic purpose lives in markup and the tree.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept as proposed."
     },
     "1.4.1": {
       "handle": "Use of Color",
@@ -632,7 +646,7 @@
       "handle": "Audio Control",
       "level": "A",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": []
       },
       "automation": {
@@ -663,9 +677,7 @@
       "level": "AA",
       "groups": {
         "primary": "visual",
-        "secondary": [
-          "automated"
-        ]
+        "secondary": []
       },
       "automation": {
         "level": "partial",
@@ -752,9 +764,7 @@
       "level": "AAA",
       "groups": {
         "primary": "visual",
-        "secondary": [
-          "automated"
-        ]
+        "secondary": []
       },
       "automation": {
         "level": "partial",
@@ -784,7 +794,7 @@
       "handle": "Low or No Background Audio",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "media",
         "secondary": []
       },
       "automation": {
@@ -1108,7 +1118,7 @@
       "handle": "Timing Adjustable",
       "level": "A",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": [
           "multi-step-flow"
         ]
@@ -1141,7 +1151,7 @@
       "handle": "Pause, Stop, Hide",
       "level": "A",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": [
           "visual"
         ]
@@ -1176,7 +1186,7 @@
       "handle": "No Timing",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": [
           "multi-step-flow"
         ]
@@ -1206,7 +1216,7 @@
       "handle": "Interruptions",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": []
       },
       "automation": {
@@ -1237,7 +1247,7 @@
       "groups": {
         "primary": "multi-step-flow",
         "secondary": [
-          "time-media"
+          "time-motion"
         ]
       },
       "automation": {
@@ -1261,13 +1271,14 @@
         "why": "Session behaviour on a real system needs confirmation."
       },
       "rationale": "Tested along a multi-step process with a session expiry.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept as proposed."
     },
     "2.2.6": {
       "handle": "Timeouts",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": [
           "multi-step-flow"
         ]
@@ -1296,7 +1307,7 @@
       "handle": "Three Flashes or Below Threshold",
       "level": "A",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": [
           "visual"
         ]
@@ -1306,6 +1317,12 @@
         "rules": [],
         "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Neither tool analyses flashing. Dedicated flash analysers (outside our toolset) can decide this from video frames."
       },
+      "otherTools": [
+        {
+          "tool": "Flash analyser (for example PEAT, or a frame-luminance script using the WCAG thresholds)",
+          "effect": "Could decide general and red flash thresholds from recorded frames."
+        }
+      ],
       "ai": {
         "level": "possible",
         "needs": [
@@ -1319,13 +1336,14 @@
         "why": "Use a flash analyser rather than human viewing, which is risky; a person confirms the result."
       },
       "rationale": "Media and animation pass.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Moved to time-motion. Automation stays none (no flash rule in axe-core or HTML_CodeSniffer). Should be measured by a flash analyser, not judged by a person watching the content; a person confirms the analyser result."
     },
     "2.3.2": {
       "handle": "Three Flashes",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": [
           "visual"
         ]
@@ -1337,6 +1355,12 @@
         ],
         "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only; see 2.3.1."
       },
+      "otherTools": [
+        {
+          "tool": "Flash analyser (for example PEAT, or a frame-luminance script using the WCAG thresholds)",
+          "effect": "Could decide general and red flash thresholds from recorded frames."
+        }
+      ],
       "ai": {
         "level": "possible",
         "needs": [
@@ -1350,13 +1374,14 @@
         "why": "Same as 2.3.1."
       },
       "rationale": "Media and animation pass.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Moved to time-motion. Automation stays none (no flash rule in axe-core or HTML_CodeSniffer). Should be measured by a flash analyser, not judged by a person watching the content; a person confirms the analyser result."
     },
     "2.3.3": {
       "handle": "Animation from Interactions",
       "level": "AAA",
       "groups": {
-        "primary": "time-media",
+        "primary": "time-motion",
         "secondary": [
           "pointer-motion"
         ]
@@ -1864,7 +1889,8 @@
         "why": "AI suffices; speech-input testing confirms if wanted."
       },
       "rationale": "Most efficiently verified by comparing tree names with visible labels, although the barrier affects speech-input users.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept in code-and-tree: grouping follows the test method, not who is affected. Confirming with speech input (Voice Control, Dragon) is optional."
     },
     "2.5.4": {
       "handle": "Motion Actuation",
@@ -1980,9 +2006,7 @@
       "level": "AA",
       "groups": {
         "primary": "pointer-motion",
-        "secondary": [
-          "automated"
-        ]
+        "secondary": []
       },
       "automation": {
         "level": "partial",
@@ -2294,7 +2318,8 @@
         "why": "AI suffices."
       },
       "rationale": "Visual and name comparison across pages.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept as proposed. Expectation to test: with the right setup (captures of several pages), AI plus a person will do better than a person alone."
     },
     "3.2.5": {
       "handle": "Change on Request",
@@ -2328,7 +2353,8 @@
         "why": "AI suffices."
       },
       "rationale": "Mostly markup and script inspection with a little interaction.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept as proposed."
     },
     "3.2.6": {
       "handle": "Consistent Help",
@@ -2388,7 +2414,8 @@
         "why": "Confirm the error is perceivable in text and programmatically."
       },
       "rationale": "Requires going through a form with invalid input.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept in multi-step-flow: errors only exist after a form is filled and submitted; screen-reader and language-cognition stay secondary."
     },
     "3.3.2": {
       "handle": "Labels or Instructions",
@@ -2631,9 +2658,7 @@
       "removed": "2.2",
       "groups": {
         "primary": "code-and-tree",
-        "secondary": [
-          "automated"
-        ]
+        "secondary": []
       },
       "automation": {
         "level": "partial",
@@ -2644,6 +2669,12 @@
         ],
         "evidence": "Retest (5 failing cases): axe 4 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 4 missed. Removed in WCAG 2.2 (always satisfied for HTML). axe and HTML_CodeSniffer only check duplicate ids; an HTML validator (not in our toolset) could decide it fully. Some retest detections came from list rules."
       },
+      "otherTools": [
+        {
+          "tool": "HTML validator (Nu Html Checker)",
+          "effect": "Could decide parsing errors fully."
+        }
+      ],
       "ai": {
         "level": "likely",
         "needs": [
@@ -2656,7 +2687,8 @@
         "why": "Tools suffice; consider adding a validator."
       },
       "rationale": "Markup check; kept for WCAG 2.0/2.1.",
-      "review": "pending"
+      "review": "decided",
+      "reviewNote": "Kept as proposed. An HTML validator could decide it fully; listed under otherTools, not in the pre-step."
     },
     "4.1.2": {
       "handle": "Name, Role, Value",

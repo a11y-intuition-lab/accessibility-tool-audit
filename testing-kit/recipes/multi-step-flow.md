@@ -148,15 +148,15 @@ Always state which pages or steps were compared. A site-level outcome from a sam
 
 ### 2.2.1 Timing Adjustable (A)
 
-Also checked in `time-media`. Here: time limits that apply to a step. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html>
+Also checked in `time-motion`. Here: time limits that apply to a step. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html>
 
 ### 2.2.3 No Timing (AAA)
 
-Also checked in `time-media`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/no-timing.html>
+Also checked in `time-motion`. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/no-timing.html>
 
 ### 2.2.6 Timeouts (AAA)
 
-Also checked in `time-media`. Here: whether the process warns about inactivity timeouts that lose data. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html>
+Also checked in `time-motion`. Here: whether the process warns about inactivity timeouts that lose data. Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html>
 
 ### 3.2.2 On Input (A)
 
