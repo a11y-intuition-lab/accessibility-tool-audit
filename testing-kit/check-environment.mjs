@@ -5,11 +5,12 @@ import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright-core';
-import pa11y from 'pa11y';
-
 const here = dirname(fileURLToPath(import.meta.url));
+// Playwright reads PLAYWRIGHT_BROWSERS_PATH when it is loaded, so set it first and import afterwards. The browsers are
+// in this folder because the sandbox cannot read the user's cache.
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= join(here, '.browsers');
+const { chromium } = await import('playwright-core');
+const { default: pa11y } = await import('pa11y');
 const require = createRequire(import.meta.url);
 const port = 8090;
 const server = spawn(process.execPath, [join(here, 'serve.mjs'), `--port=${port}`], { stdio: ['ignore', 'pipe', 'inherit'] });

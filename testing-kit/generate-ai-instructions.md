@@ -79,7 +79,10 @@ orchestrator gives to a subagent), unless you have a strong reason for another f
 - Bash commands run in a sandbox with no internet access; the sandbox has its own `localhost`. Everything the tester
   needs is in this folder:
   - `node_modules/` with `playwright-core` 1.63.0, `axe-core` 4.13.0 and `pa11y` 10.0.0 (HTML_CodeSniffer runner);
-  - Chromium in `.browsers/` (set `PLAYWRIGHT_BROWSERS_PATH` to that folder; launch with `--no-sandbox`);
+  - Chromium in `.browsers/`. Set `PLAYWRIGHT_BROWSERS_PATH` to the absolute path of that folder before
+    `playwright-core` is loaded (in the shell, or before a dynamic `import()`), and launch with `--no-sandbox`. The
+    sandbox cannot read the user's browser cache.
+  - Run shell commands one at a time: compound commands with pipes or `&&` may be refused in this workspace.
   - `serve.mjs`, which serves the pages to test on `http://127.0.0.1:8090/`. The tester must start it itself inside its
     sandbox (`node serve.mjs`) before testing, and stop it afterwards.
   - `check-environment.mjs` shows the whole chain working: server, Chromium, axe-core and pa11y.

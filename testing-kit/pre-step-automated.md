@@ -104,7 +104,7 @@ The data file lists specialised tools outside the project's toolset under `other
 
 Keep the tool output as raw files. The classifier and every group work from these files. When two engines disagree, report both; do not pick one. Rules mostly detect missing or empty markup and miss anything that needs interaction, perception or judgement; each recipe's "Already covered by tools" section says what they cover per criterion.
 
-Rules by criterion (axe-core rule ids; `data/mappings/sc-test-methods.json` has the HTML_CodeSniffer codes). Criteria with no axe rule are left out.
+Rules by criterion (axe-core rule ids; `sc-test-methods.json` in this folder has the HTML_CodeSniffer codes). Criteria with no axe rule are left out.
 
 - 1.1.1: image-alt, input-image-alt, area-alt, object-alt, role-img-alt, svg-img-alt
 - 1.2.1: audio-caption
