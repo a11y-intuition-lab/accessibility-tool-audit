@@ -82,6 +82,11 @@ orchestrator gives to a subagent), unless you have a strong reason for another f
   - Chromium in `.browsers/`. Set `PLAYWRIGHT_BROWSERS_PATH` to the absolute path of that folder before
     `playwright-core` is loaded (in the shell, or before a dynamic `import()`), and launch with `--no-sandbox`. The
     sandbox cannot read the user's browser cache.
+  - pa11y starts its own browser through Puppeteer. Point it at the headless shell build in
+    `.browsers/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell` (the full Chromium build
+    opens a Unix socket at start-up that the sandbox refuses). If pa11y still cannot start, inject
+    `node_modules/@pa11y/html_codesniffer/build/HTMLCS.js` into the Playwright page and run the same standard there.
+    `check-environment.mjs` does both.
   - Run shell commands one at a time: compound commands with pipes or `&&` may be refused in this workspace.
   - `serve.mjs`, which serves the pages to test on `http://127.0.0.1:8090/`. The tester must start it itself inside its
     sandbox (`node serve.mjs`) before testing, and stop it afterwards.
