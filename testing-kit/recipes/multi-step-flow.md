@@ -176,19 +176,19 @@ Also checked in `language-cognition`. Understanding: <https://www.w3.org/WAI/WCA
 
 ## Already covered by tools
 
-Our retest found that rules cannot see across pages or steps; HTML_CodeSniffer gives one notice per page or form (for example for 3.2.3, 3.3.4 and 3.3.6). Findings in this group are the ones most affected by sampling, so record the sample.
+Rules cannot see across pages or steps; HTML_CodeSniffer gives one notice per page or form (for example for 3.2.3, 3.3.4 and 3.3.6). Findings in this group are the ones most affected by sampling, so record the sample.
 
-- **2.2.5** (none) axe: no rule; HTML_CodeSniffer: 2_2_5.G105,G181. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; session expiry is server behaviour.
-- **2.4.5** (none) axe: no rule; HTML_CodeSniffer: 2_4_5.G125,G64,G63,G161,G126,G185. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs knowledge of the whole site.
-- **2.4.8** (none) axe: no rule; HTML_CodeSniffer: 2_4_8.H59.1, 2_4_8.H59.2a. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notices only.
-- **3.2.3** (none) axe: no rule; HTML_CodeSniffer: 3_2_3.G61. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs several pages.
-- **3.2.6** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; needs several pages.
-- **3.3.1** (partial) axe: no rule; HTML_CodeSniffer: 3_3_1.G83,G84,G85. Retest (3 failing cases): axe 1 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 2 notice. Notice once per form; errors only exist after submission. The retest 'flagged' result came from a contrast rule on the same page.
-- **3.3.4** (partial) axe: no rule; HTML_CodeSniffer: 3_3_4.G98,G99,G155,G164,G168.LegalForms. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only; the 3.3.4 sniff is only in the WCAG2AA ruleset (the retest notice came from the 3.3.6 AllForms code).
-- **3.3.6** (partial) axe: no rule; HTML_CodeSniffer: 3_3_6.G98,G99,G155,G164,G168.AllForms. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 notice. Notice once per form.
-- **3.3.7** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; needs a multi-step process.
-- **3.3.8** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. No rule detects a cognitive function test; paste blocking lives in script.
-- **3.3.9** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. No rule.
+- **2.2.5** (none) axe: no rule; HTML_CodeSniffer: 2_2_5.G105,G181. Notice only; session expiry is server behaviour.
+- **2.4.5** (none) axe: no rule; HTML_CodeSniffer: 2_4_5.G125,G64,G63,G161,G126,G185. Notice only; needs knowledge of the whole site.
+- **2.4.8** (none) axe: no rule; HTML_CodeSniffer: 2_4_8.H59.1, 2_4_8.H59.2a. Notices only.
+- **3.2.3** (none) axe: no rule; HTML_CodeSniffer: 3_2_3.G61. Notice only; needs several pages.
+- **3.2.6** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule; needs several pages.
+- **3.3.1** (partial) axe: no rule; HTML_CodeSniffer: 3_3_1.G83,G84,G85. Notice once per form; errors only exist after submission.
+- **3.3.4** (partial) axe: no rule; HTML_CodeSniffer: 3_3_4.G98,G99,G155,G164,G168.LegalForms. Notice only; the 3.3.4 sniff is only in the WCAG2AA ruleset; the 3.3.6 AllForms code gives a related notice.
+- **3.3.6** (partial) axe: no rule; HTML_CodeSniffer: 3_3_6.G98,G99,G155,G164,G168.AllForms. Notice once per form.
+- **3.3.7** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule; needs a multi-step process.
+- **3.3.8** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule detects a cognitive function test; paste blocking lives in script.
+- **3.3.9** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule.
 
 ## AI and human
 

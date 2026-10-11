@@ -45,9 +45,41 @@ for (const sc of scs) {
   if (!c.rationale) errors.push(`${sc.id}: no rationale`);
 }
 for (const id of Object.keys(criteria)) if (!scs.some((sc) => sc.id === id)) errors.push(`${id}: not a WCAG 2.x criterion`);
+// The testing kit's copy leaves out the retest evidence: the kit must not tell an AI tester anything about the test
+// set it is validated on (D-026). Only the "Retest (...)" clauses and the evidence-run metadata are removed.
+// Drops every sentence that mentions the retest; a parenthesised retest remark is dropped with its clause.
+const withoutRetestSentences = (text) =>
+  text
+    .replace(/\s*\([^)]*\bretest\b[^)]*\)/gi, '')
+    .replace(/;\s+[^;.]*\bretest\b[^.]*\./gi, '.')
+    .split(/(?<=\.)\s+(?=[A-Z])/)
+    .filter((sentence) => !/\bretest\b/i.test(sentence))
+    .join(' ')
+    .trim();
+
+function kitCopyText() {
+  const data = read('data/mappings/sc-test-methods.json');
+  delete data.meta.evidenceRun;
+  delete data.meta.evidenceNote;
+  data.meta.note = 'Copy for the testing kit, written by scripts/wcag/test-methods.mjs --write-recipes; retest evidence removed.';
+  for (const c of Object.values(data.criteria)) {
+    c.automation.evidence = c.automation.evidence
+      .replace(/Retest \(\d+ failing cases?\): .*?\.(?=\s|$)\s*/g, '')
+      .replace(/No test case in the 2026 retest\.\s*/g, '')
+      .trim();
+    for (const k of ['rationale', 'reviewNote']) if (c[k]) c[k] = withoutRetestSentences(c[k]);
+    c.automation.evidence = withoutRetestSentences(c.automation.evidence);
+  }
+  return `${JSON.stringify(data, null, 2)}\n`;
+}
 const kitCopy = join(root, 'testing-kit/sc-test-methods.json');
-if (!existsSync(kitCopy) || !readFileSync(kitCopy).equals(readFileSync(join(root, 'data/mappings/sc-test-methods.json')))) {
+if (!process.argv.includes('--write-recipes') && (!existsSync(kitCopy) || readFileSync(kitCopy, 'utf8') !== kitCopyText())) {
   errors.push('testing-kit/sc-test-methods.json is missing or stale: run with --write-recipes');
+}
+// Nothing in the kit's Markdown may cite the retest either.
+for (const rel of ['README.md', 'pre-step-automated.md', ...groupIds.map((g) => `recipes/${g}.md`)]) {
+  const file = join(root, 'testing-kit', rel);
+  if (existsSync(file) && /\bretest\b/i.test(readFileSync(file, 'utf8'))) errors.push(`testing-kit/${rel} mentions the retest`);
 }
 
 if (errors.length) {
@@ -101,8 +133,8 @@ if (process.argv.includes('--write-recipes')) {
     console.log(`Wrote criteria table in ${rel}`);
   }
   // The testing kit is a closed workspace for an AI agent (testing-kit/.claude/settings.json), so it gets its own copy.
-  writeFileSync(join(root, 'testing-kit/sc-test-methods.json'), readFileSync(join(root, 'data/mappings/sc-test-methods.json')));
-  console.log('Copied data/mappings/sc-test-methods.json to testing-kit/sc-test-methods.json');
+  writeFileSync(join(root, 'testing-kit/sc-test-methods.json'), kitCopyText());
+  console.log('Wrote testing-kit/sc-test-methods.json (copy without retest evidence)');
   process.exit();
 }
 

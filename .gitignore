@@ -1,3 +1,8 @@
 node_modules
 _site
 .blind
+testing-kit/ai-kit/runs
+.ai-kit-v0
+testing-kit/node_modules
+testing-kit/.browsers
+testing-kit/.site

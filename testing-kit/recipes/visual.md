@@ -100,7 +100,7 @@ Use the computed numbers wherever they exist; use the screenshots to decide what
 
 - **Fails when:** Text contrast below 7:1 (4.5:1 for large text) (F24, F83).
 - **Passes when:** Ratio meets the enhanced threshold.
-- **Common false positives:** As 1.4.3. AAA: our retest found axe flags most; GOV.UK 2017 did not enable AAA.
+- **Common false positives:** As 1.4.3.
 - **Answer `cantTell` when:** As 1.4.3.
 - Understanding: <https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html>
 - W3C failure techniques for this criterion: F24, F83 (<https://www.w3.org/WAI/WCAG22/Techniques/failures/>)
@@ -205,16 +205,16 @@ Also checked in `pointer-motion`. Understanding: <https://www.w3.org/WAI/WCAG22/
 
 ## Already covered by tools
 
-Our retest showed that axe decides contrast for text on solid backgrounds, but gives "needs review" over images and gradients, and that HTML_CodeSniffer at WCAG2AAA reports many 1.4.3 failures only under 1.4.6 codes. Colour-only information, images of text, sensory instructions and non-text contrast are mostly missed.
+Axe decides contrast for text on solid backgrounds, but gives "needs review" over images and gradients, and that HTML_CodeSniffer at WCAG2AAA reports many 1.4.3 failures only under 1.4.6 codes. Colour-only information, images of text, sensory instructions and non-text contrast are mostly missed.
 
-- **1.3.3** (none) axe: no rule; HTML_CodeSniffer: 1_3_3.G96. Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. Page-level notice only; no rule interprets instructions.
-- **1.4.1** (partial) axe: link-in-text-block; HTML_CodeSniffer: no sniff. Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 3 missed. axe only checks links in text blocks; colour-only cues in forms, charts and states are missed.
-- **1.4.3** (partial) axe: color-contrast; HTML_CodeSniffer: 1_4_3_F24.F24.FGColour, 1_4_6.G18.Fail, 1_4_6.G18.BgImage. Retest (7 failing cases): axe 6 flagged, 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 asked for review, 5 missed. axe decides plain text on solid backgrounds well but returns 'needs review' over images, gradients and overlaps. HTML_CodeSniffer at WCAG2AAA uses the 1.4.6 sniff, so many 1.4.3 failures surface only as 1.4.6 codes.
-- **1.4.5** (partial) axe: no rule; HTML_CodeSniffer: 1_4_9.G140,C22,C30.NoException. Retest (5 failing cases): axe 2 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 3 notice. Only notices for every image; the retest 'flagged' results come from missing-alt rules on the same images, not from an images-of-text check.
-- **1.4.6** (partial) axe: color-contrast-enhanced; HTML_CodeSniffer: 1_4_6.G17.Fail, 1_4_6.G18.Fail, 1_4_6.G17.BgImage. Retest (9 failing cases): axe 8 flagged, 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 asked for review, 7 missed. Same limits as 1.4.3: text over images, gradients and overlaps cannot be computed. axe flags most cases via color-contrast or color-contrast-enhanced.
-- **1.4.9** (partial) axe: no rule; HTML_CodeSniffer: 1_4_9.G140,C22,C30.NoException. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted once per page with images.
-- **1.4.11** (partial) axe: no rule; HTML_CodeSniffer: no sniff. Retest (4 failing cases): axe 1 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 notice, 2 missed. No WCAG-tagged axe rule; HTML_CodeSniffer's 1.4.11 sniff is a notice. Retest detections came from text-contrast and focus rules on the same pages.
-- **3.2.4** (none) axe: no rule; HTML_CodeSniffer: 3_2_4.G197. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs several pages.
+- **1.3.3** (none) axe: no rule; HTML_CodeSniffer: 1_3_3.G96. Page-level notice only; no rule interprets instructions.
+- **1.4.1** (partial) axe: link-in-text-block; HTML_CodeSniffer: no sniff. axe only checks links in text blocks; colour-only cues in forms, charts and states are missed.
+- **1.4.3** (partial) axe: color-contrast; HTML_CodeSniffer: 1_4_3_F24.F24.FGColour, 1_4_6.G18.Fail, 1_4_6.G18.BgImage. axe decides plain text on solid backgrounds well but returns 'needs review' over images, gradients and overlaps. HTML_CodeSniffer at WCAG2AAA uses the 1.4.6 sniff, so many 1.4.3 failures surface only as 1.4.6 codes.
+- **1.4.5** (partial) axe: no rule; HTML_CodeSniffer: 1_4_9.G140,C22,C30.NoException. Only notices for every image; missing-alt rules on the same images are not an images-of-text check.
+- **1.4.6** (partial) axe: color-contrast-enhanced; HTML_CodeSniffer: 1_4_6.G17.Fail, 1_4_6.G18.Fail, 1_4_6.G17.BgImage. Same limits as 1.4.3: text over images, gradients and overlaps cannot be computed. axe flags most cases via color-contrast or color-contrast-enhanced.
+- **1.4.9** (partial) axe: no rule; HTML_CodeSniffer: 1_4_9.G140,C22,C30.NoException. Notice only, emitted once per page with images.
+- **1.4.11** (partial) axe: no rule; HTML_CodeSniffer: no sniff. No WCAG-tagged axe rule; HTML_CodeSniffer's 1.4.11 sniff is a notice. Text-contrast and focus rules on the same page are not a non-text contrast check.
+- **3.2.4** (none) axe: no rule; HTML_CodeSniffer: 3_2_4.G197. Notice only; needs several pages.
 
 ## AI and human
 

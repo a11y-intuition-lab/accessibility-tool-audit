@@ -97,14 +97,14 @@ Count only losses of content or function and clear overlap. A different layout i
 
 ## Already covered by tools
 
-Our retest showed that axe has no rule for these states, apart from viewport settings that block zoom, an orientation lock written in CSS media queries and inline spacing declarations. HTML_CodeSniffer gives notices or warnings about fixed widths; the 1.4.4 sniff is not part of the WCAG2AAA ruleset.
+Axe has no rule for these states, apart from viewport settings that block zoom, an orientation lock written in CSS media queries and inline spacing declarations. HTML_CodeSniffer gives notices or warnings about fixed widths; the 1.4.4 sniff is not part of the WCAG2AAA ruleset.
 
-- **1.3.4** (partial) axe: css-orientation-lock; HTML_CodeSniffer: no sniff. Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 2 missed. axe detects CSS orientation locks in media queries; locks done in script or by the manifest are missed.
-- **1.4.4** (partial) axe: meta-viewport; HTML_CodeSniffer: no sniff. Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 4 missed. axe only catches viewport settings that block zoom; text clipped or overlapping at 200% is not tested. The 1.4.4 sniff is not in the WCAG2AAA ruleset.
-- **1.4.8** (none) axe: no rule; HTML_CodeSniffer: 1_4_8.H87,C20, 1_4_8.C19,G172,G169, 1_4_8.G188,C21. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notices only, one per requirement; no rule decides line length, justification, spacing or colour selection.
-- **1.4.10** (partial) axe: no rule; HTML_CodeSniffer: 1_4_10.C32,C31,C33,C38,SCR34,G206. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. HTML_CodeSniffer warns about fixed-width elements that may scroll in two dimensions; axe has no rule.
-- **1.4.12** (partial) axe: avoid-inline-spacing; HTML_CodeSniffer: 1_4_12.C36,C35. Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 2 missed. axe only finds inline !important spacing that blocks overrides; clipping after the override is not tested.
-- **1.4.13** (none) axe: no rule; HTML_CodeSniffer: 1_4_13.F95. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only; dismissable, hoverable and persistent behaviour needs interaction.
+- **1.3.4** (partial) axe: css-orientation-lock; HTML_CodeSniffer: no sniff. axe detects CSS orientation locks in media queries; locks done in script or by the manifest are missed.
+- **1.4.4** (partial) axe: meta-viewport; HTML_CodeSniffer: no sniff. axe only catches viewport settings that block zoom; text clipped or overlapping at 200% is not tested. The 1.4.4 sniff is not in the WCAG2AAA ruleset.
+- **1.4.8** (none) axe: no rule; HTML_CodeSniffer: 1_4_8.H87,C20, 1_4_8.C19,G172,G169, 1_4_8.G188,C21. Notices only, one per requirement; no rule decides line length, justification, spacing or colour selection.
+- **1.4.10** (partial) axe: no rule; HTML_CodeSniffer: 1_4_10.C32,C31,C33,C38,SCR34,G206. HTML_CodeSniffer warns about fixed-width elements that may scroll in two dimensions; axe has no rule.
+- **1.4.12** (partial) axe: avoid-inline-spacing; HTML_CodeSniffer: 1_4_12.C36,C35. axe only finds inline !important spacing that blocks overrides; clipping after the override is not tested.
+- **1.4.13** (none) axe: no rule; HTML_CodeSniffer: 1_4_13.F95. Notice only; dismissable, hoverable and persistent behaviour needs interaction.
 
 ## AI and human
 

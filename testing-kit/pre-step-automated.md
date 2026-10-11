@@ -92,17 +92,17 @@ Map each stored tool result to criteria with the rule-to-criterion table in the 
 
 Notes for criteria where a rule needs care:
 
-- 1.4.3 and 1.4.6 (contrast, see [visual](./recipes/visual.md)): axe `color-contrast` and `color-contrast-enhanced` settle text on solid backgrounds; text over images, gradients or overlaps returns `incomplete` and goes to the visual group. 1.4.6 is AAA; mention that GOV.UK 2017 did not enable AAA tags.
+- 1.4.3 and 1.4.6 (contrast, see [visual](./recipes/visual.md)): axe `color-contrast` and `color-contrast-enhanced` settle text on solid backgrounds; text over images, gradients or overlaps returns `incomplete` and goes to the visual group.
 - 2.5.8 (target size, see [pointer-motion](./recipes/pointer-motion.md)): axe `target-size` checks the 24 CSS px minimum and spacing; exceptions (inline, equivalent control, user-agent control, essential) need the pointer-motion group.
 - 4.1.1 (parsing, see [code-and-tree](./recipes/code-and-tree.md)): removed in WCAG 2.2. axe `duplicate-id` and `duplicate-id-active` and HTMLCS F77 catch duplicate ids only.
 
 ### Possible future extensions (not part of the pre-step now)
 
-The data file lists specialised tools outside the project's toolset under `otherTools`: an HTML validator (Nu Html Checker) that could decide 4.1.1 fully, and a flash analyser (for example PEAT) for 2.3.1 and 2.3.2. They were not tested in phase 1, are not counted in the automation levels, and could be added to the pre-step later.
+The data file lists specialised tools outside the project's toolset under `otherTools`: an HTML validator (Nu Html Checker) that could decide 4.1.1 fully, and a flash analyser (for example PEAT) for 2.3.1 and 2.3.2. They are not counted in the automation levels, and could be added to the pre-step later.
 
 ## Already covered by tools
 
-Keep the tool output as raw files. The classifier and every group work from these files. When two engines disagree, report both; do not pick one. Our own retest (run 20261010T112606Z) found that rules mostly detect missing or empty markup and miss anything that needs interaction, perception or judgement; see each recipe's "Already covered by tools" section for the per-criterion numbers.
+Keep the tool output as raw files. The classifier and every group work from these files. When two engines disagree, report both; do not pick one. Rules mostly detect missing or empty markup and miss anything that needs interaction, perception or judgement; each recipe's "Already covered by tools" section says what they cover per criterion.
 
 Rules by criterion (axe-core rule ids; `data/mappings/sc-test-methods.json` has the HTML_CodeSniffer codes). Criteria with no axe rule are left out.
 

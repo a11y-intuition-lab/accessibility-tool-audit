@@ -3,8 +3,9 @@
 > This file is the prompt the project owner gives to an AI agent to generate the AI testing instructions (prompt or
 > skill) from the testing kit (D-025, D-027). It is published so the generation step can be repeated.
 >
-> How to use: start Claude Code in `testing-kit/` (its `.claude/settings.json` limits the agent to reading this folder,
-> writing to `ai-kit/` and reaching only the local test server), then ask it to follow this file.
+> How to use: run `npm run kit:setup` once from the repository root, make sure `testing-kit/ai-kit/` and
+> `testing-kit/.site/` do not exist (the test pages are built only for the run, with `npm run blind:build`), then start Claude Code in `testing-kit/` (its `.claude/settings.json` limits the agent to reading this folder,
+> writing to `ai-kit/` and the local machine only) and ask it to follow this file.
 
 ---
 
@@ -23,6 +24,9 @@ You have the files in this folder, and only these:
   Report, Sources.
 - `finding.schema.json` — the JSON schema that every result must follow.
 - `sc-test-methods.json` — all 87 success criteria with their group, automation, AI and human triage.
+- `check-environment.mjs` and `serve.mjs` — how the environment below is used (see "Environment").
+
+Do not open `.site/`, `node_modules/` or `.browsers/`; they are tools and test material, not method.
 
 Treat the recipes as the method. Do not add criteria, outcomes or judging rules that the recipes do not contain. Where a
 recipe is unclear, choose the stricter reading and note the choice in your design notes.
@@ -63,14 +67,27 @@ orchestrator gives to a subagent), unless you have a strong reason for another f
 - **Do not change the pages**, apart from the temporary changes a recipe asks for (zoom, text-spacing override,
   viewport), and reload the page after each.
 - **Keep it general.** The instructions should work on any web page, not only on test pages, so they can be used in
-  software development later.
+  software development later. Do not mention any particular test set, test page or earlier result.
+- **Only pages the tester may test.** State in the orchestrator and in the shared rules that the instructions may be
+  run only against pages the user owns or has permission to test, normally the local test server. Steps that submit
+  forms, try logins, press many keys or activate every control must never run against third-party sites.
+- **Mark every file.** Start every Markdown file you write with the line
+  `> Status: AI-generated from the testing kit; not human-reviewed.`
 
 ## Environment the instructions can assume
 
-- Pages are served by the project's test mode at `http://127.0.0.1:8090/`. The tester gets page URLs and nothing else.
-  Pages may link to other pages on the same server; follow those links when a recipe needs several pages.
+- Bash commands run in a sandbox with no internet access; the sandbox has its own `localhost`. Everything the tester
+  needs is in this folder:
+  - `node_modules/` with `playwright-core` 1.63.0, `axe-core` 4.13.0 and `pa11y` 10.0.0 (HTML_CodeSniffer runner);
+  - Chromium in `.browsers/` (set `PLAYWRIGHT_BROWSERS_PATH` to that folder; launch with `--no-sandbox`);
+  - `serve.mjs`, which serves the pages to test on `http://127.0.0.1:8090/`. The tester must start it itself inside its
+    sandbox (`node serve.mjs`) before testing, and stop it afterwards.
+  - `check-environment.mjs` shows the whole chain working: server, Chromium, axe-core and pa11y.
+- The tester gets page URLs on that server and nothing else. Pages may link to other pages on the same server; follow
+  those links when a recipe needs several pages.
 - A Chromium browser that can be driven by script (Playwright), with keyboard, pointer and viewport control,
-  screenshots, the accessibility tree, and the ability to inject axe-core and HTML_CodeSniffer.
+  screenshots, the accessibility tree, and the ability to inject axe-core and run HTML_CodeSniffer through pa11y.
+- Write run output under `ai-kit/runs/`.
 - File read and write for artifacts and results.
 - Subagents with a choice of model.
 - No screen reader and no audio output. The screen-reader group works from the browser's accessibility tree and

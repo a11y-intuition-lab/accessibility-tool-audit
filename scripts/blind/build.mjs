@@ -2,8 +2,8 @@
 //
 // Usage:  npm run build && npm run blind:build
 //
-// Reads the built site (_site/) and writes .blind/ (git-ignored):
-//   .blind/site/      what the AI tester may see: p/<id>.html (test pages), x/<id>.html (example pages),
+// Reads the built site (_site/) and writes (both git-ignored):
+//   testing-kit/.site/  what the AI tester may see, inside the closed testing-kit workspace: p/<id>.html (test pages), x/<id>.html (example pages),
 //                     a/<id>.<ext> (assets). Served by `npm run blind:serve`.
 //   .blind/key.json   the key from opaque names back to test cases, example pages, assets, class/id names and
 //                     data-ail-* attribute names. Never served; used only when results are classified.
@@ -26,7 +26,7 @@ import { NameMap, collectIds, hex, jsLeaks, processCss, processHtml, processJs }
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const site = join(root, '_site');
 const outRoot = join(root, '.blind');
-const outSite = join(outRoot, 'site');
+const outSite = join(root, 'testing-kit', '.site');
 const BLIND_PORT = 8090;
 
 if (!existsSync(join(site, 'tests'))) {
@@ -150,6 +150,8 @@ function neutraliseTemplate(slug, html) {
 
 // ---- process ----------------------------------------------------------------------------------------------------------
 rmSync(outRoot, { recursive: true, force: true });
+rmSync(outSite, { recursive: true, force: true });
+mkdirSync(outRoot, { recursive: true });
 mkdirSync(outSite, { recursive: true });
 const counts = { testPages: 0, examplePages: 0, assets: 0, unchanged: 0, commentsRemoved: 0 };
 const processedText = []; // [blind path, text] for the leak check

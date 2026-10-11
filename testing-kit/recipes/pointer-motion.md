@@ -119,15 +119,15 @@ Also checked in `code-and-tree`. Optional here: with voice control on, say the v
 
 ## Already covered by tools
 
-Our retest showed that only target size has a rule (axe `target-size`, 24 CSS px minimum). Gestures, cancellation, dragging, motion and concurrent input have none because they live in scripts.
+Only target size has a rule (axe `target-size`, 24 CSS px minimum). Gestures, cancellation, dragging, motion and concurrent input have none because they live in scripts.
 
-- **2.5.1** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; gestures live in script.
-- **2.5.2** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule.
-- **2.5.4** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule.
-- **2.5.5** (partial) axe: target-size; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 flagged; HTML_CodeSniffer WCAG2AAA 1 missed. axe's target-size checks the 24 px minimum (2.5.8), so it only catches 2.5.5 failures that are also below 24 px.
-- **2.5.6** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule.
-- **2.5.7** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule.
-- **2.5.8** (partial) axe: target-size; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 flagged; HTML_CodeSniffer WCAG2AAA 1 missed. axe measures size and spacing; exceptions (inline, equivalent control, essential) and overlapping targets can need review.
+- **2.5.1** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule; gestures live in script.
+- **2.5.2** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule.
+- **2.5.4** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule.
+- **2.5.5** (partial) axe: target-size; HTML_CodeSniffer: no sniff. axe's target-size checks the 24 px minimum (2.5.8), so it only catches 2.5.5 failures that are also below 24 px.
+- **2.5.6** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule.
+- **2.5.7** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule.
+- **2.5.8** (partial) axe: target-size; HTML_CodeSniffer: no sniff. axe measures size and spacing; exceptions (inline, equivalent control, essential) and overlapping targets can need review.
 
 ## AI and human
 

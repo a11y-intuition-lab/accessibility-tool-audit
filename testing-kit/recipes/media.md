@@ -130,18 +130,18 @@ Outcomes on perception of media (captions, description, sign language, backgroun
 
 ## Already covered by tools
 
-Our retest showed that rules only notice that audio or video exists; they cannot judge captions, description, sign language or text alternatives. HTML_CodeSniffer emits one notice per media element. Pass the pre-step output to this pass as context.
+Rules only notice that audio or video exists; they cannot judge captions, description, sign language or text alternatives. HTML_CodeSniffer emits one notice per media element. Pass the pre-step output to this pass as context.
 
-- **1.2.1** (partial) axe: audio-caption; HTML_CodeSniffer: 1_2_1.G158, 1_2_1.G159,G166. Retest (2 failing cases): axe 1 asked for review, 1 missed; HTML_CodeSniffer WCAG2AAA 2 notice. Rules only notice that audio or video exists and ask for a check; they cannot judge whether an alternative exists or is equivalent.
-- **1.2.2** (partial) axe: video-caption; HTML_CodeSniffer: 1_2_2.G87,G93. Retest (1 failing case): axe 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 notice. axe asks for review when a video has no track element; neither tool judges caption accuracy or synchronisation.
-- **1.2.3** (partial) axe: no rule; HTML_CodeSniffer: 1_2_3.G69,G78,G173,G8. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. The 1.2.3 sniff is only in the WCAG2AA ruleset; in WCAG2AAA the related 1.2.5/1.2.8 sniffs give page-level notices. axe has no rule.
-- **1.2.4** (none) axe: no rule; HTML_CodeSniffer: 1_2_4.G9,G87,G93. No test case in the 2026 retest. Only a notice asking for a manual check; live captions cannot be inspected from the page.
-- **1.2.5** (partial) axe: no rule; HTML_CodeSniffer: 1_2_5.G78,G173,G8. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted per video; no rule can tell whether an audio description track exists or is adequate.
-- **1.2.6** (none) axe: no rule; HTML_CodeSniffer: 1_2_6.G54,G81. No test case in the 2026 retest. Notice only; no rule can detect sign-language interpretation.
-- **1.2.7** (none) axe: no rule; HTML_CodeSniffer: 1_2_7.G8. No test case in the 2026 retest. Notice only; whether pauses are too short for standard description is a judgement.
-- **1.2.8** (partial) axe: no rule; HTML_CodeSniffer: 1_2_8.G69,G159. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted per video; no rule checks for a full text alternative.
-- **1.2.9** (none) axe: no rule; HTML_CodeSniffer: 1_2_9.G150,G151,G157. No test case in the 2026 retest. Notice only; live audio cannot be inspected from the page.
-- **1.4.7** (none) axe: no rule; HTML_CodeSniffer: 1_4_7.G56. No test case in the 2026 retest. Notice only; background level in mixed audio cannot be measured by page rules.
+- **1.2.1** (partial) axe: audio-caption; HTML_CodeSniffer: 1_2_1.G158, 1_2_1.G159,G166. Rules only notice that audio or video exists and ask for a check; they cannot judge whether an alternative exists or is equivalent.
+- **1.2.2** (partial) axe: video-caption; HTML_CodeSniffer: 1_2_2.G87,G93. axe asks for review when a video has no track element; neither tool judges caption accuracy or synchronisation.
+- **1.2.3** (partial) axe: no rule; HTML_CodeSniffer: 1_2_3.G69,G78,G173,G8. The 1.2.3 sniff is only in the WCAG2AA ruleset; in WCAG2AAA the related 1.2.5/1.2.8 sniffs give page-level notices. axe has no rule.
+- **1.2.4** (none) axe: no rule; HTML_CodeSniffer: 1_2_4.G9,G87,G93. Only a notice asking for a manual check; live captions cannot be inspected from the page.
+- **1.2.5** (partial) axe: no rule; HTML_CodeSniffer: 1_2_5.G78,G173,G8. Notice only, emitted per video; no rule can tell whether an audio description track exists or is adequate.
+- **1.2.6** (none) axe: no rule; HTML_CodeSniffer: 1_2_6.G54,G81. Notice only; no rule can detect sign-language interpretation.
+- **1.2.7** (none) axe: no rule; HTML_CodeSniffer: 1_2_7.G8. Notice only; whether pauses are too short for standard description is a judgement.
+- **1.2.8** (partial) axe: no rule; HTML_CodeSniffer: 1_2_8.G69,G159. Notice only, emitted per video; no rule checks for a full text alternative.
+- **1.2.9** (none) axe: no rule; HTML_CodeSniffer: 1_2_9.G150,G151,G157. Notice only; live audio cannot be inspected from the page.
+- **1.4.7** (none) axe: no rule; HTML_CodeSniffer: 1_4_7.G56. Notice only; background level in mixed audio cannot be measured by page rules.
 
 ## AI and human
 

@@ -23,6 +23,9 @@ They apply to everyone who clones the repository, because they live in the repos
 ## Dependencies
 
 - Keep them few. Direct dependencies: `@11ty/eleventy` (site build) and, for the retest, `axe-core`, `pa11y` and `playwright-core` (D-018).
+- `testing-kit/` has its own `package.json`, lockfile and `.npmrc` (a copy of the root one) with the same three retest
+  packages at the same versions, so an AI agent's sandbox can use them without reading the rest of the repository
+  ([blinded test mode](blind-test-mode.md)). Keep the versions in step with the root.
 - Every new dependency gets a reason in [decisions](../decisions.md).
 - Because install scripts are disabled, tools that download browsers on install (Playwright, Puppeteer) need an explicit,
   version-pinned browser install step. The browser version is recorded with every test run.

@@ -8,8 +8,6 @@
     "model": "claude-opus-5-5",
     "date": "2026-10-10",
     "successCriteria": "data/wcag/success-criteria.json",
-    "evidenceRun": "data/results/ail-2026/runs/20261010T112606Z",
-    "evidenceNote": "Retest counts are per test case mapped as failing the criterion. 'flagged' means a rule mapped to that test case reported an error, which can be a rule for a different criterion on the same page; 'asked for review' is axe incomplete or an HTML_CodeSniffer warning; 'notice' is an HTML_CodeSniffer notice; 'missed' means nothing relevant was reported.",
     "levels": {
       "automation": {
         "full": "A rule can decide both pass and fail for the whole criterion.",
@@ -53,7 +51,8 @@
         "HTML_CodeSniffer (via pa11y)"
       ]
     },
-    "reviewNote": "The 11 borderline entries were decided by the project owner on 2026-10-11 (D-028). All other entries remain AI-proposed and not individually reviewed."
+    "reviewNote": "The 11 borderline entries were decided by the project owner on 2026-10-11 (D-028). All other entries remain AI-proposed and not individually reviewed.",
+    "note": "Copy for the testing kit, written by scripts/wcag/test-methods.mjs --write-recipes; retest evidence removed."
   },
   "groups": {
     "code-and-tree": {
@@ -123,7 +122,7 @@
           "htmlcs:Principle1.Guideline1_1.1_1_1.H67.1",
           "htmlcs:Principle1.Guideline1_1.1_1_1.G94.Image"
         ],
-        "evidence": "Retest (15 failing cases): axe 4 flagged, 11 missed; HTML_CodeSniffer WCAG2AAA 4 flagged, 1 asked for review, 5 notice, 5 missed. Rules detect missing or empty alternatives; whether the text is equivalent, or the image decorative, is only flagged as a notice."
+        "evidence": "Rules detect missing or empty alternatives; whether the text is equivalent, or the image decorative, is only flagged as a notice."
       },
       "ai": {
         "level": "likely",
@@ -156,7 +155,7 @@
           "htmlcs:Principle1.Guideline1_2.1_2_1.G158",
           "htmlcs:Principle1.Guideline1_2.1_2_1.G159,G166"
         ],
-        "evidence": "Retest (2 failing cases): axe 1 asked for review, 1 missed; HTML_CodeSniffer WCAG2AAA 2 notice. Rules only notice that audio or video exists and ask for a check; they cannot judge whether an alternative exists or is equivalent."
+        "evidence": "Rules only notice that audio or video exists and ask for a check; they cannot judge whether an alternative exists or is equivalent."
       },
       "ai": {
         "level": "possible",
@@ -187,7 +186,7 @@
           "axe:video-caption",
           "htmlcs:Principle1.Guideline1_2.1_2_2.G87,G93"
         ],
-        "evidence": "Retest (1 failing case): axe 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 notice. axe asks for review when a video has no track element; neither tool judges caption accuracy or synchronisation."
+        "evidence": "axe asks for review when a video has no track element; neither tool judges caption accuracy or synchronisation."
       },
       "ai": {
         "level": "possible",
@@ -218,7 +217,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_2.1_2_3.G69,G78,G173,G8"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. The 1.2.3 sniff is only in the WCAG2AA ruleset; in WCAG2AAA the related 1.2.5/1.2.8 sniffs give page-level notices. axe has no rule."
+        "evidence": "The 1.2.3 sniff is only in the WCAG2AA ruleset; in WCAG2AAA the related 1.2.5/1.2.8 sniffs give page-level notices. axe has no rule."
       },
       "ai": {
         "level": "unlikely",
@@ -248,7 +247,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_2.1_2_4.G9,G87,G93"
         ],
-        "evidence": "No test case in the 2026 retest. Only a notice asking for a manual check; live captions cannot be inspected from the page."
+        "evidence": "Only a notice asking for a manual check; live captions cannot be inspected from the page."
       },
       "ai": {
         "level": "unlikely",
@@ -278,7 +277,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_2.1_2_5.G78,G173,G8"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted per video; no rule can tell whether an audio description track exists or is adequate."
+        "evidence": "Notice only, emitted per video; no rule can tell whether an audio description track exists or is adequate."
       },
       "ai": {
         "level": "unlikely",
@@ -308,7 +307,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_2.1_2_6.G54,G81"
         ],
-        "evidence": "No test case in the 2026 retest. Notice only; no rule can detect sign-language interpretation."
+        "evidence": "Notice only; no rule can detect sign-language interpretation."
       },
       "ai": {
         "level": "unlikely",
@@ -335,7 +334,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_2.1_2_7.G8"
         ],
-        "evidence": "No test case in the 2026 retest. Notice only; whether pauses are too short for standard description is a judgement."
+        "evidence": "Notice only; whether pauses are too short for standard description is a judgement."
       },
       "ai": {
         "level": "unlikely",
@@ -365,7 +364,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_2.1_2_8.G69,G159"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted per video; no rule checks for a full text alternative."
+        "evidence": "Notice only, emitted per video; no rule checks for a full text alternative."
       },
       "ai": {
         "level": "possible",
@@ -393,7 +392,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_2.1_2_9.G150,G151,G157"
         ],
-        "evidence": "No test case in the 2026 retest. Notice only; live audio cannot be inspected from the page."
+        "evidence": "Notice only; live audio cannot be inspected from the page."
       },
       "ai": {
         "level": "unlikely",
@@ -441,7 +440,7 @@
           "htmlcs:Principle1.Guideline1_3.1_3_1.H71.SameName",
           "htmlcs:Principle1.Guideline1_3.1_3_1_AAA.G141"
         ],
-        "evidence": "Retest (13 failing cases): axe 7 flagged, 6 missed; HTML_CodeSniffer WCAG2AAA 5 flagged, 3 notice, 5 missed. Rules catch broken or missing markup patterns; structure that is visual only (bold text as headings, text lists, layout tables) is mostly a notice or missed."
+        "evidence": "Rules catch broken or missing markup patterns; structure that is visual only (bold text as headings, text lists, layout tables) is mostly a notice or missed."
       },
       "ai": {
         "level": "likely",
@@ -471,7 +470,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. No rule compares DOM order with visual order or judges meaning."
+        "evidence": "No rule compares DOM order with visual order or judges meaning."
       },
       "ai": {
         "level": "likely",
@@ -502,7 +501,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_3.1_3_3.G96"
         ],
-        "evidence": "Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. Page-level notice only; no rule interprets instructions."
+        "evidence": "Page-level notice only; no rule interprets instructions."
       },
       "ai": {
         "level": "likely",
@@ -532,7 +531,7 @@
         "rules": [
           "axe:css-orientation-lock"
         ],
-        "evidence": "Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 2 missed. axe detects CSS orientation locks in media queries; locks done in script or by the manifest are missed."
+        "evidence": "axe detects CSS orientation locks in media queries; locks done in script or by the manifest are missed."
       },
       "ai": {
         "level": "likely",
@@ -561,7 +560,7 @@
           "axe:autocomplete-valid",
           "htmlcs:Principle1.Guideline1_3.1_3_5.H98"
         ],
-        "evidence": "Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 asked for review, 1 notice. axe validates autocomplete values that are present; neither tool can know which fields collect data about the user, so missing autocomplete is at best a notice."
+        "evidence": "axe validates autocomplete values that are present; neither tool can know which fields collect data about the user, so missing autocomplete is at best a notice."
       },
       "ai": {
         "level": "likely",
@@ -593,7 +592,7 @@
           "axe:landmark-one-main",
           "htmlcs:Principle1.Guideline1_3.1_3_6.ARIA11"
         ],
-        "evidence": "Retest (1 failing case): axe 1 flagged; HTML_CodeSniffer WCAG2AAA 1 missed. Landmark rules (axe best-practice, not WCAG-tagged) catch missing regions; purpose of icons and components is not checked."
+        "evidence": "Landmark rules (axe best-practice, not WCAG-tagged) catch missing regions; purpose of icons and components is not checked."
       },
       "ai": {
         "level": "possible",
@@ -626,7 +625,7 @@
         "rules": [
           "axe:link-in-text-block"
         ],
-        "evidence": "Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 3 missed. axe only checks links in text blocks; colour-only cues in forms, charts and states are missed."
+        "evidence": "axe only checks links in text blocks; colour-only cues in forms, charts and states are missed."
       },
       "ai": {
         "level": "likely",
@@ -655,7 +654,7 @@
           "axe:no-autoplay-audio",
           "htmlcs:Principle1.Guideline1_4.1_4_2.F23"
         ],
-        "evidence": "Retest (1 failing case): axe 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 notice. axe checks autoplaying media elements and asks for review when duration is unknown; HTML_CodeSniffer only gives a notice. Audio started by script is missed."
+        "evidence": "axe checks autoplaying media elements and asks for review when duration is unknown; HTML_CodeSniffer only gives a notice. Audio started by script is missed."
       },
       "ai": {
         "level": "likely",
@@ -687,7 +686,7 @@
           "htmlcs:Principle1.Guideline1_4.1_4_6.G18.Fail",
           "htmlcs:Principle1.Guideline1_4.1_4_6.G18.BgImage"
         ],
-        "evidence": "Retest (7 failing cases): axe 6 flagged, 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 asked for review, 5 missed. axe decides plain text on solid backgrounds well but returns 'needs review' over images, gradients and overlaps. HTML_CodeSniffer at WCAG2AAA uses the 1.4.6 sniff, so many 1.4.3 failures surface only as 1.4.6 codes."
+        "evidence": "axe decides plain text on solid backgrounds well but returns 'needs review' over images, gradients and overlaps. HTML_CodeSniffer at WCAG2AAA uses the 1.4.6 sniff, so many 1.4.3 failures surface only as 1.4.6 codes."
       },
       "ai": {
         "level": "likely",
@@ -715,7 +714,7 @@
         "rules": [
           "axe:meta-viewport"
         ],
-        "evidence": "Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 4 missed. axe only catches viewport settings that block zoom; text clipped or overlapping at 200% is not tested. The 1.4.4 sniff is not in the WCAG2AAA ruleset."
+        "evidence": "axe only catches viewport settings that block zoom; text clipped or overlapping at 200% is not tested. The 1.4.4 sniff is not in the WCAG2AAA ruleset."
       },
       "ai": {
         "level": "likely",
@@ -743,7 +742,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_4.1_4_9.G140,C22,C30.NoException"
         ],
-        "evidence": "Retest (5 failing cases): axe 2 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 3 notice. Only notices for every image; the retest 'flagged' results come from missing-alt rules on the same images, not from an images-of-text check."
+        "evidence": "Only notices for every image."
       },
       "ai": {
         "level": "likely",
@@ -774,7 +773,7 @@
           "htmlcs:Principle1.Guideline1_4.1_4_6.G18.Fail",
           "htmlcs:Principle1.Guideline1_4.1_4_6.G17.BgImage"
         ],
-        "evidence": "Retest (9 failing cases): axe 8 flagged, 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 asked for review, 7 missed. Same limits as 1.4.3: text over images, gradients and overlaps cannot be computed. axe flags most cases via color-contrast or color-contrast-enhanced."
+        "evidence": "Same limits as 1.4.3: text over images, gradients and overlaps cannot be computed. axe flags most cases via color-contrast or color-contrast-enhanced."
       },
       "ai": {
         "level": "likely",
@@ -802,7 +801,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_4.1_4_7.G56"
         ],
-        "evidence": "No test case in the 2026 retest. Notice only; background level in mixed audio cannot be measured by page rules."
+        "evidence": "Notice only; background level in mixed audio cannot be measured by page rules."
       },
       "ai": {
         "level": "unlikely",
@@ -833,7 +832,7 @@
           "htmlcs:Principle1.Guideline1_4.1_4_8.C19,G172,G169",
           "htmlcs:Principle1.Guideline1_4.1_4_8.G188,C21"
         ],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notices only, one per requirement; no rule decides line length, justification, spacing or colour selection."
+        "evidence": "Notices only, one per requirement; no rule decides line length, justification, spacing or colour selection."
       },
       "ai": {
         "level": "possible",
@@ -862,7 +861,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_4.1_4_9.G140,C22,C30.NoException"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only, emitted once per page with images."
+        "evidence": "Notice only, emitted once per page with images."
       },
       "ai": {
         "level": "likely",
@@ -890,7 +889,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_4.1_4_10.C32,C31,C33,C38,SCR34,G206"
         ],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. HTML_CodeSniffer warns about fixed-width elements that may scroll in two dimensions; axe has no rule."
+        "evidence": "HTML_CodeSniffer warns about fixed-width elements that may scroll in two dimensions; axe has no rule."
       },
       "ai": {
         "level": "likely",
@@ -919,7 +918,7 @@
       "automation": {
         "level": "partial",
         "rules": [],
-        "evidence": "Retest (4 failing cases): axe 1 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 1 notice, 2 missed. No WCAG-tagged axe rule; HTML_CodeSniffer's 1.4.11 sniff is a notice. Retest detections came from text-contrast and focus rules on the same pages."
+        "evidence": "No WCAG-tagged axe rule; HTML_CodeSniffer's 1.4.11 sniff is a notice."
       },
       "ai": {
         "level": "possible",
@@ -949,7 +948,7 @@
           "axe:avoid-inline-spacing",
           "htmlcs:Principle1.Guideline1_4.1_4_12.C36,C35"
         ],
-        "evidence": "Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 2 missed. axe only finds inline !important spacing that blocks overrides; clipping after the override is not tested."
+        "evidence": "axe only finds inline !important spacing that blocks overrides; clipping after the override is not tested."
       },
       "ai": {
         "level": "likely",
@@ -980,7 +979,7 @@
         "rules": [
           "htmlcs:Principle1.Guideline1_4.1_4_13.F95"
         ],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only; dismissable, hoverable and persistent behaviour needs interaction."
+        "evidence": "Notice only; dismissable, hoverable and persistent behaviour needs interaction."
       },
       "ai": {
         "level": "possible",
@@ -1014,7 +1013,7 @@
           "htmlcs:Principle2.Guideline2_1.2_1_1.SCR20.MouseDown",
           "htmlcs:Principle2.Guideline2_1.2_1_1.G90"
         ],
-        "evidence": "Retest (5 failing cases): axe 5 missed; HTML_CodeSniffer WCAG2AAA 5 missed. Rules catch a few patterns; operability of custom controls with the keyboard needs interaction."
+        "evidence": "Rules catch a few patterns; operability of custom controls with the keyboard needs interaction."
       },
       "ai": {
         "level": "possible",
@@ -1043,7 +1042,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_1.2_1_2.F10"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; traps appear only when focus moves."
+        "evidence": "Notice only; traps appear only when focus moves."
       },
       "ai": {
         "level": "likely",
@@ -1071,7 +1070,7 @@
         "rules": [
           "axe:scrollable-region-focusable"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Same limits as 2.1.1, without exceptions."
+        "evidence": "Same limits as 2.1.1, without exceptions."
       },
       "ai": {
         "level": "possible",
@@ -1098,7 +1097,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; shortcuts live in script."
+        "evidence": "No rule; shortcuts live in script."
       },
       "ai": {
         "level": "possible",
@@ -1130,7 +1129,7 @@
           "htmlcs:Principle2.Guideline2_2.2_2_1.F40.2",
           "htmlcs:Principle2.Guideline2_2.2_2_1.F41.2"
         ],
-        "evidence": "Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 3 missed; WCAG2AA supplement 2 flagged, 1 missed. Rules catch meta refresh only; script timers and session timeouts are missed. The 2.2.1 sniff is missing from the WCAG2AAA ruleset; the WCAG2AA supplement (D-024) catches the meta refresh cases."
+        "evidence": "Rules catch meta refresh only; script timers and session timeouts are missed. The 2.2.1 sniff is missing from the WCAG2AAA ruleset; the WCAG2AA supplement (D-024) catches the meta refresh cases."
       },
       "ai": {
         "level": "possible",
@@ -1165,7 +1164,7 @@
           "htmlcs:Principle2.Guideline2_2.2_2_2.F47",
           "htmlcs:Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191"
         ],
-        "evidence": "Retest (4 failing cases): axe 1 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 4 missed. Rules catch obsolete blink and marquee only; CSS/JS animation and auto-updating content are missed."
+        "evidence": "Rules catch obsolete blink and marquee only; CSS/JS animation and auto-updating content are missed."
       },
       "ai": {
         "level": "possible",
@@ -1196,7 +1195,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_2.2_2_3.G5"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+        "evidence": "Notice only."
       },
       "ai": {
         "level": "possible",
@@ -1225,7 +1224,7 @@
           "axe:meta-refresh-no-exceptions",
           "htmlcs:Principle2.Guideline2_2.2_2_4.SCR14"
         ],
-        "evidence": "Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 3 missed; WCAG2AA supplement 2 flagged, 1 missed. Rules catch meta refresh only; script interruptions such as pop-ups and live updates are missed."
+        "evidence": "Rules catch meta refresh only; script interruptions such as pop-ups and live updates are missed."
       },
       "ai": {
         "level": "possible",
@@ -1255,7 +1254,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_2.2_2_5.G105,G181"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; session expiry is server behaviour."
+        "evidence": "Notice only; session expiry is server behaviour."
       },
       "ai": {
         "level": "possible",
@@ -1286,7 +1285,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; data-loss timeouts are server behaviour."
+        "evidence": "No rule; data-loss timeouts are server behaviour."
       },
       "ai": {
         "level": "possible",
@@ -1315,7 +1314,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Neither tool analyses flashing. Dedicated flash analysers (outside our toolset) can decide this from video frames."
+        "evidence": "Neither tool analyses flashing. Dedicated flash analysers (outside our toolset) can decide this from video frames."
       },
       "otherTools": [
         {
@@ -1353,7 +1352,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_3.2_3_2.G19"
         ],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only; see 2.3.1."
+        "evidence": "Notice only; see 2.3.1."
       },
       "otherTools": [
         {
@@ -1391,7 +1390,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_3.2_3_3.C39"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+        "evidence": "Notice only."
       },
       "ai": {
         "level": "possible",
@@ -1425,7 +1424,7 @@
           "htmlcs:Principle2.Guideline2_4.2_4_1.H64.1",
           "htmlcs:Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID"
         ],
-        "evidence": "No test case in the 2026 retest. axe checks for a skip link, heading or landmark; HTML_CodeSniffer checks skip-link targets and frame titles. Whether the mechanism works is not tested."
+        "evidence": "axe checks for a skip link, heading or landmark; HTML_CodeSniffer checks skip-link targets and frame titles. Whether the mechanism works is not tested."
       },
       "ai": {
         "level": "likely",
@@ -1459,7 +1458,7 @@
           "htmlcs:Principle2.Guideline2_4.2_4_2.H25.1.EmptyTitle",
           "htmlcs:Principle2.Guideline2_4.2_4_2.H25.2"
         ],
-        "evidence": "Retest (7 failing cases): axe 5 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 4 flagged, 3 missed. Rules catch missing or empty titles; whether the title describes topic or purpose is only a notice."
+        "evidence": "Rules catch missing or empty titles; whether the title describes topic or purpose is only a notice."
       },
       "ai": {
         "level": "likely",
@@ -1489,7 +1488,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_4.2_4_3.H4.2"
         ],
-        "evidence": "Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. HTML_CodeSniffer only notices tabindex use; axe's tabindex rule is best-practice. Order without tabindex (CSS reordering, dialogs) is missed."
+        "evidence": "HTML_CodeSniffer only notices tabindex use; axe's tabindex rule is best-practice. Order without tabindex (CSS reordering, dialogs) is missed."
       },
       "ai": {
         "level": "likely",
@@ -1523,7 +1522,7 @@
           "htmlcs:Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
           "htmlcs:Principle2.Guideline2_4.2_4_9.H30"
         ],
-        "evidence": "Retest (5 failing cases): axe 2 flagged, 2 asked for review, 1 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 3 notice. Rules catch links with no name; vague names are at best a notice. The 2.4.4 sniff is only in the WCAG2AA ruleset."
+        "evidence": "Rules catch links with no name; vague names are at best a notice. The 2.4.4 sniff is only in the WCAG2AA ruleset."
       },
       "ai": {
         "level": "likely",
@@ -1551,7 +1550,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs knowledge of the whole site."
+        "evidence": "Notice only; needs knowledge of the whole site."
       },
       "ai": {
         "level": "likely",
@@ -1581,7 +1580,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_4.2_4_6.G130,G131"
         ],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only."
+        "evidence": "Notice only."
       },
       "ai": {
         "level": "likely",
@@ -1611,7 +1610,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31"
         ],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. Page-level notice only, not tied to the element; axe has no rule."
+        "evidence": "Page-level notice only, not tied to the element; axe has no rule."
       },
       "ai": {
         "level": "likely",
@@ -1642,7 +1641,7 @@
           "htmlcs:Principle2.Guideline2_4.2_4_8.H59.1",
           "htmlcs:Principle2.Guideline2_4.2_4_8.H59.2a"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notices only."
+        "evidence": "Notices only."
       },
       "ai": {
         "level": "likely",
@@ -1676,7 +1675,7 @@
           "axe:identical-links-same-purpose",
           "htmlcs:Principle2.Guideline2_4.2_4_9.H30"
         ],
-        "evidence": "Retest (9 failing cases): axe 2 flagged, 2 asked for review, 5 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 7 notice. Rules catch empty links; vague link text is a notice per link."
+        "evidence": "Rules catch empty links; vague link text is a notice per link."
       },
       "ai": {
         "level": "likely",
@@ -1703,7 +1702,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule decides whether content should be organised with headings."
+        "evidence": "No rule decides whether content should be organised with headings."
       },
       "ai": {
         "level": "likely",
@@ -1731,7 +1730,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+        "evidence": "No rule."
       },
       "ai": {
         "level": "likely",
@@ -1760,7 +1759,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. No rule."
+        "evidence": "No rule."
       },
       "ai": {
         "level": "likely",
@@ -1791,7 +1790,7 @@
         "rules": [
           "htmlcs:Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31"
         ],
-        "evidence": "Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 3 notice, 1 missed. Only the page-level 2.4.7 notice; no rule measures indicator area or change contrast."
+        "evidence": "Only the page-level 2.4.7 notice; no rule measures indicator area or change contrast."
       },
       "ai": {
         "level": "possible",
@@ -1817,7 +1816,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; gestures live in script."
+        "evidence": "No rule; gestures live in script."
       },
       "ai": {
         "level": "possible",
@@ -1843,7 +1842,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+        "evidence": "No rule."
       },
       "ai": {
         "level": "possible",
@@ -1874,7 +1873,7 @@
         "rules": [
           "axe:label-content-name-mismatch"
         ],
-        "evidence": "Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 1 notice. axe's rule is experimental and covers some widgets; the retest detections came from missing-label rules on the same pages, not from a mismatch check."
+        "evidence": "axe's rule is experimental and covers some widgets."
       },
       "ai": {
         "level": "likely",
@@ -1902,7 +1901,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+        "evidence": "No rule."
       },
       "ai": {
         "level": "possible",
@@ -1932,7 +1931,7 @@
         "rules": [
           "axe:target-size"
         ],
-        "evidence": "Retest (1 failing case): axe 1 flagged; HTML_CodeSniffer WCAG2AAA 1 missed. axe's target-size checks the 24 px minimum (2.5.8), so it only catches 2.5.5 failures that are also below 24 px."
+        "evidence": "axe's target-size checks the 24 px minimum (2.5.8), so it only catches 2.5.5 failures that are also below 24 px."
       },
       "ai": {
         "level": "likely",
@@ -1958,7 +1957,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+        "evidence": "No rule."
       },
       "ai": {
         "level": "possible",
@@ -1984,7 +1983,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule."
+        "evidence": "No rule."
       },
       "ai": {
         "level": "possible",
@@ -2013,7 +2012,7 @@
         "rules": [
           "axe:target-size"
         ],
-        "evidence": "Retest (1 failing case): axe 1 flagged; HTML_CodeSniffer WCAG2AAA 1 missed. axe measures size and spacing; exceptions (inline, equivalent control, essential) and overlapping targets can need review."
+        "evidence": "axe measures size and spacing; exceptions (inline, equivalent control, essential) and overlapping targets can need review."
       },
       "ai": {
         "level": "likely",
@@ -2047,7 +2046,7 @@
           "htmlcs:Principle3.Guideline3_1.3_1_1.H57.2",
           "htmlcs:Principle3.Guideline3_1.3_1_1.H57.3.Lang"
         ],
-        "evidence": "Retest (8 failing cases): axe 6 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 4 flagged, 4 missed. Rules catch missing or invalid lang; a valid code for the wrong language passes."
+        "evidence": "Rules catch missing or invalid lang; a valid code for the wrong language passes."
       },
       "ai": {
         "level": "likely",
@@ -2078,7 +2077,7 @@
           "htmlcs:Principle3.Guideline3_1.3_1_2.H58.1.Lang",
           "htmlcs:Principle3.Guideline3_1.3_1_2.H58"
         ],
-        "evidence": "Retest (3 failing cases): axe 1 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 3 missed. Rules catch invalid lang values on elements; passages in another language without lang are missed."
+        "evidence": "Rules catch invalid lang values on elements; passages in another language without lang are missed."
       },
       "ai": {
         "level": "likely",
@@ -2105,7 +2104,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_1.3_1_3.H40,H54,H60,G62,G70"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+        "evidence": "Notice only."
       },
       "ai": {
         "level": "possible",
@@ -2132,7 +2131,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_1.3_1_4.G102,G55,G62,H28,G97"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+        "evidence": "Notice only."
       },
       "ai": {
         "level": "likely",
@@ -2159,7 +2158,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_1.3_1_5.G86,G103,G79,G153,G160"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+        "evidence": "Notice only."
       },
       "ai": {
         "level": "likely",
@@ -2186,7 +2185,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_1.3_1_6.H62.1.HTML5"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only."
+        "evidence": "Notice only."
       },
       "ai": {
         "level": "possible",
@@ -2213,7 +2212,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_2.3_2_1.G107"
         ],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. Notice for every input, not tied to behaviour."
+        "evidence": "Notice for every input, not tied to behaviour."
       },
       "ai": {
         "level": "likely",
@@ -2243,7 +2242,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_2.3_2_2.H32.2"
         ],
-        "evidence": "Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 2 missed. HTML_CodeSniffer flags forms without a submit button; auto-submitting scripts are missed."
+        "evidence": "HTML_CodeSniffer flags forms without a submit button; auto-submitting scripts are missed."
       },
       "ai": {
         "level": "likely",
@@ -2271,7 +2270,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_2.3_2_3.G61"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs several pages."
+        "evidence": "Notice only; needs several pages."
       },
       "ai": {
         "level": "likely",
@@ -2302,7 +2301,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_2.3_2_4.G197"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; needs several pages."
+        "evidence": "Notice only; needs several pages."
       },
       "ai": {
         "level": "likely",
@@ -2338,7 +2337,7 @@
           "htmlcs:Principle3.Guideline3_2.3_2_5.H83.3",
           "htmlcs:Principle2.Guideline2_2.2_2_1.F40.2"
         ],
-        "evidence": "Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 2 missed; WCAG2AA supplement 3 flagged. Rules catch meta refresh and notice new-window links; script redirects and pop-ups are missed."
+        "evidence": "Rules catch meta refresh and notice new-window links; script redirects and pop-ups are missed."
       },
       "ai": {
         "level": "likely",
@@ -2366,7 +2365,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; needs several pages."
+        "evidence": "No rule; needs several pages."
       },
       "ai": {
         "level": "likely",
@@ -2398,7 +2397,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_3.3_3_1.G83,G84,G85"
         ],
-        "evidence": "Retest (3 failing cases): axe 1 flagged, 2 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 2 notice. Notice once per form; errors only exist after submission. The retest 'flagged' result came from a contrast rule on the same page."
+        "evidence": "Notice once per form; errors only exist after submission."
       },
       "ai": {
         "level": "likely",
@@ -2434,7 +2433,7 @@
           "htmlcs:Principle1.Guideline1_3.1_3_1.F68",
           "htmlcs:Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90"
         ],
-        "evidence": "Retest (3 failing cases): axe 3 flagged; HTML_CodeSniffer WCAG2AAA 2 flagged, 1 missed. Rules catch missing labels; whether labels and instructions suffice is a notice."
+        "evidence": "Rules catch missing labels; whether labels and instructions suffice is a notice."
       },
       "ai": {
         "level": "likely",
@@ -2465,7 +2464,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_3.3_3_3.G177"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice once per form."
+        "evidence": "Notice once per form."
       },
       "ai": {
         "level": "likely",
@@ -2493,7 +2492,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice only; the 3.3.4 sniff is only in the WCAG2AA ruleset (the retest notice came from the 3.3.6 AllForms code)."
+        "evidence": "Notice only; the 3.3.4 sniff is only in the WCAG2AA ruleset."
       },
       "ai": {
         "level": "possible",
@@ -2521,7 +2520,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_3.3_3_5.G71,G184,G193"
         ],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice once per form."
+        "evidence": "Notice once per form."
       },
       "ai": {
         "level": "possible",
@@ -2549,7 +2548,7 @@
         "rules": [
           "htmlcs:Principle3.Guideline3_3.3_3_6.G98,G99,G155,G164,G168.AllForms"
         ],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 notice. Notice once per form."
+        "evidence": "Notice once per form."
       },
       "ai": {
         "level": "possible",
@@ -2575,7 +2574,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; needs a multi-step process."
+        "evidence": "No rule; needs a multi-step process."
       },
       "ai": {
         "level": "likely",
@@ -2604,7 +2603,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. No rule detects a cognitive function test; paste blocking lives in script."
+        "evidence": "No rule detects a cognitive function test; paste blocking lives in script."
       },
       "ai": {
         "level": "possible",
@@ -2634,7 +2633,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. No rule."
+        "evidence": "No rule."
       },
       "ai": {
         "level": "possible",
@@ -2667,7 +2666,7 @@
           "axe:duplicate-id-active",
           "htmlcs:Principle4.Guideline4_1.4_1_1.F77"
         ],
-        "evidence": "Retest (5 failing cases): axe 4 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 4 missed. Removed in WCAG 2.2 (always satisfied for HTML). axe and HTML_CodeSniffer only check duplicate ids; an HTML validator (not in our toolset) could decide it fully. Some retest detections came from list rules."
+        "evidence": "Removed in WCAG 2.2 (always satisfied for HTML). axe and HTML_CodeSniffer only check duplicate ids; an HTML validator (not in our toolset) could decide it fully."
       },
       "otherTools": [
         {
@@ -2718,7 +2717,7 @@
           "htmlcs:Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
           "htmlcs:Principle1.Guideline1_3.1_3_1.F68"
         ],
-        "evidence": "Retest (16 failing cases): axe 11 flagged, 5 missed; HTML_CodeSniffer WCAG2AAA 8 flagged, 8 missed. Rules catch missing names and invalid ARIA well; state and value updates on interaction are not tested."
+        "evidence": "Rules catch missing names and invalid ARIA well; state and value updates on interaction are not tested."
       },
       "ai": {
         "level": "likely",
@@ -2747,7 +2746,7 @@
       "automation": {
         "level": "none",
         "rules": [],
-        "evidence": "Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; status messages appear after interaction."
+        "evidence": "No rule; status messages appear after interaction."
       },
       "ai": {
         "level": "possible",

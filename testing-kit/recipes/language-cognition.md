@@ -161,15 +161,15 @@ Also checked in `multi-step-flow`. Understanding: <https://www.w3.org/WAI/WCAG22
 
 ## Already covered by tools
 
-Our retest showed that rules cannot judge any of these; HTML_CodeSniffer gives one notice per page or form. Mapped rules mostly detect missing markup (for example `abbr`, `lang`), not whether the content needs it.
+Rules cannot judge any of these; HTML_CodeSniffer gives one notice per page or form. Mapped rules mostly detect missing markup (for example `abbr`, `lang`), not whether the content needs it.
 
-- **2.4.6** (none) axe: no rule; HTML_CodeSniffer: 2_4_6.G130,G131. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only.
-- **3.1.3** (none) axe: no rule; HTML_CodeSniffer: 3_1_3.H40,H54,H60,G62,G70. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only.
-- **3.1.4** (none) axe: no rule; HTML_CodeSniffer: 3_1_4.G102,G55,G62,H28,G97. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only.
-- **3.1.5** (none) axe: no rule; HTML_CodeSniffer: 3_1_5.G86,G103,G79,G153,G160. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only.
-- **3.1.6** (none) axe: no rule; HTML_CodeSniffer: 3_1_6.H62.1.HTML5. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only.
-- **3.3.3** (partial) axe: no rule; HTML_CodeSniffer: 3_3_3.G177. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice once per form.
-- **3.3.5** (partial) axe: no rule; HTML_CodeSniffer: 3_3_5.G71,G184,G193. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice. Notice once per form.
+- **2.4.6** (none) axe: no rule; HTML_CodeSniffer: 2_4_6.G130,G131. Notice only.
+- **3.1.3** (none) axe: no rule; HTML_CodeSniffer: 3_1_3.H40,H54,H60,G62,G70. Notice only.
+- **3.1.4** (none) axe: no rule; HTML_CodeSniffer: 3_1_4.G102,G55,G62,H28,G97. Notice only.
+- **3.1.5** (none) axe: no rule; HTML_CodeSniffer: 3_1_5.G86,G103,G79,G153,G160. Notice only.
+- **3.1.6** (none) axe: no rule; HTML_CodeSniffer: 3_1_6.H62.1.HTML5. Notice only.
+- **3.3.3** (partial) axe: no rule; HTML_CodeSniffer: 3_3_3.G177. Notice once per form.
+- **3.3.5** (partial) axe: no rule; HTML_CodeSniffer: 3_3_5.G71,G184,G193. Notice once per form.
 
 ## AI and human
 

@@ -21,9 +21,10 @@
     "classify": "node scripts/classify.mjs",
     "wcag:methods": "node scripts/wcag/test-methods.mjs",
     "blind:build": "node scripts/blind/build.mjs",
-    "blind:serve": "node scripts/blind/serve.mjs",
+    "blind:serve": "node testing-kit/serve.mjs",
     "blind:verify": "node scripts/blind/verify.mjs",
-    "test-mode": "npm run build && npm run blind:build && npm run blind:serve"
+    "test-mode": "npm run build && npm run blind:build && npm run blind:serve",
+    "kit:setup": "npm ci --prefix testing-kit && cd testing-kit && PLAYWRIGHT_BROWSERS_PATH=.browsers npx playwright-core install chromium"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",

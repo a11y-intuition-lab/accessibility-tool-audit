@@ -131,17 +131,17 @@ Also checked in `multi-step-flow`. Here only record time limits and warnings in 
 
 ## Already covered by tools
 
-Our retest showed that rules detect obsolete `blink`/`marquee` elements, meta refresh and autoplaying media elements with known duration; they cannot judge flashes, script timers or CSS and JavaScript animation. Pass the pre-step output to this pass as context.
+Rules detect obsolete `blink`/`marquee` elements, meta refresh and autoplaying media elements with known duration; they cannot judge flashes, script timers or CSS and JavaScript animation. Pass the pre-step output to this pass as context.
 
-- **1.4.2** (partial) axe: no-autoplay-audio; HTML_CodeSniffer: 1_4_2.F23. Retest (1 failing case): axe 1 asked for review; HTML_CodeSniffer WCAG2AAA 1 notice. axe checks autoplaying media elements and asks for review when duration is unknown; HTML_CodeSniffer only gives a notice. Audio started by script is missed.
-- **2.2.1** (partial) axe: meta-refresh; HTML_CodeSniffer: 2_2_1.F40.2, 2_2_1.F41.2. Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 3 missed; WCAG2AA supplement 2 flagged, 1 missed. Rules catch meta refresh only; script timers and session timeouts are missed. The 2.2.1 sniff is missing from the WCAG2AAA ruleset; the WCAG2AA supplement (D-024) catches the meta refresh cases.
-- **2.2.2** (partial) axe: blink, marquee; HTML_CodeSniffer: 2_2_2.F4, 2_2_2.F47, 2_2_2.SCR33,SCR22,G187,G152,G186,G191. Retest (4 failing cases): axe 1 flagged, 3 missed; HTML_CodeSniffer WCAG2AAA 4 missed. Rules catch obsolete blink and marquee only; CSS/JS animation and auto-updating content are missed.
-- **2.2.3** (none) axe: no rule; HTML_CodeSniffer: 2_2_3.G5. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only.
-- **2.2.4** (partial) axe: meta-refresh-no-exceptions; HTML_CodeSniffer: 2_2_4.SCR14. Retest (3 failing cases): axe 2 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 3 missed; WCAG2AA supplement 2 flagged, 1 missed. Rules catch meta refresh only; script interruptions such as pop-ups and live updates are missed.
-- **2.2.6** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; data-loss timeouts are server behaviour.
-- **2.3.1** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Neither tool analyses flashing. Dedicated flash analysers (outside our toolset) can decide this from video frames.
-- **2.3.2** (none) axe: no rule; HTML_CodeSniffer: 2_3_2.G19. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. Notice only; see 2.3.1.
-- **2.3.3** (none) axe: no rule; HTML_CodeSniffer: 2_3_3.C39. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only.
+- **1.4.2** (partial) axe: no-autoplay-audio; HTML_CodeSniffer: 1_4_2.F23. axe checks autoplaying media elements and asks for review when duration is unknown; HTML_CodeSniffer only gives a notice. Audio started by script is missed.
+- **2.2.1** (partial) axe: meta-refresh; HTML_CodeSniffer: 2_2_1.F40.2, 2_2_1.F41.2. Rules catch meta refresh only; script timers and session timeouts are missed. The 2.2.1 sniff is missing from the WCAG2AAA ruleset; the WCAG2AA supplement (D-024) catches the meta refresh cases.
+- **2.2.2** (partial) axe: blink, marquee; HTML_CodeSniffer: 2_2_2.F4, 2_2_2.F47, 2_2_2.SCR33,SCR22,G187,G152,G186,G191. Rules catch obsolete blink and marquee only; CSS/JS animation and auto-updating content are missed.
+- **2.2.3** (none) axe: no rule; HTML_CodeSniffer: 2_2_3.G5. Notice only.
+- **2.2.4** (partial) axe: meta-refresh-no-exceptions; HTML_CodeSniffer: 2_2_4.SCR14. Rules catch meta refresh only; script interruptions such as pop-ups and live updates are missed.
+- **2.2.6** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule; data-loss timeouts are server behaviour.
+- **2.3.1** (none) axe: no rule; HTML_CodeSniffer: no sniff. Neither tool analyses flashing. Dedicated flash analysers (outside our toolset) can decide this from video frames.
+- **2.3.2** (none) axe: no rule; HTML_CodeSniffer: 2_3_2.G19. Notice only; see 2.3.1.
+- **2.3.3** (none) axe: no rule; HTML_CodeSniffer: 2_3_3.C39. Notice only.
 
 ## AI and human
 

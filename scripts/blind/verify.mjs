@@ -71,7 +71,7 @@ async function serve(dir) {
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
   return { server, base: `http://127.0.0.1:${server.address().port}/` };
 }
-const S = { orig: await serve(join(root, '_site')), blind: await serve(join(root, '.blind', 'site')) };
+const S = { orig: await serve(join(root, '_site')), blind: await serve(join(root, 'testing-kit', '.site')) };
 
 // ---- tools -------------------------------------------------------------------------------------------------------------
 const chromiumPath = chromium.executablePath();

@@ -202,3 +202,17 @@ Append-only, newest last.
 - `testing-kit/` is now a closed workspace for an AI agent (`.claude/settings.json`), with the finding schema
   (`finding.schema.json`) and the prompt used to generate the AI instructions (`generate-ai-instructions.md`).
 - No AI run has been made (D-027).
+
+## 2026-10-11 — Self-contained testing-kit workspace; retest evidence removed from the kit
+
+- Claude Code's Bash sandbox has its own `localhost` and cannot read the repository, so `testing-kit/` now has its own
+  pinned tools (`package.json`, same versions as the retest; `npm run kit:setup` also installs Chromium into
+  `testing-kit/.browsers/`), the server script `serve.mjs`, and an environment check (`check-environment.mjs`, no AI).
+  The blinded pages are built into `testing-kit/.site/`, only for a run; the key stays in `.blind/`. Hooks,
+  auto-memory and the user's global `CLAUDE.md` are off in the workspace (found by the sandbox check: a user hook broke
+  shell commands, and the memory index pointed to private notes).
+- The recipes and the kit's copy of `sc-test-methods.json` no longer contain retest evidence, because it told an AI
+  something about the test set. `npm run wcag:methods` fails if the kit mentions the retest again.
+- The generator prompt now also requires a permission rule (run only on pages the user may test), a status line on
+  every generated file, and no mention of any test set. A first generated `ai-kit/` was withdrawn before publication
+  because it lacked these and quoted one retest result; it will be generated again.

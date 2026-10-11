@@ -14,11 +14,15 @@
   },
   "sandbox": {
     "enabled": true,
+    "autoAllowBashIfSandboxed": true,
     "failIfUnavailable": true,
     "allowUnsandboxedCommands": false
   },
+  "disableAllHooks": true,
+  "autoMemoryEnabled": false,
   "claudeMdExcludes": [
     "**/accessibility-tool-audit/CLAUDE.md",
-    "**/a11y/CLAUDE.md"
+    "**/a11y/CLAUDE.md",
+    "**/.claude/CLAUDE.md"
   ]
 }

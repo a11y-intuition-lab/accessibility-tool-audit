@@ -7,7 +7,7 @@ Method material for testing a web page against WCAG 2.x (all versions, all level
 ## What it is not
 
 - It is not a compliance certificate. A page with no findings has not been shown to conform; a `passed` outcome means only that the tester found no failure in the collected data.
-- It is not validated yet. The first validation is a run against the 221 test pages of this repository, whose expected barriers are known (see [methodology](../wiki/index.md)). Until then the recipes are a draft, and the numbers they cite are from our phase 1 retest, not from the kit.
+- It is not validated yet. Until it has been run against pages whose barriers are known, the recipes are a draft.
 - It does not replace testing with people who use assistive technology.
 
 ## Files
@@ -18,7 +18,11 @@ Method material for testing a web page against WCAG 2.x (all versions, all level
 | [`recipes/<group-id>.md`](./recipes/) | One recipe per test-method group (10), same section order in every file |
 | [`finding.schema.json`](./finding.schema.json) | JSON schema for one page's findings (the finding format below) |
 | [`generate-ai-instructions.md`](./generate-ai-instructions.md) | The prompt used to generate AI testing instructions (a skill) from this kit (D-027) |
-| [`../data/mappings/sc-test-methods.json`](../data/mappings/sc-test-methods.json) | The 87 success criteria: group, automation, AI and human triage, rule ids, and `otherTools` |
+| [`sc-test-methods.json`](./sc-test-methods.json) | The 87 success criteria: group, automation, AI and human triage, rule ids, and `otherTools` (a generated copy of `data/mappings/sc-test-methods.json` without retest evidence) |
+| [`check-sandbox.md`](./check-sandbox.md) | Prompt that checks the closed workspace before an AI run (tests no page) |
+| [`check-environment.mjs`](./check-environment.mjs), [`serve.mjs`](./serve.mjs) | Environment check (server, Chromium, axe-core, pa11y) and the test server for `.site/` on `127.0.0.1:8090` |
+| [`package.json`](./package.json), `.npmrc` | The workspace's own pinned tools, installed with `npm run kit:setup` from the repository root |
+| `.site/`, `node_modules/`, `.browsers/`, `ai-kit/runs/` | Generated, not in git: blinded pages, tools, Chromium, run output |
 
 Every recipe has the same sections: Criteria (a table that a script fills from the data file), Setup, Collect, Judge, Already covered by tools, AI and human, Report, Sources.
 

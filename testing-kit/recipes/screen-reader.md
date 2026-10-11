@@ -105,11 +105,11 @@ Also checked in `code-and-tree`. Here: custom controls announce role, name and s
 
 ## Already covered by tools
 
-Our retest found no rule for reading order, link purpose in context beyond empty names, or status messages. Rules that touch these (axe `link-name`, HTML_CodeSniffer H77-H81) detect empty or vague link text only.
+There is no rule for reading order, link purpose in context beyond empty names, or status messages. Rules that touch these (axe `link-name`, HTML_CodeSniffer H77-H81) detect empty or vague link text only.
 
-- **1.3.2** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 3 missed. No rule compares DOM order with visual order or judges meaning.
-- **2.4.4** (partial) axe: link-name, area-alt; HTML_CodeSniffer: 2_4_4.H77,H78,H79,H80,H81, 2_4_9.H30. Retest (5 failing cases): axe 2 flagged, 2 asked for review, 1 missed; HTML_CodeSniffer WCAG2AAA 2 flagged, 3 notice. Rules catch links with no name; vague names are at best a notice. The 2.4.4 sniff is only in the WCAG2AA ruleset.
-- **4.1.3** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; status messages appear after interaction.
+- **1.3.2** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule compares DOM order with visual order or judges meaning.
+- **2.4.4** (partial) axe: link-name, area-alt; HTML_CodeSniffer: 2_4_4.H77,H78,H79,H80,H81, 2_4_9.H30. Rules catch links with no name; vague names are at best a notice. The 2.4.4 sniff is only in the WCAG2AA ruleset.
+- **4.1.3** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule; status messages appear after interaction.
 
 ## AI and human
 

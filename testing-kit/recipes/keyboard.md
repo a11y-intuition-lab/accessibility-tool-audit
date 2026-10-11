@@ -173,19 +173,19 @@ Also checked in `code-and-tree`. Here: every focus step has a name and role in t
 
 ## Already covered by tools
 
-Our retest showed that rules catch only a few static keyboard patterns (for example scrollable regions without focusable content) and cannot tell whether a custom control works with the keyboard, whether focus is visible or hidden, or whether a trap exists.
+Rules catch only a few static keyboard patterns (for example scrollable regions without focusable content) and cannot tell whether a custom control works with the keyboard, whether focus is visible or hidden, or whether a trap exists.
 
-- **2.1.1** (partial) axe: scrollable-region-focusable, frame-focusable-content, server-side-image-map; HTML_CodeSniffer: 2_1_1.SCR20.MouseDown, 2_1_1.G90. Retest (5 failing cases): axe 5 missed; HTML_CodeSniffer WCAG2AAA 5 missed. Rules catch a few patterns; operability of custom controls with the keyboard needs interaction.
-- **2.1.2** (none) axe: no rule; HTML_CodeSniffer: 2_1_2.F10. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Notice only; traps appear only when focus moves.
-- **2.1.3** (partial) axe: scrollable-region-focusable; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. Same limits as 2.1.1, without exceptions.
-- **2.1.4** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule; shortcuts live in script.
-- **2.4.3** (partial) axe: no rule; HTML_CodeSniffer: 2_4_3.H4.2. Retest (2 failing cases): axe 1 flagged, 1 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. HTML_CodeSniffer only notices tabindex use; axe's tabindex rule is best-practice. Order without tabindex (CSS reordering, dialogs) is missed.
-- **2.4.7** (partial) axe: no rule; HTML_CodeSniffer: 2_4_7.G149,G165,G195,C15,SCR31. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. Page-level notice only, not tied to the element; axe has no rule.
-- **2.4.11** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (1 failing case): axe 1 missed; HTML_CodeSniffer WCAG2AAA 1 missed. No rule.
-- **2.4.12** (none) axe: no rule; HTML_CodeSniffer: no sniff. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 2 missed. No rule.
-- **2.4.13** (partial) axe: no rule; HTML_CodeSniffer: 2_4_7.G149,G165,G195,C15,SCR31. Retest (4 failing cases): axe 4 missed; HTML_CodeSniffer WCAG2AAA 3 notice, 1 missed. Only the page-level 2.4.7 notice; no rule measures indicator area or change contrast.
-- **3.2.1** (partial) axe: no rule; HTML_CodeSniffer: 3_2_1.G107. Retest (2 failing cases): axe 2 missed; HTML_CodeSniffer WCAG2AAA 1 notice, 1 missed. Notice for every input, not tied to behaviour.
-- **3.2.2** (partial) axe: no rule; HTML_CodeSniffer: 3_2_2.H32.2. Retest (3 failing cases): axe 3 missed; HTML_CodeSniffer WCAG2AAA 1 flagged, 2 missed. HTML_CodeSniffer flags forms without a submit button; auto-submitting scripts are missed.
+- **2.1.1** (partial) axe: scrollable-region-focusable, frame-focusable-content, server-side-image-map; HTML_CodeSniffer: 2_1_1.SCR20.MouseDown, 2_1_1.G90. Rules catch a few patterns; operability of custom controls with the keyboard needs interaction.
+- **2.1.2** (none) axe: no rule; HTML_CodeSniffer: 2_1_2.F10. Notice only; traps appear only when focus moves.
+- **2.1.3** (partial) axe: scrollable-region-focusable; HTML_CodeSniffer: no sniff. Same limits as 2.1.1, without exceptions.
+- **2.1.4** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule; shortcuts live in script.
+- **2.4.3** (partial) axe: no rule; HTML_CodeSniffer: 2_4_3.H4.2. HTML_CodeSniffer only notices tabindex use; axe's tabindex rule is best-practice. Order without tabindex (CSS reordering, dialogs) is missed.
+- **2.4.7** (partial) axe: no rule; HTML_CodeSniffer: 2_4_7.G149,G165,G195,C15,SCR31. Page-level notice only, not tied to the element; axe has no rule.
+- **2.4.11** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule.
+- **2.4.12** (none) axe: no rule; HTML_CodeSniffer: no sniff. No rule.
+- **2.4.13** (partial) axe: no rule; HTML_CodeSniffer: 2_4_7.G149,G165,G195,C15,SCR31. Only the page-level 2.4.7 notice; no rule measures indicator area or change contrast.
+- **3.2.1** (partial) axe: no rule; HTML_CodeSniffer: 3_2_1.G107. Notice for every input, not tied to behaviour.
+- **3.2.2** (partial) axe: no rule; HTML_CodeSniffer: 3_2_2.H32.2. HTML_CodeSniffer flags forms without a submit button; auto-submitting scripts are missed.
 
 ## AI and human
 
