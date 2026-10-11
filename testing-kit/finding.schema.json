@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "testing-kit/finding.schema.json",
+  "title": "Accessibility test findings for one page",
+  "description": "Output of one test run on one page, in the finding format of testing-kit/README.md. One file per page.",
+  "type": "object",
+  "required": ["page", "tester", "findings"],
+  "additionalProperties": false,
+  "properties": {
+    "page": { "type": "string", "description": "URL of the tested page, exactly as given to the tester." },
+    "tester": {
+      "type": "object",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["human", "ai"] },
+        "models": {
+          "type": "object",
+          "description": "For AI: model id per role, for example {\"orchestrator\": \"...\", \"keyboard\": \"...\"}.",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "groups": {
+      "type": "object",
+      "description": "Per group id: whether the group was run, found inapplicable, or skipped, with a short note.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status"],
+        "additionalProperties": false,
+        "properties": {
+          "status": { "enum": ["run", "inapplicable", "skipped"] },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["criterion", "outcome", "group", "evidence", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "criterion": { "type": "string", "pattern": "^[1-4]\\.[0-9]+\\.[0-9]+$", "description": "WCAG success criterion id, for example 2.4.7." },
+          "outcome": { "enum": ["failed", "passed", "inapplicable", "cantTell"] },
+          "group": { "type": "string", "description": "Group id that produced the finding, or pre-step." },
+          "location": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "url": { "type": "string" },
+              "selector": { "type": "string", "description": "CSS selector of the element, if the finding concerns one." }
+            }
+          },
+          "evidence": { "type": "string", "description": "Short description of what was observed; reference collected artifacts by file name." },
+          "confidence": { "enum": ["high", "medium", "low"] }
+        }
+      }
+    }
+  }
+}

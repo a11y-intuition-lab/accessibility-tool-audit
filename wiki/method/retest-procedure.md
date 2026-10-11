@@ -18,6 +18,9 @@ How the AIL retest runs axe-core and pa11y. The step-by-step instructions are in
 
 ## Tool settings (D-016)
 
+All settings live in [`scripts/retest/config.mjs`](../../scripts/retest/config.mjs), shared by `run.mjs` and the
+[blinded test mode](blind-test-mode.md) check, so both test pages the same way.
+
 | | axe-core | pa11y |
 |---|---|---|
 | Rules | every rule axe-core ships, including those off by default (experimental, AAA, deprecated) (D-021); `runOnly` unset | HTML_CodeSniffer, `WCAG2AAA`; plus a supplementary `WCAG2AA` pass (D-024) |

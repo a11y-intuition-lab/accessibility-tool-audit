@@ -5,7 +5,8 @@
 //   node scripts/wcag/test-methods.mjs            validate and print summary tables (Markdown)
 //   node scripts/wcag/test-methods.mjs --group=keyboard   list the criteria of one group (primary and secondary)
 //   node scripts/wcag/test-methods.mjs --write-recipes    fill the criteria tables in testing-kit/recipes/<group>.md
-//                                                         and testing-kit/pre-step-automated.md
+//                                                         and testing-kit/pre-step-automated.md, and copy the
+//                                                         data file to testing-kit/sc-test-methods.json
 //
 // Reads data/wcag/success-criteria.json and data/mappings/sc-test-methods.json. Exits 1 on any validation error.
 
@@ -44,6 +45,10 @@ for (const sc of scs) {
   if (!c.rationale) errors.push(`${sc.id}: no rationale`);
 }
 for (const id of Object.keys(criteria)) if (!scs.some((sc) => sc.id === id)) errors.push(`${id}: not a WCAG 2.x criterion`);
+const kitCopy = join(root, 'testing-kit/sc-test-methods.json');
+if (!existsSync(kitCopy) || !readFileSync(kitCopy).equals(readFileSync(join(root, 'data/mappings/sc-test-methods.json')))) {
+  errors.push('testing-kit/sc-test-methods.json is missing or stale: run with --write-recipes');
+}
 
 if (errors.length) {
   console.error(`${errors.length} validation errors:\n${errors.join('\n')}`);
@@ -95,6 +100,9 @@ if (process.argv.includes('--write-recipes')) {
     writeFileSync(file, text.replace(marker, block));
     console.log(`Wrote criteria table in ${rel}`);
   }
+  // The testing kit is a closed workspace for an AI agent (testing-kit/.claude/settings.json), so it gets its own copy.
+  writeFileSync(join(root, 'testing-kit/sc-test-methods.json'), readFileSync(join(root, 'data/mappings/sc-test-methods.json')));
+  console.log('Copied data/mappings/sc-test-methods.json to testing-kit/sc-test-methods.json');
   process.exit();
 }
 

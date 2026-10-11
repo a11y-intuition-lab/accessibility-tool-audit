@@ -25,6 +25,10 @@ import { basename, dirname, extname, join, normalize, relative, sep } from 'node
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import pa11y from 'pa11y';
+import {
+  AXE_TIMEOUT_MS, CHROMIUM_ARGS, MAX_HTML_CHARS, PAGE_TIMEOUT_MS, VIEWPORT,
+  axeRuleIds, axeRunOptionsFor, makeAxeConfig, makePa11yConfig, pa11yRunOptions,
+} from './config.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const site = join(root, '_site');
@@ -36,35 +40,9 @@ const only = argValue('only')?.split(',').filter(Boolean) ?? null;
 const outDir = argValue('out') ?? null;
 const RULE_MAPPING = 'data/mappings/test-case-rules.json';
 
-// ---- configuration (stored verbatim in environment.json) -------------------------------------------------------
-const VIEWPORT = { width: 1280, height: 1024 };
-const PAGE_TIMEOUT_MS = 30000;
-const AXE_TIMEOUT_MS = 60000;
-const PA11Y_TIMEOUT_MS = 60000;
-const CHROMIUM_ARGS = ['--no-sandbox'];
-// Source text of the HTML stored for each node is capped to keep raw output small (see README). 0 = no cap.
-const MAX_HTML_CHARS = 0;
-
-const axeConfig = {
-  // Every rule axe-core ships is enabled (D-021, GOV.UK's "most inquisitive options"): the default rules plus the
-  // experimental, AAA and deprecated rules that axe-core disables by default. runOnly is not set. The ids are filled in
-  // at run time and stored in environment.json (enabledRuleIds, defaultDisabledRuleIds, experimentalRuleIds).
-  resultTypes: ['violations', 'incomplete', 'passes', 'inapplicable'],
-  enableAllRules: true,
-  storedDetail: 'violations and incomplete in full; passes and inapplicable as counts plus rule ids',
-};
-const pa11yConfig = {
-  runners: ['htmlcs'],
-  standard: 'WCAG2AAA',
-  supplementStandard: 'WCAG2AA',
-  supplementOutput: 'pa11y-aa/<slug>.json and pa11y-aa/linked-<page>/<slug>.json (D-024)',
-  includeWarnings: true,
-  includeNotices: true,
-  viewport: VIEWPORT,
-  timeout: PA11Y_TIMEOUT_MS,
-  wait: 0,
-  chromeLaunchConfig: { executablePath: '<Playwright Chromium, see environment.browser>', headless: true, args: CHROMIUM_ARGS },
-};
+// ---- configuration (stored verbatim in environment.json; shared with scripts/blind/verify.mjs) ------------------
+const axeConfig = makeAxeConfig();
+const pa11yConfig = makePa11yConfig();
 
 // ---- helpers ----------------------------------------------------------------------------------------------------
 const git = (...a) => execFileSync('git', a, { cwd: root, encoding: 'utf8' });
@@ -201,21 +179,8 @@ const browsersJson = readJson(join(root, 'node_modules', 'playwright-core', 'bro
 const chromiumEntry = browsersJson.browsers.find((b) => b.name === 'chromium');
 
 // Enable every rule axe-core ships, including those it disables by default (experimental, AAA, deprecated).
-let enabledRuleIds, defaultDisabledRuleIds, experimentalRuleIds;
-{
-  const ctx = await browser.newContext();
-  const page = await ctx.newPage();
-  await page.setContent('<!doctype html><title>x</title>');
-  await page.addScriptTag({ content: axeSource });
-  ({ enabledRuleIds, defaultDisabledRuleIds, experimentalRuleIds } = await page.evaluate(() => ({
-    enabledRuleIds: axe.getRules().map((r) => r.ruleId).sort(),
-    defaultDisabledRuleIds: axe._audit.rules.filter((r) => r.enabled === false).map((r) => r.id).sort(),
-    experimentalRuleIds: axe.getRules(['experimental']).map((r) => r.ruleId).sort(),
-  })));
-  await ctx.close();
-}
-axeConfig.rules = Object.fromEntries(enabledRuleIds.map((id) => [id, { enabled: true }]));
-const axeRunOptions = { resultTypes: axeConfig.resultTypes, rules: axeConfig.rules };
+const { enabledRuleIds, defaultDisabledRuleIds, experimentalRuleIds } = await axeRuleIds(browser, axeSource);
+const axeRunOptions = axeRunOptionsFor(axeConfig, enabledRuleIds);
 
 let commit = git('rev-parse', 'HEAD').trim();
 const environment = {
@@ -320,11 +285,7 @@ async function runPa11y(slug, origin, url, standard = pa11yConfig.standard) {
   const t0 = Date.now();
   const out = { tool: 'pa11y', version: environment.tools.pa11y, htmlcsVersion: environment.tools.html_codesniffer, standard, slug, origin, url, startedAt: iso(), error: null };
   try {
-    const r = await pa11y(url, {
-      runners: pa11yConfig.runners, standard, includeWarnings: true, includeNotices: true,
-      viewport: VIEWPORT, timeout: PA11Y_TIMEOUT_MS, wait: 0,
-      chromeLaunchConfig: { executablePath: chromiumPath, headless: true, args: CHROMIUM_ARGS },
-    });
+    const r = await pa11y(url, pa11yRunOptions(pa11yConfig, standard, chromiumPath));
     out.documentTitle = r.documentTitle;
     out.issues = r.issues.map((i) => ({
       code: i.code, type: i.type, typeCode: i.typeCode, message: i.message, selector: i.selector, context: cap(i.context),

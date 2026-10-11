@@ -19,7 +19,11 @@
     "retest": "node scripts/retest/run.mjs",
     "retest:browsers": "playwright-core install chromium",
     "classify": "node scripts/classify.mjs",
-    "wcag:methods": "node scripts/wcag/test-methods.mjs"
+    "wcag:methods": "node scripts/wcag/test-methods.mjs",
+    "blind:build": "node scripts/blind/build.mjs",
+    "blind:serve": "node scripts/blind/serve.mjs",
+    "blind:verify": "node scripts/blind/verify.mjs",
+    "test-mode": "npm run build && npm run blind:build && npm run blind:serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",

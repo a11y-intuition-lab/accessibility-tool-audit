@@ -25,6 +25,7 @@ Knowledge base for A11y Intuition Lab's extension of the GOV.UK accessibility to
 - [Supply-chain security](method/supply-chain-security.md) — npm and GitHub Actions hardening rules.
 - [WCAG mapping protocol](method/wcag-mapping.md) — rules for mapping a test case to success criteria (`fails` / `related` / `none`).
 - [Retest procedure](method/retest-procedure.md) — how axe-core and pa11y are run against the built site, and what is stored.
+- [Blinded test mode](method/blind-test-mode.md) — how AI testers get the test pages without the expected barrier (D-026): opaque names, local server, verification, closed `testing-kit/` workspace. AI-drafted.
 - [Classification protocol](method/classification-protocol.md) — how raw tool output becomes a result per test case, using the rule mapping `data/mappings/test-case-rules.json` (HTML_CodeSniffer warning → user to check). AI-drafted.
 
 ## Analysis

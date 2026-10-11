@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "defaultMode": "dontAsk",
+    "disableBypassPermissionsMode": "disable",
+    "blockReadsOutsideWorkingDirectories": true,
+    "allow": [
+      "Edit(./ai-kit/**)",
+      "WebFetch(domain:127.0.0.1)",
+      "WebFetch(domain:localhost)"
+    ],
+    "deny": [
+      "WebSearch"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false
+  },
+  "claudeMdExcludes": [
+    "**/accessibility-tool-audit/CLAUDE.md",
+    "**/a11y/CLAUDE.md"
+  ]
+}

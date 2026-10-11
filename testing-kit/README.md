@@ -16,6 +16,8 @@ Method material for testing a web page against WCAG 2.x (all versions, all level
 |---|---|
 | [`pre-step-automated.md`](./pre-step-automated.md) | The automated pre-step (axe-core, HTML_CodeSniffer); same section order as the recipes, but not a group |
 | [`recipes/<group-id>.md`](./recipes/) | One recipe per test-method group (10), same section order in every file |
+| [`finding.schema.json`](./finding.schema.json) | JSON schema for one page's findings (the finding format below) |
+| [`generate-ai-instructions.md`](./generate-ai-instructions.md) | The prompt used to generate AI testing instructions (a skill) from this kit (D-027) |
 | [`../data/mappings/sc-test-methods.json`](../data/mappings/sc-test-methods.json) | The 87 success criteria: group, automation, AI and human triage, rule ids, and `otherTools` |
 
 Every recipe has the same sections: Criteria (a table that a script fills from the data file), Setup, Collect, Judge, Already covered by tools, AI and human, Report, Sources.

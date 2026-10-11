@@ -190,3 +190,15 @@ Append-only, newest last.
   added for an HTML validator (4.1.1) and a flash analyser (2.3.1, 2.3.2). Automation still counts only axe-core and
   HTML_CodeSniffer.
 - No Nav "test pyramid" is cited; Nav's test protocols remain the reference.
+
+## 2026-10-11 — Blinded test mode and closed testing-kit workspace (D-026)
+
+- `npm run test-mode` builds a blinded copy of the test pages (opaque file, class, id and data attribute names;
+  comments removed; template title and heading "Test page") and serves it on `127.0.0.1:8090`. The key is never served.
+- `npm run blind:verify`: on 221 test pages and 23 linked example pages, blinding changed no axe-core or
+  HTML_CodeSniffer result. Known leaks in fixture text are listed in [the method page](method/blind-test-mode.md).
+- Tool settings moved to `scripts/retest/config.mjs`, shared by the retest and the verification; a partial rerun gave
+  identical raw output to run `20261010T112606Z`.
+- `testing-kit/` is now a closed workspace for an AI agent (`.claude/settings.json`), with the finding schema
+  (`finding.schema.json`) and the prompt used to generate the AI instructions (`generate-ai-instructions.md`).
+- No AI run has been made (D-027).
